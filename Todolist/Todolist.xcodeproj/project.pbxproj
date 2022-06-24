@@ -22,6 +22,7 @@
 		442473C4286589700059CFCC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473C3286589700059CFCC /* SettingsViewController.swift */; };
 		442473C6286589850059CFCC /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473C5286589850059CFCC /* SettingsViewModel.swift */; };
 		442473CA2865D1660059CFCC /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473C92865D1660059CFCC /* Task.swift */; };
+		442473CD2865D27B0059CFCC /* DoSomethingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473CC2865D27B0059CFCC /* DoSomethingUseCase.swift */; };
 		44443144285EFB400004D468 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443143285EFB400004D468 /* AppDelegate.swift */; };
 		44443146285EFB400004D468 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443145285EFB400004D468 /* SceneDelegate.swift */; };
 		44443148285EFB400004D468 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443147285EFB400004D468 /* ViewController.swift */; };
@@ -58,6 +59,7 @@
 		442473C3286589700059CFCC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		442473C5286589850059CFCC /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		442473C92865D1660059CFCC /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		442473CC2865D27B0059CFCC /* DoSomethingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoSomethingUseCase.swift; sourceTree = "<group>"; };
 		44443140285EFB400004D468 /* Todolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todolist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44443143285EFB400004D468 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44443145285EFB400004D468 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				442473C82865D1520059CFCC /* Entities */,
+				442473CB2865D1DE0059CFCC /* UseCases */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -134,6 +137,14 @@
 				442473C92865D1660059CFCC /* Task.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		442473CB2865D1DE0059CFCC /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				442473CC2865D27B0059CFCC /* DoSomethingUseCase.swift */,
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 		44443137285EFB400004D468 = {
@@ -268,6 +279,7 @@
 				442473C0286589310059CFCC /* FormViewController.swift in Sources */,
 				44443148285EFB400004D468 /* ViewController.swift in Sources */,
 				442473CA2865D1660059CFCC /* Task.swift in Sources */,
+				442473CD2865D27B0059CFCC /* DoSomethingUseCase.swift in Sources */,
 				442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */,
 				44443144285EFB400004D468 /* AppDelegate.swift in Sources */,
 				442473C22865894A0059CFCC /* FormViewModel.swift in Sources */,
