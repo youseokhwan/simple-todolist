@@ -15,6 +15,12 @@
 		01BD5E6B2865910E00BC7C4D /* SnapKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD5E642865910E00BC7C4D /* SnapKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		01BD5E6C2865910E00BC7C4D /* RxCocoa.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD5E652865910E00BC7C4D /* RxCocoa.xcframework */; };
 		01BD5E6D2865910E00BC7C4D /* RxCocoa.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD5E652865910E00BC7C4D /* RxCocoa.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473BB2865874D0059CFCC /* TasksViewController.swift */; };
+		442473BE286587E20059CFCC /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473BD286587E20059CFCC /* TasksViewModel.swift */; };
+		442473C0286589310059CFCC /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473BF286589310059CFCC /* FormViewController.swift */; };
+		442473C22865894A0059CFCC /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473C12865894A0059CFCC /* FormViewModel.swift */; };
+		442473C4286589700059CFCC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473C3286589700059CFCC /* SettingsViewController.swift */; };
+		442473C6286589850059CFCC /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473C5286589850059CFCC /* SettingsViewModel.swift */; };
 		44443144285EFB400004D468 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443143285EFB400004D468 /* AppDelegate.swift */; };
 		44443146285EFB400004D468 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443145285EFB400004D468 /* SceneDelegate.swift */; };
 		44443148285EFB400004D468 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443147285EFB400004D468 /* ViewController.swift */; };
@@ -44,6 +50,12 @@
 		01BD5E632865910E00BC7C4D /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxSwift.xcframework; path = ../Carthage/Build/RxSwift.xcframework; sourceTree = "<group>"; };
 		01BD5E642865910E00BC7C4D /* SnapKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SnapKit.xcframework; path = ../Carthage/Build/SnapKit.xcframework; sourceTree = "<group>"; };
 		01BD5E652865910E00BC7C4D /* RxCocoa.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxCocoa.xcframework; path = ../Carthage/Build/RxCocoa.xcframework; sourceTree = "<group>"; };
+		442473BB2865874D0059CFCC /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		442473BD286587E20059CFCC /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
+		442473BF286589310059CFCC /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		442473C12865894A0059CFCC /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
+		442473C3286589700059CFCC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		442473C5286589850059CFCC /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		44443140285EFB400004D468 /* Todolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todolist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44443143285EFB400004D468 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44443145285EFB400004D468 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +89,33 @@
 				01BD5E642865910E00BC7C4D /* SnapKit.xcframework */,
 			);
 			name = Frameworks;
+      sourceTree = "<group>";
+    };
+		442473B6286587030059CFCC /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				442473BB2865874D0059CFCC /* TasksViewController.swift */,
+				442473BD286587E20059CFCC /* TasksViewModel.swift */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
+		442473B7286587080059CFCC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				442473C3286589700059CFCC /* SettingsViewController.swift */,
+				442473C5286589850059CFCC /* SettingsViewModel.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		442473B82865870F0059CFCC /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				442473BF286589310059CFCC /* FormViewController.swift */,
+				442473C12865894A0059CFCC /* FormViewModel.swift */,
+			);
+			path = Form;
 			sourceTree = "<group>";
 		};
 		44443137285EFB400004D468 = {
@@ -120,6 +159,9 @@
 			children = (
 				4444314E285EFB420004D468 /* LaunchScreen.storyboard */,
 				44443147285EFB400004D468 /* ViewController.swift */,
+				442473B6286587030059CFCC /* Tasks */,
+				442473B82865870F0059CFCC /* Form */,
+				442473B7286587080059CFCC /* Settings */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -204,9 +246,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				442473C0286589310059CFCC /* FormViewController.swift in Sources */,
 				44443148285EFB400004D468 /* ViewController.swift in Sources */,
+				442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */,
 				44443144285EFB400004D468 /* AppDelegate.swift in Sources */,
+				442473C22865894A0059CFCC /* FormViewModel.swift in Sources */,
 				44443146285EFB400004D468 /* SceneDelegate.swift in Sources */,
+				442473BE286587E20059CFCC /* TasksViewModel.swift in Sources */,
+				442473C4286589700059CFCC /* SettingsViewController.swift in Sources */,
+				442473C6286589850059CFCC /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
