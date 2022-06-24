@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473BB2865874D0059CFCC /* TasksViewController.swift */; };
 		442473BE286587E20059CFCC /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473BD286587E20059CFCC /* TasksViewModel.swift */; };
+		442473C0286589310059CFCC /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473BF286589310059CFCC /* FormViewController.swift */; };
+		442473C22865894A0059CFCC /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473C12865894A0059CFCC /* FormViewModel.swift */; };
 		44443144285EFB400004D468 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443143285EFB400004D468 /* AppDelegate.swift */; };
 		44443146285EFB400004D468 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443145285EFB400004D468 /* SceneDelegate.swift */; };
 		44443148285EFB400004D468 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443147285EFB400004D468 /* ViewController.swift */; };
@@ -19,6 +21,8 @@
 /* Begin PBXFileReference section */
 		442473BB2865874D0059CFCC /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		442473BD286587E20059CFCC /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
+		442473BF286589310059CFCC /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		442473C12865894A0059CFCC /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
 		44443140285EFB400004D468 /* Todolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todolist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44443143285EFB400004D468 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44443145285EFB400004D468 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +62,8 @@
 		442473B82865870F0059CFCC /* Form */ = {
 			isa = PBXGroup;
 			children = (
+				442473BF286589310059CFCC /* FormViewController.swift */,
+				442473C12865894A0059CFCC /* FormViewModel.swift */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -188,9 +194,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				442473C0286589310059CFCC /* FormViewController.swift in Sources */,
 				44443148285EFB400004D468 /* ViewController.swift in Sources */,
 				442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */,
 				44443144285EFB400004D468 /* AppDelegate.swift in Sources */,
+				442473C22865894A0059CFCC /* FormViewModel.swift in Sources */,
 				44443146285EFB400004D468 /* SceneDelegate.swift in Sources */,
 				442473BE286587E20059CFCC /* TasksViewModel.swift in Sources */,
 			);
