@@ -8,5 +8,9 @@
 import Foundation
 
 struct Task {
-
+    let id: String
+    var publishedDate: Date
+    var endDate: Date?
+    var context: String
+    var isChecked: Bool
 }
