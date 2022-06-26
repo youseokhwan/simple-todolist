@@ -14,19 +14,25 @@ final class TasksViewController: UIViewController {
     private let viewModel = TasksViewModel()
     private let disposeBag = DisposeBag()
     
-    private lazy var formButton = UIButton()
-    private lazy var settingsButton = UIButton()
-
+    private lazy var formButton: UIButton = {
+        let button = UIButton()
+        let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
+        button.setImage(UIImage(systemName: "plus", withConfiguration: buttonImageConfiguration), for: .normal)
+        return button
+    }()
+    private lazy var settingsButton: UIButton = {
+        let button = UIButton()
+        let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
+        button.setImage(UIImage(systemName: "gearshape.fill", withConfiguration: buttonImageConfiguration), for: .normal)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
     
     private func configure() {
-        let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
-        formButton.setImage(UIImage(systemName: "plus", withConfiguration: buttonImageConfiguration), for: .normal)
-        settingsButton.setImage(UIImage(systemName: "gearshape.fill", withConfiguration: buttonImageConfiguration), for: .normal)
-        
         formButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.formButtonTapped()
