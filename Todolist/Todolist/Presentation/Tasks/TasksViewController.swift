@@ -33,6 +33,8 @@ final class TasksViewController: UIViewController {
     }
     
     private func configure() {
+        configureNavigation()
+        
         formButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.formButtonTapped()
@@ -44,7 +46,9 @@ final class TasksViewController: UIViewController {
                 self?.formButtonTapped()
             })
             .disposed(by: disposeBag)
-        
+    }
+    
+    private func configureNavigation() {
         let formBarButton = UIBarButtonItem(customView: formButton)
         let settingsBarButton = UIBarButtonItem(customView: settingsButton)
         navigationItem.rightBarButtonItems = [formBarButton, settingsBarButton]
