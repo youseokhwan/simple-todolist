@@ -8,5 +8,13 @@
 import Foundation
 
 final class TasksViewModel {
-
+    var delegate: TasksViewModelDelegate?
+    
+    func didTappedFormButton() {
+        delegate?.didTappedFormButton()
+    }
+    
+    func didTappedSettingsButton() {
+        delegate?.didTappedSettingsButton()
+    }
 }
