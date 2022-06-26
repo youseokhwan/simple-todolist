@@ -35,18 +35,20 @@ final class TasksViewController: UIViewController {
     
     private func configure() {
         configureNavigation()
+        
+        viewModel.delegate = self
     }
     
     private func bind() {
         formButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.formButtonTapped()
+                self?.viewModel.didTappedFormButton()
             })
             .disposed(by: disposeBag)
         
         settingsButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.formButtonTapped()
+                self?.viewModel.didTappedSettingsButton()
             })
             .disposed(by: disposeBag)
     }
@@ -56,13 +58,15 @@ final class TasksViewController: UIViewController {
         let settingsBarButton = UIBarButtonItem(customView: settingsButton)
         navigationItem.rightBarButtonItems = [formBarButton, settingsBarButton]
     }
-    
-    private func formButtonTapped() {
+}
+
+extension TasksViewController: TasksViewModelDelegate {
+    func didTappedFormButton() {
         let formViewController = FormViewController()
         navigationController?.pushViewController(formViewController, animated: true)
     }
     
-    private func settingsButtonTapped() {
+    func didTappedSettingsButton() {
         let settingsViewController = SettingsViewController()
         navigationController?.pushViewController(settingsViewController, animated: true)
     }
