@@ -30,11 +30,14 @@ final class TasksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        bind()
     }
     
     private func configure() {
         configureNavigation()
-        
+    }
+    
+    private func bind() {
         formButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.formButtonTapped()
