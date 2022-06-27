@@ -27,6 +27,7 @@ final class TasksViewController: UIViewController {
         button.setImage(UIImage(systemName: "gearshape.fill", withConfiguration: buttonImageConfiguration), for: .normal)
         return button
     }()
+    private lazy var tasksView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +36,28 @@ final class TasksViewController: UIViewController {
     }
     
     private func configure() {
-        configureNavigation()
         configureDelegate()
+        configureNavigation()
         view.backgroundColor = .systemBackground
+    }
+    
+    private func configureDelegate() {
+        viewModel.delegate = self
+    }
+    
+    private func configureNavigation() {
+        let formBarButton = UIBarButtonItem(customView: formButton)
+        let settingsBarButton = UIBarButtonItem(customView: settingsButton)
+        navigationItem.rightBarButtonItems = [formBarButton, settingsBarButton]
+        navigationItem.title = viewModel.currentDate
+    }
+    
+    private func configureView() {
+        view.addSubview(tasksView)
+        
+        tasksView.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalToSuperview()
+        }
     }
     
     private func bind() {
@@ -53,16 +73,15 @@ final class TasksViewController: UIViewController {
             })
             .disposed(by: disposeBag)
     }
-    
-    private func configureDelegate() {
-        viewModel.delegate = self
+}
+
+extension TasksViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
     }
     
-    private func configureNavigation() {
-        let formBarButton = UIBarButtonItem(customView: formButton)
-        let settingsBarButton = UIBarButtonItem(customView: settingsButton)
-        navigationItem.rightBarButtonItems = [formBarButton, settingsBarButton]
-        navigationItem.title = viewModel.currentDate
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 }
 
