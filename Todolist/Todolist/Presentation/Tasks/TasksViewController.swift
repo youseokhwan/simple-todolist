@@ -36,8 +36,8 @@ final class TasksViewController: UIViewController {
     
     private func configure() {
         configureNavigation()
-        
-        viewModel.delegate = self
+        configureDelegate()
+        view.backgroundColor = .systemBackground
     }
     
     private func bind() {
@@ -54,10 +54,15 @@ final class TasksViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
+    private func configureDelegate() {
+        viewModel.delegate = self
+    }
+    
     private func configureNavigation() {
         let formBarButton = UIBarButtonItem(customView: formButton)
         let settingsBarButton = UIBarButtonItem(customView: settingsButton)
         navigationItem.rightBarButtonItems = [formBarButton, settingsBarButton]
+        navigationItem.title = viewModel.currentDate
     }
 }
 

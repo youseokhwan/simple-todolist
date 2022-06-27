@@ -17,4 +17,11 @@ final class TasksViewModel {
     func didTappedSettingsButton() {
         delegate?.didTappedSettingsButton()
     }
+    
+    var currentDate: String {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        return dateFormatter.string(from: date)
+    }
 }
