@@ -154,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				442473CF2869B7F90059CFCC /* Repositories */,
+				442473D22869B9CE0059CFCC /* Storages */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -164,6 +165,13 @@
 				442473D02869B8290059CFCC /* TaskRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		442473D22869B9CE0059CFCC /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storages;
 			sourceTree = "<group>";
 		};
 		44443137285EFB400004D468 = {
