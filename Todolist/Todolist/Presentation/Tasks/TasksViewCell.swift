@@ -7,6 +7,6 @@
 
 import UIKit
 
-class TasksViewCell: UITableViewCell {
+final class TasksViewCell: UITableViewCell {
     
 }
