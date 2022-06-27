@@ -8,5 +8,9 @@
 import Foundation
 
 final class TaskRepository {
-    
+    // Dummy Methods
+    func fetchAllTasks(by userID: String) { }
+    func add(task: Task) { }
+    func update(task: Task) { }
+    func delete(by taskID: String) { }
 }
