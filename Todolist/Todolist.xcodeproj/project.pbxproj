@@ -24,6 +24,8 @@
 		442473C6286589850059CFCC /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473C5286589850059CFCC /* SettingsViewModel.swift */; };
 		442473CA2865D1660059CFCC /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473C92865D1660059CFCC /* Task.swift */; };
 		442473CD2865D27B0059CFCC /* DoSomethingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473CC2865D27B0059CFCC /* DoSomethingUseCase.swift */; };
+		442473D12869B8290059CFCC /* TaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473D02869B8290059CFCC /* TaskRepository.swift */; };
+		442473D42869BA720059CFCC /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473D32869BA720059CFCC /* CoreDataStorage.swift */; };
 		44443144285EFB400004D468 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443143285EFB400004D468 /* AppDelegate.swift */; };
 		44443146285EFB400004D468 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443145285EFB400004D468 /* SceneDelegate.swift */; };
 		4444314D285EFB420004D468 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4444314C285EFB420004D468 /* Assets.xcassets */; };
@@ -61,6 +63,8 @@
 		442473C5286589850059CFCC /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		442473C92865D1660059CFCC /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		442473CC2865D27B0059CFCC /* DoSomethingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoSomethingUseCase.swift; sourceTree = "<group>"; };
+		442473D02869B8290059CFCC /* TaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepository.swift; sourceTree = "<group>"; };
+		442473D32869BA720059CFCC /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		44443140285EFB400004D468 /* Todolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todolist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44443143285EFB400004D468 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44443145285EFB400004D468 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +152,31 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
+		442473CE2869B7E80059CFCC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				442473CF2869B7F90059CFCC /* Repositories */,
+				442473D22869B9CE0059CFCC /* Storages */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		442473CF2869B7F90059CFCC /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				442473D02869B8290059CFCC /* TaskRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		442473D22869B9CE0059CFCC /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				442473D32869BA720059CFCC /* CoreDataStorage.swift */,
+			);
+			path = Storages;
+			sourceTree = "<group>";
+		};
 		44443137285EFB400004D468 = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +200,7 @@
 				4444315828619CB60004D468 /* Application */,
 				442473C72865CFE00059CFCC /* Domain */,
 				4444315928619CD90004D468 /* Presentation */,
+				442473CE2869B7E80059CFCC /* Data */,
 				4444315A28619CFC0004D468 /* Resources */,
 			);
 			path = Todolist;
@@ -279,9 +309,11 @@
 				442473C0286589310059CFCC /* FormViewController.swift in Sources */,
 				442473CA2865D1660059CFCC /* Task.swift in Sources */,
 				442473CD2865D27B0059CFCC /* DoSomethingUseCase.swift in Sources */,
+				442473D42869BA720059CFCC /* CoreDataStorage.swift in Sources */,
 				442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */,
 				01AF6D2428684AB5007CFD89 /* TasksViewModelDelegate.swift in Sources */,
 				44443144285EFB400004D468 /* AppDelegate.swift in Sources */,
+				442473D12869B8290059CFCC /* TaskRepository.swift in Sources */,
 				442473C22865894A0059CFCC /* FormViewModel.swift in Sources */,
 				44443146285EFB400004D468 /* SceneDelegate.swift in Sources */,
 				442473BE286587E20059CFCC /* TasksViewModel.swift in Sources */,
