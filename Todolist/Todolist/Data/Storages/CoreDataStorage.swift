@@ -32,6 +32,18 @@ final class CoreDataStorage {
         }
     }
 
+    func fetchTask(by id: String) -> CDTask? {
+        let fetchRequest = CDTask.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id LIKE %@", id)
+
+        if let cdTasks = try? viewContext.fetch(fetchRequest) {
+            return cdTasks.first
+        } else {
+            print("error: ", #file, #function, #line)
+            return nil
+        }
+    }
+
     @discardableResult
     func create(task: Task) -> Bool {
         if let entity = NSEntityDescription.entity(forEntityName: "CDTask", in: viewContext) {
