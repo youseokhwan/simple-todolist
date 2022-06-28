@@ -13,7 +13,7 @@ final class CoreDataStorage {
         let container = NSPersistentContainer(name: "Model")
         container.loadPersistentStores(completionHandler: { _, error in
             guard error == nil else {
-                print(#file, #line, "loadPersistentStores error")
+                print("error: ", #file, #function, #line)
                 return
             }
         })
@@ -27,8 +27,32 @@ final class CoreDataStorage {
         if let cdTasks = try? viewContext.fetch(fetchRequest) {
             return cdTasks
         } else {
-            print(#file, #line, "fetch fail")
+            print("error: ", #file, #function, #line)
             return []
+        }
+    }
+
+    @discardableResult
+    func create(task: Task) -> Bool {
+        if let entity = NSEntityDescription.entity(forEntityName: "CDTask", in: viewContext) {
+            let object = NSManagedObject(entity: entity, insertInto: viewContext)
+
+            object.setValue(task.id, forKey: "id")
+            object.setValue(task.publishedDate, forKey: "publishedDate")
+            object.setValue(task.endDate, forKey: "endDate")
+            object.setValue(task.context, forKey: "context")
+            object.setValue(task.isChecked, forKey: "isChecked")
+
+            do {
+                try viewContext.save()
+                return true
+            } catch {
+                print("error: ", #file, #function, #line)
+                return false
+            }
+        } else {
+            print("error: ", #file, #function, #line)
+            return false
         }
     }
 }

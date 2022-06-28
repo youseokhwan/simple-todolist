@@ -11,12 +11,12 @@ import Foundation
 struct DoSomethingUseCase {
     var taskRepository = TaskRepository()
 
-    func fetchAllTasks(by userID: String) {
-        taskRepository.fetchAllTasks(by: userID)
+    func fetchAllTasks() {
+        taskRepository.fetchAllTasks()
     }
 
-    func add(task: Task) {
-        taskRepository.add(task: task)
+    func create(task: Task) {
+        taskRepository.create(task: task)
     }
 
     // ...
