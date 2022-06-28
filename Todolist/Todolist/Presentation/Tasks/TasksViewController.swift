@@ -27,7 +27,7 @@ final class TasksViewController: UIViewController {
         button.setImage(UIImage(systemName: "gearshape.fill", withConfiguration: buttonImageConfiguration), for: .normal)
         return button
     }()
-    private lazy var tasksView = UITableView()
+    private lazy var tasksTableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,9 +53,9 @@ final class TasksViewController: UIViewController {
     }
     
     private func configureView() {
-        view.addSubview(tasksView)
+        view.addSubview(tasksTableView)
         
-        tasksView.snp.makeConstraints { make in
+        tasksTableView.snp.makeConstraints { make in
             make.top.bottom.leading.trailing.equalToSuperview()
         }
     }
