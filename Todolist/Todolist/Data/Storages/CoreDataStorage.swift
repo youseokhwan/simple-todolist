@@ -69,6 +69,24 @@ final class CoreDataStorage {
     }
 
     @discardableResult
+    func updateTask(by id: String, newContext: String) -> Bool {
+        if let cdTask = fetchTask(by: id) {
+            cdTask.setValue(newContext, forKey: "context")
+
+            do {
+                try viewContext.save()
+                return true
+            } catch {
+                print("error: ", #file, #function, #line)
+                return false
+            }
+        } else {
+            print("error: ", #file, #function, #line)
+            return false
+        }
+    }
+
+    @discardableResult
     func deleteTask(by id: String) -> Bool {
         if let cdTask = fetchTask(by: id) {
             viewContext.delete(cdTask)
