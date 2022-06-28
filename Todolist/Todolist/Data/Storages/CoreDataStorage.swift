@@ -85,4 +85,21 @@ final class CoreDataStorage {
             return false
         }
     }
+
+    @discardableResult
+    func deleteAllTasks() -> Bool {
+        let cdTasks = fetchAllTasks()
+
+        cdTasks.forEach {
+            viewContext.delete($0)
+        }
+
+        do {
+            try viewContext.save()
+            return true
+        } catch {
+            print("error: ", #file, #function, #line)
+            return false
+        }
+    }
 }
