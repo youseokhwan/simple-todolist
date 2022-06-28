@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum CoreDataStorage {
+final class CoreDataStorage {
 
 }
