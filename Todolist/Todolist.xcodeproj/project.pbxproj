@@ -26,6 +26,7 @@
 		442473CD2865D27B0059CFCC /* DoSomethingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473CC2865D27B0059CFCC /* DoSomethingUseCase.swift */; };
 		442473D12869B8290059CFCC /* TaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473D02869B8290059CFCC /* TaskRepository.swift */; };
 		442473D42869BA720059CFCC /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473D32869BA720059CFCC /* CoreDataStorage.swift */; };
+		442473FC286AB2C20059CFCC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 442473FA286AB2C20059CFCC /* Model.xcdatamodeld */; };
 		44443144285EFB400004D468 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443143285EFB400004D468 /* AppDelegate.swift */; };
 		44443146285EFB400004D468 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443145285EFB400004D468 /* SceneDelegate.swift */; };
 		4444314D285EFB420004D468 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4444314C285EFB420004D468 /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		442473CC2865D27B0059CFCC /* DoSomethingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoSomethingUseCase.swift; sourceTree = "<group>"; };
 		442473D02869B8290059CFCC /* TaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepository.swift; sourceTree = "<group>"; };
 		442473D32869BA720059CFCC /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
+		442473FB286AB2C20059CFCC /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		44443140285EFB400004D468 /* Todolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todolist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44443143285EFB400004D468 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44443145285EFB400004D468 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		442473D22869B9CE0059CFCC /* Storages */ = {
 			isa = PBXGroup;
 			children = (
+				442473FA286AB2C20059CFCC /* Model.xcdatamodeld */,
 				442473D32869BA720059CFCC /* CoreDataStorage.swift */,
 			);
 			path = Storages;
@@ -309,6 +312,7 @@
 				442473C0286589310059CFCC /* FormViewController.swift in Sources */,
 				442473CA2865D1660059CFCC /* Task.swift in Sources */,
 				442473CD2865D27B0059CFCC /* DoSomethingUseCase.swift in Sources */,
+				442473FC286AB2C20059CFCC /* Model.xcdatamodeld in Sources */,
 				442473D42869BA720059CFCC /* CoreDataStorage.swift in Sources */,
 				442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */,
 				01AF6D2428684AB5007CFD89 /* TasksViewModelDelegate.swift in Sources */,
@@ -530,6 +534,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		442473FA286AB2C20059CFCC /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				442473FB286AB2C20059CFCC /* Model.xcdatamodel */,
+			);
+			currentVersion = 442473FB286AB2C20059CFCC /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 44443138285EFB400004D468 /* Project object */;
 }
