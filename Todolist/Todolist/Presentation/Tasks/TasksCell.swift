@@ -8,5 +8,7 @@
 import UIKit
 
 final class TasksCell: UITableViewCell {
+    static let identifier = "TasksCell"
+    
     
 }
