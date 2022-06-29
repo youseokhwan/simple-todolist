@@ -12,10 +12,10 @@ import SnapKit
 final class TasksCell: UITableViewCell {
     static let identifier = "TasksCell"
     
-    lazy var contextLabel = UILabel()
-    lazy var endDateLabel = UILabel()
-    lazy var publisedDateLabel = UILabel()
-    lazy var checkButton: UIButton = {
+    private lazy var contextLabel = UILabel()
+    private lazy var endDateLabel = UILabel()
+    private lazy var publisedDateLabel = UILabel()
+    private lazy var checkButton: UIButton = {
         let button = UIButton()
         let configure = UIImage.SymbolConfiguration(pointSize: 20)
         button.setImage(UIImage(systemName: "circle", withConfiguration: configure), for: .normal)
