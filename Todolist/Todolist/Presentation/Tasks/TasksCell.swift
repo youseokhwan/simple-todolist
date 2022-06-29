@@ -52,4 +52,10 @@ final class TasksCell: UITableViewCell {
             make.bottom.equalToSuperview().offset(-10)
         }
     }
+    
+    func setData(data: Task) {
+        contextLabel.text = data.context
+        endDateLabel.text = data.endDate?.dateToString
+        publisedDateLabel.text = data.publishedDate.dateToString
+    }
 }

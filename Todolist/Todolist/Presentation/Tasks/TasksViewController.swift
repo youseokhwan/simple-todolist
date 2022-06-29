@@ -72,6 +72,10 @@ final class TasksViewController: UIViewController {
                 self?.viewModel.didTappedSettingsButton()
             })
             .disposed(by: disposeBag)
+        
+        viewModel.tasksObserver
+            .bind(to: tasksTableView.rx.items(cellIdentifier: TasksCell.identifier)) { (index: Int, element: String, cell: UITableViewCell) in
+        }.disposed(by: disposeBag)
     }
 }
 
