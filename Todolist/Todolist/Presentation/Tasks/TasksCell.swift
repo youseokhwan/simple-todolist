@@ -53,7 +53,7 @@ final class TasksCell: UITableViewCell {
         }
     }
     
-    func setData(data: Task) {
+    func bind(data: Task) {
         contextLabel.text = data.context
         endDateLabel.text = data.endDate?.dateToString
         publisedDateLabel.text = data.publishedDate.dateToString
