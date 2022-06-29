@@ -12,7 +12,7 @@ final class TasksCell: UITableViewCell {
     static let identifier = "TasksCell"
     
     private lazy var contextLabel = UILabel()
-    private lazy var endDataLabel = UILabel()
+    private lazy var endDateLabel = UILabel()
     private lazy var publisedDateLabel = UILabel()
     private lazy var checkButton: UIButton = {
         let button = UIButton()
