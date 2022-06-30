@@ -55,6 +55,7 @@ final class TasksViewController: UIViewController {
     }
     
     private func configureView() {
+        tasksTableView.rowHeight = 80
         view.addSubview(tasksTableView)
         
         tasksTableView.snp.makeConstraints { make in
@@ -77,6 +78,7 @@ final class TasksViewController: UIViewController {
         
         viewModel.tasksObserver
             .bind(to: tasksTableView.rx.items(cellIdentifier: TasksCell.identifier, cellType: TasksCell.self)) { (index: Int, element: Task, cell: TasksCell) in
+                cell.contentContainerView.bind(data: element)
         }.disposed(by: disposeBag)
     }
 }
