@@ -82,7 +82,7 @@ final class TasksViewController: UIViewController {
         viewModel.tasksObserver
             .bind(to: tasksTableView.rx.items(cellIdentifier: TasksTableViewCell.identifier,
                                               cellType: TasksTableViewCell.self)) { index, element, cell in
-                cell.contentContainerView.bind(data: element)
+                cell.contentContainerView.bind(task: element)
             }
             .disposed(by: disposeBag)
     }
