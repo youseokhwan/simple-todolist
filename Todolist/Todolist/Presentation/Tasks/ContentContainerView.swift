@@ -65,7 +65,7 @@ final class ContentContainerView: UIView {
     
     func bind(task: Task) {
         contextLabel.text = task.context
-        endDateLabel.text = task.endDate?.dateToString
-        publisedDateLabel.text = task.publishedDate.dateToString
+        endDateLabel.text = task.endDate?.yearMonthDay
+        publisedDateLabel.text = task.publishedDate.yearMonthDay
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 extension Date {
-    var dateToString: String {
+    var yearMonthDay: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.string(from: self)
