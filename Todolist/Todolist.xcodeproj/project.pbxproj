@@ -203,8 +203,8 @@
 		442473FE286E11BF0059CFCC /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				017BA371286D57830068D847 /* ContentContainerView.swift */,
 				0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */,
+				017BA371286D57830068D847 /* ContentContainerView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";

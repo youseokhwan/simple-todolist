@@ -73,10 +73,9 @@ final class ContentContainerView: UIView {
         }
     }
 
-    // TODO: private, rx
-    func bind(task: Task) {
+    func update(task: Task) {
         contextLabel.text = task.context
-        endDateLabel.text = task.endDate?.yearMonthDay
+        endDateLabel.text = task.endDate?.yearMonthDay ?? ""
         publisedDateLabel.text = task.publishedDate.yearMonthDay
     }
 }
