@@ -22,7 +22,7 @@ final class TasksCell: UITableViewCell {
         contentView.addSubview(contentContainerView)
         
         contentContainerView.snp.makeConstraints { make in
-            make.top.bottom.leading.trailing.equalToSuperview().inset(5)
+            make.edges.equalToSuperview().inset(5)
         }
     }
 }

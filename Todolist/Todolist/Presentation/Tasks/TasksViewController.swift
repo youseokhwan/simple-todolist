@@ -59,7 +59,7 @@ final class TasksViewController: UIViewController {
         view.addSubview(tasksTableView)
         
         tasksTableView.snp.makeConstraints { make in
-            make.top.bottom.leading.trailing.equalToSuperview()
+            make.edges.equalToSuperview()
         }
     }
     
