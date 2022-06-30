@@ -16,8 +16,10 @@ final class ContentContainerView: UIView {
     private lazy var checkButton: UIButton = {
         let button = UIButton()
         let configure = UIImage.SymbolConfiguration(pointSize: 25)
-        button.setImage(UIImage(systemName: "circle", withConfiguration: configure), for: .normal)
-        button.setImage(UIImage(systemName: "checkmark.circle.fill", withConfiguration: configure), for: .selected)
+        button.setImage(UIImage(systemName: "circle",
+                                withConfiguration: configure), for: .normal)
+        button.setImage(UIImage(systemName: "checkmark.circle.fill",
+                                withConfiguration: configure), for: .selected)
         button.tintColor = .systemGreen
         return button
     }()

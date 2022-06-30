@@ -18,13 +18,15 @@ final class TasksViewController: UIViewController {
     private lazy var formButton: UIButton = {
         let button = UIButton()
         let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
-        button.setImage(UIImage(systemName: "plus", withConfiguration: buttonImageConfiguration), for: .normal)
+        button.setImage(UIImage(systemName: "plus",
+                                withConfiguration: buttonImageConfiguration), for: .normal)
         return button
     }()
     private lazy var settingsButton: UIButton = {
         let button = UIButton()
         let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
-        button.setImage(UIImage(systemName: "gearshape.fill", withConfiguration: buttonImageConfiguration), for: .normal)
+        button.setImage(UIImage(systemName: "gearshape.fill",
+                                withConfiguration: buttonImageConfiguration), for: .normal)
         return button
     }()
     private lazy var tasksTableView = UITableView()
@@ -37,7 +39,8 @@ final class TasksViewController: UIViewController {
     
     private func configure() {
         view.backgroundColor = .systemBackground
-        tasksTableView.register(TasksTableViewCell.self, forCellReuseIdentifier: TasksTableViewCell.identifier)
+        tasksTableView.register(TasksTableViewCell.self,
+                                forCellReuseIdentifier: TasksTableViewCell.identifier)
         configureDelegate()
         configureNavigation()
         configureView()
@@ -77,9 +80,11 @@ final class TasksViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.tasksObserver
-            .bind(to: tasksTableView.rx.items(cellIdentifier: TasksTableViewCell.identifier, cellType: TasksTableViewCell.self)) { (index: Int, element: Task, cell: TasksTableViewCell) in
+            .bind(to: tasksTableView.rx.items(cellIdentifier: TasksTableViewCell.identifier,
+                                              cellType: TasksTableViewCell.self)) { index, element, cell in
                 cell.contentContainerView.bind(data: element)
-        }.disposed(by: disposeBag)
+            }
+            .disposed(by: disposeBag)
     }
 }
 
