@@ -32,7 +32,7 @@ final class ContentContainerView: UIView {
     }
     
     private func configure() {
-        layer.cornerRadius = 0.5
+        layer.cornerRadius = 10
         backgroundColor = .systemGray
         
         [contextLabel, endDateLabel, publisedDateLabel, checkButton].forEach { addSubview($0) }

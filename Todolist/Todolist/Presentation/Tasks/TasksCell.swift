@@ -12,11 +12,17 @@ import SnapKit
 final class TasksCell: UITableViewCell {
     static let identifier = "TasksCell"
     
+    lazy var contentContainerView = ContentContainerView(frame: .zero)
+    
     override func layoutSubviews() {
         configure()
     }
     
     private func configure() {
+        contentView.addSubview(contentContainerView)
         
+        contentContainerView.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalToSuperview().inset(5)
+        }
     }
 }
