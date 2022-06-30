@@ -57,4 +57,10 @@ final class ContentContainerView: UIView {
             make.bottom.equalToSuperview().offset(-10)
         }
     }
+    
+    func bind(data: Task) {
+        contextLabel.text = data.context
+        endDateLabel.text = data.endDate?.dateToString
+        publisedDateLabel.text = data.publishedDate.dateToString
+    }
 }
