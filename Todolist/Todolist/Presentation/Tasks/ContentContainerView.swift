@@ -32,6 +32,9 @@ final class ContentContainerView: UIView {
     }
     
     private func configure() {
+        layer.cornerRadius = 0.5
+        backgroundColor = .systemGray
+        
         [contextLabel, endDateLabel, publisedDateLabel, checkButton].forEach { addSubview($0) }
         
         checkButton.snp.makeConstraints { make in
