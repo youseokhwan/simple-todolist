@@ -77,7 +77,6 @@ final class TasksViewController: UIViewController {
         
         viewModel.tasksObserver
             .bind(to: tasksTableView.rx.items(cellIdentifier: TasksCell.identifier, cellType: TasksCell.self)) { (index: Int, element: Task, cell: TasksCell) in
-                cell.bind(data: element)
         }.disposed(by: disposeBag)
     }
 }
