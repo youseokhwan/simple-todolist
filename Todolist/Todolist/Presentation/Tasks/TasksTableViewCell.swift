@@ -13,8 +13,14 @@ final class TasksTableViewCell: UITableViewCell {
     static let identifier = "TasksTableViewCell"
     
     lazy var contentContainerView = ContentContainerView(frame: .zero)
-    
-    override func layoutSubviews() {
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configure()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
         configure()
     }
     
