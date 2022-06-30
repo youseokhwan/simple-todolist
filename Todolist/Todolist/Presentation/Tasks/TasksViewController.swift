@@ -34,39 +34,40 @@ final class TasksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        bind()
     }
     
     private func configure() {
-        view.backgroundColor = .systemBackground
-        tasksTableView.register(TasksTableViewCell.self,
-                                forCellReuseIdentifier: TasksTableViewCell.identifier)
-        configureDelegate()
-        configureNavigation()
-        configureView()
+        configureViews()
+        configureDelegates()
+        configureConstraints()
+        configureRx()
     }
     
-    private func configureDelegate() {
+    private func configureDelegates() {
         viewModel.delegate = self
     }
     
-    private func configureNavigation() {
+    private func configureViews() {
+        view.backgroundColor = .systemBackground
+
         let formBarButton = UIBarButtonItem(customView: formButton)
         let settingsBarButton = UIBarButtonItem(customView: settingsButton)
         navigationItem.rightBarButtonItems = [formBarButton, settingsBarButton]
         navigationItem.title = viewModel.currentDate
-    }
-    
-    private func configureView() {
+
+        tasksTableView.register(TasksTableViewCell.self,
+                                forCellReuseIdentifier: TasksTableViewCell.identifier)
         tasksTableView.rowHeight = 80
         view.addSubview(tasksTableView)
-        
+    }
+
+    private func configureConstraints() {
         tasksTableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
     
-    private func bind() {
+    private func configureRx() {
         formButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.viewModel.didTappedFormButton()

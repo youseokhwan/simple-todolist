@@ -34,35 +34,45 @@ final class ContentContainerView: UIView {
     }
     
     private func configure() {
+        configureViews()
+        configureConstraints()
+    }
+
+    private func configureViews() {
         layer.cornerRadius = 10
         backgroundColor = .systemGray
-        
-        [contextLabel, endDateLabel, publisedDateLabel, checkButton].forEach { addSubview($0) }
-        
+
+        [contextLabel, endDateLabel, publisedDateLabel, checkButton].forEach {
+            addSubview($0)
+        }
+    }
+
+    private func configureConstraints() {
         checkButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(10)
             make.centerY.equalToSuperview()
             make.width.height.equalTo(30)
         }
-        
+
         contextLabel.snp.makeConstraints { make in
             make.leading.equalTo(checkButton.snp.trailing).offset(20)
             make.top.equalToSuperview().offset(15)
         }
-        
+
         publisedDateLabel.snp.makeConstraints { make in
             make.leading.equalTo(checkButton.snp.trailing).offset(20)
             make.top.equalTo(contextLabel.snp.bottom).offset(10)
             make.bottom.equalToSuperview().offset(-10)
         }
-        
+
         endDateLabel.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-20)
             make.top.equalTo(contextLabel.snp.bottom).offset(10)
             make.bottom.equalToSuperview().offset(-10)
         }
     }
-    
+
+    // TODO: private, rx
     func bind(task: Task) {
         contextLabel.text = task.context
         endDateLabel.text = task.endDate?.yearMonthDay

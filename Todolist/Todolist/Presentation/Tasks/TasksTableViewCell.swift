@@ -19,8 +19,15 @@ final class TasksTableViewCell: UITableViewCell {
     }
     
     private func configure() {
+        configureViews()
+        configureConstraints()
+    }
+
+    private func configureViews() {
         contentView.addSubview(contentContainerView)
-        
+    }
+
+    private func configureConstraints() {
         contentContainerView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(5)
         }
