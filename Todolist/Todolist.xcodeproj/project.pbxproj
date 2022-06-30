@@ -117,10 +117,9 @@
 			isa = PBXGroup;
 			children = (
 				442473BB2865874D0059CFCC /* TasksViewController.swift */,
-				0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */,
-				017BA371286D57830068D847 /* ContentContainerView.swift */,
 				442473BD286587E20059CFCC /* TasksViewModel.swift */,
-				01AF6D2328684AB5007CFD89 /* TasksViewModelDelegate.swift */,
+				442473FE286E11BF0059CFCC /* Subviews */,
+				442473FD286E11BA0059CFCC /* Delegates */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -191,6 +190,23 @@
 				442473D32869BA720059CFCC /* CoreDataStorage.swift */,
 			);
 			path = Storages;
+			sourceTree = "<group>";
+		};
+		442473FD286E11BA0059CFCC /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				01AF6D2328684AB5007CFD89 /* TasksViewModelDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		442473FE286E11BF0059CFCC /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				017BA371286D57830068D847 /* ContentContainerView.swift */,
+				0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		44443137285EFB400004D468 = {
