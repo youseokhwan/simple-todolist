@@ -9,8 +9,8 @@ import UIKit
 
 import SnapKit
 
-final class TasksCell: UITableViewCell {
-    static let identifier = "TasksCell"
+final class TasksTableViewCell: UITableViewCell {
+    static let identifier = "TasksTableViewCell"
     
     lazy var contentContainerView = ContentContainerView(frame: .zero)
     

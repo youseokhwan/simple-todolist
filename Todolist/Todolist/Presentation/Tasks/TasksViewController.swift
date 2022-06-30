@@ -37,7 +37,7 @@ final class TasksViewController: UIViewController {
     
     private func configure() {
         view.backgroundColor = .systemBackground
-        tasksTableView.register(TasksCell.self, forCellReuseIdentifier: TasksCell.identifier)
+        tasksTableView.register(TasksTableViewCell.self, forCellReuseIdentifier: TasksTableViewCell.identifier)
         configureDelegate()
         configureNavigation()
         configureView()
@@ -77,7 +77,7 @@ final class TasksViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.tasksObserver
-            .bind(to: tasksTableView.rx.items(cellIdentifier: TasksCell.identifier, cellType: TasksCell.self)) { (index: Int, element: Task, cell: TasksCell) in
+            .bind(to: tasksTableView.rx.items(cellIdentifier: TasksTableViewCell.identifier, cellType: TasksTableViewCell.self)) { (index: Int, element: Task, cell: TasksTableViewCell) in
                 cell.contentContainerView.bind(data: element)
         }.disposed(by: disposeBag)
     }
