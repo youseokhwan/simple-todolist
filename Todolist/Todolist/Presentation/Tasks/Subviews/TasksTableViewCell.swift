@@ -36,13 +36,9 @@ final class TasksTableViewCell: UITableViewCell {
         configure()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        configureConstraints()
-    }
-    
     private func configure() {
         configureViews()
+        configureConstraints()
     }
 
     private func configureViews() {
