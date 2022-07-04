@@ -8,5 +8,8 @@
 import Foundation
 
 final class FormViewModel {
-
+    func addTask() {
+        // TODO: 작성된 Task를 저장하는 UseCase 호출
+        print(#function)
+    }
 }

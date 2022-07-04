@@ -58,8 +58,8 @@ final class FormViewController: UIViewController {
 
     private func configureRx() {
         addButton.rx.tap
-            .subscribe(onNext: {
-                print("addButton 클릭") // TODO: 임시 메소드
+            .subscribe(onNext: { [weak self] in
+                self?.viewModel.addTask()
             })
             .disposed(by: disposeBag)
     }
