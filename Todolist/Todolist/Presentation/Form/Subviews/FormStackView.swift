@@ -44,6 +44,10 @@ final class FormStackView: UIStackView {
     }
 
     private func configure() {
+        configureViews()
+    }
+
+    private func configureViews() {
         axis = .vertical
 
         [contextTextField, publishedDateLabel, publishedDateButton, endDateLabel, endDateButton]
