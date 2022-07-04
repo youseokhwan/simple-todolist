@@ -10,6 +10,8 @@ import UIKit
 final class FormStackView: UIStackView {
     private lazy var contextTextField: UITextField = {
         let textField = UITextField()
+        textField.borderStyle = .roundedRect
+        textField.font = .systemFont(ofSize: 26)
         return textField
     }()
     private lazy var dailyView = FormDailyView()
