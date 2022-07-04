@@ -48,11 +48,12 @@ final class FormViewController: UIViewController {
 
     private func configureConstraints() {
         scrollView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.edges.equalToSuperview().inset(20)
         }
 
         stackView.snp.makeConstraints { make in
-            make.top.bottom.centerX.width.equalToSuperview()
+            make.top.equalToSuperview().offset(20)
+            make.bottom.centerX.width.equalToSuperview()
         }
     }
 

@@ -11,7 +11,7 @@ final class FormStackView: UIStackView {
     private lazy var contextTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
-        textField.font = .systemFont(ofSize: 26)
+        textField.font = .systemFont(ofSize: 24)
         return textField
     }()
     private lazy var dailyView = FormDailyView()
@@ -32,10 +32,10 @@ final class FormStackView: UIStackView {
 
     private func configureViews() {
         axis = .vertical
+        spacing = 20
 
-        [contextTextField, dailyView]
-            .forEach {
-                addArrangedSubview($0)
-            }
+        [contextTextField, dailyView].forEach {
+            addArrangedSubview($0)
+        }
     }
 }
