@@ -12,16 +12,6 @@ final class FormStackView: UIStackView {
         let textField = UITextField()
         return textField
     }()
-    private lazy var publishedDateView: FormDateView = {
-        let formDateView = FormDateView()
-        formDateView.updateText(label: "시작일", button: "2022.07.04(월)")
-        return formDateView
-    }()
-    private lazy var endDateView: FormDateView = {
-        let formDateView = FormDateView()
-        formDateView.updateText(label: "마감일", button: "2022.07.11(월)")
-        return formDateView
-    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,7 +30,7 @@ final class FormStackView: UIStackView {
     private func configureViews() {
         axis = .vertical
 
-        [contextTextField, publishedDateView, endDateView]
+        [contextTextField]
             .forEach {
                 $0.backgroundColor = .systemGray // TODO: UI 작업 후 삭제
                 addArrangedSubview($0)

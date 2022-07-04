@@ -34,7 +34,6 @@
 		4444314D285EFB420004D468 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4444314C285EFB420004D468 /* Assets.xcassets */; };
 		44443150285EFB420004D468 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4444314E285EFB420004D468 /* LaunchScreen.storyboard */; };
 		44CDA2B72872F00C00E8F0F0 /* FormStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */; };
-		44CDA2B92872F1F200E8F0F0 /* FormDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2B82872F1F200E8F0F0 /* FormDateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -80,7 +79,6 @@
 		4444314F285EFB420004D468 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44443151285EFB420004D468 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStackView.swift; sourceTree = "<group>"; };
-		44CDA2B82872F1F200E8F0F0 /* FormDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,7 +275,6 @@
 			isa = PBXGroup;
 			children = (
 				44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */,
-				44CDA2B82872F1F200E8F0F0 /* FormDateView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -359,7 +356,6 @@
 				442473FC286AB2C20059CFCC /* Model.xcdatamodeld in Sources */,
 				442473D42869BA720059CFCC /* CoreDataStorage.swift in Sources */,
 				442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */,
-				44CDA2B92872F1F200E8F0F0 /* FormDateView.swift in Sources */,
 				01AF6D2428684AB5007CFD89 /* TasksViewModelDelegate.swift in Sources */,
 				44443144285EFB400004D468 /* AppDelegate.swift in Sources */,
 				0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */,
