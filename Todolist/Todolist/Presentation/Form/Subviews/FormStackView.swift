@@ -12,6 +12,7 @@ final class FormStackView: UIStackView {
         let textField = UITextField()
         return textField
     }()
+    private lazy var dailyView = FormDailyView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,9 +31,8 @@ final class FormStackView: UIStackView {
     private func configureViews() {
         axis = .vertical
 
-        [contextTextField]
+        [contextTextField, dailyView]
             .forEach {
-                $0.backgroundColor = .systemGray // TODO: UI 작업 후 삭제
                 addArrangedSubview($0)
             }
     }
