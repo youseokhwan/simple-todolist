@@ -7,8 +7,8 @@
 
 import UIKit
 
-import RxSwift
 import RxCocoa
+import RxSwift
 import SnapKit
 
 final class TasksViewController: UIViewController {
@@ -18,29 +18,56 @@ final class TasksViewController: UIViewController {
     private lazy var formButton: UIButton = {
         let button = UIButton()
         let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
-        button.setImage(UIImage(systemName: "plus", withConfiguration: buttonImageConfiguration), for: .normal)
+        button.setImage(UIImage(systemName: "plus",
+                                withConfiguration: buttonImageConfiguration), for: .normal)
         return button
     }()
     private lazy var settingsButton: UIButton = {
         let button = UIButton()
         let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
-        button.setImage(UIImage(systemName: "gearshape.fill", withConfiguration: buttonImageConfiguration), for: .normal)
+        button.setImage(UIImage(systemName: "gearshape.fill",
+                                withConfiguration: buttonImageConfiguration), for: .normal)
         return button
     }()
+    private lazy var tasksTableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        bind()
     }
     
     private func configure() {
-        configureNavigation()
-        
+        configureViews()
+        configureDelegates()
+        configureConstraints()
+        configureRx()
+    }
+    
+    private func configureDelegates() {
         viewModel.delegate = self
     }
     
-    private func bind() {
+    private func configureViews() {
+        view.backgroundColor = .systemBackground
+
+        let formBarButton = UIBarButtonItem(customView: formButton)
+        let settingsBarButton = UIBarButtonItem(customView: settingsButton)
+        navigationItem.rightBarButtonItems = [formBarButton, settingsBarButton]
+        navigationItem.title = viewModel.currentDate
+
+        tasksTableView.register(TasksTableViewCell.self,
+                                forCellReuseIdentifier: TasksTableViewCell.identifier)
+        tasksTableView.rowHeight = 80
+        view.addSubview(tasksTableView)
+    }
+
+    private func configureConstraints() {
+        tasksTableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
+    private func configureRx() {
         formButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.viewModel.didTappedFormButton()
@@ -52,12 +79,13 @@ final class TasksViewController: UIViewController {
                 self?.viewModel.didTappedSettingsButton()
             })
             .disposed(by: disposeBag)
-    }
-    
-    private func configureNavigation() {
-        let formBarButton = UIBarButtonItem(customView: formButton)
-        let settingsBarButton = UIBarButtonItem(customView: settingsButton)
-        navigationItem.rightBarButtonItems = [formBarButton, settingsBarButton]
+        
+        viewModel.tasksObserver
+            .bind(to: tasksTableView.rx.items(cellIdentifier: TasksTableViewCell.identifier,
+                                              cellType: TasksTableViewCell.self)) { index, element, cell in
+                cell.update(task: element)
+            }
+            .disposed(by: disposeBag)
     }
 }
 

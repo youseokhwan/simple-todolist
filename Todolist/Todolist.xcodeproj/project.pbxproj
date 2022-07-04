@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		011EF57B286C4E1F00A481F5 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011EF57A286C4E1F00A481F5 /* Date+Extensions.swift */; };
+		0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */; };
 		01AF6D2428684AB5007CFD89 /* TasksViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AF6D2328684AB5007CFD89 /* TasksViewModelDelegate.swift */; };
 		01BD5E662865910E00BC7C4D /* RxRelay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD5E622865910E00BC7C4D /* RxRelay.xcframework */; };
 		01BD5E672865910E00BC7C4D /* RxRelay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD5E622865910E00BC7C4D /* RxRelay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -51,6 +53,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		011EF57A286C4E1F00A481F5 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
 		01AF6D2328684AB5007CFD89 /* TasksViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModelDelegate.swift; sourceTree = "<group>"; };
 		01BD5E622865910E00BC7C4D /* RxRelay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxRelay.xcframework; path = ../Carthage/Build/RxRelay.xcframework; sourceTree = "<group>"; };
 		01BD5E632865910E00BC7C4D /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxSwift.xcframework; path = ../Carthage/Build/RxSwift.xcframework; sourceTree = "<group>"; };
@@ -90,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		011EF57C286C4E2800A481F5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				011EF57A286C4E1F00A481F5 /* Date+Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		01BD5E612865910E00BC7C4D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,7 +118,8 @@
 			children = (
 				442473BB2865874D0059CFCC /* TasksViewController.swift */,
 				442473BD286587E20059CFCC /* TasksViewModel.swift */,
-				01AF6D2328684AB5007CFD89 /* TasksViewModelDelegate.swift */,
+				442473FE286E11BF0059CFCC /* Subviews */,
+				442473FD286E11BA0059CFCC /* Delegates */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -180,6 +193,22 @@
 			path = Storages;
 			sourceTree = "<group>";
 		};
+		442473FD286E11BA0059CFCC /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				01AF6D2328684AB5007CFD89 /* TasksViewModelDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		442473FE286E11BF0059CFCC /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		44443137285EFB400004D468 = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +233,7 @@
 				442473C72865CFE00059CFCC /* Domain */,
 				4444315928619CD90004D468 /* Presentation */,
 				442473CE2869B7E80059CFCC /* Data */,
+				011EF57C286C4E2800A481F5 /* Utils */,
 				4444315A28619CFC0004D468 /* Resources */,
 			);
 			path = Todolist;
@@ -317,6 +347,8 @@
 				442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */,
 				01AF6D2428684AB5007CFD89 /* TasksViewModelDelegate.swift in Sources */,
 				44443144285EFB400004D468 /* AppDelegate.swift in Sources */,
+				0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */,
+				011EF57B286C4E1F00A481F5 /* Date+Extensions.swift in Sources */,
 				442473D12869B8290059CFCC /* TaskRepository.swift in Sources */,
 				442473C22865894A0059CFCC /* FormViewModel.swift in Sources */,
 				44443146285EFB400004D468 /* SceneDelegate.swift in Sources */,
