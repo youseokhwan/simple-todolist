@@ -12,16 +12,9 @@ import SnapKit
 final class FormViewController: UIViewController {
     private let viewModel = FormViewModel()
 
-    private lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        return scrollView
-    }()
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        return stackView
-    }()
-
+    private lazy var scrollView = UIScrollView()
+    private lazy var stackView = FormStackView()
+    
     // TODO: StackView 분리해야 함
     private lazy var contextTextField: UITextField = {
         let textField = UITextField()
