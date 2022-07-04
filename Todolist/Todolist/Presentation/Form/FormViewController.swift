@@ -12,6 +12,17 @@ import SnapKit
 final class FormViewController: UIViewController {
     private let viewModel = FormViewModel()
 
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        return scrollView
+    }()
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        return stackView
+    }()
+
+    // TODO: StackView 분리해야 함
     private lazy var contextTextField: UITextField = {
         let textField = UITextField()
         return textField
@@ -50,46 +61,23 @@ final class FormViewController: UIViewController {
     private func configureViews() {
         view.backgroundColor = .systemBackground
 
+        view.addSubview(scrollView)
+        scrollView.addSubview(stackView)
+
         [contextTextField, publishedDateLabel, publishedDateButton, endDateLabel, endDateButton]
             .forEach {
-                $0.backgroundColor = .systemGray // 임시
-                view.addSubview($0)
+                $0.backgroundColor = .systemGray // TODO: UI 작업 후 삭제
+                stackView.addArrangedSubview($0)
             }
     }
 
     private func configureConstraints() {
-        contextTextField.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
-            make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
-            make.height.equalTo(50)
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
 
-        publishedDateLabel.snp.makeConstraints { make in
-            make.top.equalTo(contextTextField.snp.bottom).offset(20)
-            make.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
-            make.width.equalTo(60)
-            make.height.equalTo(30)
-        }
-
-        publishedDateButton.snp.makeConstraints { make in
-            make.centerY.equalTo(publishedDateLabel)
-            make.leading.equalTo(publishedDateLabel.snp.trailing).offset(20)
-            make.width.equalTo(180)
-            make.height.equalTo(30)
-        }
-
-        endDateLabel.snp.makeConstraints { make in
-            make.top.equalTo(publishedDateLabel.snp.bottom).offset(20)
-            make.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
-            make.width.equalTo(60)
-            make.height.equalTo(30)
-        }
-
-        endDateButton.snp.makeConstraints { make in
-            make.centerY.equalTo(endDateLabel)
-            make.leading.equalTo(endDateLabel.snp.trailing).offset(20)
-            make.width.equalTo(180)
-            make.height.equalTo(30)
+        stackView.snp.makeConstraints { make in
+            make.top.bottom.centerX.width.equalToSuperview()
         }
     }
 }
