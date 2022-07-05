@@ -86,4 +86,14 @@ extension FormViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let text = textField.text,
+              text.count > 20 else { return }
+
+        let startIndex = text.startIndex
+        let endIndex = text.index(startIndex, offsetBy: 20)
+
+        textField.text = String(text[startIndex..<endIndex])
+    }
 }
