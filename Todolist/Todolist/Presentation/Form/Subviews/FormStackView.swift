@@ -18,6 +18,10 @@ final class FormStackView: UIStackView {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.font = .systemFont(ofSize: 24)
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "할 일을 입력하세요",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray]
+        )
         return textField
     }()
     private lazy var dailyView = FormDailyView()
