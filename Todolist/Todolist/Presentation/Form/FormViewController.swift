@@ -70,6 +70,7 @@ final class FormViewController: UIViewController {
         addButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.viewModel.addTask()
+                self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
     }
