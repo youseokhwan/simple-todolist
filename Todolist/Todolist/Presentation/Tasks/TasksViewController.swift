@@ -53,7 +53,7 @@ final class TasksViewController: UIViewController {
         let formBarButton = UIBarButtonItem(customView: formButton)
         let settingsBarButton = UIBarButtonItem(customView: settingsButton)
         navigationItem.rightBarButtonItems = [formBarButton, settingsBarButton]
-        navigationItem.title = viewModel.currentDate
+        navigationItem.title = Date().todayDate
 
         tasksTableView.register(TasksTableViewCell.self,
                                 forCellReuseIdentifier: TasksTableViewCell.identifier)
