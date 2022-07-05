@@ -48,7 +48,6 @@ final class TasksTableViewCell: UITableViewCell {
         }
     }
     
-
     private func configureConstraints() {
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(5)
