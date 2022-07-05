@@ -43,6 +43,10 @@ final class FormViewController: UIViewController {
         let addBarButton = UIBarButtonItem(customView: addButton)
         navigationItem.rightBarButtonItem = addBarButton
 
+        let recognizer = UITapGestureRecognizer(target: self,
+                                                action: #selector(tappedOutsideOfKeyboard(_:)))
+        scrollView.addGestureRecognizer(recognizer)
+
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
     }
@@ -68,6 +72,11 @@ final class FormViewController: UIViewController {
                 self?.viewModel.addTask()
             })
             .disposed(by: disposeBag)
+    }
+
+    @objc
+    private func tappedOutsideOfKeyboard(_ sender: UITapGestureRecognizer) {
+        view.endEditing(false)
     }
 }
 
