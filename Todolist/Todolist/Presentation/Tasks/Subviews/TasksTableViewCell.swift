@@ -82,7 +82,5 @@ final class TasksTableViewCell: UITableViewCell {
     
     func update(task: Task) {
         contextLabel.text = task.context
-        endDateLabel.text = task.endDate?.yearMonthDay ?? ""
-        publisedDateLabel.text = task.publishedDate.yearMonthDay
     }
 }

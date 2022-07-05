@@ -50,10 +50,9 @@ final class CoreDataStorage {
             let object = NSManagedObject(entity: entity, insertInto: viewContext)
 
             object.setValue(task.id, forKey: "id")
-            object.setValue(task.publishedDate, forKey: "publishedDate")
-            object.setValue(task.endDate, forKey: "endDate")
             object.setValue(task.context, forKey: "context")
             object.setValue(task.isChecked, forKey: "isChecked")
+            object.setValue(task.isDaily, forKey: "isDaily")
 
             do {
                 try viewContext.save()
