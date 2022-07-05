@@ -13,8 +13,6 @@ final class TasksTableViewCell: UITableViewCell {
     static let identifier = "TasksTableViewCell"
     
     private lazy var contextLabel = UILabel()
-    private lazy var endDateLabel = UILabel()
-    private lazy var publisedDateLabel = UILabel()
     private lazy var checkButton: UIButton = {
         let button = UIButton()
         let configure = UIImage.SymbolConfiguration(pointSize: 25)
@@ -45,12 +43,11 @@ final class TasksTableViewCell: UITableViewCell {
         contentView.backgroundColor = .systemGray
         contentView.layer.cornerRadius = 10
         
-        [contextLabel, endDateLabel, publisedDateLabel, checkButton].forEach {
+        [contextLabel, checkButton].forEach {
             contentView.addSubview($0)
         }
     }
     
-
     private func configureConstraints() {
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(5)
@@ -64,25 +61,11 @@ final class TasksTableViewCell: UITableViewCell {
 
         contextLabel.snp.makeConstraints { make in
             make.leading.equalTo(checkButton.snp.trailing).offset(20)
-            make.top.equalToSuperview().offset(15)
-        }
-
-        publisedDateLabel.snp.makeConstraints { make in
-            make.leading.equalTo(checkButton.snp.trailing).offset(20)
-            make.top.equalTo(contextLabel.snp.bottom).offset(10)
-            make.bottom.equalToSuperview().offset(-10)
-        }
-
-        endDateLabel.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().offset(-20)
-            make.top.equalTo(contextLabel.snp.bottom).offset(10)
-            make.bottom.equalToSuperview().offset(-10)
+            make.centerY.equalToSuperview()
         }
     }
     
     func update(task: Task) {
         contextLabel.text = task.context
-        endDateLabel.text = task.endDate?.yearMonthDay ?? ""
-        publisedDateLabel.text = task.publishedDate.yearMonthDay
     }
 }
