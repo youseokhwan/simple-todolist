@@ -33,6 +33,8 @@
 		44443146285EFB400004D468 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443145285EFB400004D468 /* SceneDelegate.swift */; };
 		4444314D285EFB420004D468 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4444314C285EFB420004D468 /* Assets.xcassets */; };
 		44443150285EFB420004D468 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4444314E285EFB420004D468 /* LaunchScreen.storyboard */; };
+		44CDA2B72872F00C00E8F0F0 /* FormStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */; };
+		44CDA2BE28731F3400E8F0F0 /* FormDailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2BD28731F3400E8F0F0 /* FormDailyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -77,6 +79,8 @@
 		4444314C285EFB420004D468 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4444314F285EFB420004D468 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44443151285EFB420004D468 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStackView.swift; sourceTree = "<group>"; };
+		44CDA2BD28731F3400E8F0F0 /* FormDailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDailyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,7 @@
 			children = (
 				442473BF286589310059CFCC /* FormViewController.swift */,
 				442473C12865894A0059CFCC /* FormViewModel.swift */,
+				44CDA2B52872EFF900E8F0F0 /* Subviews */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -268,6 +273,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		44CDA2B52872EFF900E8F0F0 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */,
+				44CDA2BD28731F3400E8F0F0 /* FormDailyView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -345,11 +359,13 @@
 				442473FC286AB2C20059CFCC /* Model.xcdatamodeld in Sources */,
 				442473D42869BA720059CFCC /* CoreDataStorage.swift in Sources */,
 				442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */,
+				44CDA2BE28731F3400E8F0F0 /* FormDailyView.swift in Sources */,
 				01AF6D2428684AB5007CFD89 /* TasksViewModelDelegate.swift in Sources */,
 				44443144285EFB400004D468 /* AppDelegate.swift in Sources */,
 				0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */,
 				011EF57B286C4E1F00A481F5 /* Date+Extensions.swift in Sources */,
 				442473D12869B8290059CFCC /* TaskRepository.swift in Sources */,
+				44CDA2B72872F00C00E8F0F0 /* FormStackView.swift in Sources */,
 				442473C22865894A0059CFCC /* FormViewModel.swift in Sources */,
 				44443146285EFB400004D468 /* SceneDelegate.swift in Sources */,
 				442473BE286587E20059CFCC /* TasksViewModel.swift in Sources */,
