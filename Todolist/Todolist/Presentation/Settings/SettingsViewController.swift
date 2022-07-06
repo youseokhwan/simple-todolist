@@ -7,9 +7,13 @@
 
 import UIKit
 
+import SnapKit
+
 final class SettingsViewController: UIViewController {
     private let viewModel = SettingsViewModel()
-
+    
+    private let settingsTableView = UITableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -24,5 +28,13 @@ final class SettingsViewController: UIViewController {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "설정"
+        
+        view.addSubview(settingsTableView)
+    }
+    
+    private func configureConstraints() {
+        settingsTableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 }
