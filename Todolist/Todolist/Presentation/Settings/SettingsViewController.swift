@@ -12,5 +12,17 @@ final class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
+    }
+    
+    private func configure() {
+        configureViews()
+    }
+    
+    private func configureViews() {
+        view.backgroundColor = .systemBackground
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "설정"
     }
 }
