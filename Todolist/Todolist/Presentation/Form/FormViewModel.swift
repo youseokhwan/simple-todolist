@@ -13,8 +13,9 @@ final class FormViewModel {
     var context = ""
     var isDaily = false
 
+    let addTaskUseCase = AddTaskUseCase()
+
     func addTask() {
-        // dummy logic
-        print("context: \(context), isDaily: \(isDaily)")
+        addTaskUseCase.createTask(context: context, isDaily: isDaily)
     }
 }
