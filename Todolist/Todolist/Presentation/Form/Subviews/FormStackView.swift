@@ -11,12 +11,6 @@ import RxCocoa
 import RxSwift
 
 final class FormStackView: UIStackView {
-    var delegate: UITextFieldDelegate? {
-        didSet {
-            contextTextField.delegate = delegate
-        }
-    }
-
     private lazy var contextTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect

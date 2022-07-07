@@ -32,7 +32,6 @@ final class FormViewController: UIViewController {
 
     private func configure() {
         configureViews()
-        configureDelegates()
         configureConstraints()
         configureRx()
     }
@@ -49,10 +48,6 @@ final class FormViewController: UIViewController {
 
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
-    }
-
-    private func configureDelegates() {
-        stackView.delegate = self
     }
 
     private func configureConstraints() {
@@ -84,12 +79,5 @@ final class FormViewController: UIViewController {
     @objc
     private func tappedOutsideOfKeyboard(_ sender: UITapGestureRecognizer) {
         view.endEditing(false)
-    }
-}
-
-extension FormViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
 }
