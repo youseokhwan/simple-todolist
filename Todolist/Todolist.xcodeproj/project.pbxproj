@@ -25,7 +25,6 @@
 		442473C4286589700059CFCC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473C3286589700059CFCC /* SettingsViewController.swift */; };
 		442473C6286589850059CFCC /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473C5286589850059CFCC /* SettingsViewModel.swift */; };
 		442473CA2865D1660059CFCC /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473C92865D1660059CFCC /* Task.swift */; };
-		442473CD2865D27B0059CFCC /* DoSomethingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473CC2865D27B0059CFCC /* DoSomethingUseCase.swift */; };
 		442473D12869B8290059CFCC /* TaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473D02869B8290059CFCC /* TaskRepository.swift */; };
 		442473D42869BA720059CFCC /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473D32869BA720059CFCC /* CoreDataStorage.swift */; };
 		442473FC286AB2C20059CFCC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 442473FA286AB2C20059CFCC /* Model.xcdatamodeld */; };
@@ -70,7 +69,6 @@
 		442473C3286589700059CFCC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		442473C5286589850059CFCC /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		442473C92865D1660059CFCC /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		442473CC2865D27B0059CFCC /* DoSomethingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoSomethingUseCase.swift; sourceTree = "<group>"; };
 		442473D02869B8290059CFCC /* TaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepository.swift; sourceTree = "<group>"; };
 		442473D32869BA720059CFCC /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		442473FB286AB2C20059CFCC /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -169,7 +167,6 @@
 		442473CB2865D1DE0059CFCC /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				442473CC2865D27B0059CFCC /* DoSomethingUseCase.swift */,
 				44CDA2E22876847A00E8F0F0 /* AddTaskUseCase.swift */,
 			);
 			path = UseCases;
@@ -358,7 +355,6 @@
 			files = (
 				442473C0286589310059CFCC /* FormViewController.swift in Sources */,
 				442473CA2865D1660059CFCC /* Task.swift in Sources */,
-				442473CD2865D27B0059CFCC /* DoSomethingUseCase.swift in Sources */,
 				442473FC286AB2C20059CFCC /* Model.xcdatamodeld in Sources */,
 				442473D42869BA720059CFCC /* CoreDataStorage.swift in Sources */,
 				442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */,
