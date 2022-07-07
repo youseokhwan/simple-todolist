@@ -11,8 +11,11 @@ struct AddTaskUseCase {
     var repository = TaskRepository()
 
     func createTask(context: String, isDaily: Bool) {
-        // TODO: Task 인스턴스 생성 후 Repository 메소드 호출
-        // TODO: ID auto increment 구현
-        print("createTask(context:isDaily:) 호출됨")
+        let task = Task(id: "0", // TODO: auto increment
+                        context: context,
+                        isDaily: isDaily,
+                        isChecked: false)
+
+        repository.create(task: task)
     }
 }
