@@ -8,14 +8,18 @@
 import Foundation
 
 struct AddTaskUseCase {
-    var repository = TaskRepository()
+    var taskRepository = TaskRepository()
 
     func createTask(context: String, isDaily: Bool) {
-        let task = Task(id: "0", // TODO: auto increment
+        let task = Task(id: autoIncreasedID(),
                         context: context,
                         isDaily: isDaily,
                         isChecked: false)
 
-        repository.create(task: task)
+        taskRepository.create(task: task)
+    }
+
+    func autoIncreasedID() -> String {
+        return UserDefaultsRepository.nextTaskID()
     }
 }
