@@ -35,6 +35,7 @@
 		44CDA2B72872F00C00E8F0F0 /* FormStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */; };
 		44CDA2BE28731F3400E8F0F0 /* FormDailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2BD28731F3400E8F0F0 /* FormDailyView.swift */; };
 		44CDA2E32876847A00E8F0F0 /* AddTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2E22876847A00E8F0F0 /* AddTaskUseCase.swift */; };
+		44CDA2E528768BC900E8F0F0 /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2E428768BC900E8F0F0 /* UserDefaultsRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -81,6 +82,7 @@
 		44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStackView.swift; sourceTree = "<group>"; };
 		44CDA2BD28731F3400E8F0F0 /* FormDailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDailyView.swift; sourceTree = "<group>"; };
 		44CDA2E22876847A00E8F0F0 /* AddTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskUseCase.swift; sourceTree = "<group>"; };
+		44CDA2E428768BC900E8F0F0 /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 		442473CF2869B7F90059CFCC /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				44CDA2E428768BC900E8F0F0 /* UserDefaultsRepository.swift */,
 				442473D02869B8290059CFCC /* TaskRepository.swift */,
 			);
 			path = Repositories;
@@ -358,6 +361,7 @@
 				442473FC286AB2C20059CFCC /* Model.xcdatamodeld in Sources */,
 				442473D42869BA720059CFCC /* CoreDataStorage.swift in Sources */,
 				442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */,
+				44CDA2E528768BC900E8F0F0 /* UserDefaultsRepository.swift in Sources */,
 				44CDA2BE28731F3400E8F0F0 /* FormDailyView.swift in Sources */,
 				01AF6D2428684AB5007CFD89 /* TasksViewModelDelegate.swift in Sources */,
 				44443144285EFB400004D468 /* AppDelegate.swift in Sources */,
