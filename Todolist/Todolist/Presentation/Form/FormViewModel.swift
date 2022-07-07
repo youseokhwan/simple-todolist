@@ -16,6 +16,8 @@ final class FormViewModel {
     let addTaskUseCase = AddTaskUseCase()
 
     func addTask() {
+        guard !context.isEmpty else { return }
+
         addTaskUseCase.createTask(context: context, isDaily: isDaily)
     }
 }
