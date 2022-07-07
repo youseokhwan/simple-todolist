@@ -11,9 +11,10 @@ import RxSwift
 
 final class FormViewModel {
     var context = ""
+    var isDaily = false
 
     func addTask() {
         // dummy logic
-        print("context: \(context)")
+        print("context: \(context), isDaily: \(isDaily)")
     }
 }

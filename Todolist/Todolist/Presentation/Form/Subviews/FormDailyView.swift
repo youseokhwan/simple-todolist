@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
 import SnapKit
 
 final class FormDailyView: UIView {
@@ -19,6 +21,10 @@ final class FormDailyView: UIView {
         let dailySwitch = UISwitch()
         return dailySwitch
     }()
+
+    var switchRx: Reactive<UISwitch> {
+        return dailySwitch.rx
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)

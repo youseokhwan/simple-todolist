@@ -74,6 +74,12 @@ final class FormViewController: UIViewController {
                 self?.viewModel.context = text ?? ""
             })
             .disposed(by: disposeBag)
+
+        stackView.switchRx.isOn
+            .subscribe(onNext: { [weak self] isOn in
+                self?.viewModel.isDaily = isOn
+            })
+            .disposed(by: disposeBag)
     }
 
     @objc

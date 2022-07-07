@@ -27,6 +27,10 @@ final class FormStackView: UIStackView {
         return contextTextField.rx
     }
 
+    var switchRx: Reactive<UISwitch> {
+        return dailyView.switchRx
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
