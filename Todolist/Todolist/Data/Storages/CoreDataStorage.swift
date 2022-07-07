@@ -51,8 +51,8 @@ final class CoreDataStorage {
 
             object.setValue(task.id, forKey: "id")
             object.setValue(task.context, forKey: "context")
-            object.setValue(task.isChecked, forKey: "isChecked")
             object.setValue(task.isDaily, forKey: "isDaily")
+            object.setValue(task.isChecked, forKey: "isChecked")
 
             do {
                 try viewContext.save()
