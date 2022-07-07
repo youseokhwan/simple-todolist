@@ -73,6 +73,12 @@ final class FormViewController: UIViewController {
                 self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
+
+        stackView.textFieldRx.text
+            .subscribe(onNext: { [weak self] text in
+                self?.viewModel.context = text ?? ""
+            })
+            .disposed(by: disposeBag)
     }
 
     @objc

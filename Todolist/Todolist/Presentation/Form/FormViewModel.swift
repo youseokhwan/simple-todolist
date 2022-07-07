@@ -7,9 +7,13 @@
 
 import Foundation
 
+import RxSwift
+
 final class FormViewModel {
+    var context = ""
+
     func addTask() {
-        // TODO: 작성된 Task를 저장하는 UseCase 호출
-        print(#function)
+        // dummy logic
+        print("context: \(context)")
     }
 }
