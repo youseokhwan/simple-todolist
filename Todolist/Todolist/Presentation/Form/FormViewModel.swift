@@ -7,9 +7,17 @@
 
 import Foundation
 
+import RxSwift
+
 final class FormViewModel {
+    var context = ""
+    var isDaily = false
+
+    let addTaskUseCase = AddTaskUseCase()
+
     func addTask() {
-        // TODO: 작성된 Task를 저장하는 UseCase 호출
-        print(#function)
+        guard !context.isEmpty else { return }
+
+        addTaskUseCase.createTask(context: context, isDaily: isDaily)
     }
 }

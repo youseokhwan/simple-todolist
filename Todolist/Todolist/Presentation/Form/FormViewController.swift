@@ -32,7 +32,6 @@ final class FormViewController: UIViewController {
 
     private func configure() {
         configureViews()
-        configureDelegates()
         configureConstraints()
         configureRx()
     }
@@ -51,10 +50,6 @@ final class FormViewController: UIViewController {
         scrollView.addSubview(stackView)
     }
 
-    private func configureDelegates() {
-        stackView.delegate = self
-    }
-
     private func configureConstraints() {
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(20)
@@ -70,6 +65,19 @@ final class FormViewController: UIViewController {
         addButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.viewModel.addTask()
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
+
+        stackView.textFieldRx.text
+            .subscribe(onNext: { [weak self] text in
+                self?.viewModel.context = text ?? ""
+            })
+            .disposed(by: disposeBag)
+
+        stackView.switchRx.isOn
+            .subscribe(onNext: { [weak self] isOn in
+                self?.viewModel.isDaily = isOn
             })
             .disposed(by: disposeBag)
     }
@@ -77,12 +85,5 @@ final class FormViewController: UIViewController {
     @objc
     private func tappedOutsideOfKeyboard(_ sender: UITapGestureRecognizer) {
         view.endEditing(false)
-    }
-}
-
-extension FormViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
 }

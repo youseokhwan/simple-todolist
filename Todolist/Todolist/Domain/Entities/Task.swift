@@ -10,6 +10,6 @@ import Foundation
 struct Task {
     let id: String
     var context: String
-    var isChecked: Bool
     var isDaily: Bool
+    var isChecked: Bool
 }

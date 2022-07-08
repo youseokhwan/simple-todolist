@@ -7,13 +7,10 @@
 
 import UIKit
 
-final class FormStackView: UIStackView {
-    var delegate: UITextFieldDelegate? {
-        didSet {
-            contextTextField.delegate = delegate
-        }
-    }
+import RxCocoa
+import RxSwift
 
+final class FormStackView: UIStackView {
     private lazy var contextTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
@@ -25,6 +22,14 @@ final class FormStackView: UIStackView {
         return textField
     }()
     private lazy var dailyView = FormDailyView()
+
+    var textFieldRx: Reactive<UITextField> {
+        return contextTextField.rx
+    }
+
+    var switchRx: Reactive<UISwitch> {
+        return dailyView.switchRx
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
