@@ -12,7 +12,7 @@ import SnapKit
 final class SettingsViewController: UIViewController {
     private let viewModel = SettingsViewModel()
     
-    private let settingsTableView = UITableView()
+    private lazy var settingsTableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
