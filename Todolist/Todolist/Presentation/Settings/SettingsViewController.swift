@@ -17,7 +17,7 @@ final class SettingsViewController: UIViewController {
 
     private let viewModel = SettingsViewModel()
     private let disposeBag = DisposeBag()
-    private let dataSource = RxTableViewSectionedReloadDataSource<SettingsTableViewCellModel>(
+    private let dataSource = RxTableViewSectionedReloadDataSource<SettingsSection>(
         configureCell: { dataSource, tableView, indexPath, item in
             let cell = tableView.dequeueReusableCell(withIdentifier: SettingsViewController.identifier,
                                                      for: indexPath)
