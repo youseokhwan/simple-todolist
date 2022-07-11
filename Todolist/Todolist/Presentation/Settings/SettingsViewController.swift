@@ -39,8 +39,8 @@ final class SettingsViewController: UIViewController {
     
     private func configure() {
         configureViews()
-        configureRx()
         configureConstraints()
+        configureRx()
     }
     
     private func configureViews() {
