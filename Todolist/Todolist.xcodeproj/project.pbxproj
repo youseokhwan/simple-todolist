@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */; };
 		019EE54F28742F9F00804889 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EE54E28742F9F00804889 /* Date+Extensions.swift */; };
+		019EE55B2879289600804889 /* RxDataSources.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 019EE55A2879289600804889 /* RxDataSources.xcframework */; };
+		019EE55C2879289600804889 /* RxDataSources.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 019EE55A2879289600804889 /* RxDataSources.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		01AF6D2428684AB5007CFD89 /* TasksViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AF6D2328684AB5007CFD89 /* TasksViewModelDelegate.swift */; };
 		01BD5E662865910E00BC7C4D /* RxRelay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD5E622865910E00BC7C4D /* RxRelay.xcframework */; };
 		01BD5E672865910E00BC7C4D /* RxRelay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD5E622865910E00BC7C4D /* RxRelay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -18,6 +20,9 @@
 		01BD5E6B2865910E00BC7C4D /* SnapKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD5E642865910E00BC7C4D /* SnapKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		01BD5E6C2865910E00BC7C4D /* RxCocoa.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD5E652865910E00BC7C4D /* RxCocoa.xcframework */; };
 		01BD5E6D2865910E00BC7C4D /* RxCocoa.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD5E652865910E00BC7C4D /* RxCocoa.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		01EF8628287BECDD005F037A /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF8627287BECDD005F037A /* SettingsSection.swift */; };
+		01EF862A287BFCEC005F037A /* Differentiator.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01EF8629287BFCEC005F037A /* Differentiator.xcframework */; };
+		01EF862B287BFCEC005F037A /* Differentiator.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01EF8629287BFCEC005F037A /* Differentiator.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473BB2865874D0059CFCC /* TasksViewController.swift */; };
 		442473BE286587E20059CFCC /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473BD286587E20059CFCC /* TasksViewModel.swift */; };
 		442473C0286589310059CFCC /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473BF286589310059CFCC /* FormViewController.swift */; };
@@ -46,8 +51,10 @@
 			dstSubfolderSpec = 10;
 			files = (
 				01BD5E672865910E00BC7C4D /* RxRelay.xcframework in Embed Frameworks */,
+				01EF862B287BFCEC005F037A /* Differentiator.xcframework in Embed Frameworks */,
 				01BD5E6D2865910E00BC7C4D /* RxCocoa.xcframework in Embed Frameworks */,
 				01BD5E6B2865910E00BC7C4D /* SnapKit.xcframework in Embed Frameworks */,
+				019EE55C2879289600804889 /* RxDataSources.xcframework in Embed Frameworks */,
 				01BD5E692865910E00BC7C4D /* RxSwift.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -58,11 +65,14 @@
 /* Begin PBXFileReference section */
 		0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
 		019EE54E28742F9F00804889 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		019EE55A2879289600804889 /* RxDataSources.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxDataSources.xcframework; path = ../Carthage/Build/RxDataSources.xcframework; sourceTree = "<group>"; };
 		01AF6D2328684AB5007CFD89 /* TasksViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModelDelegate.swift; sourceTree = "<group>"; };
 		01BD5E622865910E00BC7C4D /* RxRelay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxRelay.xcframework; path = ../Carthage/Build/RxRelay.xcframework; sourceTree = "<group>"; };
 		01BD5E632865910E00BC7C4D /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxSwift.xcframework; path = ../Carthage/Build/RxSwift.xcframework; sourceTree = "<group>"; };
 		01BD5E642865910E00BC7C4D /* SnapKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SnapKit.xcframework; path = ../Carthage/Build/SnapKit.xcframework; sourceTree = "<group>"; };
 		01BD5E652865910E00BC7C4D /* RxCocoa.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxCocoa.xcframework; path = ../Carthage/Build/RxCocoa.xcframework; sourceTree = "<group>"; };
+		01EF8627287BECDD005F037A /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
+		01EF8629287BFCEC005F037A /* Differentiator.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Differentiator.xcframework; path = ../Carthage/Build/Differentiator.xcframework; sourceTree = "<group>"; };
 		442473BB2865874D0059CFCC /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		442473BD286587E20059CFCC /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
 		442473BF286589310059CFCC /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
@@ -91,8 +101,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				01BD5E662865910E00BC7C4D /* RxRelay.xcframework in Frameworks */,
+				01EF862A287BFCEC005F037A /* Differentiator.xcframework in Frameworks */,
 				01BD5E6C2865910E00BC7C4D /* RxCocoa.xcframework in Frameworks */,
 				01BD5E6A2865910E00BC7C4D /* SnapKit.xcframework in Frameworks */,
+				019EE55B2879289600804889 /* RxDataSources.xcframework in Frameworks */,
 				01BD5E682865910E00BC7C4D /* RxSwift.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +123,8 @@
 		01BD5E612865910E00BC7C4D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				01EF8629287BFCEC005F037A /* Differentiator.xcframework */,
+				019EE55A2879289600804889 /* RxDataSources.xcframework */,
 				01BD5E652865910E00BC7C4D /* RxCocoa.xcframework */,
 				01BD5E622865910E00BC7C4D /* RxRelay.xcframework */,
 				01BD5E632865910E00BC7C4D /* RxSwift.xcframework */,
@@ -162,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				442473C92865D1660059CFCC /* Task.swift */,
+				01EF8627287BECDD005F037A /* SettingsSection.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -370,6 +385,7 @@
 				019EE54F28742F9F00804889 /* Date+Extensions.swift in Sources */,
 				44CDA2B72872F00C00E8F0F0 /* FormStackView.swift in Sources */,
 				442473C22865894A0059CFCC /* FormViewModel.swift in Sources */,
+				01EF8628287BECDD005F037A /* SettingsSection.swift in Sources */,
 				44443146285EFB400004D468 /* SceneDelegate.swift in Sources */,
 				44CDA2E32876847A00E8F0F0 /* AddTaskUseCase.swift in Sources */,
 				442473BE286587E20059CFCC /* TasksViewModel.swift in Sources */,
