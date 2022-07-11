@@ -13,21 +13,21 @@ import RxSwift
 import SnapKit
 
 final class SettingsViewController: UIViewController {
+    typealias SectionDataSource = RxTableViewSectionedReloadDataSource<SettingsSection>
+
     private static let identifier = "UITableViewCell"
 
     private let viewModel = SettingsViewModel()
+    private let dataSource = SectionDataSource(configureCell: { dataSource, tableView, indexPath, item in
+        let cell = tableView.dequeueReusableCell(withIdentifier: SettingsViewController.identifier,
+                                                 for: indexPath)
+        var content = cell.defaultContentConfiguration()
+        content.text = item
+        cell.contentConfiguration = content
+        cell.accessoryType = .disclosureIndicator
+        return cell
+    })
     private let disposeBag = DisposeBag()
-    private let dataSource = RxTableViewSectionedReloadDataSource<SettingsSection>(
-        configureCell: { dataSource, tableView, indexPath, item in
-            let cell = tableView.dequeueReusableCell(withIdentifier: SettingsViewController.identifier,
-                                                     for: indexPath)
-            var content = cell.defaultContentConfiguration()
-            content.text = item
-            cell.contentConfiguration = content
-            cell.accessoryType = .disclosureIndicator
-            return cell
-        }
-    )
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
