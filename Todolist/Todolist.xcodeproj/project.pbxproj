@@ -147,7 +147,6 @@
 			children = (
 				442473C3286589700059CFCC /* SettingsViewController.swift */,
 				442473C5286589850059CFCC /* SettingsViewModel.swift */,
-				01EF8627287BECDD005F037A /* SettingsSection.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -175,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				442473C92865D1660059CFCC /* Task.swift */,
+				01EF8627287BECDD005F037A /* SettingsSection.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
