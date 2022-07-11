@@ -9,9 +9,15 @@ import Foundation
 
 import RxDataSources
 
-struct SettingsTableViewCellModel: SectionModelType {
+struct SettingsTableViewCellModel {
     var headerTitle: String
     var items: [String]
+}
+
+extension SettingsTableViewCellModel: SectionModelType {
+    var identity: String {
+        return headerTitle
+    }
     
     init(original: SettingsTableViewCellModel, items: [String]) {
         self = original
