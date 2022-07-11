@@ -29,7 +29,7 @@ final class SettingsViewController: UIViewController {
         }
     )
 
-    private lazy var settingsTableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.register(UITableViewCell.self,
                            forCellReuseIdentifier: SettingsViewController.identifier)
@@ -53,7 +53,7 @@ final class SettingsViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "설정"
         
-        view.addSubview(settingsTableView)
+        view.addSubview(tableView)
                 
         dataSource.titleForHeaderInSection = { dataSource, index in
             return dataSource.sectionModels[index].title
@@ -61,14 +61,14 @@ final class SettingsViewController: UIViewController {
     }
     
     private func configureConstraints() {
-        settingsTableView.snp.makeConstraints { make in
+        tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
     
     private func configureRx() {
         Observable.just(viewModel.items)
-            .bind(to: settingsTableView.rx.items(dataSource: dataSource))
+            .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
     }
 }
