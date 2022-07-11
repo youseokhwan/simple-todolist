@@ -15,14 +15,7 @@ import SnapKit
 final class SettingsViewController: UIViewController {
     private let viewModel = SettingsViewModel()
     private let disposeBag = DisposeBag()
-
-    private lazy var settingsTableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .insetGrouped)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        return tableView
-    }()
-        
-    private var tableViewDataSource = RxTableViewSectionedReloadDataSource<SettingsTableViewCellModel>(
+    private let dataSource = RxTableViewSectionedReloadDataSource<SettingsTableViewCellModel>(
         configureCell: { dataSource, tableView, indexPath, item in
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
             var content = cell.defaultContentConfiguration()
@@ -30,7 +23,14 @@ final class SettingsViewController: UIViewController {
             cell.contentConfiguration = content
             cell.accessoryType = .disclosureIndicator
             return cell
-        })
+        }
+    )
+
+    private lazy var settingsTableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        return tableView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +51,7 @@ final class SettingsViewController: UIViewController {
         
         view.addSubview(settingsTableView)
                 
-        tableViewDataSource.titleForHeaderInSection = { dataSource, index in
+        dataSource.titleForHeaderInSection = { dataSource, index in
             return dataSource.sectionModels[index].headerTitle
         }
     }
@@ -64,7 +64,7 @@ final class SettingsViewController: UIViewController {
     
     private func configureRx() {
         Observable.just(viewModel.items)
-            .bind(to: settingsTableView.rx.items(dataSource: tableViewDataSource))
+            .bind(to: settingsTableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
     }
 }
