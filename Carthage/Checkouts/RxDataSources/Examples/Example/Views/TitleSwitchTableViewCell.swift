@@ -11,11 +11,6 @@ import UIKit
 class TitleSwitchTableViewCell: UITableViewCell {
 
 
-   @IBOutlet private weak var switchControl: UISwitch!
-   @IBOutlet private weak var titleLabel: UILabel!
-
-    func configure(title: String, isEnabled: Bool) {
-        switchControl.isOn = isEnabled
-        titleLabel.text = title
-    }
+   @IBOutlet weak var switchControl: UISwitch!
+   @IBOutlet weak var titleLabel: UILabel!
 }

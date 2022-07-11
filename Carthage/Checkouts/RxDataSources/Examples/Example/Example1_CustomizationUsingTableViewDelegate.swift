@@ -32,7 +32,7 @@ extension MySection : AnimatableSectionModelType {
 }
 
 class CustomizationUsingTableViewDelegate : UIViewController {
-    @IBOutlet private var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
 
     let disposeBag = DisposeBag()
 
@@ -44,7 +44,7 @@ class CustomizationUsingTableViewDelegate : UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
 
         let dataSource = RxTableViewSectionedAnimatedDataSource<MySection>(
-            configureCell: { ds, tv, _, item in
+            configureCell: { ds, tv, ip, item in
                 let cell = tv.dequeueReusableCell(withIdentifier: "Cell") ?? UITableViewCell(style: .default, reuseIdentifier: "Cell")
                 cell.textLabel?.text = "Item \(item)"
 
@@ -83,7 +83,7 @@ extension CustomizationUsingTableViewDelegate : UITableViewDelegate {
         // you can also fetch item
         guard let item = dataSource?[indexPath],
         // .. or section and customize what you like
-            dataSource?[indexPath.section] != nil
+            let _ = dataSource?[indexPath.section]
             else {
             return 0.0
         }

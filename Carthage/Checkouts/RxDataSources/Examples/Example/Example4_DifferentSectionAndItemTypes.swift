@@ -15,7 +15,7 @@ import Differentiator
 // the trick is to just use enum for different section types
 class MultipleSectionModelViewController: UIViewController {
     
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -41,19 +41,24 @@ class MultipleSectionModelViewController: UIViewController {
 extension MultipleSectionModelViewController {
     static func dataSource() -> RxTableViewSectionedReloadDataSource<MultipleSectionModel> {
         return RxTableViewSectionedReloadDataSource<MultipleSectionModel>(
-            configureCell: { dataSource, table, idxPath, _ in
+            configureCell: { (dataSource, table, idxPath, _) in
                 switch dataSource[idxPath] {
                 case let .ImageSectionItem(image, title):
                     let cell: ImageTitleTableViewCell = table.dequeueReusableCell(forIndexPath: idxPath)
-                    cell.configure(image: image, title: title)
+                    cell.titleLabel.text = title
+                    cell.cellImageView.image = image
+
                     return cell
                 case let .StepperSectionItem(title):
                     let cell: TitleSteperTableViewCell = table.dequeueReusableCell(forIndexPath: idxPath)
-                    cell.configure(title: title)
+                    cell.titleLabel.text = title
+
                     return cell
                 case let .ToggleableSectionItem(title, enabled):
                     let cell: TitleSwitchTableViewCell = table.dequeueReusableCell(forIndexPath: idxPath)
-                    cell.configure(title: title, isEnabled: enabled)
+                    cell.switchControl.isOn = enabled
+                    cell.titleLabel.text = title
+
                     return cell
                 }
             },
@@ -83,11 +88,11 @@ extension MultipleSectionModel: SectionModelType {
     var items: [SectionItem] {
         switch  self {
         case .ImageProvidableSection(title: _, items: let items):
-            return items.map { $0 }
+            return items.map {$0}
         case .StepperableSection(title: _, items: let items):
-            return items.map { $0 }
+            return items.map {$0}
         case .ToggleableSection(title: _, items: let items):
-            return items.map { $0 }
+            return items.map {$0}
         }
     }
     

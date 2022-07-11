@@ -10,11 +10,6 @@ import UIKit
 
 class ImageTitleTableViewCell: UITableViewCell {
 
-   @IBOutlet private weak var cellImageView: UIImageView!
-   @IBOutlet private weak var titleLabel: UILabel!
-
-    func configure(image: UIImage, title: String) {
-        cellImageView.image = image
-        titleLabel.text = title
-    }
+   @IBOutlet weak var cellImageView: UIImageView!
+   @IBOutlet weak var titleLabel: UILabel!
 }

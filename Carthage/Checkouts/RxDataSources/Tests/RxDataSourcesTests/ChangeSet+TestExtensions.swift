@@ -15,7 +15,7 @@ fileprivate class ItemModelTypeWrapper<I> {
 
     var deleted: Bool = false
     var updated: Bool = false
-    var moved: IndexPath?
+    var moved: IndexPath? = nil
 
     init(item: I) {
         self.item = item
@@ -25,7 +25,7 @@ fileprivate class ItemModelTypeWrapper<I> {
 fileprivate class SectionModelTypeWrapper<S: SectionModelType> {
     var updated: Bool = false
     var deleted: Bool = false
-    var moved: Int?
+    var moved: Int? = nil
 
     var items: [ItemModelTypeWrapper<S.Item>]
 
@@ -114,8 +114,10 @@ extension Changeset {
 
         for (sectionIndex, section) in resultAfterDeletesAndUpdates.enumerated() {
             section.items = section.items.filter { !$0.deleted }
-            for (itemIndex, item) in section.items.enumerated() where item.updated {
-                section.items[itemIndex] = ItemModelTypeWrapper(item: finalSections[sectionIndex].items[itemIndex])
+            for (itemIndex, item) in section.items.enumerated() {
+                if item.updated {
+                    section.items[itemIndex] = ItemModelTypeWrapper(item: finalSections[sectionIndex].items[itemIndex])
+                }
             }
         }
 
