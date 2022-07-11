@@ -28,6 +28,7 @@ final class SettingsViewController: UIViewController {
             var content = cell.defaultContentConfiguration()
             content.text = item
             cell.contentConfiguration = content
+            cell.accessoryType = .disclosureIndicator
             return cell
         })
     
