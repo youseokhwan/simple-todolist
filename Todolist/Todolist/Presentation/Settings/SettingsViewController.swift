@@ -27,6 +27,7 @@ final class SettingsViewController: UIViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
             var content = cell.defaultContentConfiguration()
             content.text = item
+            cell.contentConfiguration = content
             return cell
         })
     
