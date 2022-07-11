@@ -56,7 +56,7 @@ final class SettingsViewController: UIViewController {
         view.addSubview(settingsTableView)
                 
         dataSource.titleForHeaderInSection = { dataSource, index in
-            return dataSource.sectionModels[index].headerTitle
+            return dataSource.sectionModels[index].title
         }
     }
     
