@@ -16,7 +16,11 @@ final class SettingsViewController: UIViewController {
     private let viewModel = SettingsViewModel()
     private let disposeBag = DisposeBag()
 
-    private lazy var settingsTableView = UITableView()
+    private lazy var settingsTableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        return tableView
+    }()
         
     private var tableViewDataSource = RxTableViewSectionedReloadDataSource<SettingsTableViewCellModel>(
         configureCell: { dataSource, tableView, indexPath, item in
