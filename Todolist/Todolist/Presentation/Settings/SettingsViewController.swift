@@ -21,6 +21,7 @@ final class SettingsViewController: UIViewController {
     
     private func configure() {
         configureViews()
+        configureConstraints()
     }
     
     private func configureViews() {
