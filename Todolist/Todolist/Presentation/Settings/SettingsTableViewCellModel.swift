@@ -7,11 +7,14 @@
 
 import Foundation
 
-struct SettingsTableViewCellModel {
-    var cellTitle: String
-}
+import RxDataSources
 
-struct SectionOfSettingsTableViewCellModel {
+struct SettingsTableViewCellModel: SectionModelType {
     var headerTitle: String
-    var items: [SettingsTableViewCellModel]
+    var items: [String]
+    
+    init(original: SettingsTableViewCellModel, items: [String]) {
+        self = original
+        self.items = items
+    }
 }
