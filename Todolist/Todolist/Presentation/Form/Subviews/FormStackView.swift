@@ -11,6 +11,8 @@ import RxCocoa
 import RxSwift
 
 final class FormStackView: UIStackView {
+    static let contextMaxCount = 20
+
     private lazy var contextTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
@@ -49,5 +51,16 @@ final class FormStackView: UIStackView {
         [contextTextField, dailyView].forEach {
             addArrangedSubview($0)
         }
+    }
+
+    func updateToValidRangeText() {
+        guard let text = contextTextField.text,
+              text.count > Self.contextMaxCount else { return }
+
+        let distance = min(text.count, Self.contextMaxCount)
+        let lastIndex = text.index(text.startIndex, offsetBy: distance)
+        let validRangeText = String(text[..<lastIndex])
+
+        contextTextField.text = validRangeText
     }
 }

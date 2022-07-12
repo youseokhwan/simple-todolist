@@ -71,7 +71,10 @@ final class FormViewController: UIViewController {
 
         stackView.textFieldRx.text
             .orEmpty
-            .bind(to: viewModel.context)
+            .subscribe(onNext: { [weak self] text in
+                self?.stackView.updateToValidRangeText()
+                self?.viewModel.context.accept(text)
+            })
             .disposed(by: disposeBag)
 
         stackView.switchRx.isOn
