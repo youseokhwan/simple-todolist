@@ -57,9 +57,8 @@ final class FormStackView: UIStackView {
         guard let text = contextTextField.text,
               text.count > Self.contextMaxCount else { return }
 
-        let distance = min(text.count, Self.contextMaxCount)
-        let lastIndex = text.index(text.startIndex, offsetBy: distance)
-        let validRangeText = String(text[..<lastIndex])
+        let lastIndex = text.index(text.startIndex, offsetBy: Self.contextMaxCount)
+        let validRangeText = String(text[...lastIndex])
 
         contextTextField.text = validRangeText
     }
