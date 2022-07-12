@@ -11,16 +11,18 @@ import RxRelay
 import RxSwift
 
 final class FormViewModel {
+    let addTaskUseCase: AddTaskUseCase
+    let disposeBag: DisposeBag
+
     let context: BehaviorRelay<String>
     let isDaily: BehaviorRelay<Bool>
 
-    let addTaskUseCase: AddTaskUseCase
-
     init() {
+        addTaskUseCase = AddTaskUseCase()
+        disposeBag = DisposeBag()
+
         context = BehaviorRelay<String>(value: "")
         isDaily = BehaviorRelay<Bool>(value: false)
-
-        addTaskUseCase = AddTaskUseCase()
     }
 
     func addTask() {
