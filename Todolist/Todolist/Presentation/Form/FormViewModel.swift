@@ -11,8 +11,8 @@ import RxRelay
 import RxSwift
 
 final class FormViewModel {
-    var context: BehaviorRelay<String>
-    var isDaily: BehaviorRelay<Bool>
+    let context: BehaviorRelay<String>
+    let isDaily: BehaviorRelay<Bool>
 
     let addTaskUseCase: AddTaskUseCase
 
