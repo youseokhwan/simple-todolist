@@ -7,17 +7,18 @@
 
 import Foundation
 
+import RxRelay
 import RxSwift
 
 final class FormViewModel {
-    var context = ""
-    var isDaily = false
+    var context = BehaviorRelay<String>(value: "")
+    var isDaily = BehaviorRelay<Bool>(value: false)
 
     let addTaskUseCase = AddTaskUseCase()
 
     func addTask() {
-        guard !context.isEmpty else { return }
+        guard !context.value.isEmpty else { return }
 
-        addTaskUseCase.createTask(context: context, isDaily: isDaily)
+        addTaskUseCase.createTask(context: context.value, isDaily: isDaily.value)
     }
 }

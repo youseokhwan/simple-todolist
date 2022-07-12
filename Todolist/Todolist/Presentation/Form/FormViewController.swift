@@ -70,15 +70,12 @@ final class FormViewController: UIViewController {
             .disposed(by: disposeBag)
 
         stackView.textFieldRx.text
-            .subscribe(onNext: { [weak self] text in
-                self?.viewModel.context = text ?? ""
-            })
+            .orEmpty
+            .bind(to: viewModel.context)
             .disposed(by: disposeBag)
 
         stackView.switchRx.isOn
-            .subscribe(onNext: { [weak self] isOn in
-                self?.viewModel.isDaily = isOn
-            })
+            .bind(to: viewModel.isDaily)
             .disposed(by: disposeBag)
     }
 
