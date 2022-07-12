@@ -11,14 +11,13 @@ import RxCocoa
 import RxSwift
 
 final class FormStackView: UIStackView {
+    static let contextMaxCount = 20
+
     private lazy var contextTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.font = .systemFont(ofSize: 24)
-        textField.attributedPlaceholder = NSAttributedString(
-            string: "할 일을 입력하세요",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray]
-        )
+        textField.placeholder = "할 일을 입력하세요"
         return textField
     }()
     private lazy var dailyView = FormDailyView()
@@ -52,5 +51,15 @@ final class FormStackView: UIStackView {
         [contextTextField, dailyView].forEach {
             addArrangedSubview($0)
         }
+    }
+
+    func updateToValidRangeText() {
+        guard let text = contextTextField.text,
+              text.count > Self.contextMaxCount else { return }
+
+        let lastIndex = text.index(text.startIndex, offsetBy: Self.contextMaxCount)
+        let validRangeText = String(text[...lastIndex])
+
+        contextTextField.text = validRangeText
     }
 }

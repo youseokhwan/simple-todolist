@@ -70,15 +70,15 @@ final class FormViewController: UIViewController {
             .disposed(by: disposeBag)
 
         stackView.textFieldRx.text
+            .orEmpty
             .subscribe(onNext: { [weak self] text in
-                self?.viewModel.context = text ?? ""
+                self?.stackView.updateToValidRangeText()
+                self?.viewModel.context.accept(text)
             })
             .disposed(by: disposeBag)
 
         stackView.switchRx.isOn
-            .subscribe(onNext: { [weak self] isOn in
-                self?.viewModel.isDaily = isOn
-            })
+            .bind(to: viewModel.isDaily)
             .disposed(by: disposeBag)
     }
 
