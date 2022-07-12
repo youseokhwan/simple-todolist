@@ -17,4 +17,8 @@ final class TaskRepository {
             print("failure")
         }
     }
+    
+    func fetchAllTasks() -> [CDTask] {
+        return storage.fetchAllTasks()
+    }
 }
