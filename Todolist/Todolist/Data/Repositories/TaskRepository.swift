@@ -21,4 +21,8 @@ final class TaskRepository {
     func fetchAllTasks() -> [CDTask] {
         return storage.fetchAllTasks()
     }
+
+    func fetchTask(id: String) -> CDTask? {
+        return storage.fetchTask(by: id)
+    }
 }
