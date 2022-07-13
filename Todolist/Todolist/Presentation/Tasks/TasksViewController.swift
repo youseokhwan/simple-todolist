@@ -29,7 +29,7 @@ final class TasksViewController: UIViewController {
                                 withConfiguration: buttonImageConfiguration), for: .normal)
         return button
     }()
-    private lazy var tasksTableView = UITableView()
+    private lazy var tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,14 +55,14 @@ final class TasksViewController: UIViewController {
         navigationItem.rightBarButtonItems = [formBarButton, settingsBarButton]
         navigationItem.title = Date().todayDate
 
-        tasksTableView.register(TasksTableViewCell.self,
+        tableView.register(TasksTableViewCell.self,
                                 forCellReuseIdentifier: TasksTableViewCell.identifier)
-        tasksTableView.rowHeight = 80
-        view.addSubview(tasksTableView)
+        tableView.rowHeight = 80
+        view.addSubview(tableView)
     }
 
     private func configureConstraints() {
-        tasksTableView.snp.makeConstraints { make in
+        tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
@@ -82,7 +82,7 @@ final class TasksViewController: UIViewController {
         
         viewModel.allTasks
             .asObservable()
-            .bind(to: tasksTableView.rx.items(cellIdentifier: TasksTableViewCell.identifier,
+            .bind(to: tableView.rx.items(cellIdentifier: TasksTableViewCell.identifier,
                                               cellType: TasksTableViewCell.self)) { index, element, cell in
                 cell.update(task: element)
             }
