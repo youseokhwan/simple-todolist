@@ -29,4 +29,17 @@ struct FetchTaskUseCase {
 
         return tasks
     }
+
+    func fetchTask(id: String) -> Task? {
+        guard let cdTask = taskRepository.fetchTask(id: id),
+              let id = cdTask.id,
+              let context = cdTask.context else { return nil }
+        let task = Task(
+            id: id,
+            context: context,
+            isDaily: cdTask.isDaily,
+            isChecked: cdTask.isChecked
+        )
+        return task
+    }
 }
