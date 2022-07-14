@@ -11,20 +11,10 @@ struct FetchTaskUseCase {
     let taskRepository = TaskRepository()
 
     func fetchAllTasks() -> [Task] {
-        let cdTasks = taskRepository.fetchAllTasks()
-        var tasks = [Task]()
-
-        cdTasks.forEach { cdTask in
-            let task = Task(cdTask: cdTask)
-            tasks.append(task)
-        }
-
-        return tasks
+        return taskRepository.fetchAllTasks()
     }
 
-    func fetchTask(id: String) -> Task? {
-        guard let cdTask = taskRepository.fetchTask(id: id) else { return nil }
-        let task = Task(cdTask: cdTask)
-        return task
+    func fetchTask(by id: String) -> Task? {
+        return taskRepository.fetchTask(by: id)
     }
 }

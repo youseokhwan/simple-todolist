@@ -17,12 +17,22 @@ final class TaskRepository {
             print("failure")
         }
     }
-    
-    func fetchAllTasks() -> [CDTask] {
-        return storage.fetchAllTasks()
+
+    func fetchAllTasks() -> [Task] {
+        let cdTasks = storage.fetchAllTasks()
+        var tasks = [Task]()
+
+        cdTasks.forEach { cdTask in
+            let task = Task(cdTask: cdTask)
+            tasks.append(task)
+        }
+
+        return tasks
     }
 
-    func fetchTask(id: String) -> CDTask? {
-        return storage.fetchTask(by: id)
+    func fetchTask(by id: String) -> Task? {
+        guard let cdTask = storage.fetchTask(by: id) else { return nil }
+        let task = Task(cdTask: cdTask)
+        return task
     }
 }
