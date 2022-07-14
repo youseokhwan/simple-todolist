@@ -8,7 +8,7 @@
 import Foundation
 
 struct Task {
-    var id: String
+    let id: String
     var context: String
     var isDaily: Bool
     var isChecked: Bool
