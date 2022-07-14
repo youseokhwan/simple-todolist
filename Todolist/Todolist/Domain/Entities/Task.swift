@@ -12,4 +12,21 @@ struct Task {
     var context: String
     var isDaily: Bool
     var isChecked: Bool
+
+    init(id: String, context: String, isDaily: Bool, isChecked: Bool) {
+        self.id = id
+        self.context = context
+        self.isDaily = isDaily
+        self.isChecked = isChecked
+    }
+
+    init?(cdTask: CDTask?) {
+        guard let cdTask = cdTask,
+              let id = cdTask.id else { return nil }
+
+        self.id = id
+        self.context = cdTask.context ?? ""
+        self.isDaily = cdTask.isDaily
+        self.isChecked = cdTask.isChecked
+    }
 }

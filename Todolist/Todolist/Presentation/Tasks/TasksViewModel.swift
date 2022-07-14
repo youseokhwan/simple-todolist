@@ -7,15 +7,18 @@
 
 import Foundation
 
-import RxSwift
+import RxRelay
 
 final class TasksViewModel {
+    private let fetchTaskUseCase: FetchTaskUseCase
+    let allTasks: BehaviorRelay<[Task]>
     var delegate: TasksViewModelDelegate?
-    let tasksObserver: Observable<[Task]> = Observable
-        .just([Task(id: "0", context: "첫번째 할일", isDaily: false, isChecked: false),
-               Task(id: "1", context: "두번째 할일", isDaily: false, isChecked: false),
-               Task(id: "2", context: "세번째 할일", isDaily: false, isChecked: false)])
-    
+
+    init() {
+        fetchTaskUseCase = FetchTaskUseCase()
+        allTasks = BehaviorRelay<[Task]>(value: fetchTaskUseCase.fetchAllTasks())
+    }
+
     func didTappedFormButton() {
         delegate?.didTappedFormButton()
     }

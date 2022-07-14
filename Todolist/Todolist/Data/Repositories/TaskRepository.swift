@@ -17,4 +17,12 @@ final class TaskRepository {
             print("failure")
         }
     }
+
+    func fetchAllTasks() -> [Task] {
+        return storage.fetchAllTasks().compactMap { Task(cdTask: $0) }
+    }
+
+    func fetchTask(by id: String) -> Task? {
+        return Task(cdTask: storage.fetchTask(by: id))
+    }
 }
