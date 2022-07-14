@@ -8,12 +8,12 @@
 import Foundation
 
 struct Task {
-    var id: String?
-    var context: String?
+    var id: String
+    var context: String
     var isDaily: Bool
     var isChecked: Bool
 
-    init(id: String?, context: String?, isDaily: Bool, isChecked: Bool) {
+    init(id: String, context: String, isDaily: Bool, isChecked: Bool) {
         self.id = id
         self.context = context
         self.isDaily = isDaily
