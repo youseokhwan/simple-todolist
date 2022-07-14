@@ -83,7 +83,7 @@ final class TasksViewController: UIViewController {
         viewModel.allTasks
             .asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: TasksTableViewCell.identifier,
-                                              cellType: TasksTableViewCell.self)) { index, element, cell in
+                                         cellType: TasksTableViewCell.self)) { index, element, cell in
                 cell.update(task: element)
             }
             .disposed(by: disposeBag)
