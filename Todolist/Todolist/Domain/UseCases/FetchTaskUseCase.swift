@@ -15,15 +15,7 @@ struct FetchTaskUseCase {
         var tasks = [Task]()
 
         cdTasks.forEach { cdTask in
-            guard let id = cdTask.id,
-                  let context = cdTask.context else { return }
-            let task = Task(
-                id: id,
-                context: context,
-                isDaily: cdTask.isDaily,
-                isChecked: cdTask.isChecked
-            )
-
+            let task = Task(cdTask: cdTask)
             tasks.append(task)
         }
 
@@ -31,15 +23,8 @@ struct FetchTaskUseCase {
     }
 
     func fetchTask(id: String) -> Task? {
-        guard let cdTask = taskRepository.fetchTask(id: id),
-              let id = cdTask.id,
-              let context = cdTask.context else { return nil }
-        let task = Task(
-            id: id,
-            context: context,
-            isDaily: cdTask.isDaily,
-            isChecked: cdTask.isChecked
-        )
+        guard let cdTask = taskRepository.fetchTask(id: id) else { return nil }
+        let task = Task(cdTask: cdTask)
         return task
     }
 }
