@@ -19,20 +19,10 @@ final class TaskRepository {
     }
 
     func fetchAllTasks() -> [Task] {
-        let cdTasks = storage.fetchAllTasks()
-        var tasks = [Task]()
-
-        cdTasks.forEach { cdTask in
-            let task = Task(cdTask: cdTask)
-            tasks.append(task)
-        }
-
-        return tasks
+        return storage.fetchAllTasks().compactMap { Task(cdTask: $0) }
     }
 
     func fetchTask(by id: String) -> Task? {
-        guard let cdTask = storage.fetchTask(by: id) else { return nil }
-        let task = Task(cdTask: cdTask)
-        return task
+        return Task(cdTask: storage.fetchTask(by: id))
     }
 }
