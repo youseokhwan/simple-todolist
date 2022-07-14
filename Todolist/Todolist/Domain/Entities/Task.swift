@@ -20,17 +20,13 @@ struct Task {
         self.isChecked = isChecked
     }
 
-    init(cdTask: CDTask) {
-        if let cdTaskId = cdTask.id, let cdTaskContext = cdTask.context {
-            id = cdTaskId
-            context = cdTaskContext
-            isDaily = cdTask.isDaily
-            isChecked = cdTask.isChecked
-        } else {
-            id = nil
-            context = nil
-            isDaily = cdTask.isDaily
-            isChecked = cdTask.isChecked
-        }
+    init?(cdTask: CDTask?) {
+        guard let cdTask = cdTask,
+              let id = cdTask.id else { return nil }
+
+        self.id = id
+        self.context = cdTask.context ?? ""
+        self.isDaily = cdTask.isDaily
+        self.isChecked = cdTask.isChecked
     }
 }
