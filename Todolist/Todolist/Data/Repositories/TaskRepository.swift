@@ -18,8 +18,11 @@ final class TaskRepository {
         }
     }
 
-    func fetchAllTasks() -> [Task] {
-        return storage.fetchAllTasks().compactMap { Task(cdTask: $0) }
+    func fetchAllTasks(completion: @escaping ([Task]) -> Void) {
+        DispatchQueue.global().async { [weak self] in
+            let tasks = self?.storage.fetchAllTasks().compactMap { Task(cdTask: $0) }
+            completion(tasks ?? [])
+        }
     }
 
     func fetchTask(by id: String) -> Task? {

@@ -22,7 +22,9 @@ final class TasksViewModel {
     }
 
     private func fetchAllTasks() {
-        allTasks.accept(fetchTaskUseCase.fetchAllTasks())
+        fetchTaskUseCase.fetchAllTasks() { [weak self] tasks in
+            self?.allTasks.accept(tasks)
+        }
     }
 
     func didTappedFormButton() {
