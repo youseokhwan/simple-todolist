@@ -16,7 +16,13 @@ final class TasksViewModel {
 
     init() {
         fetchTaskUseCase = FetchTaskUseCase()
-        allTasks = BehaviorRelay<[Task]>(value: fetchTaskUseCase.fetchAllTasks())
+        allTasks = BehaviorRelay(value: [])
+
+        fetchAllTasks()
+    }
+
+    private func fetchAllTasks() {
+        allTasks.accept(fetchTaskUseCase.fetchAllTasks())
     }
 
     func didTappedFormButton() {
