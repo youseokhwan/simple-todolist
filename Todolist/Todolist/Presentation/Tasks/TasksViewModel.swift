@@ -17,8 +17,6 @@ final class TasksViewModel {
     init() {
         fetchTaskUseCase = FetchTaskUseCase()
         allTasks = BehaviorRelay(value: [])
-
-        fetchAllTasks()
     }
 
     func fetchAllTasks() {
