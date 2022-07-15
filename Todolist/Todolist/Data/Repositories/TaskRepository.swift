@@ -25,7 +25,10 @@ final class TaskRepository {
         }
     }
 
-    func fetchTask(by id: String) -> Task? {
-        return Task(cdTask: storage.fetchTask(by: id))
+    func fetchTask(by id: String, completion: @escaping (Task?) -> Void) {
+        DispatchQueue.global().async { [weak self] in
+            let task = Task(cdTask: self?.storage.fetchTask(by: id))
+            completion(task)
+        }
     }
 }

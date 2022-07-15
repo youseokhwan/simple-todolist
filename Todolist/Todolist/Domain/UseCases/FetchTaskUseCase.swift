@@ -16,7 +16,9 @@ struct FetchTaskUseCase {
         }
     }
 
-    func fetchTask(by id: String) -> Task? {
-        return taskRepository.fetchTask(by: id)
+    func fetchTask(by id: String, completion: @escaping (Task?) -> Void) {
+        taskRepository.fetchTask(by: id) { task in
+            completion(task)
+        }
     }
 }
