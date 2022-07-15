@@ -35,6 +35,11 @@ final class TasksViewController: UIViewController {
         super.viewDidLoad()
         configure()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.fetchAllTasks()
+    }
     
     private func configure() {
         configureViews()
