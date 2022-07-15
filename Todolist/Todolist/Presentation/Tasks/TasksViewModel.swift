@@ -21,7 +21,7 @@ final class TasksViewModel {
         fetchAllTasks()
     }
 
-    private func fetchAllTasks() {
+    func fetchAllTasks() {
         fetchTaskUseCase.fetchAllTasks() { [weak self] tasks in
             self?.allTasks.accept(tasks)
         }
