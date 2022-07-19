@@ -34,25 +34,31 @@ final class TasksTableViewCell: UITableViewCell {
         configure()
     }
     
-    private func configure() {
+    func update(task: Task) {
+        contextLabel.text = task.context
+    }
+}
+
+private extension TasksTableViewCell {
+    func configure() {
         configureViews()
         configureConstraints()
     }
 
-    private func configureViews() {
+    func configureViews() {
         contentView.backgroundColor = .systemGray
         contentView.layer.cornerRadius = 10
-        
+
         [contextLabel, checkButton].forEach {
             contentView.addSubview($0)
         }
     }
-    
-    private func configureConstraints() {
+
+    func configureConstraints() {
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(5)
         }
-        
+
         checkButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(10)
             make.centerY.equalToSuperview()
@@ -63,9 +69,5 @@ final class TasksTableViewCell: UITableViewCell {
             make.leading.equalTo(checkButton.snp.trailing).offset(20)
             make.centerY.equalToSuperview()
         }
-    }
-    
-    func update(task: Task) {
-        contextLabel.text = task.context
     }
 }
