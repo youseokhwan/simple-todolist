@@ -40,19 +40,21 @@ final class TasksViewController: UIViewController {
         super.viewWillAppear(animated)
         viewModel.fetchAllTasks()
     }
-    
-    private func configure() {
+}
+
+private extension TasksViewController {
+    func configure() {
         configureViews()
         configureDelegates()
         configureConstraints()
         configureRx()
     }
-    
-    private func configureDelegates() {
+
+    func configureDelegates() {
         viewModel.delegate = self
     }
-    
-    private func configureViews() {
+
+    func configureViews() {
         view.backgroundColor = .systemBackground
 
         let formBarButton = UIBarButtonItem(customView: formButton)
@@ -66,25 +68,25 @@ final class TasksViewController: UIViewController {
         view.addSubview(tableView)
     }
 
-    private func configureConstraints() {
+    func configureConstraints() {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
-    
-    private func configureRx() {
+
+    func configureRx() {
         formButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.viewModel.didTappedFormButton()
             })
             .disposed(by: disposeBag)
-        
+
         settingsButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.viewModel.didTappedSettingsButton()
             })
             .disposed(by: disposeBag)
-        
+
         viewModel.allTasks
             .bind(to: tableView.rx.items(cellIdentifier: TasksTableViewCell.identifier,
                                          cellType: TasksTableViewCell.self)) { index, element, cell in
