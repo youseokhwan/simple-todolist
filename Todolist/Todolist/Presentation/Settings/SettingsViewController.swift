@@ -40,35 +40,37 @@ final class SettingsViewController: UIViewController {
         super.viewDidLoad()
         configure()
     }
-    
-    private func configure() {
+}
+
+private extension SettingsViewController {
+    func configure() {
         configureViews()
-        configureConstraints()
         configureBind()
+        configureConstraints()
     }
-    
-    private func configureViews() {
+
+    func configureViews() {
         view.backgroundColor = .systemBackground
-        
+
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "설정"
-        
+
         view.addSubview(tableView)
-                
+
         dataSource.titleForHeaderInSection = { dataSource, index in
             return dataSource.sectionModels[index].title
         }
     }
-    
-    private func configureConstraints() {
-        tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-    }
-    
-    private func configureBind() {
+
+    func configureBind() {
         Observable.just(viewModel.items)
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
+    }
+
+    func configureConstraints() {
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 }
