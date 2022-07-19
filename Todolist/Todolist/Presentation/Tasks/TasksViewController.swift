@@ -18,22 +18,28 @@ final class TasksViewController: UIViewController {
     private lazy var formButton: UIButton = {
         let button = UIButton()
         let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
+
         button.setImage(UIImage(systemName: "plus",
                                 withConfiguration: buttonImageConfiguration), for: .normal)
+
         return button
     }()
     private lazy var settingsButton: UIButton = {
         let button = UIButton()
         let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
+
         button.setImage(UIImage(systemName: "gearshape.fill",
                                 withConfiguration: buttonImageConfiguration), for: .normal)
+
         return button
     }()
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
+
         tableView.register(TasksTableViewCell.self,
                            forCellReuseIdentifier: TasksTableViewCell.identifier)
         tableView.rowHeight = 80
+
         return tableView
     }()
     
@@ -65,6 +71,7 @@ private extension TasksViewController {
 
         let formBarButton = UIBarButtonItem(customView: formButton)
         let settingsBarButton = UIBarButtonItem(customView: settingsButton)
+
         navigationItem.rightBarButtonItems = [formBarButton, settingsBarButton]
         navigationItem.title = Date().todayDate
 
@@ -91,8 +98,10 @@ private extension TasksViewController {
             .disposed(by: disposeBag)
 
         viewModel.allTasks
-            .bind(to: tableView.rx.items(cellIdentifier: TasksTableViewCell.identifier,
-                                         cellType: TasksTableViewCell.self)) { index, element, cell in
+            .bind(to: tableView.rx.items(
+                cellIdentifier: TasksTableViewCell.identifier,
+                cellType: TasksTableViewCell.self
+            )) { index, element, cell in
                 cell.update(task: element)
             }
             .disposed(by: disposeBag)
@@ -102,11 +111,13 @@ private extension TasksViewController {
 extension TasksViewController: TasksViewModelDelegate {
     func didTappedFormButton() {
         let formViewController = FormViewController()
+
         navigationController?.pushViewController(formViewController, animated: true)
     }
     
     func didTappedSettingsButton() {
         let settingsViewController = SettingsViewController()
+
         navigationController?.pushViewController(settingsViewController, animated: true)
     }
 }
