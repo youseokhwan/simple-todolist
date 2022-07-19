@@ -14,7 +14,7 @@ import SnapKit
 final class TasksViewController: UIViewController {
     private let viewModel = TasksViewModel()
     private let disposeBag = DisposeBag()
-    
+
     private lazy var formButton: UIButton = {
         let button = UIButton()
         let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
@@ -42,7 +42,7 @@ final class TasksViewController: UIViewController {
 
         return tableView
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -58,12 +58,8 @@ private extension TasksViewController {
     func configure() {
         configureViews()
         configureDelegates()
+        configureBind()
         configureConstraints()
-        configureRx()
-    }
-
-    func configureDelegates() {
-        viewModel.delegate = self
     }
 
     func configureViews() {
@@ -78,13 +74,11 @@ private extension TasksViewController {
         view.addSubview(tableView)
     }
 
-    func configureConstraints() {
-        tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+    func configureDelegates() {
+        viewModel.delegate = self
     }
 
-    func configureRx() {
+    func configureBind() {
         formButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.viewModel.didTappedFormButton()
@@ -105,6 +99,12 @@ private extension TasksViewController {
                 cell.update(task: element)
             }
             .disposed(by: disposeBag)
+    }
+
+    func configureConstraints() {
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 }
 
