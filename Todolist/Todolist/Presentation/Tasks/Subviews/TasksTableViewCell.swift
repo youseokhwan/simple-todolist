@@ -11,8 +11,7 @@ import SnapKit
 
 final class TasksTableViewCell: UITableViewCell {
     static let identifier = "TasksTableViewCell"
-    
-    private lazy var contextLabel = UILabel()
+
     private lazy var checkButton: UIButton = {
         let button = UIButton()
         let configure = UIImage.SymbolConfiguration(pointSize: 25)
@@ -23,6 +22,7 @@ final class TasksTableViewCell: UITableViewCell {
         button.tintColor = .systemGreen
         return button
     }()
+    private lazy var contextLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -49,7 +49,7 @@ private extension TasksTableViewCell {
         contentView.backgroundColor = .systemGray
         contentView.layer.cornerRadius = 10
 
-        [contextLabel, checkButton].forEach {
+        [checkButton, contextLabel].forEach {
             contentView.addSubview($0)
         }
     }
