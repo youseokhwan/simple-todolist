@@ -18,11 +18,22 @@ final class FormViewController: UIViewController {
     private lazy var addButton: UIButton = {
         let button = UIButton()
         let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
-        let image = UIImage(systemName: "checkmark")
+        let image = UIImage(systemName: "checkmark", withConfiguration: buttonImageConfiguration)
+
         button.setImage(image, for: .normal)
+
         return button
     }()
-    private lazy var scrollView = UIScrollView()
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        let recognizer = UITapGestureRecognizer(target: self,
+                                                action: #selector(tappedOutsideOfKeyboard(_:)))
+
+        scrollView.addGestureRecognizer(recognizer)
+        scrollView.addSubview(stackView)
+
+        return scrollView
+    }()
     private lazy var stackView = FormStackView()
 
     override func viewDidLoad() {
@@ -30,38 +41,30 @@ final class FormViewController: UIViewController {
         configure()
     }
 
-    private func configure() {
+    @objc
+    private func tappedOutsideOfKeyboard(_ sender: UITapGestureRecognizer) {
+        view.endEditing(false)
+    }
+}
+
+private extension FormViewController {
+    func configure() {
         configureViews()
+        configureBind()
         configureConstraints()
-        configureRx()
     }
 
-    private func configureViews() {
+    func configureViews() {
         view.backgroundColor = .systemBackground
 
         let addBarButton = UIBarButtonItem(customView: addButton)
+
         navigationItem.rightBarButtonItem = addBarButton
 
-        let recognizer = UITapGestureRecognizer(target: self,
-                                                action: #selector(tappedOutsideOfKeyboard(_:)))
-        scrollView.addGestureRecognizer(recognizer)
-
         view.addSubview(scrollView)
-        scrollView.addSubview(stackView)
     }
 
-    private func configureConstraints() {
-        scrollView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(20)
-        }
-
-        stackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
-            make.bottom.centerX.width.equalToSuperview()
-        }
-    }
-
-    private func configureRx() {
+    func configureBind() {
         addButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.viewModel.addTask()
@@ -82,8 +85,14 @@ final class FormViewController: UIViewController {
             .disposed(by: disposeBag)
     }
 
-    @objc
-    private func tappedOutsideOfKeyboard(_ sender: UITapGestureRecognizer) {
-        view.endEditing(false)
+    func configureConstraints() {
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(20)
+        }
+
+        stackView.snp.makeConstraints { make in
+            make.centerX.bottom.width.equalToSuperview()
+            make.top.equalToSuperview().offset(20)
+        }
     }
 }

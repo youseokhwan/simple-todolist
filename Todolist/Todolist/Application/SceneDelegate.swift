@@ -14,11 +14,13 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
+
         window = UIWindow(windowScene: windowScene)
 
         let tasksViewController = TasksViewController()
-        let rootNavigationContoller = UINavigationController(rootViewController: tasksViewController)
-        window?.rootViewController = rootNavigationContoller
+        let navigationContoller = UINavigationController(rootViewController: tasksViewController)
+
+        window?.rootViewController = navigationContoller
         window?.makeKeyAndVisible()
     }
 }
