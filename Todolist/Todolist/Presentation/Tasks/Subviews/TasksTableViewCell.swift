@@ -62,14 +62,14 @@ private extension TasksTableViewCell {
         }
 
         checkButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(10)
             make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().inset(10)
             make.width.height.equalTo(30)
         }
 
         contextLabel.snp.makeConstraints { make in
-            make.leading.equalTo(checkButton.snp.trailing).offset(20)
             make.centerY.equalToSuperview()
+            make.leading.equalTo(checkButton.snp.trailing).offset(20)
         }
     }
 }
