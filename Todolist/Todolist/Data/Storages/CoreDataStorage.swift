@@ -11,12 +11,15 @@ import Foundation
 final class CoreDataStorage {
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Model")
+
         container.loadPersistentStores(completionHandler: { _, error in
             guard error == nil else {
                 print("error: ", #file, #function, #line)
+
                 return
             }
         })
+
         return container
     }()
     lazy var viewContext = persistentContainer.viewContext
@@ -28,18 +31,21 @@ final class CoreDataStorage {
             return cdTasks
         } else {
             print("error: ", #file, #function, #line)
+
             return []
         }
     }
 
     func fetchTask(by id: String) -> CDTask? {
         let fetchRequest = CDTask.fetchRequest()
+
         fetchRequest.predicate = NSPredicate(format: "id LIKE %@", id)
 
         if let cdTasks = try? viewContext.fetch(fetchRequest) {
             return cdTasks.first
         } else {
             print("error: ", #file, #function, #line)
+
             return nil
         }
     }
@@ -56,13 +62,16 @@ final class CoreDataStorage {
 
             do {
                 try viewContext.save()
+
                 return true
             } catch {
                 print("error: ", #file, #function, #line)
+
                 return false
             }
         } else {
             print("error: ", #file, #function, #line)
+
             return false
         }
     }
@@ -74,13 +83,16 @@ final class CoreDataStorage {
 
             do {
                 try viewContext.save()
+
                 return true
             } catch {
                 print("error: ", #file, #function, #line)
+
                 return false
             }
         } else {
             print("error: ", #file, #function, #line)
+
             return false
         }
     }
@@ -92,13 +104,16 @@ final class CoreDataStorage {
 
             do {
                 try viewContext.save()
+
                 return true
             } catch {
                 print("error: ", #file, #function, #line)
+
                 return false
             }
         } else {
             print("error: ", #file, #function, #line)
+
             return false
         }
     }
@@ -113,9 +128,11 @@ final class CoreDataStorage {
 
         do {
             try viewContext.save()
+
             return true
         } catch {
             print("error: ", #file, #function, #line)
+
             return false
         }
     }
