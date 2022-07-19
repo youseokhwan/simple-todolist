@@ -22,8 +22,10 @@ final class SettingsViewController: UIViewController {
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
+
         tableView.register(UITableViewCell.self,
-                           forCellReuseIdentifier: SettingsViewController.identifier)
+                           forCellReuseIdentifier: Self.identifier)
+
         return tableView
     }()
     private lazy var dataSource: SectionDataSource = {
