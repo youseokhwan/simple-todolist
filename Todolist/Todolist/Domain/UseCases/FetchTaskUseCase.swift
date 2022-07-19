@@ -8,7 +8,7 @@
 import Foundation
 
 struct FetchTaskUseCase {
-    let taskRepository = TaskRepository()
+    private let taskRepository = TaskRepository()
 
     func fetchAllTasks(completion: @escaping ([Task]) -> Void) {
         taskRepository.fetchAllTasks() { tasks in

@@ -8,7 +8,7 @@
 import Foundation
 
 final class TaskRepository {
-    let storage = CoreDataStorage()
+    private let storage = CoreDataStorage()
 
     func create(task: Task) {
         if storage.create(task: task) {
