@@ -18,15 +18,6 @@ final class SettingsViewController: UIViewController {
     private static let identifier = "UITableViewCell"
 
     private let viewModel = SettingsViewModel()
-    private let dataSource = SectionDataSource(configureCell: { dataSource, tableView, indexPath, item in
-        let cell = tableView.dequeueReusableCell(withIdentifier: SettingsViewController.identifier,
-                                                 for: indexPath)
-        var content = cell.defaultContentConfiguration()
-        content.text = item
-        cell.contentConfiguration = content
-        cell.accessoryType = .disclosureIndicator
-        return cell
-    })
     private let disposeBag = DisposeBag()
 
     private lazy var tableView: UITableView = {
@@ -35,7 +26,28 @@ final class SettingsViewController: UIViewController {
                            forCellReuseIdentifier: SettingsViewController.identifier)
         return tableView
     }()
-    
+    private lazy var dataSource: SectionDataSource = {
+        let dataSource = SectionDataSource(
+            configureCell: { dataSource, tableView, indexPath, item in
+                let cell = tableView.dequeueReusableCell(withIdentifier: Self.identifier,
+                                                         for: indexPath)
+                var content = cell.defaultContentConfiguration()
+
+                content.text = item
+                cell.contentConfiguration = content
+                cell.accessoryType = .disclosureIndicator
+
+                return cell
+            }
+        )
+
+        dataSource.titleForHeaderInSection = { dataSource, index in
+            return dataSource.sectionModels[index].title
+        }
+
+        return dataSource
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -56,10 +68,6 @@ private extension SettingsViewController {
         navigationItem.title = "설정"
 
         view.addSubview(tableView)
-
-        dataSource.titleForHeaderInSection = { dataSource, index in
-            return dataSource.sectionModels[index].title
-        }
     }
 
     func configureBind() {
