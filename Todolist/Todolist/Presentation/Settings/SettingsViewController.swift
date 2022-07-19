@@ -44,7 +44,7 @@ final class SettingsViewController: UIViewController {
     private func configure() {
         configureViews()
         configureConstraints()
-        configureRx()
+        configureBind()
     }
     
     private func configureViews() {
@@ -66,7 +66,7 @@ final class SettingsViewController: UIViewController {
         }
     }
     
-    private func configureRx() {
+    private func configureBind() {
         Observable.just(viewModel.items)
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
