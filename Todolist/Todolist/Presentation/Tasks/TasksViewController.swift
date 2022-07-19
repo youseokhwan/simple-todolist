@@ -14,23 +14,35 @@ import SnapKit
 final class TasksViewController: UIViewController {
     private let viewModel = TasksViewModel()
     private let disposeBag = DisposeBag()
-    
+
     private lazy var formButton: UIButton = {
         let button = UIButton()
         let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
+
         button.setImage(UIImage(systemName: "plus",
                                 withConfiguration: buttonImageConfiguration), for: .normal)
+
         return button
     }()
     private lazy var settingsButton: UIButton = {
         let button = UIButton()
         let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
+
         button.setImage(UIImage(systemName: "gearshape.fill",
                                 withConfiguration: buttonImageConfiguration), for: .normal)
+
         return button
     }()
-    private lazy var tableView = UITableView()
-    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+
+        tableView.register(TasksTableViewCell.self,
+                           forCellReuseIdentifier: TasksTableViewCell.identifier)
+        tableView.rowHeight = 80
+
+        return tableView
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -40,68 +52,72 @@ final class TasksViewController: UIViewController {
         super.viewWillAppear(animated)
         viewModel.fetchAllTasks()
     }
-    
-    private func configure() {
+}
+
+private extension TasksViewController {
+    func configure() {
         configureViews()
         configureDelegates()
+        configureBind()
         configureConstraints()
-        configureRx()
     }
-    
-    private func configureDelegates() {
-        viewModel.delegate = self
-    }
-    
-    private func configureViews() {
+
+    func configureViews() {
         view.backgroundColor = .systemBackground
 
         let formBarButton = UIBarButtonItem(customView: formButton)
         let settingsBarButton = UIBarButtonItem(customView: settingsButton)
+
         navigationItem.rightBarButtonItems = [formBarButton, settingsBarButton]
         navigationItem.title = Date().todayDate
 
-        tableView.register(TasksTableViewCell.self,
-                                forCellReuseIdentifier: TasksTableViewCell.identifier)
-        tableView.rowHeight = 80
         view.addSubview(tableView)
     }
 
-    private func configureConstraints() {
-        tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+    func configureDelegates() {
+        viewModel.delegate = self
     }
-    
-    private func configureRx() {
+
+    func configureBind() {
         formButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.viewModel.didTappedFormButton()
             })
             .disposed(by: disposeBag)
-        
+
         settingsButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.viewModel.didTappedSettingsButton()
             })
             .disposed(by: disposeBag)
-        
+
         viewModel.allTasks
-            .bind(to: tableView.rx.items(cellIdentifier: TasksTableViewCell.identifier,
-                                         cellType: TasksTableViewCell.self)) { index, element, cell in
+            .bind(to: tableView.rx.items(
+                cellIdentifier: TasksTableViewCell.identifier,
+                cellType: TasksTableViewCell.self
+            )) { index, element, cell in
                 cell.update(task: element)
             }
             .disposed(by: disposeBag)
+    }
+
+    func configureConstraints() {
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 }
 
 extension TasksViewController: TasksViewModelDelegate {
     func didTappedFormButton() {
         let formViewController = FormViewController()
+
         navigationController?.pushViewController(formViewController, animated: true)
     }
     
     func didTappedSettingsButton() {
         let settingsViewController = SettingsViewController()
+
         navigationController?.pushViewController(settingsViewController, animated: true)
     }
 }

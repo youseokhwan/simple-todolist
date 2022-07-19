@@ -10,7 +10,9 @@ import Foundation
 extension Date {
     var todayDate: String {
         let dateFormatter = DateFormatter()
+
         dateFormatter.dateFormat = "yyyy.MM.dd"
+
         return dateFormatter.string(from: self)
     }
 }

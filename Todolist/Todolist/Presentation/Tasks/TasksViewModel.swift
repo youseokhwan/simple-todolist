@@ -11,11 +11,14 @@ import RxRelay
 
 final class TasksViewModel {
     private let fetchTaskUseCase: FetchTaskUseCase
+
     let allTasks: BehaviorRelay<[Task]>
+
     var delegate: TasksViewModelDelegate?
 
     init() {
         fetchTaskUseCase = FetchTaskUseCase()
+
         allTasks = BehaviorRelay(value: [])
     }
 
@@ -28,7 +31,7 @@ final class TasksViewModel {
     func didTappedFormButton() {
         delegate?.didTappedFormButton()
     }
-    
+
     func didTappedSettingsButton() {
         delegate?.didTappedSettingsButton()
     }
