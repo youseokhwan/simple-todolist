@@ -9,7 +9,7 @@ import CoreData
 import Foundation
 
 final class CoreDataStorage {
-    lazy var persistentContainer: NSPersistentContainer = {
+    private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Model")
 
         container.loadPersistentStores(completionHandler: { _, error in
@@ -22,7 +22,7 @@ final class CoreDataStorage {
 
         return container
     }()
-    lazy var viewContext = persistentContainer.viewContext
+    private lazy var viewContext = persistentContainer.viewContext
 
     func fetchAllTasks() -> [CDTask] {
         let fetchRequest = CDTask.fetchRequest()
