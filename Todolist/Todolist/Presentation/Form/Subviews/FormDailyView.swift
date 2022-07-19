@@ -14,13 +14,12 @@ import SnapKit
 final class FormDailyView: UIView {
     private lazy var dailyLabel: UILabel = {
         let label = UILabel()
+
         label.text = "매일 반복"
+
         return label
     }()
-    private lazy var dailySwitch: UISwitch = {
-        let dailySwitch = UISwitch()
-        return dailySwitch
-    }()
+    private lazy var dailySwitch = UISwitch()
 
     var switchRx: Reactive<UISwitch> {
         return dailySwitch.rx
@@ -35,19 +34,21 @@ final class FormDailyView: UIView {
         super.init(coder: coder)
         configure()
     }
+}
 
-    private func configure() {
+private extension FormDailyView {
+    func configure() {
         configureViews()
         configureConstraints()
     }
 
-    private func configureViews() {
+    func configureViews() {
         [dailyLabel, dailySwitch].forEach {
             addSubview($0)
         }
     }
 
-    private func configureConstraints() {
+    func configureConstraints() {
         dailyLabel.snp.makeConstraints { make in
             make.leading.height.equalToSuperview()
             make.width.equalTo(70)
