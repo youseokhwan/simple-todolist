@@ -19,8 +19,8 @@ final class FormViewModel {
     init() {
         addTaskUseCase = AddTaskUseCase()
 
-        context = BehaviorRelay<String>(value: "")
-        isDaily = BehaviorRelay<Bool>(value: false)
+        context = BehaviorRelay(value: "")
+        isDaily = BehaviorRelay(value: false)
     }
 
     func addTask() {
