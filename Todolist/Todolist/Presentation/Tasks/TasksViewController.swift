@@ -29,7 +29,13 @@ final class TasksViewController: UIViewController {
                                 withConfiguration: buttonImageConfiguration), for: .normal)
         return button
     }()
-    private lazy var tableView = UITableView()
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(TasksTableViewCell.self,
+                           forCellReuseIdentifier: TasksTableViewCell.identifier)
+        tableView.rowHeight = 80
+        return tableView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,9 +68,6 @@ private extension TasksViewController {
         navigationItem.rightBarButtonItems = [formBarButton, settingsBarButton]
         navigationItem.title = Date().todayDate
 
-        tableView.register(TasksTableViewCell.self,
-                                forCellReuseIdentifier: TasksTableViewCell.identifier)
-        tableView.rowHeight = 80
         view.addSubview(tableView)
     }
 
