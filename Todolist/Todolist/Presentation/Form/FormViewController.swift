@@ -18,7 +18,7 @@ final class FormViewController: UIViewController {
     private lazy var addButton: UIButton = {
         let button = UIButton()
         let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
-        let image = UIImage(systemName: "checkmark")
+        let image = UIImage(systemName: "checkmark", withConfiguration: buttonImageConfiguration)
 
         button.setImage(image, for: .normal)
 
