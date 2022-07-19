@@ -56,11 +56,12 @@ private extension FormViewController {
 
     func configureViews() {
         view.backgroundColor = .systemBackground
-        view.addSubview(scrollView)
 
         let addBarButton = UIBarButtonItem(customView: addButton)
 
         navigationItem.rightBarButtonItem = addBarButton
+
+        view.addSubview(scrollView)
     }
 
     func configureBind() {
