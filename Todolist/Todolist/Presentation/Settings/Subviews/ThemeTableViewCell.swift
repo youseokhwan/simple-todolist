@@ -7,6 +7,6 @@
 
 import UIKit
 
-class ThemeTableViewCell: UITableViewCell {
+final class ThemeTableViewCell: UITableViewCell {
     
 }
