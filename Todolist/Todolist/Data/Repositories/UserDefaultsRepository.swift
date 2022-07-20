@@ -9,9 +9,9 @@ import Foundation
 
 enum UserDefaultsRepository {
     static func nextTaskID() -> String {
-        let nextID = UserDefaults.standard.integer(forKey: "nextTaskID")
+        let nextID = UserDefaults.standard.integer(forKey: Const.nextTaskID)
 
-        UserDefaults.standard.set(nextID + 1, forKey: "nextTaskID")
+        UserDefaults.standard.set(nextID + 1, forKey: Const.nextTaskID)
 
         return "\(nextID)"
     }

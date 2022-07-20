@@ -11,14 +11,12 @@ import RxCocoa
 import RxSwift
 
 final class FormStackView: UIStackView {
-    static let contextMaxCount = 20
-
     private lazy var contextTextField: UITextField = {
         let textField = UITextField()
 
         textField.borderStyle = .roundedRect
         textField.font = .systemFont(ofSize: 24)
-        textField.placeholder = "할 일을 입력하세요"
+        textField.placeholder = Const.contextTextFieldPlaceholder
 
         return textField
     }()
@@ -43,9 +41,9 @@ final class FormStackView: UIStackView {
 
     func updateToValidRangeText() {
         guard let text = contextTextField.text,
-              text.count > Self.contextMaxCount else { return }
+              text.count > Const.contextTextFieldMaxCount else { return }
 
-        let lastIndex = text.index(text.startIndex, offsetBy: Self.contextMaxCount)
+        let lastIndex = text.index(text.startIndex, offsetBy: Const.contextTextFieldMaxCount)
         let validRangeText = String(text[...lastIndex])
 
         contextTextField.text = validRangeText
