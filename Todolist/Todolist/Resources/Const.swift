@@ -42,4 +42,8 @@ enum Const {
     static let context = "context"
     static let isDaily = "isDaily"
     static let isChecked = "isChecked"
+
+    // Utils
+    static let localizable = "Localizable"
+    static let yyyyMMdd = "yyyy.MM.dd"
 }
