@@ -6,5 +6,16 @@
   
 */
 
+// Form
 "contextTextFieldPlaceholder" = "please input task.";
 "dailyLabelText" = "daily routine";
+
+// Settings
+"settingsTitle" = "Settings";
+"appSettingsSection" = "App Settings";
+"themeSettings" = "Theme";
+"informationSection" = "App Infomation";
+"openSourceLicense" = "Open Source License";
+"versionInfomation" = "Version";
+"patchDetails" = "Patch Details";
+"contactUs" = "Contact Us";

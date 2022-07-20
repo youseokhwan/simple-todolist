@@ -20,4 +20,15 @@ enum Const {
     static let contextTextFieldMaxCount = 20
     static let contextTextFieldPlaceholder = "contextTextFieldPlaceholder".localized
     static let dailyLabelText = "dailyLabelText".localized
+
+    // Settings
+    static let settingsTableViewCellID = "SettingsTableViewCell"
+    static let settingsTitle = "settingsTitle".localized
+    static let appSettingsSection = "appSettingsSection".localized
+    static let themeSettings = "themeSettings".localized
+    static let informationSection = "informationSection".localized
+    static let openSourceLicense = "openSourceLicense".localized
+    static let versionInfomation = "versionInfomation".localized
+    static let patchDetails = "patchDetails".localized
+    static let contactUs = "contactUs".localized
 }

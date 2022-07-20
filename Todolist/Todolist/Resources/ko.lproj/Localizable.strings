@@ -6,5 +6,16 @@
   
 */
 
+// Form
 "contextTextFieldPlaceholder" = "할 일을 입력하세요.";
 "dailyLabelText" = "매일 반복";
+
+// Settings
+"settingsTitle" = "설정";
+"appSettingsSection" = "앱 설정";
+"themeSettings" = "테마 설정";
+"informationSection" = "앱 정보";
+"openSourceLicense" = "오픈소스 라이선스";
+"versionInfomation" = "버전 정보";
+"patchDetails" = "수정사항";
+"contactUs" = "Contact Us";
