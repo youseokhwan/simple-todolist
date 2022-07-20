@@ -8,5 +8,10 @@
 import Foundation
 
 enum Const {
+    static let tasksTableViewCellID = "TasksTableViewCell"
 
+    static let formButtonImage = "plus"
+    static let settingsButtonImage = "gearshape.fill"
+    static let checkButtonNormalImage = "circle"
+    static let checkButtonSelectedImage = "checkmark.circle.fill"
 }
