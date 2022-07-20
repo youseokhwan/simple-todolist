@@ -15,7 +15,7 @@ final class FormDailyView: UIView {
     private lazy var dailyLabel: UILabel = {
         let label = UILabel()
 
-        label.text = "매일 반복"
+        label.text = Const.dailyLabelText
 
         return label
     }()
