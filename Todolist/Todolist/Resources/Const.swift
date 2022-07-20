@@ -31,4 +31,7 @@ enum Const {
     static let versionInfomation = "versionInfomation".localized
     static let patchDetails = "patchDetails".localized
     static let contactUs = "contactUs".localized
+
+    // Repositories
+    static let nextTaskID = "nextTaskID"
 }
