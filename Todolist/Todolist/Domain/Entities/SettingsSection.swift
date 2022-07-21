@@ -35,9 +35,9 @@ extension SettingsSection: SectionModelType {
 
     init(original: SettingsSection, items: [SectionItem]) {
         switch original {
-        case .DefaultCell(let title, let items):
+        case let .DefaultCell(title, _):
             self = .DefaultCell(title: title, items: items)
-        case .ThemeCell(let title, let items):
+        case let .ThemeCell(title, _):
             self = .ThemeCell(title: title, items: items)
         }
     }
