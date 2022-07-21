@@ -46,6 +46,11 @@ final class ThemeTableViewCell: UITableViewCell {
         super.init(coder: coder)
         configure()
     }
+
+    func update(title: String, currentTheme: String) {
+        titleLabel.text = title
+        currentThemeLabel.text = currentTheme
+    }
 }
 
 private extension ThemeTableViewCell {
