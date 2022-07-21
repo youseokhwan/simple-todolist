@@ -7,6 +7,8 @@
 
 import UIKit
 
+import SnapKit
+
 final class ThemeTableViewCell: UITableViewCell {
     private let identifier = "ThemeTableViewCell"
 
@@ -37,9 +39,36 @@ final class ThemeTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configure()
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        configure()
+    }
+}
+
+private extension ThemeTableViewCell {
+    func configure() {
+        configureViews()
+        configureConstraints()
+    }
+
+    func configureViews() {
+        [titleLabel, currentThemeLabel, button].forEach {
+            contentView.addSubview($0)
+        }
+    }
+
+    func configureConstraints() {
+        titleLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().offset(13)
+        }
+
+        currentThemeLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-13)
+        }
     }
 }
