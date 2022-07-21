@@ -99,6 +99,17 @@ private extension TasksViewController {
                 cell.update(task: element)
             }
             .disposed(by: disposeBag)
+
+        tableView.rx.itemSelected
+            .map { [weak self] indexPath in
+                return self?.viewModel.allTasks.value[indexPath.row]
+            }
+            .subscribe(onNext: { task in
+                if let task = task {
+                    print(task.context)
+                }
+            })
+            .disposed(by: disposeBag)
     }
 
     func configureConstraints() {
