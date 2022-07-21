@@ -37,6 +37,13 @@ final class FormViewController: UIViewController {
     }()
     private lazy var stackView = FormStackView()
 
+    convenience init(task: Task) {
+        self.init(nibName: nil, bundle: nil)
+
+        stackView.textFieldRx.text.onNext(task.context)
+        stackView.switchRx.isOn.onNext(task.isDaily)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()

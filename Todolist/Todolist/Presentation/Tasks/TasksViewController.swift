@@ -104,9 +104,11 @@ private extension TasksViewController {
             .map { [weak self] indexPath in
                 return self?.viewModel.allTasks.value[indexPath.row]
             }
-            .subscribe(onNext: { task in
+            .subscribe(onNext: { [weak self] task in
                 if let task = task {
-                    print(task.context)
+                    let controller = FormViewController(task: task)
+
+                    self?.navigationController?.pushViewController(controller, animated: true)
                 }
             })
             .disposed(by: disposeBag)
