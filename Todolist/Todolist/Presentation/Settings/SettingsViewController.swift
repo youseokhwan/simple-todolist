@@ -33,15 +33,26 @@ final class SettingsViewController: UIViewController {
     private lazy var dataSource: SectionDataSource = {
         let dataSource = SectionDataSource(
             configureCell: { dataSource, tableView, indexPath, item in
-                let cell = tableView.dequeueReusableCell(withIdentifier: Self.identifier,
-                                                         for: indexPath)
-                var content = cell.defaultContentConfiguration()
+                switch dataSource[indexPath] {
+                case .DefaultItem(title: let title):
+                    let cell = tableView.dequeueReusableCell(withIdentifier: Self.identifier,
+                                                             for: indexPath)
+                    var content = cell.defaultContentConfiguration()
 
-                content.text = item
-                cell.contentConfiguration = content
-                cell.accessoryType = .disclosureIndicator
+                    content.text = title
+                    cell.contentConfiguration = content
+                    cell.accessoryType = .disclosureIndicator
 
-                return cell
+                    return cell
+                case .ThemeItem(title: let title, currentTheme: let currentTheme):
+                    guard let cell = tableView.dequeueReusableCell(
+                        withIdentifier: ThemeTableViewCell.identifier, for: indexPath
+                    ) as? ThemeTableViewCell else { return UITableViewCell() }
+
+                    cell.update(title: title, currentTheme: currentTheme)
+
+                    return cell
+                }
             }
         )
 
