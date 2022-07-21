@@ -15,21 +15,21 @@ enum SettingsSection {
 }
 
 extension SettingsSection: SectionModelType {
-    var items: [SectionItem] {
-        switch self {
-        case .DefaultCell(title: _, items: let items):
-            return items.map { $0 }
-        case .ThemeCell(title: _, items: let items):
-            return items.map { $0 }
-        }
-    }
-
     var title: String {
         switch self {
         case .DefaultCell(title: let title, items: _):
             return title
         case .ThemeCell(title: let title, items: _):
             return title
+        }
+    }
+
+    var items: [SectionItem] {
+        switch self {
+        case .DefaultCell(title: _, items: let items):
+            return items.map { $0 }
+        case .ThemeCell(title: _, items: let items):
+            return items.map { $0 }
         }
     }
 
