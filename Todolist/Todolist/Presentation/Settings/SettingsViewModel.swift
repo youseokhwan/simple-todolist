@@ -11,12 +11,12 @@ final class SettingsViewModel {
     let items: [SettingsSection]
 
     init() {
-        items = [.ThemeCell(title: "설정",
-                            items: [.ThemeItem(title: "테마 설정", currentTheme: "light")]),
-                 .DefaultCell(title: "앱 정보",
-                              items: [.DefaultItem(title: "오픈소스 라이센스"),
-                                      .DefaultItem(title: "버전 정보"),
-                                      .DefaultItem(title: "수정사항"),
-                                      .DefaultItem(title: "Contact Us")])]
+        items = [.ThemeCell(title: Const.appSettingsSection,
+                            items: [.ThemeItem(title: Const.themeSettings, currentTheme: "light")]),
+                 .DefaultCell(title: Const.informationSection,
+                              items: [.DefaultItem(title: Const.openSourceLicense),
+                                      .DefaultItem(title: Const.versionInfomation),
+                                      .DefaultItem(title: Const.patchDetails),
+                                      .DefaultItem(title: Const.contactUs)])]
     }
 }

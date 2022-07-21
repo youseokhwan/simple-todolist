@@ -19,7 +19,7 @@ final class TasksViewController: UIViewController {
         let button = UIButton()
         let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
 
-        button.setImage(UIImage(systemName: "plus",
+        button.setImage(UIImage(systemName: Const.formButtonImage,
                                 withConfiguration: buttonImageConfiguration), for: .normal)
 
         return button
@@ -28,7 +28,7 @@ final class TasksViewController: UIViewController {
         let button = UIButton()
         let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
 
-        button.setImage(UIImage(systemName: "gearshape.fill",
+        button.setImage(UIImage(systemName: Const.settingsButtonImage,
                                 withConfiguration: buttonImageConfiguration), for: .normal)
 
         return button
@@ -37,7 +37,7 @@ final class TasksViewController: UIViewController {
         let tableView = UITableView()
 
         tableView.register(TasksTableViewCell.self,
-                           forCellReuseIdentifier: TasksTableViewCell.identifier)
+                           forCellReuseIdentifier: Const.tasksTableViewCellID)
         tableView.rowHeight = 80
 
         return tableView
@@ -93,7 +93,7 @@ private extension TasksViewController {
 
         viewModel.allTasks
             .bind(to: tableView.rx.items(
-                cellIdentifier: TasksTableViewCell.identifier,
+                cellIdentifier: Const.tasksTableViewCellID,
                 cellType: TasksTableViewCell.self
             )) { index, element, cell in
                 cell.update(task: element)

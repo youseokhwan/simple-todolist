@@ -15,8 +15,6 @@ import SnapKit
 final class SettingsViewController: UIViewController {
     typealias SectionDataSource = RxTableViewSectionedReloadDataSource<SettingsSection>
 
-    private static let identifier = "UITableViewCell"
-
     private let viewModel = SettingsViewModel()
     private let disposeBag = DisposeBag()
 
@@ -24,10 +22,10 @@ final class SettingsViewController: UIViewController {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
 
         tableView.register(UITableViewCell.self,
-                           forCellReuseIdentifier: Self.identifier)
+                           forCellReuseIdentifier: Const.settingsTableViewCellID)
         tableView.register(ThemeTableViewCell.self,
                            forCellReuseIdentifier: ThemeTableViewCell.identifier)
-
+                         
         return tableView
     }()
     private lazy var dataSource: SectionDataSource = {
@@ -35,8 +33,10 @@ final class SettingsViewController: UIViewController {
             configureCell: { dataSource, tableView, indexPath, item in
                 switch dataSource[indexPath] {
                 case .DefaultItem(title: let title):
-                    let cell = tableView.dequeueReusableCell(withIdentifier: Self.identifier,
-                                                             for: indexPath)
+                    let cell = tableView.dequeueReusableCell(
+                        withIdentifier: Const.settingsTableViewCellID,
+                        for: indexPath
+                    )
                     var content = cell.defaultContentConfiguration()
 
                     content.text = title
@@ -80,7 +80,7 @@ private extension SettingsViewController {
         view.backgroundColor = .systemBackground
 
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "설정"
+        navigationItem.title = Const.settingsTitle
 
         view.addSubview(tableView)
     }

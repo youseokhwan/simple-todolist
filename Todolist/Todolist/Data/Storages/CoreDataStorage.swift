@@ -10,7 +10,7 @@ import Foundation
 
 final class CoreDataStorage {
     private lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Model")
+        let container = NSPersistentContainer(name: Const.model)
 
         container.loadPersistentStores(completionHandler: { _, error in
             guard error == nil else {
@@ -52,13 +52,13 @@ final class CoreDataStorage {
 
     @discardableResult
     func create(task: Task) -> Bool {
-        if let entity = NSEntityDescription.entity(forEntityName: "CDTask", in: viewContext) {
+        if let entity = NSEntityDescription.entity(forEntityName: Const.cdTask, in: viewContext) {
             let object = NSManagedObject(entity: entity, insertInto: viewContext)
 
-            object.setValue(task.id, forKey: "id")
-            object.setValue(task.context, forKey: "context")
-            object.setValue(task.isDaily, forKey: "isDaily")
-            object.setValue(task.isChecked, forKey: "isChecked")
+            object.setValue(task.id, forKey: Const.id)
+            object.setValue(task.context, forKey: Const.context)
+            object.setValue(task.isDaily, forKey: Const.isDaily)
+            object.setValue(task.isChecked, forKey: Const.isChecked)
 
             do {
                 try viewContext.save()
@@ -79,7 +79,7 @@ final class CoreDataStorage {
     @discardableResult
     func updateTask(by id: String, newContext: String) -> Bool {
         if let cdTask = fetchTask(by: id) {
-            cdTask.setValue(newContext, forKey: "context")
+            cdTask.setValue(newContext, forKey: Const.context)
 
             do {
                 try viewContext.save()
