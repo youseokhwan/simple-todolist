@@ -25,6 +25,8 @@ final class SettingsViewController: UIViewController {
 
         tableView.register(UITableViewCell.self,
                            forCellReuseIdentifier: Self.identifier)
+        tableView.register(ThemeTableViewCell.self,
+                           forCellReuseIdentifier: ThemeTableViewCell.identifier)
 
         return tableView
     }()
