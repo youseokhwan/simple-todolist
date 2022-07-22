@@ -8,6 +8,6 @@
 import Foundation
 
 enum SectionItem {
-    case DefaultItem(title: String)
-    case ThemeItem(title: String, currentTheme: String)
+    case Default(title: String)
+    case Theme(title: String, currentTheme: String)
 }

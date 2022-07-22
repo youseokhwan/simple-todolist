@@ -32,7 +32,7 @@ final class SettingsViewController: UIViewController {
         let dataSource = SectionDataSource(
             configureCell: { dataSource, tableView, indexPath, item in
                 switch dataSource[indexPath] {
-                case .DefaultItem(title: let title):
+                case .Default(title: let title):
                     let cell = tableView.dequeueReusableCell(
                         withIdentifier: Const.settingsTableViewCellID,
                         for: indexPath
@@ -44,7 +44,7 @@ final class SettingsViewController: UIViewController {
                     cell.accessoryType = .disclosureIndicator
 
                     return cell
-                case .ThemeItem(title: let title, currentTheme: let currentTheme):
+                case .Theme(title: let title, currentTheme: let currentTheme):
                     guard let cell = tableView.dequeueReusableCell(
                         withIdentifier: ThemeTableViewCell.identifier, for: indexPath
                     ) as? ThemeTableViewCell else { return UITableViewCell() }
