@@ -12,12 +12,11 @@ final class SettingsViewModel {
 
     init() {
         items = [SettingsSection(title: Const.appSettingsSection,
-                                 items: [.Theme(title: Const.themeSettings,
-                                                currentTheme: Const.lightTheme)]),
+                                 items: [Const.themeSettings]),
                  SettingsSection(title: Const.informationSection,
-                                 items: [.Default(title: Const.openSourceLicense),
-                                         .Default(title: Const.versionInfomation),
-                                         .Default(title: Const.patchDetails),
-                                         .Default(title: Const.contactUs)])]
+                                 items: [Const.openSourceLicense,
+                                         Const.versionInfomation,
+                                         Const.patchDetails,
+                                         Const.contactUs])]
     }
 }
