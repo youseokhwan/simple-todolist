@@ -56,6 +56,11 @@ final class SettingsViewController: UIViewController {
         configure()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkAppearance(self)
+    }
+
     private func makeMenuButton() -> UIButton {
         let button = UIButton()
         let children = [Const.systemTheme, Const.lightTheme, Const.darkTheme]

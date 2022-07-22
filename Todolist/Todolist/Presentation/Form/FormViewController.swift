@@ -42,6 +42,11 @@ final class FormViewController: UIViewController {
         configure()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkAppearance(self)
+    }
+
     @objc
     private func tappedOutsideOfKeyboard(_ sender: UITapGestureRecognizer) {
         view.endEditing(false)
