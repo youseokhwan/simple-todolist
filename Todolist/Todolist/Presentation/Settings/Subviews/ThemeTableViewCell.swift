@@ -26,9 +26,9 @@ final class ThemeTableViewCell: UITableViewCell {
             print("dark")
         }
 
-        button.menu = UIMenu(
-            title: "", options: .displayInline, children: [systemMode, lightMode, darkMode]
-        )
+        button.menu = UIMenu(title: "",
+                             options: .displayInline,
+                             children: [systemMode, lightMode, darkMode])
         button.showsMenuAsPrimaryAction = true
 
         return button
