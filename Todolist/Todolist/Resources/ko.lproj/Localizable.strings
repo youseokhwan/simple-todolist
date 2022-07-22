@@ -21,7 +21,7 @@
 "contactUs" = "Contact Us";
 
 // Settings - Theme
-"themeMenuTitle" = "테마를 선택해 주세요"
+"themeMenuTitle" = "테마를 선택해 주세요";
 "systemTheme" = "시스템 테마";
 "lightTheme" = "라이트 테마";
 "darkTheme" = "다크 테마";
