@@ -99,6 +99,19 @@ private extension TasksViewController {
                 cell.update(task: element)
             }
             .disposed(by: disposeBag)
+
+        tableView.rx.itemSelected
+            .map { [weak self] indexPath in
+                return self?.viewModel.allTasks.value[indexPath.row]
+            }
+            .subscribe(onNext: { [weak self] task in
+                if let task = task {
+                    let controller = FormViewController(task: task)
+
+                    self?.navigationController?.pushViewController(controller, animated: true)
+                }
+            })
+            .disposed(by: disposeBag)
     }
 
     func configureConstraints() {
