@@ -21,7 +21,7 @@ final class SettingsViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
 
-        tableView.register(UITableViewCell.self,
+        tableView.register(SettingsTableViewCell.self,
                            forCellReuseIdentifier: Const.settingsTableViewCellID)
                          
         return tableView
@@ -33,6 +33,8 @@ final class SettingsViewController: UIViewController {
                     withIdentifier: Const.settingsTableViewCellID,
                     for: indexPath
                 ) as? SettingsTableViewCell else { return UITableViewCell() }
+
+                cell.update(title: item)
 
                 return cell
             }
