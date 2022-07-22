@@ -94,6 +94,7 @@ final class SettingsViewController: UIViewController {
         button.menu = UIMenu(title: Const.themeMenuTitle,
                              options: .displayInline,
                              children: children)
+        button.showsMenuAsPrimaryAction = true
 
         return button
     }
