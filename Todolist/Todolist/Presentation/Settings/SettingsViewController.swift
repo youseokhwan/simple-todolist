@@ -28,14 +28,14 @@ final class SettingsViewController: UIViewController {
     }()
     private lazy var dataSource: SectionDataSource = {
         let dataSource = SectionDataSource(
-            configureCell: { dataSource, tableView, indexPath, item in
+            configureCell: { [weak self] dataSource, tableView, indexPath, item in
                 guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: Const.settingsTableViewCellID,
                     for: indexPath
                 ) as? SettingsTableViewCell else { return UITableViewCell() }
 
                 if item == Const.themeSettings {
-                    cell.accessoryView = self.makeMenuButton()
+                    cell.accessoryView = self?.makeMenuButton()
                 }
 
                 cell.update(title: item)
