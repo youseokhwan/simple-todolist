@@ -10,8 +10,6 @@ import UIKit
 import SnapKit
 
 final class ThemeTableViewCell: UITableViewCell {
-    static let identifier = "ThemeTableViewCell"
-
     private lazy var titleLabel = UILabel()
     private lazy var currentThemeLabel = UILabel()
     private lazy var button: UIButton = {

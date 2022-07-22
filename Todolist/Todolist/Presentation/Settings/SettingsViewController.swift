@@ -24,7 +24,7 @@ final class SettingsViewController: UIViewController {
         tableView.register(UITableViewCell.self,
                            forCellReuseIdentifier: Const.settingsTableViewCellID)
         tableView.register(ThemeTableViewCell.self,
-                           forCellReuseIdentifier: ThemeTableViewCell.identifier)
+                           forCellReuseIdentifier: Const.themeTableViewCellID)
                          
         return tableView
     }()
@@ -46,7 +46,7 @@ final class SettingsViewController: UIViewController {
                     return cell
                 case .Theme(title: let title, currentTheme: let currentTheme):
                     guard let cell = tableView.dequeueReusableCell(
-                        withIdentifier: ThemeTableViewCell.identifier,
+                        withIdentifier: Const.themeTableViewCellID,
                         for: indexPath
                     ) as? ThemeTableViewCell else { return UITableViewCell() }
 

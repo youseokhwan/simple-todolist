@@ -23,6 +23,7 @@ enum Const {
 
     // Settings
     static let settingsTableViewCellID = "SettingsTableViewCell"
+    static let themeTableViewCellID = "ThemeTableViewCell"
     static let settingsTitle = "settingsTitle".localized
     static let appSettingsSection = "appSettingsSection".localized
     static let themeSettings = "themeSettings".localized
