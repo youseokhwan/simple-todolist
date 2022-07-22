@@ -22,6 +22,6 @@
 
 // Settings - Theme
 "themeMenuTitle" = "Please select theme";
-"systemTheme" = "System Theme";
-"lightTheme" = "Light Theme";
-"darkTheme" = "Dark Theme";
+"systemTheme" = "Setting as system";
+"lightTheme" = "Light Mode";
+"darkTheme" = "Dark Mode";
