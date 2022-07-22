@@ -46,7 +46,8 @@ final class SettingsViewController: UIViewController {
                     return cell
                 case .Theme(title: let title, currentTheme: let currentTheme):
                     guard let cell = tableView.dequeueReusableCell(
-                        withIdentifier: ThemeTableViewCell.identifier, for: indexPath
+                        withIdentifier: ThemeTableViewCell.identifier,
+                        for: indexPath
                     ) as? ThemeTableViewCell else { return UITableViewCell() }
 
                     cell.update(title: title, currentTheme: currentTheme)
