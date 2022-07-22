@@ -65,12 +65,27 @@ final class SettingsViewController: UIViewController {
                     self?.overrideUserInterfaceStyle = UIUserInterfaceStyle(
                         rawValue: index
                     ) ?? .unspecified
+
+                    UserDefaults.standard.set(index,
+                                              forKey: "Appearance")
+
                     button.setTitle(value, for: .normal)
+                    button.sizeToFit()
                 }
         }
 
+        switch UserDefaults.standard.integer(forKey: "Appearance") {
+        case 0 :
+            button.setTitle(Const.systemTheme, for: .normal)
+        case 1:
+            button.setTitle(Const.lightTheme, for: .normal)
+        case 2:
+            button.setTitle(Const.darkTheme, for: .normal)
+        default:
+            button.setTitle(Const.systemTheme, for: .normal)
+        }
+
         button.setTitleColor(.systemBlue, for: .normal)
-        button.setTitle(Const.systemTheme, for: .normal)
         button.sizeToFit()
         button.menu = UIMenu(title: Const.themeMenuTitle,
                              options: .displayInline,

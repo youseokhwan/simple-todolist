@@ -11,6 +11,7 @@
 		019EE54F28742F9F00804889 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EE54E28742F9F00804889 /* Date+Extensions.swift */; };
 		019EE55B2879289600804889 /* RxDataSources.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 019EE55A2879289600804889 /* RxDataSources.xcframework */; };
 		019EE55C2879289600804889 /* RxDataSources.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 019EE55A2879289600804889 /* RxDataSources.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		01A1AD1E288ADBD400A6E9BC /* UIViewContoller+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1AD1D288ADBD400A6E9BC /* UIViewContoller+Extensions.swift */; };
 		01AF6D2428684AB5007CFD89 /* TasksViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AF6D2328684AB5007CFD89 /* TasksViewModelDelegate.swift */; };
 		01B4BE0328882884004CE987 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */; };
 		01BD5E662865910E00BC7C4D /* RxRelay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD5E622865910E00BC7C4D /* RxRelay.xcframework */; };
@@ -71,6 +72,7 @@
 		0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
 		019EE54E28742F9F00804889 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		019EE55A2879289600804889 /* RxDataSources.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxDataSources.xcframework; path = ../Carthage/Build/RxDataSources.xcframework; sourceTree = "<group>"; };
+		01A1AD1D288ADBD400A6E9BC /* UIViewContoller+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewContoller+Extensions.swift"; sourceTree = "<group>"; };
 		01AF6D2328684AB5007CFD89 /* TasksViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModelDelegate.swift; sourceTree = "<group>"; };
 		01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		01BD5E622865910E00BC7C4D /* RxRelay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxRelay.xcframework; path = ../Carthage/Build/RxRelay.xcframework; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				442646BD2887FA17004C22D8 /* String+Extensions.swift */,
 				019EE54E28742F9F00804889 /* Date+Extensions.swift */,
+				01A1AD1D288ADBD400A6E9BC /* UIViewContoller+Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				019EE54F28742F9F00804889 /* Date+Extensions.swift in Sources */,
 				44CDA2B72872F00C00E8F0F0 /* FormStackView.swift in Sources */,
 				442473C22865894A0059CFCC /* FormViewModel.swift in Sources */,
+				01A1AD1E288ADBD400A6E9BC /* UIViewContoller+Extensions.swift in Sources */,
 				01EF8628287BECDD005F037A /* SettingsSection.swift in Sources */,
 				44443146285EFB400004D468 /* SceneDelegate.swift in Sources */,
 				44CDA2E32876847A00E8F0F0 /* AddTaskUseCase.swift in Sources */,
