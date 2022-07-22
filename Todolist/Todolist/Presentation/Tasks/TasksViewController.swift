@@ -52,7 +52,7 @@ final class TasksViewController: UIViewController {
         super.viewWillAppear(animated)
         viewModel.fetchAllTasks()
 
-        checkAppearance(self)
+        checkAppearance()
     }
 }
 

@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIViewController {
-    func checkAppearance(_ viewContoller: UIViewController) {
+    func checkAppearance() {
         switch UserDefaultsRepository.currentAppearance() {
         case 0:
             overrideUserInterfaceStyle = .unspecified

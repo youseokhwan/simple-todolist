@@ -58,7 +58,7 @@ final class SettingsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        checkAppearance(self)
+        checkAppearance()
     }
 
     private func makeMenuButton() -> UIButton {

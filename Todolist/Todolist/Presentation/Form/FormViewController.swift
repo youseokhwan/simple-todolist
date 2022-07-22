@@ -44,7 +44,7 @@ final class FormViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        checkAppearance(self)
+        checkAppearance()
     }
 
     @objc
