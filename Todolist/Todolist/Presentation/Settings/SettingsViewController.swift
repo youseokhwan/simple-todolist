@@ -29,7 +29,12 @@ final class SettingsViewController: UIViewController {
     private lazy var dataSource: SectionDataSource = {
         let dataSource = SectionDataSource(
             configureCell: { dataSource, tableView, indexPath, item in
+                guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: Const.settingsTableViewCellID,
+                    for: indexPath
+                ) as? SettingsTableViewCell else { return UITableViewCell() }
 
+                return cell
             }
         )
 
