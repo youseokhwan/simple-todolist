@@ -15,4 +15,12 @@ enum UserDefaultsRepository {
 
         return "\(nextID)"
     }
+
+    static func saveAppearance(value: Int) {
+        UserDefaults.standard.set(value, forKey: Const.userDefaultsAppearance)
+    }
+
+    static func currentAppearance() -> Int {
+        return UserDefaults.standard.integer(forKey: Const.userDefaultsAppearance)
+    }
 }
