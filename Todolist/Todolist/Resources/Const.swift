@@ -33,7 +33,6 @@ enum Const {
     static let contactUs = "contactUs".localized
 
     // Settings - Theme
-    static let themeTableViewCellID = "ThemeTableViewCell"
     static let themeMenuTitle = "themeMenuTitle".localized
     static let systemTheme = "systemTheme".localized
     static let lightTheme = "lightTheme".localized
