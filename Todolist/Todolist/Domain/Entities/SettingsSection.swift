@@ -11,11 +11,11 @@ import RxDataSources
 
 struct SettingsSection {
     var title: String
-    var items: [SectionItem]
+    var items: [String]
 }
 
 extension SettingsSection: SectionModelType {
-    init(original: SettingsSection, items: [SectionItem]) {
+    init(original: SettingsSection, items: [String]) {
         self = original
         self.items = items
     }
