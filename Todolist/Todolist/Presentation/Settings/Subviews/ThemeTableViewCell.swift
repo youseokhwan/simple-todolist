@@ -14,17 +14,17 @@ final class ThemeTableViewCell: UITableViewCell {
     private lazy var currentThemeLabel = UILabel()
     private lazy var button: UIButton = {
         let button = UIButton()
-        let systemMode = UIAction(title: "시스템") { action in
+        let systemMode = UIAction(title: Const.systemTheme) { action in
             print("system")
         }
-        let lightMode = UIAction(title: "라이트") { action in
+        let lightMode = UIAction(title: Const.lightTheme) { action in
             print("light")
         }
-        let darkMode = UIAction(title: "다크") { action in
+        let darkMode = UIAction(title: Const.darkTheme) { action in
             print("dark")
         }
 
-        button.menu = UIMenu(title: "",
+        button.menu = UIMenu(title: Const.themeMenuTitle,
                              options: .displayInline,
                              children: [systemMode, lightMode, darkMode])
         button.showsMenuAsPrimaryAction = true

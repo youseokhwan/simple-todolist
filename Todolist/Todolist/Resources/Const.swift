@@ -23,7 +23,6 @@ enum Const {
 
     // Settings
     static let settingsTableViewCellID = "SettingsTableViewCell"
-    static let themeTableViewCellID = "ThemeTableViewCell"
     static let settingsTitle = "settingsTitle".localized
     static let appSettingsSection = "appSettingsSection".localized
     static let themeSettings = "themeSettings".localized
@@ -32,6 +31,13 @@ enum Const {
     static let versionInfomation = "versionInfomation".localized
     static let patchDetails = "patchDetails".localized
     static let contactUs = "contactUs".localized
+
+    // Settings - Theme
+    static let themeTableViewCellID = "ThemeTableViewCell"
+    static let themeMenuTitle = "themeMenuTitle".localized
+    static let systemTheme = "systemTheme".localized
+    static let lightTheme = "lightTheme".localized
+    static let darkTheme = "darkTheme".localized
 
     // Repositories
     static let nextTaskID = "nextTaskID"
