@@ -67,14 +67,14 @@ final class SettingsViewController: UIViewController {
                     ) ?? .unspecified
 
                     UserDefaults.standard.set(index,
-                                              forKey: "Appearance")
+                                              forKey: Const.userDefaultsAppearance)
 
                     button.setTitle(value, for: .normal)
                     button.sizeToFit()
                 }
         }
 
-        switch UserDefaults.standard.integer(forKey: "Appearance") {
+        switch UserDefaults.standard.integer(forKey: Const.userDefaultsAppearance) {
         case 0 :
             button.setTitle(Const.systemTheme, for: .normal)
         case 1:

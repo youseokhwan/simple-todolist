@@ -52,4 +52,7 @@ enum Const {
     // Utils
     static let localizable = "Localizable"
     static let yyyyMMdd = "yyyy.MM.dd"
+
+    // UserDefaults Key
+    static let userDefaultsAppearance = "Appearance"
 }

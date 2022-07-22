@@ -9,7 +9,7 @@ import UIKit
 
 extension UIViewController {
     func checkAppearance(_ viewContoller: UIViewController) {
-        switch UserDefaults.standard.integer(forKey: "Appearance") {
+        switch UserDefaults.standard.integer(forKey: Const.userDefaultsAppearance) {
         case 0:
             overrideUserInterfaceStyle = .unspecified
         case 1:
