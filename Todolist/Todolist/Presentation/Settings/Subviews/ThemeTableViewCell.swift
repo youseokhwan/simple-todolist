@@ -25,12 +25,9 @@ final class ThemeTableViewCell: UITableViewCell {
         let darkMode = UIAction(title: "다크") { action in
             print("dark")
         }
-        let cancel = UIAction(title: "취소",attributes: .destructive) { _ in
-            print("cancel")
-        }
 
         button.menu = UIMenu(
-            title: "", options: .displayInline, children: [systemMode, lightMode, darkMode, cancel]
+            title: "", options: .displayInline, children: [systemMode, lightMode, darkMode]
         )
         button.showsMenuAsPrimaryAction = true
 
