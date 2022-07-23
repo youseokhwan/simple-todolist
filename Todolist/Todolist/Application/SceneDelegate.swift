@@ -22,5 +22,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         window?.rootViewController = navigationContoller
         window?.makeKeyAndVisible()
+        window?.overrideUserInterfaceStyle = UIUserInterfaceStyle(
+            rawValue: UserDefaultsRepository.currentAppearance()
+        ) ?? .unspecified
     }
 }
