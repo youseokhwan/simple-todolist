@@ -19,8 +19,6 @@
 "versionInfomation" = "Version";
 "patchDetails" = "Patch Details";
 "contactUs" = "Contact Us";
-
-// Settings - Theme
 "themeMenuTitle" = "Please select theme";
 "systemTheme" = "Setting as system";
 "lightTheme" = "Light Mode";
