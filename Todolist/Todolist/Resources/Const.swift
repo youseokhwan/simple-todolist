@@ -38,7 +38,7 @@ enum Const {
 
     // Repositories
     static let nextTaskID = "nextTaskID"
-    static let userDefaultsAppearance = "Appearance"
+    static let appearance = "Appearance"
 
     // Storages
     static let model = "Model"
