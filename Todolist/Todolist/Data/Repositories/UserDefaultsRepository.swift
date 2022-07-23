@@ -17,10 +17,10 @@ enum UserDefaultsRepository {
     }
 
     static func saveAppearance(value: Int) {
-        UserDefaults.standard.set(value, forKey: Const.userDefaultsAppearance)
+        UserDefaults.standard.set(value, forKey: Const.appearance)
     }
 
     static func currentAppearance() -> Int {
-        return UserDefaults.standard.integer(forKey: Const.userDefaultsAppearance)
+        return UserDefaults.standard.integer(forKey: Const.appearance)
     }
 }
