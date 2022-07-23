@@ -78,7 +78,7 @@ final class SettingsViewController: UIViewController {
                 }
         }
 
-        [Const.systemTheme, Const.lightTheme, Const.darkTheme]
+        let _ = [Const.systemTheme, Const.lightTheme, Const.darkTheme]
             .enumerated()
             .filter { index, value in
                 index == UserDefaultsRepository.currentAppearance()

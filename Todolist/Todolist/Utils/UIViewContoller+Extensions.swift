@@ -9,7 +9,9 @@ import UIKit
 
 extension UIViewController {
     func checkAppearance() {
-        [UIUserInterfaceStyle.unspecified, UIUserInterfaceStyle.light, UIUserInterfaceStyle.dark]
+        let _ = [UIUserInterfaceStyle.unspecified,
+                 UIUserInterfaceStyle.light,
+                 UIUserInterfaceStyle.dark]
             .enumerated()
             .filter { index, value in
                 index == UserDefaultsRepository.currentAppearance()
