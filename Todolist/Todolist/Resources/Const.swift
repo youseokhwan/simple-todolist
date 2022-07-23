@@ -40,6 +40,7 @@ enum Const {
 
     // Repositories
     static let nextTaskID = "nextTaskID"
+    static let userDefaultsAppearance = "Appearance"
 
     // Storages
     static let model = "Model"
@@ -52,7 +53,4 @@ enum Const {
     // Utils
     static let localizable = "Localizable"
     static let yyyyMMdd = "yyyy.MM.dd"
-
-    // UserDefaults Key
-    static let userDefaultsAppearance = "Appearance"
 }
