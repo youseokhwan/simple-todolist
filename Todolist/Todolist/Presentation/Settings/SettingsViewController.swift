@@ -78,12 +78,12 @@ final class SettingsViewController: UIViewController {
                 }
         }
 
-        let _ = [Const.systemTheme, Const.lightTheme, Const.darkTheme]
+        [Const.systemTheme, Const.lightTheme, Const.darkTheme]
             .enumerated()
             .filter { index, value in
                 index == UserDefaultsRepository.currentAppearance()
             }
-            .map { index, value in
+            .forEach { index, value in
                 button.setTitle(value, for: .normal)
             }
 
