@@ -9,15 +9,13 @@ import UIKit
 
 extension UIViewController {
     func checkAppearance() {
-        switch UserDefaultsRepository.currentAppearance() {
-        case 0:
-            overrideUserInterfaceStyle = .unspecified
-        case 1:
-            overrideUserInterfaceStyle = .light
-        case 2:
-            overrideUserInterfaceStyle = .dark
-        default:
-            overrideUserInterfaceStyle = .unspecified
-        }
+        [UIUserInterfaceStyle.unspecified, UIUserInterfaceStyle.light, UIUserInterfaceStyle.dark]
+            .enumerated()
+            .filter { index, value in
+                index == UserDefaultsRepository.currentAppearance()
+            }
+            .map { index, value in
+                overrideUserInterfaceStyle = value
+            }
     }
 }

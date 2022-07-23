@@ -78,16 +78,14 @@ final class SettingsViewController: UIViewController {
                 }
         }
 
-        switch UserDefaultsRepository.currentAppearance() {
-        case 0 :
-            button.setTitle(Const.systemTheme, for: .normal)
-        case 1:
-            button.setTitle(Const.lightTheme, for: .normal)
-        case 2:
-            button.setTitle(Const.darkTheme, for: .normal)
-        default:
-            button.setTitle(Const.systemTheme, for: .normal)
-        }
+        [Const.systemTheme, Const.lightTheme, Const.darkTheme]
+            .enumerated()
+            .filter { index, value in
+                index == UserDefaultsRepository.currentAppearance()
+            }
+            .map { index, value in
+                button.setTitle(value, for: .normal)
+            }
 
         button.setTitleColor(.systemBlue, for: .normal)
         button.sizeToFit()
