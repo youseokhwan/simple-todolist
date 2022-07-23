@@ -35,7 +35,7 @@ final class SettingsViewController: UIViewController {
                 ) as? SettingsTableViewCell else { return UITableViewCell() }
 
                 if item == Const.themeSettings {
-                    cell.accessoryView = self?.makeMenuButton()
+                    cell.accessoryView = ThemeButton()
                 }
 
                 cell.update(title: item)
@@ -54,42 +54,6 @@ final class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-    }
-
-    private func makeMenuButton() -> UIButton {
-        let button = UIButton()
-        let children = [Const.systemTheme, Const.lightTheme, Const.darkTheme]
-            .enumerated()
-            .map { index, value in
-                return UIAction(title: value) { [weak self] action in
-                    self?.overrideUserInterfaceStyle = UIUserInterfaceStyle(
-                        rawValue: index
-                    ) ?? .unspecified
-
-                    UserDefaultsRepository.saveAppearance(value: index)
-
-                    button.setTitle(value, for: .normal)
-                    button.sizeToFit()
-                }
-        }
-
-        [Const.systemTheme, Const.lightTheme, Const.darkTheme]
-            .enumerated()
-            .filter { index, value in
-                index == UserDefaultsRepository.currentAppearance()
-            }
-            .forEach { index, value in
-                button.setTitle(value, for: .normal)
-            }
-
-        button.setTitleColor(.systemBlue, for: .normal)
-        button.sizeToFit()
-        button.menu = UIMenu(title: Const.themeMenuTitle,
-                             options: .displayInline,
-                             children: children)
-        button.showsMenuAsPrimaryAction = true
-
-        return button
     }
 }
 
