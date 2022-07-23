@@ -25,35 +25,27 @@ private extension ThemeButton {
     }
 
     func configureViews() {
-        let children = [Const.systemTheme, Const.lightTheme, Const.darkTheme]
-            .enumerated()
-            .map { index, value in
-                return UIAction(title: value) { [weak self] action in
-                    self?.superview?.window?.overrideUserInterfaceStyle = UIUserInterfaceStyle(
-                        rawValue: index
-                    ) ?? .unspecified
+        let interfaceStyleValue = UserDefaultsRepository.currentAppearance()
+        let themes = [Const.systemTheme, Const.lightTheme, Const.darkTheme]
+        let children = themes.enumerated().map { index, value in
+            return UIAction(title: value) { [weak self] action in
+                self?.superview?.window?.overrideUserInterfaceStyle = UIUserInterfaceStyle(
+                    rawValue: index
+                ) ?? .unspecified
 
-                    UserDefaultsRepository.saveAppearance(value: index)
+                UserDefaultsRepository.saveAppearance(value: index)
 
-                    self?.setTitle(value, for: .normal)
-                    self?.sizeToFit()
-                }
+                self?.setTitle(value, for: .normal)
+                self?.sizeToFit()
             }
-
-        [Const.systemTheme, Const.lightTheme, Const.darkTheme]
-            .enumerated()
-            .filter { index, value in
-                index == UserDefaultsRepository.currentAppearance()
-            }
-            .forEach { index, value in
-                setTitle(value, for: .normal)
-            }
+        }
 
         menu = UIMenu(title: Const.themeMenuTitle,
                              options: .displayInline,
                              children: children)
         showsMenuAsPrimaryAction = true
 
+        setTitle(themes[interfaceStyleValue], for: .normal)
         setTitleColor(.systemBlue, for: .normal)
         sizeToFit()
     }
