@@ -23,7 +23,7 @@ final class FormViewModel {
         isDaily = BehaviorRelay(value: false)
     }
 
-    func addTask() {
+    func saveTask() {
         guard !context.value.isEmpty else { return }
 
         addTaskUseCase.createTask(context: context.value, isDaily: isDaily.value)

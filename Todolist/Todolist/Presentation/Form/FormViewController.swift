@@ -15,10 +15,10 @@ final class FormViewController: UIViewController {
     private let viewModel = FormViewModel()
     private let disposeBag = DisposeBag()
 
-    private lazy var addButton: UIButton = {
+    private lazy var saveButton: UIButton = {
         let button = UIButton()
         let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
-        let image = UIImage(systemName: Const.addButtonImage,
+        let image = UIImage(systemName: Const.saveButtonImage,
                             withConfiguration: buttonImageConfiguration)
 
         button.setImage(image, for: .normal)
@@ -65,17 +65,15 @@ private extension FormViewController {
     func configureViews() {
         view.backgroundColor = .systemBackground
 
-        let addBarButton = UIBarButtonItem(customView: addButton)
-
-        navigationItem.rightBarButtonItem = addBarButton
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveButton)
 
         view.addSubview(scrollView)
     }
 
     func configureBind() {
-        addButton.rx.tap
+        saveButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.viewModel.addTask()
+                self?.viewModel.saveTask()
                 self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
