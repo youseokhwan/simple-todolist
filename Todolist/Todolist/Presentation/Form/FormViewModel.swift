@@ -17,6 +17,7 @@ final class FormViewModel {
     let taskID: BehaviorRelay<String>
     let context: BehaviorRelay<String>
     let isDaily: BehaviorRelay<Bool>
+    let isChecked: BehaviorRelay<Bool>
 
     init() {
         addTaskUseCase = AddTaskUseCase()
@@ -25,6 +26,7 @@ final class FormViewModel {
         taskID = BehaviorRelay(value: "")
         context = BehaviorRelay(value: "")
         isDaily = BehaviorRelay(value: false)
+        isChecked = BehaviorRelay(value: false)
     }
 
     func saveTask() {
@@ -36,7 +38,7 @@ final class FormViewModel {
             let task = Task(id: taskID.value,
                             context: context.value,
                             isDaily: isDaily.value,
-                            isChecked: false)
+                            isChecked: isChecked.value)
 
             updateTaskUseCase.update(task: task)
         }
