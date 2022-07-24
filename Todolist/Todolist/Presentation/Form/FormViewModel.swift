@@ -13,12 +13,14 @@ import RxSwift
 final class FormViewModel {
     let addTaskUseCase: AddTaskUseCase
 
+    let taskID: BehaviorRelay<String>
     let context: BehaviorRelay<String>
     let isDaily: BehaviorRelay<Bool>
 
     init() {
         addTaskUseCase = AddTaskUseCase()
 
+        taskID = BehaviorRelay(value: "")
         context = BehaviorRelay(value: "")
         isDaily = BehaviorRelay(value: false)
     }

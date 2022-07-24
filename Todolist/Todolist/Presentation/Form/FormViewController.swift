@@ -40,6 +40,7 @@ final class FormViewController: UIViewController {
     convenience init(task: Task) {
         self.init(nibName: nil, bundle: nil)
 
+        viewModel.taskID.accept(task.id)
         stackView.textFieldRx.text.onNext(task.context)
         stackView.switchRx.isOn.onNext(task.isDaily)
     }
