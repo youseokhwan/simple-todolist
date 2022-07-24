@@ -12,6 +12,7 @@ import RxSwift
 
 final class FormViewModel {
     let addTaskUseCase: AddTaskUseCase
+    let updateTaskUseCase: UpdateTaskUseCase
 
     let taskID: BehaviorRelay<String>
     let context: BehaviorRelay<String>
@@ -19,6 +20,7 @@ final class FormViewModel {
 
     init() {
         addTaskUseCase = AddTaskUseCase()
+        updateTaskUseCase = UpdateTaskUseCase()
 
         taskID = BehaviorRelay(value: "")
         context = BehaviorRelay(value: "")
@@ -28,6 +30,15 @@ final class FormViewModel {
     func saveTask() {
         guard !context.value.isEmpty else { return }
 
-        addTaskUseCase.createTask(context: context.value, isDaily: isDaily.value)
+        if taskID.value.isEmpty {
+            addTaskUseCase.createTask(context: context.value, isDaily: isDaily.value)
+        } else {
+            let task = Task(id: taskID.value,
+                            context: context.value,
+                            isDaily: isDaily.value,
+                            isChecked: false)
+
+            updateTaskUseCase.update(task: task)
+        }
     }
 }
