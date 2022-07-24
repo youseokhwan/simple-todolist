@@ -45,7 +45,7 @@ private extension ThemeButton {
                              children: children)
         showsMenuAsPrimaryAction = true
 
-        setTitle(themes[interfaceStyleValue], for: .normal)
+        setTitle(themes[currentAppearance], for: .normal)
         setTitleColor(.systemBlue, for: .normal)
         sizeToFit()
     }
