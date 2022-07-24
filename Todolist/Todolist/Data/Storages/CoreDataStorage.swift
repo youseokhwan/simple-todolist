@@ -77,9 +77,10 @@ final class CoreDataStorage {
     }
 
     @discardableResult
-    func updateTask(by id: String, newContext: String) -> Bool {
-        if let cdTask = fetchTask(by: id) {
-            cdTask.setValue(newContext, forKey: Const.context)
+    func update(task: Task) -> Bool {
+        if let cdTask = fetchTask(by: task.id) {
+            cdTask.setValue(task.context, forKey: Const.context)
+            cdTask.setValue(task.isDaily, forKey: Const.isDaily)
 
             do {
                 try viewContext.save()
