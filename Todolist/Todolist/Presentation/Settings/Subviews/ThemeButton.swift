@@ -25,7 +25,7 @@ private extension ThemeButton {
     }
 
     func configureViews() {
-        let interfaceStyleValue = UserDefaultsRepository.currentAppearance()
+        let currentAppearance = UserDefaultsRepository.currentAppearance()
         let themes = [Const.systemTheme, Const.lightTheme, Const.darkTheme]
         let children = themes.enumerated().map { index, value in
             return UIAction(title: value) { [weak self] action in
