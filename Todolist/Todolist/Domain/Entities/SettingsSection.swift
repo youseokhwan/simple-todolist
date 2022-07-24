@@ -15,10 +15,6 @@ struct SettingsSection {
 }
 
 extension SettingsSection: SectionModelType {
-    var identity: String {
-        return title
-    }
-    
     init(original: SettingsSection, items: [String]) {
         self = original
         self.items = items

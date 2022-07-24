@@ -31,9 +31,14 @@ enum Const {
     static let versionInfomation = "versionInfomation".localized
     static let patchDetails = "patchDetails".localized
     static let contactUs = "contactUs".localized
+    static let themeMenuTitle = "themeMenuTitle".localized
+    static let systemTheme = "systemTheme".localized
+    static let lightTheme = "lightTheme".localized
+    static let darkTheme = "darkTheme".localized
 
     // Repositories
     static let nextTaskID = "nextTaskID"
+    static let appearance = "Appearance"
 
     // Storages
     static let model = "Model"

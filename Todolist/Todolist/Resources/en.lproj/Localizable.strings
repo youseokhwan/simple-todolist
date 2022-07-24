@@ -19,3 +19,7 @@
 "versionInfomation" = "Version";
 "patchDetails" = "Patch Details";
 "contactUs" = "Contact Us";
+"themeMenuTitle" = "Please select theme";
+"systemTheme" = "Setting as system";
+"lightTheme" = "Light appearance";
+"darkTheme" = "Dark appearance";

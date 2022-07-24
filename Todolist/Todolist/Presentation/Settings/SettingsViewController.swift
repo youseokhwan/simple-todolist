@@ -21,23 +21,24 @@ final class SettingsViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
 
-        tableView.register(UITableViewCell.self,
+        tableView.register(SettingsTableViewCell.self,
                            forCellReuseIdentifier: Const.settingsTableViewCellID)
-
+                         
         return tableView
     }()
     private lazy var dataSource: SectionDataSource = {
         let dataSource = SectionDataSource(
-            configureCell: { dataSource, tableView, indexPath, item in
-                let cell = tableView.dequeueReusableCell(
+            configureCell: { [weak self] dataSource, tableView, indexPath, item in
+                guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: Const.settingsTableViewCellID,
                     for: indexPath
-                )
-                var content = cell.defaultContentConfiguration()
+                ) as? SettingsTableViewCell else { return UITableViewCell() }
 
-                content.text = item
-                cell.contentConfiguration = content
-                cell.accessoryType = .disclosureIndicator
+                if item == Const.themeSettings {
+                    cell.accessoryView = ThemeButton()
+                }
+
+                cell.update(title: item)
 
                 return cell
             }
