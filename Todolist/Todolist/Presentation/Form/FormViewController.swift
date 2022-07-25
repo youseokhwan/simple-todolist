@@ -51,6 +51,14 @@ final class FormViewController: UIViewController {
         configure()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if viewModel.taskID.value.isEmpty {
+            stackView.showKeyboard()
+        }
+    }
+
     @objc
     private func tappedOutsideOfKeyboard(_ sender: UITapGestureRecognizer) {
         view.endEditing(false)
