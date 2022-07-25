@@ -41,4 +41,12 @@ final class TaskRepository {
             print("failure")
         }
     }
+
+    func delete(task: Task) {
+        if storage.delete(task: task) {
+            print("success")
+        } else {
+            print("failure")
+        }
+    }
 }
