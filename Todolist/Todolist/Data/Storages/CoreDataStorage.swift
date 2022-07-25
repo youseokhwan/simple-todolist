@@ -99,8 +99,8 @@ final class CoreDataStorage {
     }
 
     @discardableResult
-    func deleteTask(by id: String) -> Bool {
-        if let cdTask = fetchTask(by: id) {
+    func delete(task: Task) -> Bool {
+        if let cdTask = fetchTask(by: task.id) {
             viewContext.delete(cdTask)
 
             do {
