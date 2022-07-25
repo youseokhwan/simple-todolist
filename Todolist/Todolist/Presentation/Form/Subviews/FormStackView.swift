@@ -39,6 +39,10 @@ final class FormStackView: UIStackView {
         configure()
     }
 
+    func showKeyboard() {
+        contextTextField.becomeFirstResponder()
+    }
+
     func updateToValidRangeText() {
         guard let text = contextTextField.text,
               text.count > Const.contextTextFieldMaxCount else { return }
