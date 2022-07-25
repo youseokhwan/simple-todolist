@@ -16,7 +16,7 @@ enum Const {
     static let checkButtonSelectedImage = "checkmark.circle.fill"
 
     // Form
-    static let addButtonImage = "checkmark"
+    static let saveButtonImage = "checkmark"
     static let contextTextFieldMaxCount = 20
     static let contextTextFieldPlaceholder = "contextTextFieldPlaceholder".localized
     static let dailyLabelText = "dailyLabelText".localized
