@@ -11,8 +11,8 @@ import RxRelay
 import RxSwift
 
 final class FormViewModel {
-    let addTaskUseCase: AddTaskUseCase
-    let updateTaskUseCase: UpdateTaskUseCase
+    private let addTaskUseCase: AddTaskUseCase
+    private let updateTaskUseCase: UpdateTaskUseCase
 
     let taskID: BehaviorRelay<String>
     let context: BehaviorRelay<String>
