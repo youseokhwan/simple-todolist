@@ -102,7 +102,7 @@ private extension TasksViewController {
 
         tableView.rx.itemSelected
             .map { [weak self] indexPath in
-                return self?.viewModel.allTasks.value[indexPath.row]
+                self?.viewModel.allTasks.value[indexPath.row]
             }
             .subscribe(onNext: { [weak self] task in
                 if let task = task {
