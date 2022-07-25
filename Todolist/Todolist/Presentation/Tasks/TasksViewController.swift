@@ -102,7 +102,7 @@ private extension TasksViewController {
 
         tableView.rx.itemSelected
             .map { [weak self] indexPath in
-                return self?.viewModel.allTasks.value[indexPath.row]
+                self?.viewModel.allTasks.value[indexPath.row]
             }
             .subscribe(onNext: { [weak self] task in
                 if let task = task {
@@ -114,9 +114,9 @@ private extension TasksViewController {
             .disposed(by: disposeBag)
 
         tableView.rx.itemDeleted
-            .subscribe { [weak self] indexPath in
+            .subscribe(onNext: { [weak self] indexPath in
                 self?.viewModel.deleteTask(of: indexPath.row)
-            }
+            })
             .disposed(by: disposeBag)
     }
 
