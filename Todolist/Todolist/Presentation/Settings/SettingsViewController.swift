@@ -68,7 +68,7 @@ final class SettingsViewController: UIViewController {
         let themes = [Const.systemTheme, Const.lightTheme, Const.darkTheme]
         let actions = themes.enumerated().map { index, value in
             return UIAlertAction(title: value, style: .default) { [weak self] action in
-                self?.view.superview?.window?.overrideUserInterfaceStyle = UIUserInterfaceStyle(
+                self?.view.window?.overrideUserInterfaceStyle = UIUserInterfaceStyle(
                     rawValue: index
                 ) ?? .unspecified
 
