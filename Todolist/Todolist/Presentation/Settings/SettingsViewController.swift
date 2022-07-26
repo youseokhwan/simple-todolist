@@ -60,6 +60,31 @@ final class SettingsViewController: UIViewController {
         super.viewDidLoad()
         configure()
     }
+
+    private func showActionSheet() {
+        let alertController = UIAlertController(title: Const.themeMenuTitle,
+                                                message: nil,
+                                                preferredStyle: .actionSheet)
+        let themes = [Const.systemTheme, Const.lightTheme, Const.darkTheme]
+        let actions = themes.enumerated().map { index, value in
+            return UIAlertAction(title: value, style: .default) { [weak self] action in
+                self?.view.superview?.window?.overrideUserInterfaceStyle = UIUserInterfaceStyle(
+                    rawValue: index
+                ) ?? .unspecified
+
+                UserDefaultsRepository.saveAppearance(value: index)
+
+                self?.themeActionSheetButton.setTitle(value, for: .normal)
+                self?.themeActionSheetButton.sizeToFit()
+            }
+        }
+
+        actions.forEach {
+            alertController.addAction($0)
+        }
+
+        present(alertController, animated: true)
+    }
 }
 
 private extension SettingsViewController {
@@ -84,28 +109,8 @@ private extension SettingsViewController {
             .disposed(by: disposeBag)
 
         themeActionSheetButton.rx.tap
-            .subscribe(onNext: {
-                let alertController = UIAlertController(title: Const.themeMenuTitle,
-                                                        message: nil,
-                                                        preferredStyle: .actionSheet)
-                let themes = [Const.systemTheme, Const.lightTheme, Const.darkTheme]
-                let actions = themes.enumerated().map { index, value in
-                    return UIAlertAction(title: value, style: .default) { [weak self] action in
-                        self?.view.superview?.window?.overrideUserInterfaceStyle =
-                        UIUserInterfaceStyle(rawValue: index) ?? .unspecified
-
-                        UserDefaultsRepository.saveAppearance(value: index)
-
-                        self?.themeActionSheetButton.setTitle(value, for: .normal)
-                        self?.themeActionSheetButton.sizeToFit()
-                    }
-                }
-
-                actions.forEach {
-                    alertController.addAction($0)
-                }
-
-                self.present(alertController, animated: true)
+            .subscribe(onNext: { [weak self] in
+                self?.showActionSheet()
             })
             .disposed(by: disposeBag)
     }
