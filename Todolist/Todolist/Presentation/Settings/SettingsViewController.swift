@@ -18,6 +18,7 @@ final class SettingsViewController: UIViewController {
     private let viewModel = SettingsViewModel()
     private let disposeBag = DisposeBag()
 
+    private lazy var themeActionSheetButton = ThemeActionSheetButton()
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
 
@@ -38,7 +39,7 @@ final class SettingsViewController: UIViewController {
                     if #available(iOS 14.0, *) {
                         cell.accessoryView = ThemeMenuButton()
                     } else {
-                        cell.accessoryView = ThemeActionSheetButton()
+                        cell.accessoryView = self?.themeActionSheetButton
                     }
                 }
 
@@ -80,6 +81,32 @@ private extension SettingsViewController {
     func configureBind() {
         Observable.just(viewModel.items)
             .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+
+        themeActionSheetButton.rx.tap
+            .subscribe(onNext: {
+                let alertController = UIAlertController(title: Const.themeMenuTitle,
+                                                        message: nil,
+                                                        preferredStyle: .actionSheet)
+                let themes = [Const.systemTheme, Const.lightTheme, Const.darkTheme]
+                let actions = themes.enumerated().map { index, value in
+                    return UIAlertAction(title: value, style: .default) { [weak self] action in
+                        self?.view.superview?.window?.overrideUserInterfaceStyle =
+                        UIUserInterfaceStyle(rawValue: index) ?? .unspecified
+
+                        UserDefaultsRepository.saveAppearance(value: index)
+
+                        self?.themeActionSheetButton.setTitle(value, for: .normal)
+                        self?.themeActionSheetButton.sizeToFit()
+                    }
+                }
+
+                actions.forEach {
+                    alertController.addAction($0)
+                }
+
+                self.present(alertController, animated: true)
+            })
             .disposed(by: disposeBag)
     }
 
