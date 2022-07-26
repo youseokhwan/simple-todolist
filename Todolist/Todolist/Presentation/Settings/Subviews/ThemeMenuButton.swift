@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ThemeButton: UIButton {
+final class ThemeMenuButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -19,7 +19,7 @@ final class ThemeButton: UIButton {
     }
 }
 
-private extension ThemeButton {
+private extension ThemeMenuButton {
     func configure() {
         configureViews()
     }
