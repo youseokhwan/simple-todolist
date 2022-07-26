@@ -7,6 +7,7 @@
 
 import UIKit
 
+@available(iOS 14.0, *)
 final class ThemeMenuButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,6 +20,7 @@ final class ThemeMenuButton: UIButton {
     }
 }
 
+@available(iOS 14.0, *)
 private extension ThemeMenuButton {
     func configure() {
         configureViews()

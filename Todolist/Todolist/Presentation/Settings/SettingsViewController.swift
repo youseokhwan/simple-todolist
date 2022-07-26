@@ -35,7 +35,11 @@ final class SettingsViewController: UIViewController {
                 ) as? SettingsTableViewCell else { return UITableViewCell() }
 
                 if item == Const.themeSettings {
-                    cell.accessoryView = ThemeMenuButton()
+                    if #available(iOS 14.0, *) {
+                        cell.accessoryView = ThemeMenuButton()
+                    } else {
+                        cell.accessoryView = ThemeActionSheetButton()
+                    }
                 }
 
                 cell.update(title: item)
