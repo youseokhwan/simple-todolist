@@ -15,6 +15,7 @@ class ThemeActionSheetButton: UIButton {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        configure()
     }
 }
 
@@ -24,6 +25,11 @@ private extension ThemeActionSheetButton {
     }
 
     func configureViews() {
+        let currentAppearance = UserDefaultsRepository.currentAppearance()
+        let themes = [Const.systemTheme, Const.lightTheme, Const.darkTheme]
 
+        setTitle(themes[currentAppearance], for: .normal)
+        setTitleColor(.systemBlue, for: .normal)
+        sizeToFit()
     }
 }
