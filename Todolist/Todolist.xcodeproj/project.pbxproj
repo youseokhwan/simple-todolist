@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		012D2C27288C33270063BB1E /* ThemeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D2C26288C33270063BB1E /* ThemeButton.swift */; };
+		012D2C4B288FA83C0063BB1E /* ThemeActionSheetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D2C4A288FA83C0063BB1E /* ThemeActionSheetButton.swift */; };
 		0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */; };
 		019EE54F28742F9F00804889 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EE54E28742F9F00804889 /* Date+Extensions.swift */; };
 		019EE55B2879289600804889 /* RxDataSources.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 019EE55A2879289600804889 /* RxDataSources.xcframework */; };
@@ -72,6 +73,7 @@
 
 /* Begin PBXFileReference section */
 		012D2C26288C33270063BB1E /* ThemeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeButton.swift; sourceTree = "<group>"; };
+		012D2C4A288FA83C0063BB1E /* ThemeActionSheetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeActionSheetButton.swift; sourceTree = "<group>"; };
 		0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
 		019EE54E28742F9F00804889 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		019EE55A2879289600804889 /* RxDataSources.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxDataSources.xcframework; path = ../Carthage/Build/RxDataSources.xcframework; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			children = (
 				01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */,
 				012D2C26288C33270063BB1E /* ThemeButton.swift */,
+				012D2C4A288FA83C0063BB1E /* ThemeActionSheetButton.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				01AF6D2428684AB5007CFD89 /* TasksViewModelDelegate.swift in Sources */,
 				44443144285EFB400004D468 /* AppDelegate.swift in Sources */,
 				0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */,
+				012D2C4B288FA83C0063BB1E /* ThemeActionSheetButton.swift in Sources */,
 				442473D12869B8290059CFCC /* TaskRepository.swift in Sources */,
 				442646BE2887FA17004C22D8 /* String+Extensions.swift in Sources */,
 				019EE54F28742F9F00804889 /* Date+Extensions.swift in Sources */,
