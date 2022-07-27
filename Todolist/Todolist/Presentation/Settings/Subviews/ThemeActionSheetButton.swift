@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ThemeActionSheetButton: UIButton {
+final class ThemeActionSheetButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
