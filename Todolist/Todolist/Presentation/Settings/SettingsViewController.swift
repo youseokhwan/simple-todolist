@@ -66,7 +66,8 @@ final class SettingsViewController: UIViewController {
                                                 message: nil,
                                                 preferredStyle: .actionSheet)
         let themes = [Const.systemTheme, Const.lightTheme, Const.darkTheme]
-        let actions = themes.enumerated().map { index, value in
+
+        var actions = themes.enumerated().map { index, value in
             return UIAlertAction(title: value, style: .default) { [weak self] action in
                 self?.view.window?.overrideUserInterfaceStyle = UIUserInterfaceStyle(
                     rawValue: index
@@ -79,6 +80,7 @@ final class SettingsViewController: UIViewController {
             }
         }
 
+        actions.append(UIAlertAction(title: Const.cancel, style: .cancel))
         actions.forEach {
             alertController.addAction($0)
         }
