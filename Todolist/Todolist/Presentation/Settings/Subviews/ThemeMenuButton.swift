@@ -11,10 +11,14 @@ final class ThemeMenuButton: UIButton {
     var themes: [String] {
         [Const.systemTheme, Const.lightTheme, Const.darkTheme]
     }
-    
-    convenience init(handler: @escaping (Int) -> Void) {
+
+    convenience init() {
         self.init(frame: CGRect.zero)
         configure()
+    }
+
+    convenience init(handler: @escaping (Int) -> Void) {
+        self.init()
         configure(handler: handler)
     }
 }
