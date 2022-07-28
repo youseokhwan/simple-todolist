@@ -35,6 +35,7 @@ enum Const {
     static let systemTheme = "systemTheme".localized
     static let lightTheme = "lightTheme".localized
     static let darkTheme = "darkTheme".localized
+    static let cancel = "cancel".localized
 
     // Repositories
     static let nextTaskID = "nextTaskID"

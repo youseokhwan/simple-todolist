@@ -18,6 +18,7 @@ final class SettingsViewController: UIViewController {
     private let viewModel = SettingsViewModel()
     private let disposeBag = DisposeBag()
 
+    private lazy var themeActionSheetButton = ThemeActionSheetButton()
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
 
@@ -35,7 +36,11 @@ final class SettingsViewController: UIViewController {
                 ) as? SettingsTableViewCell else { return UITableViewCell() }
 
                 if item == Const.themeSettings {
-                    cell.accessoryView = ThemeButton()
+                    if #available(iOS 14.0, *) {
+                        cell.accessoryView = ThemeMenuButton()
+                    } else {
+                        cell.accessoryView = self?.themeActionSheetButton
+                    }
                 }
 
                 cell.update(title: item)
@@ -54,6 +59,33 @@ final class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+    }
+
+    private func showActionSheet() {
+        let alertController = UIAlertController(title: Const.themeMenuTitle,
+                                                message: nil,
+                                                preferredStyle: .actionSheet)
+        let themes = [Const.systemTheme, Const.lightTheme, Const.darkTheme]
+
+        var actions = themes.enumerated().map { index, value in
+            return UIAlertAction(title: value, style: .default) { [weak self] action in
+                self?.view.window?.overrideUserInterfaceStyle = UIUserInterfaceStyle(
+                    rawValue: index
+                ) ?? .unspecified
+
+                UserDefaultsRepository.saveAppearance(value: index)
+
+                self?.themeActionSheetButton.setTitle(value, for: .normal)
+                self?.themeActionSheetButton.sizeToFit()
+            }
+        }
+
+        actions.append(UIAlertAction(title: Const.cancel, style: .cancel))
+        actions.forEach {
+            alertController.addAction($0)
+        }
+
+        present(alertController, animated: true)
     }
 }
 
@@ -76,6 +108,12 @@ private extension SettingsViewController {
     func configureBind() {
         Observable.just(viewModel.items)
             .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+
+        themeActionSheetButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.showActionSheet()
+            })
             .disposed(by: disposeBag)
     }
 
