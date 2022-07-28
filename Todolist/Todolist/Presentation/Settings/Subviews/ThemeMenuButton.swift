@@ -31,12 +31,7 @@ private extension ThemeMenuButton {
         let themes = [Const.systemTheme, Const.lightTheme, Const.darkTheme]
         let children = themes.enumerated().map { index, value in
             return UIAction(title: value) { [weak self] action in
-                self?.superview?.window?.overrideUserInterfaceStyle = UIUserInterfaceStyle(
-                    rawValue: index
-                ) ?? .unspecified
-
-                UserDefaultsRepository.saveAppearance(value: index)
-
+                // TODO: viewmodel appearence accept logic
                 self?.setTitle(value, for: .normal)
                 self?.sizeToFit()
             }

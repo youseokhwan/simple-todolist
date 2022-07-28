@@ -7,8 +7,11 @@
 
 import Foundation
 
+import RxRelay
+
 final class SettingsViewModel {
     let items: [SettingsSection]
+    let appearence: BehaviorRelay<Int>
 
     init() {
         items = [SettingsSection(title: Const.appSettingsSection,
@@ -18,5 +21,6 @@ final class SettingsViewModel {
                                          Const.versionInfomation,
                                          Const.patchDetails,
                                          Const.contactUs])]
+        appearence = BehaviorRelay(value: 0) // TODO: launch logic 필요
     }
 }

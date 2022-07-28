@@ -81,6 +81,15 @@ private extension SettingsViewController {
         Observable.just(viewModel.items)
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
+
+        viewModel.appearence
+            .subscribe(onNext: { [weak self] index in
+                self?.view.window?.overrideUserInterfaceStyle = UIUserInterfaceStyle(
+                    rawValue: index
+                ) ?? .unspecified
+                UserDefaultsRepository.saveAppearance(value: index)
+            })
+            .disposed(by: disposeBag)
     }
 
     func configureConstraints() {
