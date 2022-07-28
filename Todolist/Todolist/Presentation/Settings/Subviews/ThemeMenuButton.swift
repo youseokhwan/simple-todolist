@@ -16,9 +16,10 @@ final class ThemeMenuButton: UIButton {
 
 private extension ThemeMenuButton {
     func configure(handler: @escaping (Int) -> Void) {
+        let currentAppearance = UserDefaultsRepository.currentAppearance()
+        let themes = [Const.systemTheme, Const.lightTheme, Const.darkTheme]
+
         if #available(iOS 14.0, *) {
-            let currentAppearance = UserDefaultsRepository.currentAppearance()
-            let themes = [Const.systemTheme, Const.lightTheme, Const.darkTheme]
             let children = themes.enumerated().map { index, value in
                 return UIAction(title: value) { [weak self] action in
                     handler(index)
@@ -27,16 +28,14 @@ private extension ThemeMenuButton {
                 }
             }
 
-            menu = UIMenu(title: Const.themeMenuTitle,
-                          options: .displayInline,
-                          children: children)
+            menu = UIMenu(title: Const.themeMenuTitle, options: .displayInline, children: children)
             showsMenuAsPrimaryAction = true
-
-            setTitle(themes[currentAppearance], for: .normal)
-            setTitleColor(.systemBlue, for: .normal)
-            sizeToFit()
         } else {
-
+            // TODO: ActionSheet
         }
+
+        setTitle(themes[currentAppearance], for: .normal)
+        setTitleColor(.systemBlue, for: .normal)
+        sizeToFit()
     }
 }
