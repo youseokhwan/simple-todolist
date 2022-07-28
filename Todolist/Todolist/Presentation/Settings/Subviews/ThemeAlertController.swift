@@ -8,17 +8,19 @@
 import UIKit
 
 final class ThemeAlertController: UIAlertController {
-    convenience init(children: [String]) {
+    convenience init(children: [String], handler: @escaping (Int) -> Void) {
         self.init(title: Const.themeMenuTitle, message: nil, preferredStyle: .actionSheet)
-        configure(children: children)
+        configure(children: children, handler: handler)
     }
 }
 
 private extension ThemeAlertController {
-    func configure(children: [String]) {
+    func configure(children: [String], handler: @escaping (Int) -> Void) {
         children.enumerated()
             .map { index, value in
-                UIAlertAction(title: value, style: .default, handler: nil)
+                UIAlertAction(title: value, style: .default) { _ in
+                    handler(index)
+                }
             }
             .forEach {
                 addAction($0)

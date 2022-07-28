@@ -99,7 +99,11 @@ private extension SettingsViewController {
             themeButton.rx.tap
                 .subscribe(onNext: { [weak self] in
                     guard let themes = self?.themeButton.themes else { return }
-                    let controller = ThemeAlertController(children: themes)
+                    let controller = ThemeAlertController(children: themes) { [weak self] index in
+                        self?.viewModel.appearence.accept(index)
+                        self?.themeButton.setTitle(themes[index], for: .normal)
+                        self?.themeButton.sizeToFit()
+                    }
 
                     self?.present(controller, animated: true)
                 })
