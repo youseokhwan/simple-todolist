@@ -9,37 +9,28 @@ import UIKit
 
 @available(iOS 14.0, *)
 final class ThemeMenuButton: UIButton {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        configure()
-    }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        configure()
+    convenience init(handler: @escaping (Int) -> Void) {
+        self.init()
+        configure(handler: handler)
     }
 }
 
 @available(iOS 14.0, *)
 private extension ThemeMenuButton {
-    func configure() {
-        configureViews()
-    }
-
-    func configureViews() {
+    func configure(handler: @escaping (Int) -> Void) {
         let currentAppearance = UserDefaultsRepository.currentAppearance()
         let themes = [Const.systemTheme, Const.lightTheme, Const.darkTheme]
         let children = themes.enumerated().map { index, value in
             return UIAction(title: value) { [weak self] action in
-                // TODO: viewmodel appearence accept logic
+                handler(index)
                 self?.setTitle(value, for: .normal)
                 self?.sizeToFit()
             }
         }
 
         menu = UIMenu(title: Const.themeMenuTitle,
-                             options: .displayInline,
-                             children: children)
+                      options: .displayInline,
+                      children: children)
         showsMenuAsPrimaryAction = true
 
         setTitle(themes[currentAppearance], for: .normal)
