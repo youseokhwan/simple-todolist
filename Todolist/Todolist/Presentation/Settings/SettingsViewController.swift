@@ -9,6 +9,7 @@ import UIKit
 
 import RxCocoa
 import RxDataSources
+import RxRelay
 import RxSwift
 import SnapKit
 
@@ -36,7 +37,9 @@ final class SettingsViewController: UIViewController {
 
                 if item == Const.themeSettings {
                     if #available(iOS 14.0, *) {
-                        cell.accessoryView = ThemeMenuButton()
+                        cell.accessoryView = ThemeMenuButton() { [weak self] index in
+                            self?.viewModel.appearence.accept(index)
+                        }
                     } else {
                         cell.accessoryView = nil // TODO: ActionSheet
                     }
