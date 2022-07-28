@@ -33,8 +33,6 @@ private extension ThemeMenuButton {
 
             menu = UIMenu(title: Const.themeMenuTitle, options: .displayInline, children: children)
             showsMenuAsPrimaryAction = true
-        } else {
-            // TODO: ActionSheet
         }
 
         setTitle(themes[currentAppearance], for: .normal)
