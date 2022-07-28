@@ -27,6 +27,13 @@ final class SettingsViewController: UIViewController {
                          
         return tableView
     }()
+    private lazy var themeButton: ThemeMenuButton = {
+        let button = ThemeMenuButton() { [weak self] index in
+            self?.viewModel.appearence.accept(index)
+        }
+
+        return button
+    }()
     private lazy var dataSource: SectionDataSource = {
         let dataSource = SectionDataSource(
             configureCell: { [weak self] dataSource, tableView, indexPath, item in
@@ -36,13 +43,7 @@ final class SettingsViewController: UIViewController {
                 ) as? SettingsTableViewCell else { return UITableViewCell() }
 
                 if item == Const.themeSettings {
-                    if #available(iOS 14.0, *) {
-                        cell.accessoryView = ThemeMenuButton() { [weak self] index in
-                            self?.viewModel.appearence.accept(index)
-                        }
-                    } else {
-                        cell.accessoryView = nil // TODO: ActionSheet
-                    }
+                    cell.accessoryView = self?.themeButton
                 }
 
                 cell.update(title: item)
