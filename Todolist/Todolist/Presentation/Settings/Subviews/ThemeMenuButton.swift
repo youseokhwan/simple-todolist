@@ -19,7 +19,7 @@ final class ThemeMenuButton: UIButton {
 
     convenience init(handler: @escaping (Int) -> Void) {
         self.init()
-        configure(handler: handler)
+        configureHandler(handler)
     }
 }
 
@@ -36,7 +36,7 @@ private extension ThemeMenuButton {
         sizeToFit()
     }
 
-    func configure(handler: @escaping (Int) -> Void) {
+    func configureHandler(_ handler: @escaping (Int) -> Void) {
         if #available(iOS 14.0, *) {
             let children = themes.enumerated().map { index, value in
                 return UIAction(title: value) { [weak self] action in
