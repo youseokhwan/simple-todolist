@@ -8,6 +8,10 @@
 import UIKit
 
 final class ThemeMenuButton: UIButton {
+    var themes: [String] {
+        [Const.systemTheme, Const.lightTheme, Const.darkTheme]
+    }
+
     convenience init(handler: @escaping (Int) -> Void) {
         self.init()
         configure(handler: handler)
@@ -17,7 +21,6 @@ final class ThemeMenuButton: UIButton {
 private extension ThemeMenuButton {
     func configure(handler: @escaping (Int) -> Void) {
         let currentAppearance = UserDefaultsRepository.currentAppearance()
-        let themes = [Const.systemTheme, Const.lightTheme, Const.darkTheme]
 
         if #available(iOS 14.0, *) {
             let children = themes.enumerated().map { index, value in
