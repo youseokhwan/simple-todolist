@@ -28,8 +28,14 @@ final class SettingsViewController: UIViewController {
         return tableView
     }()
     private lazy var themeButton: ThemeMenuButton = {
-        let button = ThemeMenuButton() { [weak self] index in
-            self?.viewModel.appearence.accept(index)
+        var button: ThemeMenuButton
+
+        if #available(iOS 14.0, *) {
+            button = ThemeMenuButton() { [weak self] index in
+                self?.viewModel.appearence.accept(index)
+            }
+        } else {
+            button = ThemeMenuButton()
         }
 
         return button
