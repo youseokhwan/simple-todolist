@@ -11,17 +11,28 @@ final class ThemeMenuButton: UIButton {
     var themes: [String] {
         [Const.systemTheme, Const.lightTheme, Const.darkTheme]
     }
-
+    
     convenience init(handler: @escaping (Int) -> Void) {
-        self.init()
+        self.init(frame: CGRect.zero)
+        configure()
         configure(handler: handler)
     }
 }
 
 private extension ThemeMenuButton {
-    func configure(handler: @escaping (Int) -> Void) {
+    func configure() {
+        configureViews()
+    }
+
+    func configureViews() {
         let currentAppearance = UserDefaultsRepository.currentAppearance()
 
+        setTitle(themes[currentAppearance], for: .normal)
+        setTitleColor(.systemBlue, for: .normal)
+        sizeToFit()
+    }
+
+    func configure(handler: @escaping (Int) -> Void) {
         if #available(iOS 14.0, *) {
             let children = themes.enumerated().map { index, value in
                 return UIAction(title: value) { [weak self] action in
@@ -34,9 +45,5 @@ private extension ThemeMenuButton {
             menu = UIMenu(title: Const.themeMenuTitle, options: .displayInline, children: children)
             showsMenuAsPrimaryAction = true
         }
-
-        setTitle(themes[currentAppearance], for: .normal)
-        setTitleColor(.systemBlue, for: .normal)
-        sizeToFit()
     }
 }
