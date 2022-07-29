@@ -21,6 +21,6 @@ final class SettingsViewModel {
                                          Const.versionInfomation,
                                          Const.patchDetails,
                                          Const.contactUs])]
-        appearence = BehaviorRelay(value: 0) // TODO: launch logic 필요
+        appearence = BehaviorRelay(value: UserDefaultsRepository.currentAppearance())
     }
 }
