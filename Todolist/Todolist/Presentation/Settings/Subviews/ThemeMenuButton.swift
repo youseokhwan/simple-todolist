@@ -7,20 +7,22 @@
 
 import UIKit
 
-@available(iOS 14.0, *)
 final class ThemeMenuButton: UIButton {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    var themes: [String] {
+        [Const.systemTheme, Const.lightTheme, Const.darkTheme]
+    }
+
+    convenience init() {
+        self.init(frame: CGRect.zero)
         configure()
     }
 
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        configure()
+    convenience init(handler: @escaping (Int) -> Void) {
+        self.init()
+        configureHandler(handler)
     }
 }
 
-@available(iOS 14.0, *)
 private extension ThemeMenuButton {
     func configure() {
         configureViews()
@@ -28,27 +30,24 @@ private extension ThemeMenuButton {
 
     func configureViews() {
         let currentAppearance = UserDefaultsRepository.currentAppearance()
-        let themes = [Const.systemTheme, Const.lightTheme, Const.darkTheme]
-        let children = themes.enumerated().map { index, value in
-            return UIAction(title: value) { [weak self] action in
-                self?.superview?.window?.overrideUserInterfaceStyle = UIUserInterfaceStyle(
-                    rawValue: index
-                ) ?? .unspecified
-
-                UserDefaultsRepository.saveAppearance(value: index)
-
-                self?.setTitle(value, for: .normal)
-                self?.sizeToFit()
-            }
-        }
-
-        menu = UIMenu(title: Const.themeMenuTitle,
-                             options: .displayInline,
-                             children: children)
-        showsMenuAsPrimaryAction = true
 
         setTitle(themes[currentAppearance], for: .normal)
         setTitleColor(.systemBlue, for: .normal)
         sizeToFit()
+    }
+
+    func configureHandler(_ handler: @escaping (Int) -> Void) {
+        if #available(iOS 14.0, *) {
+            let children = themes.enumerated().map { index, value in
+                return UIAction(title: value) { [weak self] action in
+                    handler(index)
+                    self?.setTitle(value, for: .normal)
+                    self?.sizeToFit()
+                }
+            }
+
+            menu = UIMenu(title: Const.themeMenuTitle, options: .displayInline, children: children)
+            showsMenuAsPrimaryAction = true
+        }
     }
 }

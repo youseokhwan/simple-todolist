@@ -9,6 +9,7 @@ import UIKit
 
 import RxCocoa
 import RxDataSources
+import RxRelay
 import RxSwift
 import SnapKit
 
@@ -18,7 +19,6 @@ final class SettingsViewController: UIViewController {
     private let viewModel = SettingsViewModel()
     private let disposeBag = DisposeBag()
 
-    private lazy var themeActionSheetButton = ThemeActionSheetButton()
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
 
@@ -26,6 +26,19 @@ final class SettingsViewController: UIViewController {
                            forCellReuseIdentifier: Const.settingsTableViewCellID)
                          
         return tableView
+    }()
+    private lazy var themeButton: ThemeMenuButton = {
+        var button: ThemeMenuButton
+
+        if #available(iOS 14.0, *) {
+            button = ThemeMenuButton() { [weak self] index in
+                self?.viewModel.appearence.accept(index)
+            }
+        } else {
+            button = ThemeMenuButton()
+        }
+
+        return button
     }()
     private lazy var dataSource: SectionDataSource = {
         let dataSource = SectionDataSource(
@@ -36,11 +49,7 @@ final class SettingsViewController: UIViewController {
                 ) as? SettingsTableViewCell else { return UITableViewCell() }
 
                 if item == Const.themeSettings {
-                    if #available(iOS 14.0, *) {
-                        cell.accessoryView = ThemeMenuButton()
-                    } else {
-                        cell.accessoryView = self?.themeActionSheetButton
-                    }
+                    cell.accessoryView = self?.themeButton
                 }
 
                 cell.update(title: item)
@@ -59,33 +68,6 @@ final class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-    }
-
-    private func showActionSheet() {
-        let alertController = UIAlertController(title: Const.themeMenuTitle,
-                                                message: nil,
-                                                preferredStyle: .actionSheet)
-        let themes = [Const.systemTheme, Const.lightTheme, Const.darkTheme]
-
-        var actions = themes.enumerated().map { index, value in
-            return UIAlertAction(title: value, style: .default) { [weak self] action in
-                self?.view.window?.overrideUserInterfaceStyle = UIUserInterfaceStyle(
-                    rawValue: index
-                ) ?? .unspecified
-
-                UserDefaultsRepository.saveAppearance(value: index)
-
-                self?.themeActionSheetButton.setTitle(value, for: .normal)
-                self?.themeActionSheetButton.sizeToFit()
-            }
-        }
-
-        actions.append(UIAlertAction(title: Const.cancel, style: .cancel))
-        actions.forEach {
-            alertController.addAction($0)
-        }
-
-        present(alertController, animated: true)
     }
 }
 
@@ -110,11 +92,29 @@ private extension SettingsViewController {
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
 
-        themeActionSheetButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                self?.showActionSheet()
+        viewModel.appearence
+            .subscribe(onNext: { [weak self] index in
+                self?.view.window?.overrideUserInterfaceStyle = UIUserInterfaceStyle(
+                    rawValue: index
+                ) ?? .unspecified
+                UserDefaultsRepository.saveAppearance(value: index)
             })
             .disposed(by: disposeBag)
+
+        if #unavailable(iOS 14.0) {
+            themeButton.rx.tap
+                .subscribe(onNext: { [weak self] in
+                    guard let themes = self?.themeButton.themes else { return }
+                    let controller = ThemeAlertController(children: themes) { [weak self] index in
+                        self?.viewModel.appearence.accept(index)
+                        self?.themeButton.setTitle(themes[index], for: .normal)
+                        self?.themeButton.sizeToFit()
+                    }
+
+                    self?.present(controller, animated: true)
+                })
+                .disposed(by: disposeBag)
+        }
     }
 
     func configureConstraints() {
