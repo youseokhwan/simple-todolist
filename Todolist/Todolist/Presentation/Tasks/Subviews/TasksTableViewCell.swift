@@ -7,9 +7,13 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
 import SnapKit
 
 final class TasksTableViewCell: UITableViewCell {
+    private let disposeBag = DisposeBag()
+
     private lazy var checkButton: UIButton = {
         let button = UIButton()
         let configure = UIImage.SymbolConfiguration(pointSize: 25)
@@ -42,6 +46,7 @@ final class TasksTableViewCell: UITableViewCell {
 private extension TasksTableViewCell {
     func configure() {
         configureViews()
+        configureBind()
         configureConstraints()
     }
 
@@ -52,6 +57,18 @@ private extension TasksTableViewCell {
         [checkButton, contextLabel].forEach {
             contentView.addSubview($0)
         }
+    }
+
+    func configureBind() {
+        checkButton.rx.tap
+            .subscribe(onNext: {
+                if self.checkButton.isSelected {
+                    self.checkButton.isSelected = false
+                } else {
+                    self.checkButton.isSelected = true
+                }
+            })
+            .disposed(by: disposeBag)
     }
 
     func configureConstraints() {
