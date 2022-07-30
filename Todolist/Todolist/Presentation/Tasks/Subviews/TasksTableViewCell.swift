@@ -61,12 +61,8 @@ private extension TasksTableViewCell {
 
     func configureBind() {
         checkButton.rx.tap
-            .subscribe(onNext: {
-                if self.checkButton.isSelected {
-                    self.checkButton.isSelected = false
-                } else {
-                    self.checkButton.isSelected = true
-                }
+            .subscribe(onNext: { [self] in
+                checkButton.isSelected = !checkButton.isSelected
             })
             .disposed(by: disposeBag)
     }
