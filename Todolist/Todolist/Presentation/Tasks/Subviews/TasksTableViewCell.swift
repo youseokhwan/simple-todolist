@@ -62,9 +62,6 @@ private extension TasksTableViewCell {
     }
 
     func configureViews() {
-        contentView.backgroundColor = .systemGray
-        contentView.layer.cornerRadius = 10
-
         [checkButton, contextLabel, strikeThroughView].forEach {
             contentView.addSubview($0)
         }
@@ -82,10 +79,6 @@ private extension TasksTableViewCell {
     }
 
     func configureConstraints() {
-        contentView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(5)
-        }
-
         checkButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().inset(10)
