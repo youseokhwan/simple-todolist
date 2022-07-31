@@ -31,7 +31,6 @@ final class TasksTableViewCell: UITableViewCell {
         let view = UIView()
 
         view.backgroundColor = .black
-        view.isHidden = true
 
         return view
     }()
@@ -47,7 +46,7 @@ final class TasksTableViewCell: UITableViewCell {
         super.init(coder: coder)
         configure()
     }
-    
+
     func update(task: Task) {
         contextLabel.text = task.context
         strikeThroughView.isHidden = !task.isChecked
