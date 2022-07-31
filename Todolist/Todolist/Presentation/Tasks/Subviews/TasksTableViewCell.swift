@@ -75,6 +75,7 @@ private extension TasksTableViewCell {
             .subscribe(onNext: { [self] in
                 checkButton.isSelected = !checkButton.isSelected
                 strikeThroughView.isHidden = !checkButton.isSelected
+
                 checkButtonTappedHandler?(checkButton.isSelected)
             })
             .disposed(by: disposeBag)
