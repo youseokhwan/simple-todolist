@@ -36,6 +36,8 @@ final class TasksTableViewCell: UITableViewCell {
         return view
     }()
 
+    var checkButtonTappedHandler: ((Bool) -> Void)?
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configure()
@@ -49,6 +51,7 @@ final class TasksTableViewCell: UITableViewCell {
     func update(task: Task) {
         contextLabel.text = task.context
         strikeThroughView.isHidden = !task.isChecked
+        checkButton.isSelected = task.isChecked
     }
 }
 
@@ -73,6 +76,7 @@ private extension TasksTableViewCell {
             .subscribe(onNext: { [self] in
                 checkButton.isSelected = !checkButton.isSelected
                 strikeThroughView.isHidden = !checkButton.isSelected
+                checkButtonTappedHandler?(checkButton.isSelected)
             })
             .disposed(by: disposeBag)
     }
