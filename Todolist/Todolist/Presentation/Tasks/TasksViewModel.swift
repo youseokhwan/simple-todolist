@@ -12,6 +12,7 @@ import RxRelay
 final class TasksViewModel {
     private let fetchTaskUseCase: FetchTaskUseCase
     private let deleteTaskUseCase: DeleteTaskUseCase
+    private let updateTaskUseCase: UpdateTaskUseCase
 
     let allTasks: BehaviorRelay<[Task]>
 
@@ -20,6 +21,7 @@ final class TasksViewModel {
     init() {
         fetchTaskUseCase = FetchTaskUseCase()
         deleteTaskUseCase = DeleteTaskUseCase()
+        updateTaskUseCase = UpdateTaskUseCase()
 
         allTasks = BehaviorRelay(value: [])
     }
@@ -36,6 +38,10 @@ final class TasksViewModel {
 
         allTasks.accept(newAllTasks)
         deleteTaskUseCase.delete(task: removedTask)
+    }
+
+    func updateTask(task: Task) {
+        updateTaskUseCase.update(task: task)
     }
 
     func didTappedFormButton() {
