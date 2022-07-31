@@ -27,6 +27,14 @@ final class TasksTableViewCell: UITableViewCell {
         return button
     }()
     private lazy var contextLabel = UILabel()
+    private lazy var strikeThroughView: UIView = {
+        let view = UIView()
+
+        view.backgroundColor = .black
+        view.isHidden = true
+
+        return view
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -40,6 +48,7 @@ final class TasksTableViewCell: UITableViewCell {
     
     func update(task: Task) {
         contextLabel.text = task.context
+        strikeThroughView.isHidden = !task.isChecked
     }
 }
 
@@ -54,7 +63,7 @@ private extension TasksTableViewCell {
         contentView.backgroundColor = .systemGray
         contentView.layer.cornerRadius = 10
 
-        [checkButton, contextLabel].forEach {
+        [checkButton, contextLabel, strikeThroughView].forEach {
             contentView.addSubview($0)
         }
     }
@@ -63,6 +72,7 @@ private extension TasksTableViewCell {
         checkButton.rx.tap
             .subscribe(onNext: { [self] in
                 checkButton.isSelected = !checkButton.isSelected
+                strikeThroughView.isHidden = !checkButton.isSelected
             })
             .disposed(by: disposeBag)
     }
@@ -81,6 +91,13 @@ private extension TasksTableViewCell {
         contextLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalTo(checkButton.snp.trailing).offset(20)
+        }
+
+        strikeThroughView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalTo(checkButton.snp.trailing).offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(1)
         }
     }
 }
