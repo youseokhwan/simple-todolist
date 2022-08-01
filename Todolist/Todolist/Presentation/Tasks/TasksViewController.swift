@@ -95,15 +95,10 @@ private extension TasksViewController {
             .bind(to: tableView.rx.items(
                 cellIdentifier: Const.tasksTableViewCellID,
                 cellType: TasksTableViewCell.self
-            )) { index, element, cell in
+            )) { [weak self] index, element, cell in
                 cell.update(task: element)
-                cell.checkButtonTappedHandler = { [weak self] isChecked in
-                    var task = element
-
-                    task.isChecked = isChecked
-
-                    self?.viewModel.updateTask(task: task)
-                }
+                cell.task = element
+                cell.viewModel = self?.viewModel
             }
             .disposed(by: disposeBag)
 
