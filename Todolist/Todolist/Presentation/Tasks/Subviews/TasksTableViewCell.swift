@@ -40,7 +40,7 @@ final class TasksTableViewCell: UITableViewCell {
         configure()
     }
 
-    func update(task: Task) {
+    func updateUI(task: Task) {
         checkButton.isSelected = task.isChecked
         contextLabel.text = task.context
         contextLabel.strikethrough(isActive: task.isChecked)
