@@ -8,10 +8,10 @@
 import UIKit
 
 extension UILabel {
-    func strikethrough(context: String?, isActive: Bool) {
-        guard let context = context else { return }
+    func strikethrough(isActive: Bool) {
+        guard let text = attributedText else { return }
 
-        let attributedString = NSMutableAttributedString(string: context)
+        let attributedString = NSMutableAttributedString(attributedString: text)
 
         if isActive {
             attributedString.addAttribute(.strikethroughStyle,
@@ -24,6 +24,8 @@ extension UILabel {
             attributedText = attributedString
         } else {
             attributedString.removeAttribute(.strikethroughStyle,
+                                             range: NSMakeRange(0, attributedString.length))
+            attributedString.removeAttribute(.foregroundColor,
                                              range: NSMakeRange(0, attributedString.length))
 
             attributedText = attributedString
