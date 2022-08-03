@@ -40,7 +40,7 @@ final class TasksViewModel {
         deleteTaskUseCase.delete(task: removedTask)
     }
 
-    func updateTask(task: Task?) {
+    func update(task: Task?) {
         guard let task = task else { return }
         
         updateTaskUseCase.update(task: task)

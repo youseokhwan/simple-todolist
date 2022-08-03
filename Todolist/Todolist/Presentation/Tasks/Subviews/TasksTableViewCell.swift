@@ -27,13 +27,6 @@ final class TasksTableViewCell: UITableViewCell {
         return button
     }()
     private lazy var contextLabel = UILabel()
-    private lazy var strikeThroughView: UIView = {
-        let view = UIView()
-
-        view.backgroundColor = .black
-
-        return view
-    }()
 
     var viewModel: TasksViewModel?
     var task: Task?
@@ -49,9 +42,9 @@ final class TasksTableViewCell: UITableViewCell {
     }
 
     func update(task: Task) {
-        contextLabel.text = task.context
-        strikeThroughView.isHidden = !task.isChecked
         checkButton.isSelected = task.isChecked
+        contextLabel.text = task.context
+        contextLabel.strikethrough(isActive: task.isChecked)
     }
 }
 
@@ -63,7 +56,7 @@ private extension TasksTableViewCell {
     }
 
     func configureViews() {
-        [checkButton, contextLabel, strikeThroughView].forEach {
+        [checkButton, contextLabel].forEach {
             contentView.addSubview($0)
         }
     }
@@ -73,9 +66,9 @@ private extension TasksTableViewCell {
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
                 self.checkButton.isSelected = !self.checkButton.isSelected
-                self.strikeThroughView.isHidden = !self.checkButton.isSelected
+                self.contextLabel.strikethrough(isActive: self.checkButton.isSelected)
                 self.task?.isChecked = self.checkButton.isSelected
-                self.viewModel?.updateTask(task: self.task)
+                self.viewModel?.update(task: self.task)
             })
             .disposed(by: disposeBag)
     }
@@ -90,13 +83,6 @@ private extension TasksTableViewCell {
         contextLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalTo(checkButton.snp.trailing).offset(20)
-        }
-
-        strikeThroughView.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.equalTo(checkButton.snp.trailing).offset(20)
-            make.trailing.equalToSuperview().offset(-20)
-            make.height.equalTo(1)
         }
     }
 }
