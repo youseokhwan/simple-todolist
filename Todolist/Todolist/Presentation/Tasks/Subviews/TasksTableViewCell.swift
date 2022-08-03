@@ -40,10 +40,9 @@ final class TasksTableViewCell: UITableViewCell {
         configure()
     }
 
-    func updateUI(task: Task) {
+    func updateUI(by task: Task) {
         checkButton.isSelected = task.isChecked
         contextLabel.attributedText = NSAttributedString(string: task.context)
-        
         contextLabel.strikethrough(isActive: task.isChecked)
     }
 }
@@ -66,9 +65,7 @@ private extension TasksTableViewCell {
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
                 self.checkButton.isSelected = !self.checkButton.isSelected
-
                 self.contextLabel.strikethrough(isActive: self.checkButton.isSelected)
-
                 self.checkButtonTappedHandler?(self.checkButton.isSelected)
             })
             .disposed(by: disposeBag)

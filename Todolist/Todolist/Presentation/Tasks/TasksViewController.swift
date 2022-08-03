@@ -96,13 +96,11 @@ private extension TasksViewController {
                 cellIdentifier: Const.tasksTableViewCellID,
                 cellType: TasksTableViewCell.self
             )) { [weak self] index, element, cell in
-                cell.updateUI(task: element)
-
+                cell.updateUI(by: element)
                 cell.checkButtonTappedHandler = { [weak self] isChecked in
                     var task = element
 
                     task.isChecked = isChecked
-
                     self?.viewModel.update(task: task)
                 }
             }
