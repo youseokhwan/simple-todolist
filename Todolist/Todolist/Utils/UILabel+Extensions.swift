@@ -8,12 +8,12 @@
 import UIKit
 
 extension UILabel {
-    func strikethrough(isActive: Bool) {
-        guard let text = text else { return }
+    func strikethrough(context: String?, isActive: Bool) {
+        guard let context = context else { return }
+
+        let attributedString = NSMutableAttributedString(string: context)
 
         if isActive {
-            let attributedString = NSMutableAttributedString(string: text)
-
             attributedString.addAttribute(.strikethroughStyle,
                                           value: NSUnderlineStyle.single.rawValue,
                                           range: NSMakeRange(0, attributedString.length))
@@ -23,7 +23,12 @@ extension UILabel {
 
             attributedText = attributedString
         } else {
-            attributedText = NSAttributedString(string: text)
+            attributedString.removeAttribute(.strikethroughStyle,
+                                             range: NSMakeRange(0, attributedString.length))
+            attributedString.removeAttribute(.foregroundColor,
+                                             range: NSMakeRange(0, attributedString.length))
+
+            attributedText = attributedString
         }
     }
 }
