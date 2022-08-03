@@ -26,6 +26,7 @@ extension UILabel {
             attributedString.removeAttribute(.foregroundColor,
                                              range: NSMakeRange(0, attributedString.length))
         }
+        
         attributedText = attributedString
     }
 }
