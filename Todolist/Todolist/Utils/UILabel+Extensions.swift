@@ -25,8 +25,6 @@ extension UILabel {
         } else {
             attributedString.removeAttribute(.strikethroughStyle,
                                              range: NSMakeRange(0, attributedString.length))
-            attributedString.removeAttribute(.foregroundColor,
-                                             range: NSMakeRange(0, attributedString.length))
 
             attributedText = attributedString
         }
