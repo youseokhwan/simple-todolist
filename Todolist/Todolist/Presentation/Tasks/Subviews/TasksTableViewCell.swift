@@ -28,8 +28,7 @@ final class TasksTableViewCell: UITableViewCell {
     }()
     private lazy var contextLabel = UILabel()
 
-    var viewModel: TasksViewModel?
-    var task: Task?
+    var checkButtonTappedHandler: ((Bool) -> Void)?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -67,8 +66,8 @@ private extension TasksTableViewCell {
                 guard let self = self else { return }
                 self.checkButton.isSelected = !self.checkButton.isSelected
                 self.contextLabel.strikethrough(isActive: self.checkButton.isSelected)
-                self.task?.isChecked = self.checkButton.isSelected
-                self.viewModel?.update(task: self.task)
+
+                self.checkButtonTappedHandler?(self.checkButton.isSelected)
             })
             .disposed(by: disposeBag)
     }
