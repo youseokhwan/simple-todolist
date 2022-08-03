@@ -68,7 +68,7 @@ private extension TasksTableViewCell {
                 self.checkButton.isSelected = !self.checkButton.isSelected
                 self.contextLabel.strikethrough(isActive: self.checkButton.isSelected)
                 self.task?.isChecked = self.checkButton.isSelected
-                self.viewModel?.updateTask(task: self.task)
+                self.viewModel?.update(task: self.task)
             })
             .disposed(by: disposeBag)
     }
