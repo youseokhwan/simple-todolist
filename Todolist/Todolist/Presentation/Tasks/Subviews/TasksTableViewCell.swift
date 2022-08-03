@@ -7,9 +7,13 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
 import SnapKit
 
 final class TasksTableViewCell: UITableViewCell {
+    private let disposeBag = DisposeBag()
+
     private lazy var checkButton: UIButton = {
         let button = UIButton()
         let configure = UIImage.SymbolConfiguration(pointSize: 25)
@@ -23,7 +27,9 @@ final class TasksTableViewCell: UITableViewCell {
         return button
     }()
     private lazy var contextLabel = UILabel()
-    
+
+    var checkButtonTappedHandler: ((Bool) -> Void)?
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configure()
@@ -33,32 +39,39 @@ final class TasksTableViewCell: UITableViewCell {
         super.init(coder: coder)
         configure()
     }
-    
-    func update(task: Task) {
-        contextLabel.text = task.context
+
+    func updateUI(by task: Task) {
+        checkButton.isSelected = task.isChecked
+        contextLabel.attributedText = NSAttributedString(string: task.context)
+        contextLabel.strikethrough(isActive: task.isChecked)
     }
 }
 
 private extension TasksTableViewCell {
     func configure() {
         configureViews()
+        configureBind()
         configureConstraints()
     }
 
     func configureViews() {
-        contentView.backgroundColor = .systemGray
-        contentView.layer.cornerRadius = 10
-
         [checkButton, contextLabel].forEach {
             contentView.addSubview($0)
         }
     }
 
-    func configureConstraints() {
-        contentView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(5)
-        }
+    func configureBind() {
+        checkButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.checkButton.isSelected = !self.checkButton.isSelected
+                self.contextLabel.strikethrough(isActive: self.checkButton.isSelected)
+                self.checkButtonTappedHandler?(self.checkButton.isSelected)
+            })
+            .disposed(by: disposeBag)
+    }
 
+    func configureConstraints() {
         checkButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().inset(10)

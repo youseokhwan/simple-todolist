@@ -81,6 +81,7 @@ final class CoreDataStorage {
         if let cdTask = fetchTask(by: task.id) {
             cdTask.setValue(task.context, forKey: Const.context)
             cdTask.setValue(task.isDaily, forKey: Const.isDaily)
+            cdTask.setValue(task.isChecked, forKey: Const.isChecked)
 
             do {
                 try viewContext.save()
