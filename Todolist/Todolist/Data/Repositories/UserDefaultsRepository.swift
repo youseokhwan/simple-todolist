@@ -16,6 +16,10 @@ enum UserDefaultsRepository {
         return "\(nextID)"
     }
 
+    static func lastFetchDate() -> String {
+        return UserDefaults.standard.string(forKey: Const.lastFetchDate) ?? "19000101"
+    }
+
     static func saveAppearance(value: Int) {
         UserDefaults.standard.set(value, forKey: Const.appearance)
     }
