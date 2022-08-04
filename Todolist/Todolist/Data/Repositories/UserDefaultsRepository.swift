@@ -16,6 +16,10 @@ enum UserDefaultsRepository {
         return "\(nextID)"
     }
 
+    static func saveLastFetchDate(value: String) {
+        UserDefaults.standard.set(value, forKey: Const.lastFetchDate)
+    }
+
     static func lastFetchDate() -> String {
         return UserDefaults.standard.string(forKey: Const.lastFetchDate) ?? Const.minDate
     }
