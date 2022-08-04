@@ -13,4 +13,8 @@ struct UpdateTaskUseCase {
     func update(task: Task) {
         taskRepository.update(task: task)
     }
+
+    func delete(task: Task) {
+        taskRepository.delete(task: task)
+    }
 }
