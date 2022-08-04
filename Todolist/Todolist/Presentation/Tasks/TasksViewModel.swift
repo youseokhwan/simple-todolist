@@ -26,9 +26,20 @@ final class TasksViewModel {
         allTasks = BehaviorRelay(value: [])
     }
 
+    private func isFirstFetchOfToday() -> Bool {
+        let lastFetchDate = UserDefaultsRepository.lastFetchDate()
+        let todayDate = Date().todayDate
+
+        return lastFetchDate < todayDate
+    }
+
     func fetchAllTasks() {
-        fetchTaskUseCase.fetchAllTasks() { [weak self] tasks in
-            self?.allTasks.accept(tasks)
+        if isFirstFetchOfToday() {
+            // TODO: tasks 최신화 로직 실행
+        } else {
+            fetchTaskUseCase.fetchAllTasks() { [weak self] tasks in
+                self?.allTasks.accept(tasks)
+            }
         }
     }
 
