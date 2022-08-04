@@ -41,7 +41,6 @@ enum Const {
     static let nextTaskID = "nextTaskID"
     static let lastFetchDate = "lastFetchDate"
     static let minDate = "1900.01.01"
-    static let maxDate = "2999.12.31"
     static let appearance = "Appearance"
 
     // Storages
