@@ -11,7 +11,6 @@ import RxRelay
 
 final class TasksViewModel {
     private let fetchTaskUseCase: FetchTaskUseCase
-    private let deleteTaskUseCase: DeleteTaskUseCase
     private let updateTaskUseCase: UpdateTaskUseCase
 
     let allTasks: BehaviorRelay<[Task]>
@@ -20,15 +19,27 @@ final class TasksViewModel {
 
     init() {
         fetchTaskUseCase = FetchTaskUseCase()
-        deleteTaskUseCase = DeleteTaskUseCase()
         updateTaskUseCase = UpdateTaskUseCase()
 
         allTasks = BehaviorRelay(value: [])
     }
 
+    private func isFirstFetchOfToday() -> Bool {
+        let lastFetchDate = UserDefaultsRepository.lastFetchDate()
+        let todayDate = Date().todayDate
+
+        return lastFetchDate < todayDate
+    }
+
     func fetchAllTasks() {
-        fetchTaskUseCase.fetchAllTasks() { [weak self] tasks in
-            self?.allTasks.accept(tasks)
+        if isFirstFetchOfToday() {
+            updateTaskUseCase.updateTasksAsOfToday() { [weak self] updatedTasks in
+                self?.allTasks.accept(updatedTasks)
+            }
+        } else {
+            fetchTaskUseCase.fetchAllTasks() { [weak self] tasks in
+                self?.allTasks.accept(tasks)
+            }
         }
     }
 
@@ -37,7 +48,7 @@ final class TasksViewModel {
         let removedTask = newAllTasks.remove(at: index)
 
         allTasks.accept(newAllTasks)
-        deleteTaskUseCase.delete(task: removedTask)
+        updateTaskUseCase.delete(task: removedTask)
     }
 
     func update(task: Task?) {
