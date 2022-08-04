@@ -27,7 +27,7 @@ struct Task {
               let id = cdTask.id else { return nil }
 
         self.id = id
-        self.publishedDate = cdTask.publishedDate ?? "1900.01.01"
+        self.publishedDate = cdTask.publishedDate ?? Const.minDate
         self.context = cdTask.context ?? ""
         self.isDaily = cdTask.isDaily
         self.isChecked = cdTask.isChecked
