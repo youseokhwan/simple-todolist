@@ -17,7 +17,7 @@ enum UserDefaultsRepository {
     }
 
     static func lastFetchDate() -> String {
-        return UserDefaults.standard.string(forKey: Const.lastFetchDate) ?? "19000101"
+        return UserDefaults.standard.string(forKey: Const.lastFetchDate) ?? "1900.01.01"
     }
 
     static func saveAppearance(value: Int) {
