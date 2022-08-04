@@ -12,7 +12,6 @@ struct AddTaskUseCase {
 
     func createTask(context: String, isDaily: Bool) {
         let task = Task(id: autoIncreasedID(),
-                        publishedDate: Date().todayDate,
                         context: context,
                         isDaily: isDaily,
                         isChecked: false)

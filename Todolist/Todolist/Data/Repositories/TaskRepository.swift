@@ -63,7 +63,6 @@ final class TaskRepository {
 
             updatedTasks = updatedTasks.map {
                 Task(id: $0.id,
-                     publishedDate: $0.publishedDate,
                      context: $0.context,
                      isDaily: $0.isDaily,
                      isChecked: false)

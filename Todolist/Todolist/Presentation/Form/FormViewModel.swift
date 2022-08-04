@@ -38,7 +38,6 @@ final class FormViewModel {
             addTaskUseCase.createTask(context: context.value, isDaily: isDaily.value)
         } else {
             let task = Task(id: taskID.value,
-                            publishedDate: publishedDate.value,
                             context: context.value,
                             isDaily: isDaily.value,
                             isChecked: isChecked.value)
