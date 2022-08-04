@@ -33,7 +33,9 @@ final class TasksViewModel {
 
     func fetchAllTasks() {
         if isFirstFetchOfToday() {
-            // TODO: tasks 최신화 로직 실행
+            updateTaskUseCase.updateTasksAsOfToday() { [weak self] updatedTasks in
+                self?.allTasks.accept(updatedTasks)
+            }
         } else {
             fetchTaskUseCase.fetchAllTasks() { [weak self] tasks in
                 self?.allTasks.accept(tasks)
