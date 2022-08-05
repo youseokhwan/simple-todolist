@@ -10,12 +10,12 @@ import Foundation
 import RealmSwift
 
 final class Task: Object {
-    @Persisted(primaryKey: true) var id: Int
+    @Persisted(primaryKey: true) var id: String
     @Persisted var context: String
     @Persisted var isDaily: Bool
     @Persisted var isChecked: Bool
 
-    convenience init(id: Int, context: String, isDaily: Bool, isChecked: Bool) {
+    convenience init(id: String, context: String, isDaily: Bool, isChecked: Bool) {
         self.init()
         self.id = id
         self.context = context
