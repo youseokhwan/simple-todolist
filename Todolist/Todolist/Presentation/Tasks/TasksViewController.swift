@@ -98,7 +98,7 @@ private extension TasksViewController {
             )) { [weak self] index, element, cell in
                 cell.updateUI(by: element)
                 cell.checkButtonTappedHandler = { [weak self] isChecked in
-                    var task = element
+                    let task = element
 
                     task.isChecked = isChecked
                     self?.viewModel.update(task: task)
