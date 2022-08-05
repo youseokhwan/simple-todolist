@@ -44,8 +44,6 @@ enum Const {
     static let appearance = "Appearance"
 
     // Storages
-    static let model = "Model"
-    static let cdTask = "CDTask"
     static let id = "id"
     static let context = "context"
     static let isDaily = "isDaily"
