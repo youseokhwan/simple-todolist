@@ -34,7 +34,6 @@
 		442473C6286589850059CFCC /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473C5286589850059CFCC /* SettingsViewModel.swift */; };
 		442473CA2865D1660059CFCC /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473C92865D1660059CFCC /* Task.swift */; };
 		442473D12869B8290059CFCC /* TaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473D02869B8290059CFCC /* TaskRepository.swift */; };
-		442473D42869BA720059CFCC /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473D32869BA720059CFCC /* CoreDataStorage.swift */; };
 		442646B92887F98D004C22D8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 442646BB2887F98D004C22D8 /* Localizable.strings */; };
 		442646BE2887FA17004C22D8 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442646BD2887FA17004C22D8 /* String+Extensions.swift */; };
 		442646C228880322004C22D8 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442646C128880322004C22D8 /* Const.swift */; };
@@ -99,7 +98,6 @@
 		442473C5286589850059CFCC /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		442473C92865D1660059CFCC /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		442473D02869B8290059CFCC /* TaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepository.swift; sourceTree = "<group>"; };
-		442473D32869BA720059CFCC /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		442646BA2887F98D004C22D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		442646BC2887F9A0004C22D8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		442646BD2887FA17004C22D8 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -256,7 +254,6 @@
 		442473D22869B9CE0059CFCC /* Storages */ = {
 			isa = PBXGroup;
 			children = (
-				442473D32869BA720059CFCC /* CoreDataStorage.swift */,
 				44B90D05289D6AE500B4BADD /* RealmStorage.swift */,
 			);
 			path = Storages;
@@ -424,7 +421,6 @@
 				442473C0286589310059CFCC /* FormViewController.swift in Sources */,
 				442473CA2865D1660059CFCC /* Task.swift in Sources */,
 				44264708288DB145004C22D8 /* UpdateTaskUseCase.swift in Sources */,
-				442473D42869BA720059CFCC /* CoreDataStorage.swift in Sources */,
 				442646C228880322004C22D8 /* Const.swift in Sources */,
 				442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */,
 				44CDA2E528768BC900E8F0F0 /* UserDefaultsRepository.swift in Sources */,
