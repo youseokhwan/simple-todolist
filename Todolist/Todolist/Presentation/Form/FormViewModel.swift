@@ -24,7 +24,7 @@ final class FormViewModel {
         addTaskUseCase = AddTaskUseCase()
         updateTaskUseCase = UpdateTaskUseCase()
 
-        taskID = BehaviorRelay(value: -1)
+        taskID = BehaviorRelay(value: Const.tempIDForNewTask)
         context = BehaviorRelay(value: "")
         publishedDate = BehaviorRelay(value: Date().todayDate)
         isDaily = BehaviorRelay(value: false)
@@ -34,7 +34,7 @@ final class FormViewModel {
     func saveTask() {
         guard !context.value.isEmpty else { return }
 
-        if taskID.value == -1 {
+        if taskID.value == Const.tempIDForNewTask {
             addTaskUseCase.createTask(context: context.value, isDaily: isDaily.value)
         } else {
             let task = Task(id: taskID.value,

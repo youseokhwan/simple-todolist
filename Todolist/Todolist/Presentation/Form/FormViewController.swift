@@ -54,7 +54,7 @@ final class FormViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if viewModel.taskID.value == -1 {
+        if viewModel.taskID.value == Const.tempIDForNewTask {
             stackView.showKeyboard()
         }
     }
