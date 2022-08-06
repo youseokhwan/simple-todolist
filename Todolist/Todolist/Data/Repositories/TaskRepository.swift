@@ -8,26 +8,24 @@
 import Foundation
 
 final class TaskRepository {
-    private let storage = RealmStorage()
-
     func create(task: Task) {
-        storage.create(task: task)
+        RealmStorage.create(task: task)
     }
 
     func fetchAllTasks() -> [Task] {
-        return storage.fetchAllTasks()
+        return RealmStorage.fetchAllTasks()
     }
 
     func fetchTask(by id: String) -> Task? {
-        return storage.fetchTask(by: id)
+        return RealmStorage.fetchTask(by: id)
     }
 
     func update(task: Task) {
-        storage.update(task: task)
+        RealmStorage.update(task: task)
     }
 
     func delete(task: Task) {
-        storage.delete(task: task)
+        RealmStorage.delete(task: task)
     }
 
 //    func updateTasksAsOfToday(completion: @escaping ([Task]) -> Void) {

@@ -9,21 +9,21 @@ import Foundation
 
 import RealmSwift
 
-final class RealmStorage {
-    func fetchAllTasks() -> [Task] {
+enum RealmStorage {
+    static func fetchAllTasks() -> [Task] {
         guard let realm = try? Realm() else { return [] }
 
         return Array(realm.objects(Task.self))
     }
 
-    func fetchTask(by id: String) -> Task? {
+    static func fetchTask(by id: String) -> Task? {
         guard let realm = try? Realm(),
               let task = realm.object(ofType: Task.self, forPrimaryKey: id) else { return nil }
 
         return task
     }
 
-    func create(task: Task) {
+    static func create(task: Task) {
         guard let realm = try? Realm() else { return }
 
         try? realm.write {
@@ -31,7 +31,7 @@ final class RealmStorage {
         }
     }
 
-    func update(task: Task) {
+    static func update(task: Task) {
         guard let realm = try? Realm() else { return }
 
         try? realm.write {
@@ -39,7 +39,7 @@ final class RealmStorage {
         }
     }
 
-    func delete(task: Task) {
+    static func delete(task: Task) {
         guard let realm = try? Realm() else { return }
 
         try? realm.write {
