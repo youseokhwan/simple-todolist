@@ -55,10 +55,8 @@ final class TasksViewModel {
         updateTaskUseCase.delete(task: removedTask)
     }
 
-    func update(task: Task?) {
-        guard let task = task else { return }
-        
-        updateTaskUseCase.update(task: task)
+    func updateIsChecked(of task: Task, isChecked: Bool) {
+        updateTaskUseCase.updateIsChecked(of: task, isChecked: isChecked)
     }
 
     func didTappedFormButton() {
