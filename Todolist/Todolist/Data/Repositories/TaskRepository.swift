@@ -24,8 +24,8 @@ final class TaskRepository {
         RealmStorage.update(task: task)
     }
 
-    func updateIsChecked(of task: Task, isChecked: Bool) {
-        RealmStorage.updateIsChecked(of: task, isChecked: isChecked)
+    func updateIsChecked(of task: Task, value: Bool) {
+        RealmStorage.updateIsChecked(of: task, value: value)
     }
 
     func delete(task: Task) {

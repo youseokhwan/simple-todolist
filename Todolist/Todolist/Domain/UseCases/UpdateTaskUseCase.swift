@@ -14,8 +14,8 @@ struct UpdateTaskUseCase {
         taskRepository.update(task: task)
     }
 
-    func updateIsChecked(of task: Task, isChecked: Bool) {
-        taskRepository.updateIsChecked(of: task, isChecked: isChecked)
+    func updateIsChecked(of task: Task, value: Bool) {
+        taskRepository.updateIsChecked(of: task, value: value)
     }
 
     func delete(task: Task) {

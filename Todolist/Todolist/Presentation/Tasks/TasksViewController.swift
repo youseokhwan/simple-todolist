@@ -98,7 +98,7 @@ private extension TasksViewController {
             )) { [weak self] index, element, cell in
                 cell.updateUI(by: element)
                 cell.checkButtonTappedHandler = { [weak self] value in
-                    self?.viewModel.updateIsChecked(of: element, isChecked: value)
+                    self?.viewModel.updateIsChecked(of: element, value: value)
                 }
             }
             .disposed(by: disposeBag)
