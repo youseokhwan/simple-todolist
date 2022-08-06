@@ -16,7 +16,7 @@ struct AddTaskUseCase {
         taskRepository.create(task: task)
     }
 
-    func autoIncreasedID() -> String {
+    func autoIncreasedID() -> Int {
         return UserDefaultsRepository.nextTaskID()
     }
 }
