@@ -8,11 +8,11 @@
 import Foundation
 
 extension Date {
-    var todayDate: String {
+    static var today: String {
         let dateFormatter = DateFormatter()
 
         dateFormatter.dateFormat = Const.yyyyMMdd
 
-        return dateFormatter.string(from: self)
+        return dateFormatter.string(from: Date())
     }
 }
