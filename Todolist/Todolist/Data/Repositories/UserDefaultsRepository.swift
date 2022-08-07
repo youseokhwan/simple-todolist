@@ -8,12 +8,12 @@
 import Foundation
 
 enum UserDefaultsRepository {
-    static func nextTaskID() -> String {
+    static func nextTaskID() -> Int {
         let nextID = UserDefaults.standard.integer(forKey: Const.nextTaskID)
 
         UserDefaults.standard.set(nextID + 1, forKey: Const.nextTaskID)
 
-        return "\(nextID)"
+        return nextID
     }
 
     static func saveLastFetchDate(value: String) {

@@ -34,8 +34,6 @@
 		442473C6286589850059CFCC /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473C5286589850059CFCC /* SettingsViewModel.swift */; };
 		442473CA2865D1660059CFCC /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473C92865D1660059CFCC /* Task.swift */; };
 		442473D12869B8290059CFCC /* TaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473D02869B8290059CFCC /* TaskRepository.swift */; };
-		442473D42869BA720059CFCC /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473D32869BA720059CFCC /* CoreDataStorage.swift */; };
-		442473FC286AB2C20059CFCC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 442473FA286AB2C20059CFCC /* Model.xcdatamodeld */; };
 		442646B92887F98D004C22D8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 442646BB2887F98D004C22D8 /* Localizable.strings */; };
 		442646BE2887FA17004C22D8 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442646BD2887FA17004C22D8 /* String+Extensions.swift */; };
 		442646C228880322004C22D8 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442646C128880322004C22D8 /* Const.swift */; };
@@ -46,6 +44,11 @@
 		4444314D285EFB420004D468 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4444314C285EFB420004D468 /* Assets.xcassets */; };
 		44443150285EFB420004D468 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4444314E285EFB420004D468 /* LaunchScreen.storyboard */; };
 		44B90CAB289A487D00B4BADD /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B90CAA289A487D00B4BADD /* UILabel+Extensions.swift */; };
+		44B90D01289D2EBD00B4BADD /* Realm.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B90CFF289D2EBD00B4BADD /* Realm.xcframework */; };
+		44B90D02289D2EBD00B4BADD /* Realm.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44B90CFF289D2EBD00B4BADD /* Realm.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		44B90D03289D2EBD00B4BADD /* RealmSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B90D00289D2EBD00B4BADD /* RealmSwift.xcframework */; };
+		44B90D04289D2EBD00B4BADD /* RealmSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44B90D00289D2EBD00B4BADD /* RealmSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		44B90D06289D6AE500B4BADD /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B90D05289D6AE500B4BADD /* RealmStorage.swift */; };
 		44CDA2B72872F00C00E8F0F0 /* FormStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */; };
 		44CDA2BE28731F3400E8F0F0 /* FormDailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2BD28731F3400E8F0F0 /* FormDailyView.swift */; };
 		44CDA2E32876847A00E8F0F0 /* AddTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2E22876847A00E8F0F0 /* AddTaskUseCase.swift */; };
@@ -62,7 +65,9 @@
 				01BD5E672865910E00BC7C4D /* RxRelay.xcframework in Embed Frameworks */,
 				01EF862B287BFCEC005F037A /* Differentiator.xcframework in Embed Frameworks */,
 				01BD5E6D2865910E00BC7C4D /* RxCocoa.xcframework in Embed Frameworks */,
+				44B90D04289D2EBD00B4BADD /* RealmSwift.xcframework in Embed Frameworks */,
 				01BD5E6B2865910E00BC7C4D /* SnapKit.xcframework in Embed Frameworks */,
+				44B90D02289D2EBD00B4BADD /* Realm.xcframework in Embed Frameworks */,
 				019EE55C2879289600804889 /* RxDataSources.xcframework in Embed Frameworks */,
 				01BD5E692865910E00BC7C4D /* RxSwift.xcframework in Embed Frameworks */,
 			);
@@ -93,8 +98,6 @@
 		442473C5286589850059CFCC /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		442473C92865D1660059CFCC /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		442473D02869B8290059CFCC /* TaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepository.swift; sourceTree = "<group>"; };
-		442473D32869BA720059CFCC /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
-		442473FB286AB2C20059CFCC /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		442646BA2887F98D004C22D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		442646BC2887F9A0004C22D8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		442646BD2887FA17004C22D8 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -108,6 +111,9 @@
 		4444314F285EFB420004D468 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44443151285EFB420004D468 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44B90CAA289A487D00B4BADD /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		44B90CFF289D2EBD00B4BADD /* Realm.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Realm.xcframework; path = ../Carthage/Build/Realm.xcframework; sourceTree = "<group>"; };
+		44B90D00289D2EBD00B4BADD /* RealmSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RealmSwift.xcframework; path = ../Carthage/Build/RealmSwift.xcframework; sourceTree = "<group>"; };
+		44B90D05289D6AE500B4BADD /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
 		44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStackView.swift; sourceTree = "<group>"; };
 		44CDA2BD28731F3400E8F0F0 /* FormDailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDailyView.swift; sourceTree = "<group>"; };
 		44CDA2E22876847A00E8F0F0 /* AddTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskUseCase.swift; sourceTree = "<group>"; };
@@ -122,7 +128,9 @@
 				01BD5E662865910E00BC7C4D /* RxRelay.xcframework in Frameworks */,
 				01EF862A287BFCEC005F037A /* Differentiator.xcframework in Frameworks */,
 				01BD5E6C2865910E00BC7C4D /* RxCocoa.xcframework in Frameworks */,
+				44B90D03289D2EBD00B4BADD /* RealmSwift.xcframework in Frameworks */,
 				01BD5E6A2865910E00BC7C4D /* SnapKit.xcframework in Frameworks */,
+				44B90D01289D2EBD00B4BADD /* Realm.xcframework in Frameworks */,
 				019EE55B2879289600804889 /* RxDataSources.xcframework in Frameworks */,
 				01BD5E682865910E00BC7C4D /* RxSwift.xcframework in Frameworks */,
 			);
@@ -154,6 +162,8 @@
 		01BD5E612865910E00BC7C4D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				44B90CFF289D2EBD00B4BADD /* Realm.xcframework */,
+				44B90D00289D2EBD00B4BADD /* RealmSwift.xcframework */,
 				01EF8629287BFCEC005F037A /* Differentiator.xcframework */,
 				019EE55A2879289600804889 /* RxDataSources.xcframework */,
 				01BD5E652865910E00BC7C4D /* RxCocoa.xcframework */,
@@ -244,8 +254,7 @@
 		442473D22869B9CE0059CFCC /* Storages */ = {
 			isa = PBXGroup;
 			children = (
-				442473FA286AB2C20059CFCC /* Model.xcdatamodeld */,
-				442473D32869BA720059CFCC /* CoreDataStorage.swift */,
+				44B90D05289D6AE500B4BADD /* RealmStorage.swift */,
 			);
 			path = Storages;
 			sourceTree = "<group>";
@@ -411,9 +420,7 @@
 			files = (
 				442473C0286589310059CFCC /* FormViewController.swift in Sources */,
 				442473CA2865D1660059CFCC /* Task.swift in Sources */,
-				442473FC286AB2C20059CFCC /* Model.xcdatamodeld in Sources */,
 				44264708288DB145004C22D8 /* UpdateTaskUseCase.swift in Sources */,
-				442473D42869BA720059CFCC /* CoreDataStorage.swift in Sources */,
 				442646C228880322004C22D8 /* Const.swift in Sources */,
 				442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */,
 				44CDA2E528768BC900E8F0F0 /* UserDefaultsRepository.swift in Sources */,
@@ -433,6 +440,7 @@
 				44B90CAB289A487D00B4BADD /* UILabel+Extensions.swift in Sources */,
 				44CDA2E32876847A00E8F0F0 /* AddTaskUseCase.swift in Sources */,
 				442473BE286587E20059CFCC /* TasksViewModel.swift in Sources */,
+				44B90D06289D6AE500B4BADD /* RealmStorage.swift in Sources */,
 				442473C4286589700059CFCC /* SettingsViewController.swift in Sources */,
 				012D2C27288C33270063BB1E /* ThemeMenuButton.swift in Sources */,
 				442473C6286589850059CFCC /* SettingsViewModel.swift in Sources */,
@@ -659,19 +667,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		442473FA286AB2C20059CFCC /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				442473FB286AB2C20059CFCC /* Model.xcdatamodel */,
-			);
-			currentVersion = 442473FB286AB2C20059CFCC /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 44443138285EFB400004D468 /* Project object */;
 }

@@ -32,15 +32,19 @@ final class TasksViewModel {
     }
 
     func fetchAllTasks() {
-        if isFirstFetchOfToday() {
-            updateTaskUseCase.updateTasksAsOfToday() { [weak self] updatedTasks in
-                self?.allTasks.accept(updatedTasks)
-            }
-        } else {
-            fetchTaskUseCase.fetchAllTasks() { [weak self] tasks in
-                self?.allTasks.accept(tasks)
-            }
-        }
+//        if isFirstFetchOfToday() {
+//            updateTaskUseCase.updateTasksAsOfToday() { [weak self] updatedTasks in
+//                self?.allTasks.accept(updatedTasks)
+//            }
+//        } else {
+//            fetchTaskUseCase.fetchAllTasks() { [weak self] tasks in
+//                self?.allTasks.accept(tasks)
+//            }
+//        }
+
+        let tasks = fetchTaskUseCase.fetchAllTasks()
+
+        allTasks.accept(tasks)
     }
 
     func deleteTask(of index: Int) {
@@ -51,10 +55,8 @@ final class TasksViewModel {
         updateTaskUseCase.delete(task: removedTask)
     }
 
-    func update(task: Task?) {
-        guard let task = task else { return }
-        
-        updateTaskUseCase.update(task: task)
+    func updateIsChecked(of task: Task, value: Bool) {
+        updateTaskUseCase.updateIsChecked(of: task, value: value)
     }
 
     func didTappedFormButton() {

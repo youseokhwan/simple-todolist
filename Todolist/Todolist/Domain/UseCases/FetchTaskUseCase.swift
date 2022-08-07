@@ -10,15 +10,11 @@ import Foundation
 struct FetchTaskUseCase {
     private let taskRepository = TaskRepository()
 
-    func fetchAllTasks(completion: @escaping ([Task]) -> Void) {
-        taskRepository.fetchAllTasks() { tasks in
-            completion(tasks)
-        }
+    func fetchAllTasks() -> [Task] {
+        return taskRepository.fetchAllTasks()
     }
 
-    func fetchTask(by id: String, completion: @escaping (Task?) -> Void) {
-        taskRepository.fetchTask(by: id) { task in
-            completion(task)
-        }
+    func fetchTask(by id: String) -> Task? {
+        return taskRepository.fetchTask(by: id)
     }
 }

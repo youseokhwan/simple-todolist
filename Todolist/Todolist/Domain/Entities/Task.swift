@@ -7,26 +7,19 @@
 
 import Foundation
 
-struct Task {
-    let id: String
-    var context: String
-    var isDaily: Bool
-    var isChecked: Bool
+import RealmSwift
 
-    init(id: String, context: String, isDaily: Bool, isChecked: Bool) {
+final class Task: Object {
+    @Persisted(primaryKey: true) var id: Int
+    @Persisted var context: String
+    @Persisted var isDaily: Bool
+    @Persisted var isChecked: Bool
+
+    convenience init(id: Int, context: String, isDaily: Bool, isChecked: Bool) {
+        self.init()
         self.id = id
         self.context = context
         self.isDaily = isDaily
         self.isChecked = isChecked
-    }
-
-    init?(cdTask: CDTask?) {
-        guard let cdTask = cdTask,
-              let id = cdTask.id else { return nil }
-
-        self.id = id
-        self.context = cdTask.context ?? ""
-        self.isDaily = cdTask.isDaily
-        self.isChecked = cdTask.isChecked
     }
 }

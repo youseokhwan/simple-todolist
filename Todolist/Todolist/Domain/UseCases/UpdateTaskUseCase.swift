@@ -14,14 +14,18 @@ struct UpdateTaskUseCase {
         taskRepository.update(task: task)
     }
 
+    func updateIsChecked(of task: Task, value: Bool) {
+        taskRepository.updateIsChecked(of: task, value: value)
+    }
+
     func delete(task: Task) {
         taskRepository.delete(task: task)
     }
 
-    func updateTasksAsOfToday(completion: @escaping ([Task]) -> Void) {
-        taskRepository.updateTasksAsOfToday { updatedTasks in
-            completion(updatedTasks)
-            UserDefaultsRepository.saveLastFetchDate(value: Date().todayDate)
-        }
-    }
+//    func updateTasksAsOfToday(completion: @escaping ([Task]) -> Void) {
+//        taskRepository.updateTasksAsOfToday { updatedTasks in
+//            completion(updatedTasks)
+//            UserDefaultsRepository.saveLastFetchDate(value: Date().todayDate)
+//        }
+//    }
 }
