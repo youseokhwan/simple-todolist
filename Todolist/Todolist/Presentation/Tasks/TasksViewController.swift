@@ -69,7 +69,7 @@ private extension TasksViewController {
         let settingsBarButton = UIBarButtonItem(customView: settingsButton)
 
         navigationItem.rightBarButtonItems = [formBarButton, settingsBarButton]
-        navigationItem.title = Date.todayDate
+        navigationItem.title = Date.today
 
         view.addSubview(tableView)
     }

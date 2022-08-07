@@ -8,7 +8,7 @@
 import Foundation
 
 extension Date {
-    static var todayDate: String {
+    static var today: String {
         let dateFormatter = DateFormatter()
 
         dateFormatter.dateFormat = Const.yyyyMMdd

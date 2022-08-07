@@ -26,7 +26,7 @@ final class FormViewModel {
 
         taskID = BehaviorRelay(value: Const.tempIDForNewTask)
         context = BehaviorRelay(value: "")
-        publishedDate = BehaviorRelay(value: Date.todayDate)
+        publishedDate = BehaviorRelay(value: Date.today)
         isDaily = BehaviorRelay(value: false)
         isChecked = BehaviorRelay(value: false)
     }
