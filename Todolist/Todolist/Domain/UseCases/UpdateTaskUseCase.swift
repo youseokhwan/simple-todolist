@@ -14,6 +14,10 @@ struct UpdateTaskUseCase {
         taskRepository.update(task: task)
     }
 
+    func update(tasks: [Task]) {
+        taskRepository.update(tasks: tasks)
+    }
+
     func updateIsChecked(of task: Task, value: Bool) {
         taskRepository.updateIsChecked(of: task, value: value)
     }
@@ -35,10 +39,7 @@ struct UpdateTaskUseCase {
         updatedTasks = updatedTasks.map {
             Task(id: $0.id, context: $0.context, isDaily: $0.isDaily, isChecked: false)
         }
-
-        updatedTasks.forEach {
-            update(task: $0)
-        }
+        update(tasks: updatedTasks)
 
         UserDefaultsRepository.saveLastFetchDate(value: Date.today)
 
