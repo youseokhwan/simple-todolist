@@ -75,9 +75,9 @@ private extension FormViewController {
     func configureViews() {
         view.backgroundColor = .systemBackground
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveButton)
-
-        view.addSubview(scrollView)
+        [scrollView, saveButton].forEach {
+            view.addSubview($0)
+        }
     }
 
     func configureBind() {
@@ -106,9 +106,13 @@ private extension FormViewController {
             make.edges.equalToSuperview().inset(20)
         }
 
+        saveButton.snp.makeConstraints { make in
+            make.top.trailing.equalToSuperview().inset(20)
+        }
+
         stackView.snp.makeConstraints { make in
             make.centerX.bottom.width.equalToSuperview()
-            make.top.equalToSuperview().offset(20)
+            make.top.equalTo(saveButton.snp.bottom).offset(20)
         }
     }
 }
