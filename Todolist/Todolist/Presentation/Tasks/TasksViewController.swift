@@ -134,7 +134,7 @@ extension TasksViewController: TasksViewModelDelegate {
     func didTappedFormButton() {
         let formViewController = FormViewController()
 
-        navigationController?.pushViewController(formViewController, animated: true)
+        present(formViewController, animated: true)
     }
     
     func didTappedSettingsButton() {

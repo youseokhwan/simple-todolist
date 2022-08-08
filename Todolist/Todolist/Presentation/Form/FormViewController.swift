@@ -84,7 +84,7 @@ private extension FormViewController {
         saveButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.viewModel.saveTask()
-                self?.navigationController?.popViewController(animated: true)
+                self?.dismiss(animated: true)
             })
             .disposed(by: disposeBag)
 
