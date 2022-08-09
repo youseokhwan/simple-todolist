@@ -28,8 +28,6 @@ final class TasksTableViewCell: UITableViewCell {
     }()
     private lazy var contextLabel = UILabel()
 
-    var checkButtonTappedHandler: ((Bool) -> Void)?
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configure()
