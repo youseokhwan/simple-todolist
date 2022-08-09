@@ -12,6 +12,9 @@ import RxSwift
 import SnapKit
 
 final class TasksViewController: UIViewController {
+    private static let formDismissed = NSNotification.Name("FormDismissed")
+    private static let identifier = "TasksTableViewCell"
+
     private let viewModel = TasksViewModel()
     private let disposeBag = DisposeBag()
 
@@ -37,7 +40,7 @@ final class TasksViewController: UIViewController {
         let tableView = UITableView()
 
         tableView.register(TasksTableViewCell.self,
-                           forCellReuseIdentifier: Const.tasksTableViewCellID)
+                           forCellReuseIdentifier: Self.identifier)
         tableView.rowHeight = 80
 
         return tableView
@@ -46,10 +49,11 @@ final class TasksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        fetchAllTasks()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    @objc
+    private func fetchAllTasks() {
         viewModel.fetchAllTasks()
     }
 }
@@ -60,6 +64,7 @@ private extension TasksViewController {
         configureDelegates()
         configureBind()
         configureConstraints()
+        configureObserver()
     }
 
     func configureViews() {
@@ -93,7 +98,7 @@ private extension TasksViewController {
 
         viewModel.allTasks
             .bind(to: tableView.rx.items(
-                cellIdentifier: Const.tasksTableViewCellID,
+                cellIdentifier: Self.identifier,
                 cellType: TasksTableViewCell.self
             )) { [weak self] index, element, cell in
                 cell.updateUI(by: element)
@@ -128,13 +133,20 @@ private extension TasksViewController {
             make.edges.equalToSuperview()
         }
     }
+
+    func configureObserver() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(fetchAllTasks),
+                                               name: Self.formDismissed,
+                                               object: nil)
+    }
 }
 
 extension TasksViewController: TasksViewModelDelegate {
     func didTappedFormButton() {
         let formViewController = FormViewController()
 
-        navigationController?.pushViewController(formViewController, animated: true)
+        present(formViewController, animated: true)
     }
     
     func didTappedSettingsButton() {

@@ -16,6 +16,8 @@ import SnapKit
 final class SettingsViewController: UIViewController {
     typealias SectionDataSource = RxTableViewSectionedReloadDataSource<SettingsSection>
 
+    private static let identifier = "SettingsTableViewCell"
+
     private let viewModel = SettingsViewModel()
     private let disposeBag = DisposeBag()
 
@@ -23,7 +25,7 @@ final class SettingsViewController: UIViewController {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
 
         tableView.register(SettingsTableViewCell.self,
-                           forCellReuseIdentifier: Const.settingsTableViewCellID)
+                           forCellReuseIdentifier: Self.identifier)
                          
         return tableView
     }()
@@ -44,7 +46,7 @@ final class SettingsViewController: UIViewController {
         let dataSource = SectionDataSource(
             configureCell: { [weak self] dataSource, tableView, indexPath, item in
                 guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: Const.settingsTableViewCellID,
+                    withIdentifier: Self.identifier,
                     for: indexPath
                 ) as? SettingsTableViewCell else { return UITableViewCell() }
 

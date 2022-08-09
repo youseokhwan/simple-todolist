@@ -12,6 +12,8 @@ import RxSwift
 import SnapKit
 
 final class FormViewController: UIViewController {
+    private static let formDismissed = NSNotification.Name("FormDismissed")
+
     private let viewModel = FormViewModel()
     private let disposeBag = DisposeBag()
 
@@ -59,6 +61,11 @@ final class FormViewController: UIViewController {
         }
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.post(name: Self.formDismissed, object: nil)
+    }
+
     @objc
     private func tappedOutsideOfKeyboard(_ sender: UITapGestureRecognizer) {
         view.endEditing(false)
@@ -75,16 +82,16 @@ private extension FormViewController {
     func configureViews() {
         view.backgroundColor = .systemBackground
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveButton)
-
-        view.addSubview(scrollView)
+        [scrollView, saveButton].forEach {
+            view.addSubview($0)
+        }
     }
 
     func configureBind() {
         saveButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.viewModel.saveTask()
-                self?.navigationController?.popViewController(animated: true)
+                self?.dismiss(animated: true)
             })
             .disposed(by: disposeBag)
 
@@ -106,9 +113,13 @@ private extension FormViewController {
             make.edges.equalToSuperview().inset(20)
         }
 
+        saveButton.snp.makeConstraints { make in
+            make.top.trailing.equalToSuperview().inset(20)
+        }
+
         stackView.snp.makeConstraints { make in
             make.centerX.bottom.width.equalToSuperview()
-            make.top.equalToSuperview().offset(20)
+            make.top.equalTo(saveButton.snp.bottom).offset(20)
         }
     }
 }

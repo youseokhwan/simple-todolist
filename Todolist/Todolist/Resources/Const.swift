@@ -9,7 +9,6 @@ import Foundation
 
 enum Const {
     // Tasks
-    static let tasksTableViewCellID = "TasksTableViewCell"
     static let formButtonImage = "plus"
     static let settingsButtonImage = "gearshape.fill"
     static let checkButtonNormalImage = "circle"
@@ -23,7 +22,6 @@ enum Const {
     static let dailyLabelText = "dailyLabelText".localized
 
     // Settings
-    static let settingsTableViewCellID = "SettingsTableViewCell"
     static let settingsTitle = "settingsTitle".localized
     static let appSettingsSection = "appSettingsSection".localized
     static let themeSettings = "themeSettings".localized
