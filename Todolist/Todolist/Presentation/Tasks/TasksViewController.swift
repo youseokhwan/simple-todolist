@@ -13,7 +13,7 @@ import SnapKit
 
 final class TasksViewController: UIViewController {
     private static let formDismissed = NSNotification.Name("FormDismissed")
-    private static let tasksTableViewCellID = "TasksTableViewCell"
+    private static let identifier = "TasksTableViewCell"
 
     private let viewModel = TasksViewModel()
     private let disposeBag = DisposeBag()
@@ -40,7 +40,7 @@ final class TasksViewController: UIViewController {
         let tableView = UITableView()
 
         tableView.register(TasksTableViewCell.self,
-                           forCellReuseIdentifier: Self.tasksTableViewCellID)
+                           forCellReuseIdentifier: Self.identifier)
         tableView.rowHeight = 80
 
         return tableView
@@ -98,7 +98,7 @@ private extension TasksViewController {
 
         viewModel.allTasks
             .bind(to: tableView.rx.items(
-                cellIdentifier: Self.tasksTableViewCellID,
+                cellIdentifier: Self.identifier,
                 cellType: TasksTableViewCell.self
             )) { [weak self] index, element, cell in
                 cell.updateUI(by: element)
