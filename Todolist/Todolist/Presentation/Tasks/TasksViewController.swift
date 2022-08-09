@@ -106,6 +106,7 @@ private extension TasksViewController {
             .disposed(by: disposeBag)
 
         tableView.rx.itemSelected
+            .throttle(.seconds(1), scheduler: MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self] indexPath in
                 guard let cell = self?.tableView.cellForRow(at: indexPath) as? TasksTableViewCell,
                       let task = self?.viewModel.allTasks.value[indexPath.row] else { return }
