@@ -65,8 +65,10 @@ final class FormViewController: UIViewController {
     }
 
     private func sendNotificationCenter() {
-        NotificationCenter.default.post(name: NSNotification.Name("DismissFormViewController"),
-                                        object: nil)
+        NotificationCenter.default.post(
+            name: NSNotification.Name(Const.notificationDismissFormViewController),
+            object: nil
+        )
     }
 
     @objc

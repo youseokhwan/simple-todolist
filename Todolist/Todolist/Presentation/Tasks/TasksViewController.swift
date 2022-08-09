@@ -54,7 +54,7 @@ final class TasksViewController: UIViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(dismissFormViewController),
-            name: NSNotification.Name("DismissFormViewController"),
+            name: NSNotification.Name(Const.notificationDismissFormViewController),
             object: nil
         )
     }

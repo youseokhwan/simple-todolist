@@ -21,6 +21,7 @@ enum Const {
     static let contextTextFieldMaxCount = 20
     static let contextTextFieldPlaceholder = "contextTextFieldPlaceholder".localized
     static let dailyLabelText = "dailyLabelText".localized
+    static let notificationDismissFormViewController = "DismissFormViewController"
 
     // Settings
     static let settingsTableViewCellID = "SettingsTableViewCell"
