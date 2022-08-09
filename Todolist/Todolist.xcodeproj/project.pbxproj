@@ -10,21 +10,9 @@
 		012D2C27288C33270063BB1E /* ThemeMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D2C26288C33270063BB1E /* ThemeMenuButton.swift */; };
 		0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */; };
 		019EE54F28742F9F00804889 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EE54E28742F9F00804889 /* Date+Extensions.swift */; };
-		019EE55B2879289600804889 /* RxDataSources.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 019EE55A2879289600804889 /* RxDataSources.xcframework */; };
-		019EE55C2879289600804889 /* RxDataSources.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 019EE55A2879289600804889 /* RxDataSources.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		01AF6D2428684AB5007CFD89 /* TasksViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AF6D2328684AB5007CFD89 /* TasksViewModelDelegate.swift */; };
 		01B4BE0328882884004CE987 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */; };
-		01BD5E662865910E00BC7C4D /* RxRelay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD5E622865910E00BC7C4D /* RxRelay.xcframework */; };
-		01BD5E672865910E00BC7C4D /* RxRelay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD5E622865910E00BC7C4D /* RxRelay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		01BD5E682865910E00BC7C4D /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD5E632865910E00BC7C4D /* RxSwift.xcframework */; };
-		01BD5E692865910E00BC7C4D /* RxSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD5E632865910E00BC7C4D /* RxSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		01BD5E6A2865910E00BC7C4D /* SnapKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD5E642865910E00BC7C4D /* SnapKit.xcframework */; };
-		01BD5E6B2865910E00BC7C4D /* SnapKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD5E642865910E00BC7C4D /* SnapKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		01BD5E6C2865910E00BC7C4D /* RxCocoa.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD5E652865910E00BC7C4D /* RxCocoa.xcframework */; };
-		01BD5E6D2865910E00BC7C4D /* RxCocoa.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01BD5E652865910E00BC7C4D /* RxCocoa.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		01EF8628287BECDD005F037A /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF8627287BECDD005F037A /* SettingsSection.swift */; };
-		01EF862A287BFCEC005F037A /* Differentiator.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01EF8629287BFCEC005F037A /* Differentiator.xcframework */; };
-		01EF862B287BFCEC005F037A /* Differentiator.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01EF8629287BFCEC005F037A /* Differentiator.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		01EF8650287DAD1B005F037A /* FetchTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF864F287DAD1B005F037A /* FetchTaskUseCase.swift */; };
 		442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473BB2865874D0059CFCC /* TasksViewController.swift */; };
 		442473BE286587E20059CFCC /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473BD286587E20059CFCC /* TasksViewModel.swift */; };
@@ -44,10 +32,6 @@
 		4444314D285EFB420004D468 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4444314C285EFB420004D468 /* Assets.xcassets */; };
 		44443150285EFB420004D468 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4444314E285EFB420004D468 /* LaunchScreen.storyboard */; };
 		44B90CAB289A487D00B4BADD /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B90CAA289A487D00B4BADD /* UILabel+Extensions.swift */; };
-		44B90D01289D2EBD00B4BADD /* Realm.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B90CFF289D2EBD00B4BADD /* Realm.xcframework */; };
-		44B90D02289D2EBD00B4BADD /* Realm.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44B90CFF289D2EBD00B4BADD /* Realm.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		44B90D03289D2EBD00B4BADD /* RealmSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B90D00289D2EBD00B4BADD /* RealmSwift.xcframework */; };
-		44B90D04289D2EBD00B4BADD /* RealmSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44B90D00289D2EBD00B4BADD /* RealmSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		44B90D06289D6AE500B4BADD /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B90D05289D6AE500B4BADD /* RealmStorage.swift */; };
 		44CDA2B72872F00C00E8F0F0 /* FormStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */; };
 		44CDA2BE28731F3400E8F0F0 /* FormDailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2BD28731F3400E8F0F0 /* FormDailyView.swift */; };
@@ -55,40 +39,13 @@
 		44CDA2E528768BC900E8F0F0 /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2E428768BC900E8F0F0 /* UserDefaultsRepository.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		01BD5E6E2865910E00BC7C4D /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				01BD5E672865910E00BC7C4D /* RxRelay.xcframework in Embed Frameworks */,
-				01EF862B287BFCEC005F037A /* Differentiator.xcframework in Embed Frameworks */,
-				01BD5E6D2865910E00BC7C4D /* RxCocoa.xcframework in Embed Frameworks */,
-				44B90D04289D2EBD00B4BADD /* RealmSwift.xcframework in Embed Frameworks */,
-				01BD5E6B2865910E00BC7C4D /* SnapKit.xcframework in Embed Frameworks */,
-				44B90D02289D2EBD00B4BADD /* Realm.xcframework in Embed Frameworks */,
-				019EE55C2879289600804889 /* RxDataSources.xcframework in Embed Frameworks */,
-				01BD5E692865910E00BC7C4D /* RxSwift.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		012D2C26288C33270063BB1E /* ThemeMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeMenuButton.swift; sourceTree = "<group>"; };
 		0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
 		019EE54E28742F9F00804889 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
-		019EE55A2879289600804889 /* RxDataSources.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxDataSources.xcframework; path = ../Carthage/Build/RxDataSources.xcframework; sourceTree = "<group>"; };
 		01AF6D2328684AB5007CFD89 /* TasksViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModelDelegate.swift; sourceTree = "<group>"; };
 		01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
-		01BD5E622865910E00BC7C4D /* RxRelay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxRelay.xcframework; path = ../Carthage/Build/RxRelay.xcframework; sourceTree = "<group>"; };
-		01BD5E632865910E00BC7C4D /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxSwift.xcframework; path = ../Carthage/Build/RxSwift.xcframework; sourceTree = "<group>"; };
-		01BD5E642865910E00BC7C4D /* SnapKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SnapKit.xcframework; path = ../Carthage/Build/SnapKit.xcframework; sourceTree = "<group>"; };
-		01BD5E652865910E00BC7C4D /* RxCocoa.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxCocoa.xcframework; path = ../Carthage/Build/RxCocoa.xcframework; sourceTree = "<group>"; };
 		01EF8627287BECDD005F037A /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
-		01EF8629287BFCEC005F037A /* Differentiator.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Differentiator.xcframework; path = ../Carthage/Build/Differentiator.xcframework; sourceTree = "<group>"; };
 		01EF864F287DAD1B005F037A /* FetchTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTaskUseCase.swift; sourceTree = "<group>"; };
 		442473BB2865874D0059CFCC /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		442473BD286587E20059CFCC /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
@@ -111,8 +68,6 @@
 		4444314F285EFB420004D468 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44443151285EFB420004D468 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44B90CAA289A487D00B4BADD /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
-		44B90CFF289D2EBD00B4BADD /* Realm.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Realm.xcframework; path = ../Carthage/Build/Realm.xcframework; sourceTree = "<group>"; };
-		44B90D00289D2EBD00B4BADD /* RealmSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RealmSwift.xcframework; path = ../Carthage/Build/RealmSwift.xcframework; sourceTree = "<group>"; };
 		44B90D05289D6AE500B4BADD /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
 		44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStackView.swift; sourceTree = "<group>"; };
 		44CDA2BD28731F3400E8F0F0 /* FormDailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDailyView.swift; sourceTree = "<group>"; };
@@ -125,14 +80,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01BD5E662865910E00BC7C4D /* RxRelay.xcframework in Frameworks */,
-				01EF862A287BFCEC005F037A /* Differentiator.xcframework in Frameworks */,
-				01BD5E6C2865910E00BC7C4D /* RxCocoa.xcframework in Frameworks */,
-				44B90D03289D2EBD00B4BADD /* RealmSwift.xcframework in Frameworks */,
-				01BD5E6A2865910E00BC7C4D /* SnapKit.xcframework in Frameworks */,
-				44B90D01289D2EBD00B4BADD /* Realm.xcframework in Frameworks */,
-				019EE55B2879289600804889 /* RxDataSources.xcframework in Frameworks */,
-				01BD5E682865910E00BC7C4D /* RxSwift.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,21 +104,6 @@
 				4426470D2892C30A004C22D8 /* ThemeAlertController.swift */,
 			);
 			path = Subviews;
-			sourceTree = "<group>";
-		};
-		01BD5E612865910E00BC7C4D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				44B90CFF289D2EBD00B4BADD /* Realm.xcframework */,
-				44B90D00289D2EBD00B4BADD /* RealmSwift.xcframework */,
-				01EF8629287BFCEC005F037A /* Differentiator.xcframework */,
-				019EE55A2879289600804889 /* RxDataSources.xcframework */,
-				01BD5E652865910E00BC7C4D /* RxCocoa.xcframework */,
-				01BD5E622865910E00BC7C4D /* RxRelay.xcframework */,
-				01BD5E632865910E00BC7C4D /* RxSwift.xcframework */,
-				01BD5E642865910E00BC7C4D /* SnapKit.xcframework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		442473B6286587030059CFCC /* Tasks */ = {
@@ -280,7 +212,6 @@
 			children = (
 				44443142285EFB400004D468 /* Todolist */,
 				44443141285EFB400004D468 /* Products */,
-				01BD5E612865910E00BC7C4D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -355,7 +286,6 @@
 				4444313C285EFB400004D468 /* Sources */,
 				4444313D285EFB400004D468 /* Frameworks */,
 				4444313E285EFB400004D468 /* Resources */,
-				01BD5E6E2865910E00BC7C4D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
