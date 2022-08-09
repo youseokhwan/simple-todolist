@@ -100,24 +100,19 @@ private extension TasksViewController {
             .bind(to: tableView.rx.items(
                 cellIdentifier: Self.identifier,
                 cellType: TasksTableViewCell.self
-            )) { [weak self] index, element, cell in
+            )) { index, element, cell in
                 cell.updateUI(by: element)
-                cell.checkButtonTappedHandler = { [weak self] value in
-                    self?.viewModel.updateIsChecked(of: element, value: value)
-                }
             }
             .disposed(by: disposeBag)
 
         tableView.rx.itemSelected
-            .map { [weak self] indexPath in
-                self?.viewModel.allTasks.value[indexPath.row]
-            }
-            .subscribe(onNext: { [weak self] task in
-                if let task = task {
-                    let controller = FormViewController(task: task)
+            .throttle(.seconds(1), scheduler: MainScheduler.asyncInstance)
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let cell = self?.tableView.cellForRow(at: indexPath) as? TasksTableViewCell,
+                      let task = self?.viewModel.allTasks.value[indexPath.row] else { return }
 
-                    self?.navigationController?.pushViewController(controller, animated: true)
-                }
+                self?.viewModel.updateIsChecked(of: task, value: !task.isChecked)
+                cell.updateUI(by: task)
             })
             .disposed(by: disposeBag)
 

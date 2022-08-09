@@ -23,12 +23,11 @@ final class TasksTableViewCell: UITableViewCell {
         button.setImage(UIImage(systemName: Const.checkButtonSelectedImage,
                                 withConfiguration: configure), for: .selected)
         button.tintColor = .systemGreen
+        button.isUserInteractionEnabled = false
 
         return button
     }()
     private lazy var contextLabel = UILabel()
-
-    var checkButtonTappedHandler: ((Bool) -> Void)?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -50,25 +49,15 @@ final class TasksTableViewCell: UITableViewCell {
 private extension TasksTableViewCell {
     func configure() {
         configureViews()
-        configureBind()
         configureConstraints()
     }
 
     func configureViews() {
+        selectionStyle = .none
+
         [checkButton, contextLabel].forEach {
             contentView.addSubview($0)
         }
-    }
-
-    func configureBind() {
-        checkButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                guard let self = self else { return }
-                self.checkButton.isSelected = !self.checkButton.isSelected
-                self.contextLabel.strikethrough(isActive: self.checkButton.isSelected)
-                self.checkButtonTappedHandler?(self.checkButton.isSelected)
-            })
-            .disposed(by: disposeBag)
     }
 
     func configureConstraints() {
