@@ -52,6 +52,8 @@ private extension TasksTableViewCell {
     }
 
     func configureViews() {
+        selectionStyle = .none
+
         [checkButton, contextLabel].forEach {
             contentView.addSubview($0)
         }
