@@ -46,10 +46,25 @@ final class TasksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        receiveNotificationCenter()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        viewModel.fetchAllTasks()
+    }
+
+    private func receiveNotificationCenter() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(dismissFormViewController),
+            name: NSNotification.Name("DismissFormViewController"),
+            object: nil
+        )
+    }
+
+    @objc
+    private func dismissFormViewController() {
         viewModel.fetchAllTasks()
     }
 }

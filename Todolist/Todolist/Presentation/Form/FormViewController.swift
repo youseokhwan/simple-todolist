@@ -59,6 +59,16 @@ final class FormViewController: UIViewController {
         }
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        sendNotificationCenter()
+    }
+
+    private func sendNotificationCenter() {
+        NotificationCenter.default.post(name: NSNotification.Name("DismissFormViewController"),
+                                        object: nil)
+    }
+
     @objc
     private func tappedOutsideOfKeyboard(_ sender: UITapGestureRecognizer) {
         view.endEditing(false)
