@@ -46,12 +46,8 @@ final class TasksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        receiveNotificationCenter()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         viewModel.fetchAllTasks()
+        receiveNotificationCenter()
     }
 
     private func receiveNotificationCenter() {
