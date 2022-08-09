@@ -50,7 +50,6 @@ final class TasksTableViewCell: UITableViewCell {
 private extension TasksTableViewCell {
     func configure() {
         configureViews()
-        configureBind()
         configureConstraints()
     }
 
@@ -58,17 +57,6 @@ private extension TasksTableViewCell {
         [checkButton, contextLabel].forEach {
             contentView.addSubview($0)
         }
-    }
-
-    func configureBind() {
-        checkButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                guard let self = self else { return }
-                self.checkButton.isSelected = !self.checkButton.isSelected
-                self.contextLabel.strikethrough(isActive: self.checkButton.isSelected)
-                self.checkButtonTappedHandler?(self.checkButton.isSelected)
-            })
-            .disposed(by: disposeBag)
     }
 
     func configureConstraints() {
