@@ -154,8 +154,8 @@ extension TasksViewController: UITableViewDelegate {
             completion(true)
         }
 
-        edit.image = UIImage(systemName: "square.and.pencil")
         delete.image = UIImage(systemName: "trash.fill")
+        edit.image = UIImage(systemName: "square.and.pencil")
 
         return UISwipeActionsConfiguration(actions: [delete, edit])
     }
