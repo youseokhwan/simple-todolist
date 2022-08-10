@@ -49,7 +49,7 @@ final class TasksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        fetchAllTasks()
+        viewModel.updateTasksAsOfToday()
     }
 
     @objc

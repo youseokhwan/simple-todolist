@@ -26,23 +26,20 @@ struct UpdateTaskUseCase {
         taskRepository.delete(task: task)
     }
 
-    func updatedTasksAsOfToday(tasks: [Task]) -> [Task] {
-        var updatedTasks = tasks
-
+    func updateTasksAsOfToday(tasks: [Task]) {
+        UserDefaultsRepository.saveLastFetchDate(value: Date.today)
+        
         tasks.forEach { task in
             if !task.isDaily && task.isChecked {
-                updatedTasks = updatedTasks.filter { $0.id != task.id }
                 delete(task: task)
+            } else {
+                let updatedTask = Task(id: task.id,
+                                       context: task.context,
+                                       isDaily: task.isDaily,
+                                       isChecked: false)
+
+                update(task: updatedTask)
             }
         }
-
-        updatedTasks = updatedTasks.map {
-            Task(id: $0.id, context: $0.context, isDaily: $0.isDaily, isChecked: false)
-        }
-        update(tasks: updatedTasks)
-
-        UserDefaultsRepository.saveLastFetchDate(value: Date.today)
-
-        return updatedTasks
     }
 }

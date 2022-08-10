@@ -35,6 +35,12 @@ final class TasksViewModel {
         return lastFetchDate < todayDate
     }
 
+    func updateTasksAsOfToday() {
+        if isFirstFetchOfToday() {
+            updateTaskUseCase.updateTasksAsOfToday(tasks: allTasks.value)
+        }
+    }
+
     func fetchAllTasks() {
 //        var tasks = fetchTaskUseCase.fetchAllTasks()
 //
