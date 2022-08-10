@@ -121,6 +121,9 @@ private extension TasksViewController {
                 self?.viewModel.deleteTask(of: indexPath.row)
             })
             .disposed(by: disposeBag)
+
+        tableView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
     }
 
     func configureConstraints() {
@@ -134,6 +137,15 @@ private extension TasksViewController {
                                                selector: #selector(fetchAllTasks),
                                                name: Self.formDismissed,
                                                object: nil)
+    }
+}
+
+extension TasksViewController: UITableViewDelegate {
+    func tableView(
+        _ tableView: UITableView,
+        trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+    ) -> UISwipeActionsConfiguration? {
+        return UISwipeActionsConfiguration()
     }
 }
 
