@@ -10,7 +10,6 @@
 		012D2C27288C33270063BB1E /* ThemeMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D2C26288C33270063BB1E /* ThemeMenuButton.swift */; };
 		0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */; };
 		019EE54F28742F9F00804889 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EE54E28742F9F00804889 /* Date+Extensions.swift */; };
-		01AF6D2428684AB5007CFD89 /* TasksViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AF6D2328684AB5007CFD89 /* TasksViewModelDelegate.swift */; };
 		01B4BE0328882884004CE987 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */; };
 		01EF8628287BECDD005F037A /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF8627287BECDD005F037A /* SettingsSection.swift */; };
 		01EF8650287DAD1B005F037A /* FetchTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF864F287DAD1B005F037A /* FetchTaskUseCase.swift */; };
@@ -51,7 +50,6 @@
 		012D2C26288C33270063BB1E /* ThemeMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeMenuButton.swift; sourceTree = "<group>"; };
 		0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
 		019EE54E28742F9F00804889 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
-		01AF6D2328684AB5007CFD89 /* TasksViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModelDelegate.swift; sourceTree = "<group>"; };
 		01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		01EF8627287BECDD005F037A /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
 		01EF864F287DAD1B005F037A /* FetchTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTaskUseCase.swift; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 				442473BB2865874D0059CFCC /* TasksViewController.swift */,
 				442473BD286587E20059CFCC /* TasksViewModel.swift */,
 				442473FE286E11BF0059CFCC /* Subviews */,
-				442473FD286E11BA0059CFCC /* Delegates */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -205,14 +202,6 @@
 				44B90D05289D6AE500B4BADD /* RealmStorage.swift */,
 			);
 			path = Storages;
-			sourceTree = "<group>";
-		};
-		442473FD286E11BA0059CFCC /* Delegates */ = {
-			isa = PBXGroup;
-			children = (
-				01AF6D2328684AB5007CFD89 /* TasksViewModelDelegate.swift */,
-			);
-			path = Delegates;
 			sourceTree = "<group>";
 		};
 		442473FE286E11BF0059CFCC /* Subviews */ = {
@@ -388,7 +377,6 @@
 				44CDA2E528768BC900E8F0F0 /* UserDefaultsRepository.swift in Sources */,
 				01EF8650287DAD1B005F037A /* FetchTaskUseCase.swift in Sources */,
 				44CDA2BE28731F3400E8F0F0 /* FormDailyView.swift in Sources */,
-				01AF6D2428684AB5007CFD89 /* TasksViewModelDelegate.swift in Sources */,
 				44443144285EFB400004D468 /* AppDelegate.swift in Sources */,
 				0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */,
 				442473D12869B8290059CFCC /* TaskRepository.swift in Sources */,

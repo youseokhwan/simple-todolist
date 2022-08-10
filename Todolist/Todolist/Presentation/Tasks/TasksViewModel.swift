@@ -15,8 +15,6 @@ final class TasksViewModel {
 
     let allTasks: BehaviorRelay<[Task]>
 
-    var delegate: TasksViewModelDelegate?
-
     init() {
         fetchTaskUseCase = FetchTaskUseCase()
         updateTaskUseCase = UpdateTaskUseCase()
@@ -51,13 +49,5 @@ final class TasksViewModel {
 
     func updateIsChecked(of task: Task, value: Bool) {
         updateTaskUseCase.updateIsChecked(of: task, value: value)
-    }
-
-    func didTappedFormButton() {
-        delegate?.didTappedFormButton()
-    }
-
-    func didTappedSettingsButton() {
-        delegate?.didTappedSettingsButton()
     }
 }

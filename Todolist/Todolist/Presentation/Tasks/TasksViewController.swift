@@ -61,7 +61,6 @@ final class TasksViewController: UIViewController {
 private extension TasksViewController {
     func configure() {
         configureViews()
-        configureDelegates()
         configureBind()
         configureConstraints()
         configureObserver()
@@ -79,20 +78,20 @@ private extension TasksViewController {
         view.addSubview(tableView)
     }
 
-    func configureDelegates() {
-        viewModel.delegate = self
-    }
-
     func configureBind() {
         formButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.viewModel.didTappedFormButton()
+                let formViewController = FormViewController()
+
+                self?.present(formViewController, animated: true)
             })
             .disposed(by: disposeBag)
 
         settingsButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.viewModel.didTappedSettingsButton()
+                let settingsViewController = SettingsViewController()
+
+                self?.navigationController?.pushViewController(settingsViewController, animated: true)
             })
             .disposed(by: disposeBag)
 
@@ -116,10 +115,7 @@ private extension TasksViewController {
             })
             .disposed(by: disposeBag)
 
-        tableView.rx.itemDeleted
-            .subscribe(onNext: { [weak self] indexPath in
-                self?.viewModel.deleteTask(of: indexPath.row)
-            })
+        tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
     }
 
@@ -137,16 +133,29 @@ private extension TasksViewController {
     }
 }
 
-extension TasksViewController: TasksViewModelDelegate {
-    func didTappedFormButton() {
-        let formViewController = FormViewController()
+extension TasksViewController: UITableViewDelegate {
+    func tableView(
+        _ tableView: UITableView,
+        trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+    ) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive,
+                                        title: nil) { [weak self] action, view, completion in
+            self?.viewModel.deleteTask(of: indexPath.row)
+            completion(true)
+        }
+        let edit = UIContextualAction(style: .normal,
+                                      title: nil) { [weak self] action, view, completion in
+            if let task = self?.viewModel.allTasks.value[indexPath.row] {
+                let controller = FormViewController(task: task)
 
-        present(formViewController, animated: true)
-    }
-    
-    func didTappedSettingsButton() {
-        let settingsViewController = SettingsViewController()
+                self?.present(controller, animated: true)
+            }
+            completion(true)
+        }
 
-        navigationController?.pushViewController(settingsViewController, animated: true)
+        delete.image = UIImage(systemName: "trash.fill")
+        edit.image = UIImage(systemName: "square.and.pencil")
+
+        return UISwipeActionsConfiguration(actions: [delete, edit])
     }
 }
