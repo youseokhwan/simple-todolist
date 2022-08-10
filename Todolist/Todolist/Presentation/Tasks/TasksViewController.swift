@@ -48,11 +48,11 @@ final class TasksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        viewModel.fetchAllTasks()
+        fetchAllTasks()
     }
 
     @objc
-    private func dismissFormViewController() {
+    private func fetchAllTasks() {
         viewModel.fetchAllTasks()
     }
 }
@@ -135,7 +135,7 @@ private extension TasksViewController {
 
     func configureObserver() {
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(dismissFormViewController),
+                                               selector: #selector(fetchAllTasks),
                                                name: Self.formDismissed,
                                                object: nil)
     }
