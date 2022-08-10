@@ -116,12 +116,6 @@ private extension TasksViewController {
             })
             .disposed(by: disposeBag)
 
-        tableView.rx.itemDeleted
-            .subscribe(onNext: { [weak self] indexPath in
-                self?.viewModel.deleteTask(of: indexPath.row)
-            })
-            .disposed(by: disposeBag)
-
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
     }
