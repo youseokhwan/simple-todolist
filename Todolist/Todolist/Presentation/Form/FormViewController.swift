@@ -12,8 +12,6 @@ import RxSwift
 import SnapKit
 
 final class FormViewController: UIViewController {
-    private static let formDismissed = NSNotification.Name("FormDismissed")
-
     private let viewModel = FormViewModel()
     private let disposeBag = DisposeBag()
 
@@ -59,11 +57,6 @@ final class FormViewController: UIViewController {
         if viewModel.taskID.value == Const.tempIDForNewTask {
             stackView.showKeyboard()
         }
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.post(name: Self.formDismissed, object: nil)
     }
 
     @objc
