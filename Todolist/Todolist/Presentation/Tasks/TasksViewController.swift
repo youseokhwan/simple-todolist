@@ -61,7 +61,6 @@ final class TasksViewController: UIViewController {
 private extension TasksViewController {
     func configure() {
         configureViews()
-        configureDelegates()
         configureBind()
         configureConstraints()
         configureObserver()
@@ -79,20 +78,20 @@ private extension TasksViewController {
         view.addSubview(tableView)
     }
 
-    func configureDelegates() {
-        viewModel.delegate = self
-    }
-
     func configureBind() {
         formButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.viewModel.didTappedFormButton()
+                let formViewController = FormViewController()
+
+                self?.present(formViewController, animated: true)
             })
             .disposed(by: disposeBag)
 
         settingsButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.viewModel.didTappedSettingsButton()
+                let settingsViewController = SettingsViewController()
+
+                self?.navigationController?.pushViewController(settingsViewController, animated: true)
             })
             .disposed(by: disposeBag)
 
@@ -158,19 +157,5 @@ extension TasksViewController: UITableViewDelegate {
         edit.image = UIImage(systemName: "square.and.pencil")
 
         return UISwipeActionsConfiguration(actions: [delete, edit])
-    }
-}
-
-extension TasksViewController: TasksViewModelDelegate {
-    func didTappedFormButton() {
-        let formViewController = FormViewController()
-
-        present(formViewController, animated: true)
-    }
-    
-    func didTappedSettingsButton() {
-        let settingsViewController = SettingsViewController()
-
-        navigationController?.pushViewController(settingsViewController, animated: true)
     }
 }
