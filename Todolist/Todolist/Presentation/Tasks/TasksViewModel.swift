@@ -25,15 +25,7 @@ final class TasksViewModel {
 
         allTasks = BehaviorRelay(value: [])
 
-        if let results = fetchTaskUseCase.taskResults() {
-            Observable.changeset(from: results)
-                .subscribe(onNext: { [weak self] collection, _ in
-                    let tasks = Array(collection)
-
-                    self?.allTasks.accept(tasks)
-                })
-                .disposed(by: disposeBag)
-        }
+        configure()
     }
 
     private func isFirstFetchOfToday() -> Bool {
@@ -63,5 +55,23 @@ final class TasksViewModel {
 
     func updateIsChecked(of task: Task, value: Bool) {
         updateTaskUseCase.updateIsChecked(of: task, value: value)
+    }
+}
+
+private extension TasksViewModel {
+    func configure() {
+        configureBind()
+    }
+
+    func configureBind() {
+        if let results = fetchTaskUseCase.taskResults() {
+            Observable.changeset(from: results)
+                .subscribe(onNext: { [weak self] collection, _ in
+                    let tasks = Array(collection)
+
+                    self?.allTasks.accept(tasks)
+                })
+                .disposed(by: disposeBag)
+        }
     }
 }
