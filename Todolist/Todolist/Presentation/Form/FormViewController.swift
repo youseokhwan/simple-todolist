@@ -63,14 +63,7 @@ final class FormViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        sendNotificationCenter()
-    }
-
-    private func sendNotificationCenter() {
-        NotificationCenter.default.post(
-            name: Self.formDismissed,
-            object: nil
-        )
+        NotificationCenter.default.post(name: Self.formDismissed, object: nil)
     }
 
     @objc
