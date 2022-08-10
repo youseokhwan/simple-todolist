@@ -71,6 +71,11 @@ final class SettingsViewController: UIViewController {
         super.viewDidLoad()
         configure()
     }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
 }
 
 private extension SettingsViewController {
