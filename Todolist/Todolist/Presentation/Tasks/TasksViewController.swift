@@ -145,7 +145,25 @@ extension TasksViewController: UITableViewDelegate {
         _ tableView: UITableView,
         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
     ) -> UISwipeActionsConfiguration? {
-        return UISwipeActionsConfiguration()
+        let delete = UIContextualAction(style: .destructive,
+                                        title: nil) { [weak self] action, view, completion in
+            self?.viewModel.deleteTask(of: indexPath.row)
+            completion(true)
+        }
+        let edit = UIContextualAction(style: .normal,
+                                      title: nil) { [weak self] action, view, completion in
+            if let task = self?.viewModel.allTasks.value[indexPath.row] {
+                let controller = FormViewController(task: task)
+
+                self?.present(controller, animated: true)
+            }
+            completion(true)
+        }
+
+        edit.image = UIImage(systemName: "square.and.pencil")
+        delete.image = UIImage(systemName: "trash.fill")
+
+        return UISwipeActionsConfiguration(actions: [delete, edit])
     }
 }
 
