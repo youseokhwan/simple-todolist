@@ -41,16 +41,6 @@ final class TasksViewModel {
         }
     }
 
-    func fetchAllTasks() {
-//        var tasks = fetchTaskUseCase.fetchAllTasks()
-//
-//        if isFirstFetchOfToday() {
-//            tasks = updateTaskUseCase.updatedTasksAsOfToday(tasks: tasks)
-//        }
-//
-//        allTasks.accept(tasks)
-    }
-
     func deleteTask(of index: Int) {
         var newAllTasks = allTasks.value
         let removedTask = newAllTasks.remove(at: index)

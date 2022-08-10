@@ -54,7 +54,7 @@ final class TasksViewController: UIViewController {
 
     @objc
     private func fetchAllTasks() {
-        viewModel.fetchAllTasks()
+        
     }
 }
 
