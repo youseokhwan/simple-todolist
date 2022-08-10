@@ -7,13 +7,15 @@
 
 import Foundation
 
+import RealmSwift
+
 final class TaskRepository {
     func create(task: Task) {
         RealmStorage.create(task: task)
     }
 
-    func fetchAllTasks() -> [Task] {
-        return RealmStorage.fetchAllTasks()
+    func taskResults() -> Results<Task>? {
+        return RealmStorage.taskResults()
     }
 
     func update(task: Task) {

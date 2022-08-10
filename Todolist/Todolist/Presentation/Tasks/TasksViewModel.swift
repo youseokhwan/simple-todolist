@@ -7,19 +7,33 @@
 
 import Foundation
 
+import RxRealm
 import RxRelay
+import RxSwift
 
 final class TasksViewModel {
     private let fetchTaskUseCase: FetchTaskUseCase
     private let updateTaskUseCase: UpdateTaskUseCase
+    private let disposeBag: DisposeBag
 
     let allTasks: BehaviorRelay<[Task]>
 
     init() {
         fetchTaskUseCase = FetchTaskUseCase()
         updateTaskUseCase = UpdateTaskUseCase()
+        disposeBag = DisposeBag()
 
         allTasks = BehaviorRelay(value: [])
+
+        if let results = fetchTaskUseCase.taskResults() {
+            Observable.changeset(from: results)
+                .subscribe(onNext: { [weak self] collection, _ in
+                    let tasks = Array(collection)
+
+                    self?.allTasks.accept(tasks)
+                })
+                .disposed(by: disposeBag)
+        }
     }
 
     private func isFirstFetchOfToday() -> Bool {
@@ -30,13 +44,13 @@ final class TasksViewModel {
     }
 
     func fetchAllTasks() {
-        var tasks = fetchTaskUseCase.fetchAllTasks()
-
-        if isFirstFetchOfToday() {
-            tasks = updateTaskUseCase.updatedTasksAsOfToday(tasks: tasks)
-        }
-
-        allTasks.accept(tasks)
+//        var tasks = fetchTaskUseCase.fetchAllTasks()
+//
+//        if isFirstFetchOfToday() {
+//            tasks = updateTaskUseCase.updatedTasksAsOfToday(tasks: tasks)
+//        }
+//
+//        allTasks.accept(tasks)
     }
 
     func deleteTask(of index: Int) {

@@ -10,10 +10,10 @@ import Foundation
 import RealmSwift
 
 enum RealmStorage {
-    static func fetchAllTasks() -> [Task] {
-        guard let realm = try? Realm() else { return [] }
+    static func taskResults() -> Results<Task>? {
+        guard let realm = try? Realm() else { return nil }
 
-        return Array(realm.objects(Task.self))
+        return realm.objects(Task.self)
     }
 
     static func create(task: Task) {
