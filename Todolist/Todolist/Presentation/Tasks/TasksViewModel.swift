@@ -41,16 +41,16 @@ final class TasksViewModel {
         }
     }
 
+    func updateIsChecked(of task: Task, value: Bool) {
+        updateTaskUseCase.updateIsChecked(of: task, value: value)
+    }
+
     func deleteTask(of index: Int) {
         var newAllTasks = allTasks.value
         let removedTask = newAllTasks.remove(at: index)
 
         allTasks.accept(newAllTasks)
         updateTaskUseCase.delete(task: removedTask)
-    }
-
-    func updateIsChecked(of task: Task, value: Bool) {
-        updateTaskUseCase.updateIsChecked(of: task, value: value)
     }
 }
 
