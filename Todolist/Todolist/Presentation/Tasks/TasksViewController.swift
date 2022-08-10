@@ -12,6 +12,8 @@ import RxSwift
 import SnapKit
 
 final class TasksViewController: UIViewController {
+    private static let formDismissed = NSNotification.Name("FormDismissed")
+
     private let viewModel = TasksViewModel()
     private let disposeBag = DisposeBag()
 
@@ -54,7 +56,7 @@ final class TasksViewController: UIViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(dismissFormViewController),
-            name: NSNotification.Name(Const.notificationDismissFormViewController),
+            name: Self.formDismissed,
             object: nil
         )
     }

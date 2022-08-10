@@ -12,6 +12,8 @@ import RxSwift
 import SnapKit
 
 final class FormViewController: UIViewController {
+    private static let formDismissed = NSNotification.Name("FormDismissed")
+
     private let viewModel = FormViewModel()
     private let disposeBag = DisposeBag()
 
@@ -66,7 +68,7 @@ final class FormViewController: UIViewController {
 
     private func sendNotificationCenter() {
         NotificationCenter.default.post(
-            name: NSNotification.Name(Const.notificationDismissFormViewController),
+            name: Self.formDismissed,
             object: nil
         )
     }
