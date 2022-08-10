@@ -16,10 +16,6 @@ final class TaskRepository {
         return RealmStorage.fetchAllTasks()
     }
 
-    func fetchTask(by id: String) -> Task? {
-        return RealmStorage.fetchTask(by: id)
-    }
-
     func update(task: Task) {
         RealmStorage.update(task: task)
     }

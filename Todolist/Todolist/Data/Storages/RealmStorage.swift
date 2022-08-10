@@ -16,13 +16,6 @@ enum RealmStorage {
         return Array(realm.objects(Task.self))
     }
 
-    static func fetchTask(by id: String) -> Task? {
-        guard let realm = try? Realm(),
-              let task = realm.object(ofType: Task.self, forPrimaryKey: id) else { return nil }
-
-        return task
-    }
-
     static func create(task: Task) {
         guard let realm = try? Realm() else { return }
 

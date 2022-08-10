@@ -13,8 +13,4 @@ struct FetchTaskUseCase {
     func fetchAllTasks() -> [Task] {
         return taskRepository.fetchAllTasks()
     }
-
-    func fetchTask(by id: String) -> Task? {
-        return taskRepository.fetchTask(by: id)
-    }
 }
