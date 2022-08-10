@@ -49,16 +49,6 @@ final class TasksViewController: UIViewController {
         super.viewDidLoad()
         configure()
         viewModel.fetchAllTasks()
-        receiveNotificationCenter()
-    }
-
-    private func receiveNotificationCenter() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(dismissFormViewController),
-            name: Self.formDismissed,
-            object: nil
-        )
     }
 
     @objc
@@ -73,6 +63,7 @@ private extension TasksViewController {
         configureDelegates()
         configureBind()
         configureConstraints()
+        configureObserver()
     }
 
     func configureViews() {
@@ -140,6 +131,13 @@ private extension TasksViewController {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+
+    func configureObserver() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(dismissFormViewController),
+                                               name: Self.formDismissed,
+                                               object: nil)
     }
 }
 
