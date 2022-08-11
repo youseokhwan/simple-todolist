@@ -10,12 +10,12 @@ import Foundation
 import RealmSwift
 
 final class TaskRepository {
-    func create(task: Task) {
-        RealmStorage.create(task: task)
-    }
-
     func taskResults() -> Results<Task>? {
         return RealmStorage.taskResults()
+    }
+
+    func create(task: Task) {
+        RealmStorage.create(task: task)
     }
 
     func update(task: Task) {
