@@ -12,6 +12,8 @@ import RxSwift
 import SnapKit
 
 final class TasksTableViewCell: UITableViewCell {
+    static let identifier = "TasksTableViewCell"
+
     private let disposeBag = DisposeBag()
 
     private lazy var checkButton: UIButton = {

@@ -12,8 +12,6 @@ import RxSwift
 import SnapKit
 
 final class TasksViewController: UIViewController {
-    private static let identifier = "TasksTableViewCell"
-
     private let viewModel = TasksViewModel()
     private let disposeBag = DisposeBag()
 
@@ -39,7 +37,7 @@ final class TasksViewController: UIViewController {
         let tableView = UITableView()
 
         tableView.register(TasksTableViewCell.self,
-                           forCellReuseIdentifier: Self.identifier)
+                           forCellReuseIdentifier: TasksTableViewCell.identifier)
         tableView.rowHeight = 80
 
         return tableView
@@ -91,7 +89,7 @@ private extension TasksViewController {
 
         viewModel.allTasks
             .bind(to: tableView.rx.items(
-                cellIdentifier: Self.identifier,
+                cellIdentifier: TasksTableViewCell.identifier,
                 cellType: TasksTableViewCell.self
             )) { index, element, cell in
                 cell.updateUI(by: element)
