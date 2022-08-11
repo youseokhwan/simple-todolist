@@ -10,6 +10,8 @@ import UIKit
 import SnapKit
 
 final class SettingsTableViewCell: UITableViewCell {
+    static let identifier = "SettingsTableViewCell"
+
     private lazy var titleLabel = UILabel()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
