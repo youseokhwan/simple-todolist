@@ -7,14 +7,12 @@
 
 import Foundation
 
+import RealmSwift
+
 struct FetchTaskUseCase {
     private let taskRepository = TaskRepository()
 
-    func fetchAllTasks() -> [Task] {
-        return taskRepository.fetchAllTasks()
-    }
-
-    func fetchTask(by id: String) -> Task? {
-        return taskRepository.fetchTask(by: id)
+    func taskResults() -> Results<Task>? {
+        return taskRepository.taskResults()
     }
 }

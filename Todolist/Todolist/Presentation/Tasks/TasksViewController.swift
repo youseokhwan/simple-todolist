@@ -12,7 +12,6 @@ import RxSwift
 import SnapKit
 
 final class TasksViewController: UIViewController {
-    private static let formDismissed = NSNotification.Name("FormDismissed")
     private static let identifier = "TasksTableViewCell"
 
     private let viewModel = TasksViewModel()
@@ -49,12 +48,7 @@ final class TasksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        fetchAllTasks()
-    }
-
-    @objc
-    private func fetchAllTasks() {
-        viewModel.fetchAllTasks()
+        viewModel.updateTasksAsOfToday()
     }
 }
 
@@ -63,7 +57,6 @@ private extension TasksViewController {
         configureViews()
         configureBind()
         configureConstraints()
-        configureObserver()
     }
 
     func configureViews() {
@@ -124,13 +117,6 @@ private extension TasksViewController {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-    }
-
-    func configureObserver() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(fetchAllTasks),
-                                               name: Self.formDismissed,
-                                               object: nil)
     }
 }
 

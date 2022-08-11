@@ -7,29 +7,27 @@
 
 import Foundation
 
+import RealmSwift
+
 final class TaskRepository {
+    func taskResults() -> Results<Task>? {
+        return RealmStorage.taskResults()
+    }
+
     func create(task: Task) {
         RealmStorage.create(task: task)
-    }
-
-    func fetchAllTasks() -> [Task] {
-        return RealmStorage.fetchAllTasks()
-    }
-
-    func fetchTask(by id: String) -> Task? {
-        return RealmStorage.fetchTask(by: id)
     }
 
     func update(task: Task) {
         RealmStorage.update(task: task)
     }
 
-    func update(tasks: [Task]) {
-        RealmStorage.update(tasks: tasks)
-    }
-
     func updateIsChecked(of task: Task, value: Bool) {
         RealmStorage.updateIsChecked(of: task, value: value)
+    }
+
+    func updateIsCheckedToFalse(of task: Task) {
+        RealmStorage.updateIsCheckedToFalse(of: task)
     }
 
     func delete(task: Task) {

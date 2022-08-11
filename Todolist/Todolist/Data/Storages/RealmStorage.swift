@@ -10,17 +10,10 @@ import Foundation
 import RealmSwift
 
 enum RealmStorage {
-    static func fetchAllTasks() -> [Task] {
-        guard let realm = try? Realm() else { return [] }
+    static func taskResults() -> Results<Task>? {
+        guard let realm = try? Realm() else { return nil }
 
-        return Array(realm.objects(Task.self))
-    }
-
-    static func fetchTask(by id: String) -> Task? {
-        guard let realm = try? Realm(),
-              let task = realm.object(ofType: Task.self, forPrimaryKey: id) else { return nil }
-
-        return task
+        return realm.objects(Task.self)
     }
 
     static func create(task: Task) {
@@ -39,14 +32,6 @@ enum RealmStorage {
         }
     }
 
-    static func update(tasks: [Task]) {
-        guard let realm = try? Realm() else { return }
-
-        try? realm.write {
-            realm.add(tasks, update: .modified)
-        }
-    }
-
     static func updateIsChecked(of task: Task, value: Bool) {
         guard let realm = try? Realm() else { return }
 
@@ -54,6 +39,10 @@ enum RealmStorage {
             task.isChecked = value
             realm.add(task, update: .modified)
         }
+    }
+
+    static func updateIsCheckedToFalse(of task: Task) {
+        Self.updateIsChecked(of: task, value: false)
     }
 
     static func delete(task: Task) {
