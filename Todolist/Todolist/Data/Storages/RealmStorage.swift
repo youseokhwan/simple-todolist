@@ -41,6 +41,10 @@ enum RealmStorage {
         }
     }
 
+    static func updateIsCheckedToFalse(of task: Task) {
+        Self.updateIsChecked(of: task, value: false)
+    }
+
     static func delete(task: Task) {
         guard let realm = try? Realm() else { return }
 
