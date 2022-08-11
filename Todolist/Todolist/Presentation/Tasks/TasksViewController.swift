@@ -74,6 +74,7 @@ private extension TasksViewController {
 
         navigationItem.rightBarButtonItems = [formBarButton, settingsBarButton]
         navigationItem.title = Date.today
+        navigationItem.backButtonTitle = Const.navigationBackButtonTitle
 
         view.addSubview(tableView)
     }

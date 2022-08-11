@@ -13,6 +13,7 @@ enum Const {
     static let settingsButtonImage = "gearshape.fill"
     static let checkButtonNormalImage = "circle"
     static let checkButtonSelectedImage = "checkmark.circle.fill"
+    static let navigationBackButtonTitle = ""
 
     // Form
     static let tempIDForNewTask = -1
