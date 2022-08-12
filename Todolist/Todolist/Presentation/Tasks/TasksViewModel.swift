@@ -12,15 +12,15 @@ import RxRelay
 import RxSwift
 
 final class TasksViewModel {
-    private let fetchTaskUseCase: FetchTaskUseCase
-    private let updateTaskUseCase: UpdateTaskUseCase
+    private let readTaskUseCase: ReadTaskUseCase
+    private let writeTaskUseCase: WriteTaskUseCase
     private let disposeBag: DisposeBag
 
     let allTasks: BehaviorRelay<[Task]>
 
     init() {
-        fetchTaskUseCase = FetchTaskUseCase()
-        updateTaskUseCase = UpdateTaskUseCase()
+        readTaskUseCase = ReadTaskUseCase()
+        writeTaskUseCase = WriteTaskUseCase()
         disposeBag = DisposeBag()
 
         allTasks = BehaviorRelay(value: [])
@@ -37,12 +37,12 @@ final class TasksViewModel {
 
     func updateTasksAsOfToday() {
         if isFirstFetchOfToday() {
-            updateTaskUseCase.updateTasksAsOfToday(tasks: allTasks.value)
+            writeTaskUseCase.updateTasksAsOfToday(tasks: allTasks.value)
         }
     }
 
     func updateIsChecked(of task: Task, value: Bool) {
-        updateTaskUseCase.updateIsChecked(of: task, value: value)
+        writeTaskUseCase.updateIsChecked(of: task, value: value)
     }
 
     func deleteTask(of index: Int) {
@@ -50,7 +50,7 @@ final class TasksViewModel {
         let removedTask = newAllTasks.remove(at: index)
 
         allTasks.accept(newAllTasks)
-        updateTaskUseCase.delete(task: removedTask)
+        writeTaskUseCase.delete(task: removedTask)
     }
 }
 
@@ -60,7 +60,7 @@ private extension TasksViewModel {
     }
 
     func configureBind() {
-        if let results = fetchTaskUseCase.taskResults() {
+        if let results = readTaskUseCase.taskResults() {
             Observable.changeset(from: results)
                 .subscribe(onNext: { [weak self] collection, _ in
                     let tasks = Array(collection)
