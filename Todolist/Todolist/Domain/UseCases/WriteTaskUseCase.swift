@@ -10,7 +10,7 @@ import Foundation
 struct WriteTaskUseCase {
     private let taskRepository = TaskRepository()
 
-    func autoIncreasedID() -> Int {
+    private func autoIncreasedID() -> Int {
         return UserDefaultsRepository.nextTaskID()
     }
 
