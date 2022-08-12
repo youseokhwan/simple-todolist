@@ -32,10 +32,6 @@ struct WriteTaskUseCase {
         taskRepository.updateIsCheckedToFalse(of: task)
     }
 
-    func delete(task: Task) {
-        taskRepository.delete(task: task)
-    }
-
     func updateTasksAsOfToday(tasks: [Task]) {
         tasks.forEach { task in
             if !task.isDaily && task.isChecked {
@@ -46,5 +42,9 @@ struct WriteTaskUseCase {
         }
 
         UserDefaultsRepository.saveLastFetchDate(value: Date.today)
+    }
+
+    func delete(task: Task) {
+        taskRepository.delete(task: task)
     }
 }
