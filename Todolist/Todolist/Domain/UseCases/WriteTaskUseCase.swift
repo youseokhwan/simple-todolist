@@ -1,5 +1,5 @@
 //
-//  UpdateTaskUseCase.swift
+//  WriteTaskUseCase.swift
 //  Todolist
 //
 //  Created by 유석환 on 2022/07/25.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UpdateTaskUseCase {
+struct WriteTaskUseCase {
     private let taskRepository = TaskRepository()
 
     func autoIncreasedID() -> Int {
