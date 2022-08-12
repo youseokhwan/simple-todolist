@@ -35,7 +35,7 @@ final class FormViewModel {
         guard !context.value.isEmpty else { return }
 
         if taskID.value == Const.tempIDForNewTask {
-            addTaskUseCase.createTask(context: context.value, isDaily: isDaily.value)
+            updateTaskUseCase.createTask(context: context.value, isDaily: isDaily.value)
         } else {
             let task = Task(id: taskID.value,
                             context: context.value,

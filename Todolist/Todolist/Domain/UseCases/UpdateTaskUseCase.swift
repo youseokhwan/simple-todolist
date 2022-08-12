@@ -10,6 +10,16 @@ import Foundation
 struct UpdateTaskUseCase {
     private let taskRepository = TaskRepository()
 
+    func autoIncreasedID() -> Int {
+        return UserDefaultsRepository.nextTaskID()
+    }
+
+    func createTask(context: String, isDaily: Bool) {
+        let task = Task(id: autoIncreasedID(), context: context, isDaily: isDaily, isChecked: false)
+
+        taskRepository.create(task: task)
+    }
+
     func update(task: Task) {
         taskRepository.update(task: task)
     }
