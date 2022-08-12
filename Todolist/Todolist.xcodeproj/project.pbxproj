@@ -41,7 +41,6 @@
 		44B90D3C28A22D4E00B4BADD /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 44B90D3B28A22D4E00B4BADD /* RxDataSources */; };
 		44CDA2B72872F00C00E8F0F0 /* FormStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */; };
 		44CDA2BE28731F3400E8F0F0 /* FormDailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2BD28731F3400E8F0F0 /* FormDailyView.swift */; };
-		44CDA2E32876847A00E8F0F0 /* AddTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2E22876847A00E8F0F0 /* AddTaskUseCase.swift */; };
 		44CDA2E528768BC900E8F0F0 /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2E428768BC900E8F0F0 /* UserDefaultsRepository.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,7 +75,6 @@
 		44B90D05289D6AE500B4BADD /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
 		44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStackView.swift; sourceTree = "<group>"; };
 		44CDA2BD28731F3400E8F0F0 /* FormDailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDailyView.swift; sourceTree = "<group>"; };
-		44CDA2E22876847A00E8F0F0 /* AddTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskUseCase.swift; sourceTree = "<group>"; };
 		44CDA2E428768BC900E8F0F0 /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,7 +167,6 @@
 		442473CB2865D1DE0059CFCC /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				44CDA2E22876847A00E8F0F0 /* AddTaskUseCase.swift */,
 				01EF864F287DAD1B005F037A /* ReadTaskUseCase.swift */,
 				44264707288DB145004C22D8 /* UpdateTaskUseCase.swift */,
 			);
@@ -385,7 +382,6 @@
 				01EF8628287BECDD005F037A /* SettingsSection.swift in Sources */,
 				44443146285EFB400004D468 /* SceneDelegate.swift in Sources */,
 				44B90CAB289A487D00B4BADD /* UILabel+Extensions.swift in Sources */,
-				44CDA2E32876847A00E8F0F0 /* AddTaskUseCase.swift in Sources */,
 				442473BE286587E20059CFCC /* TasksViewModel.swift in Sources */,
 				44B90D06289D6AE500B4BADD /* RealmStorage.swift in Sources */,
 				442473C4286589700059CFCC /* SettingsViewController.swift in Sources */,
