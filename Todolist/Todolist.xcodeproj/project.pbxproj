@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		012D2C27288C33270063BB1E /* ThemeMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D2C26288C33270063BB1E /* ThemeMenuButton.swift */; };
 		0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */; };
+		0193D28928A7C65E00F929DC /* OpenSourceLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28828A7C65E00F929DC /* OpenSourceLicenseViewController.swift */; };
 		019EE54F28742F9F00804889 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EE54E28742F9F00804889 /* Date+Extensions.swift */; };
 		01B4BE0328882884004CE987 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */; };
 		01EF8628287BECDD005F037A /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF8627287BECDD005F037A /* SettingsSection.swift */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		012D2C26288C33270063BB1E /* ThemeMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeMenuButton.swift; sourceTree = "<group>"; };
 		0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
+		0193D28828A7C65E00F929DC /* OpenSourceLicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceLicenseViewController.swift; sourceTree = "<group>"; };
 		019EE54E28742F9F00804889 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		01EF8627287BECDD005F037A /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */,
 				012D2C26288C33270063BB1E /* ThemeMenuButton.swift */,
 				4426470D2892C30A004C22D8 /* ThemeAlertController.swift */,
+				0193D28828A7C65E00F929DC /* OpenSourceLicenseViewController.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				44B90CAB289A487D00B4BADD /* UILabel+Extensions.swift in Sources */,
 				442473BE286587E20059CFCC /* TasksViewModel.swift in Sources */,
 				44B90D06289D6AE500B4BADD /* RealmStorage.swift in Sources */,
+				0193D28928A7C65E00F929DC /* OpenSourceLicenseViewController.swift in Sources */,
 				442473C4286589700059CFCC /* SettingsViewController.swift in Sources */,
 				012D2C27288C33270063BB1E /* ThemeMenuButton.swift in Sources */,
 				442473C6286589850059CFCC /* SettingsViewModel.swift in Sources */,
