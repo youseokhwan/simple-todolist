@@ -8,5 +8,7 @@
 import UIKit
 
 class OpenSourceLicenseViewController: UIViewController {
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }
