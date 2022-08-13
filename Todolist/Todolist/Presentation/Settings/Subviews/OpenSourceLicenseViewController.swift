@@ -8,6 +8,12 @@
 import UIKit
 
 class OpenSourceLicenseViewController: UIViewController {
+    private lazy var textView: UITextView = {
+        let textView = UITextView()
+
+        return textView
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
