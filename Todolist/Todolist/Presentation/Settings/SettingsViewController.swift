@@ -120,6 +120,17 @@ private extension SettingsViewController {
                 })
                 .disposed(by: disposeBag)
         }
+
+        tableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                let title = self?.viewModel.items[indexPath.section].items[indexPath.row]
+                let viewController = OpenSourceLicenseViewController()
+
+                if title == Const.openSourceLicense {
+                    self?.navigationController?.pushViewController(viewController, animated: true)
+                }
+            })
+            .disposed(by: disposeBag)
     }
 
     func configureConstraints() {
