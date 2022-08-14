@@ -13,11 +13,15 @@ class OpenSourceLicenseViewController: UIViewController {
     private lazy var textView: UITextView = {
         let textView = UITextView()
 
+        textView.text = License.allPakages
+        textView.isEditable = false
+
         return textView
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
     }
 }
 
