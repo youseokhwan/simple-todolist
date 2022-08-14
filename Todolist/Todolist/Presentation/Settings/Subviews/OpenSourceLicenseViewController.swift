@@ -15,6 +15,7 @@ class OpenSourceLicenseViewController: UIViewController {
 
         textView.text = License.allPakages
         textView.isEditable = false
+        textView.contentOffset = CGPoint(x: 0, y: 0)
 
         return textView
     }()
