@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct License {
+enum License {
     static let allPakages: String = """
     \(snapKit)
     ==========
