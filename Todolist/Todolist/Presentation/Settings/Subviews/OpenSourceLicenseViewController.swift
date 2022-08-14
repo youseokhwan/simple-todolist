@@ -18,3 +18,14 @@ class OpenSourceLicenseViewController: UIViewController {
         super.viewDidLoad()
     }
 }
+
+private extension OpenSourceLicenseViewController {
+    func configure() {
+        configureViews()
+    }
+
+    func configureViews() {
+        view.backgroundColor = .systemBackground
+        view.addSubview(textView)
+    }
+}
