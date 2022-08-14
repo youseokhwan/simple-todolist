@@ -7,6 +7,8 @@
 
 import UIKit
 
+import SnapKit
+
 class OpenSourceLicenseViewController: UIViewController {
     private lazy var textView: UITextView = {
         let textView = UITextView()
@@ -22,10 +24,17 @@ class OpenSourceLicenseViewController: UIViewController {
 private extension OpenSourceLicenseViewController {
     func configure() {
         configureViews()
+        configureConstraints()
     }
 
     func configureViews() {
         view.backgroundColor = .systemBackground
         view.addSubview(textView)
+    }
+
+    func configureConstraints() {
+        textView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 }
