@@ -15,6 +15,14 @@ final class TasksViewController: UIViewController {
     private let viewModel = TasksViewModel()
     private let disposeBag = DisposeBag()
 
+    private lazy var todayLabel: UILabel = {
+        let label = UILabel()
+
+        label.text = Date.today
+        label.font = .systemFont(ofSize: 22, weight: .bold)
+
+        return label
+    }()
     private lazy var formButton: UIButton = {
         let button = UIButton()
         let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
@@ -67,7 +75,9 @@ private extension TasksViewController {
         navigationItem.title = Date.today
         navigationItem.backButtonTitle = Const.navigationBackButtonTitle
 
-        view.addSubview(tableView)
+        [todayLabel, tableView].forEach {
+            view.addSubview($0)
+        }
     }
 
     func configureBind() {
@@ -112,8 +122,14 @@ private extension TasksViewController {
     }
 
     func configureConstraints() {
+        todayLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(77)
+            make.leading.equalToSuperview().offset(26)
+        }
+
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(todayLabel.snp.bottom).offset(20)
+            make.bottom.leading.trailing.equalToSuperview()
         }
     }
 }
