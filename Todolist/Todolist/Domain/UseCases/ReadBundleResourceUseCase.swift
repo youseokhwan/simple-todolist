@@ -25,7 +25,7 @@ struct ReadBundleResourceUseCase {
             guard let fileURL = Bundle.main.url(forResource: $0.rawValue, withExtension: "txt"),
                   let contents = try? String(contentsOf: fileURL) else { return "" }
 
-            return contents
+            return "[\($0.rawValue)]\n\n\(contents)"
         }.joined(separator: "\n\n=====\n\n")
 
         return text
