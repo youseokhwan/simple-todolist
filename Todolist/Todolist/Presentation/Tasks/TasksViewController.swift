@@ -68,7 +68,7 @@ private extension TasksViewController {
     func configureViews() {
         view.backgroundColor = .systemBackground
 
-        [todayLabel, tableView, formButton, settingsButton].forEach {
+        [todayLabel, formButton, settingsButton, tableView].forEach {
             view.addSubview($0)
         }
     }
