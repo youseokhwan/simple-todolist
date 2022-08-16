@@ -27,18 +27,13 @@ final class SettingsViewController: UIViewController {
                          
         return tableView
     }()
-    private lazy var themeButton: ThemeMenuButton = {
-        var button: ThemeMenuButton
+    private lazy var themeLabel: UILabel = {
+        let label = UILabel()
 
-        if #available(iOS 14.0, *) {
-            button = ThemeMenuButton() { [weak self] index in
-                self?.viewModel.appearence.accept(index)
-            }
-        } else {
-            button = ThemeMenuButton()
-        }
+        label.text = Const.lightTheme
+        label.sizeToFit()
 
-        return button
+        return label
     }()
     private lazy var dataSource: SectionDataSource = {
         let dataSource = SectionDataSource(
@@ -49,7 +44,7 @@ final class SettingsViewController: UIViewController {
                 ) as? SettingsTableViewCell else { return UITableViewCell() }
 
                 if item == Const.themeSettings {
-                    cell.accessoryView = self?.themeButton
+                    cell.accessoryView = self?.themeLabel
                 }
 
                 cell.update(title: item)
@@ -105,21 +100,6 @@ private extension SettingsViewController {
                 UserDefaultsRepository.saveAppearance(value: index)
             })
             .disposed(by: disposeBag)
-
-        if #unavailable(iOS 14.0) {
-            themeButton.rx.tap
-                .subscribe(onNext: { [weak self] in
-                    guard let themes = self?.themeButton.themes else { return }
-                    let controller = ThemeAlertController(children: themes) { [weak self] index in
-                        self?.viewModel.appearence.accept(index)
-                        self?.themeButton.setTitle(themes[index], for: .normal)
-                        self?.themeButton.sizeToFit()
-                    }
-
-                    self?.present(controller, animated: true)
-                })
-                .disposed(by: disposeBag)
-        }
 
         tableView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
