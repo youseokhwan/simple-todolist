@@ -8,5 +8,7 @@
 import Foundation
 
 final class OpenSourceLicenseViewModel {
-    
+    func openSourceLicenseText() -> String {
+        return License.allPakages
+    }
 }
