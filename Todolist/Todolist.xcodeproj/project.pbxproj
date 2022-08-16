@@ -146,7 +146,7 @@
 			children = (
 				442473BF286589310059CFCC /* FormViewController.swift */,
 				442473C12865894A0059CFCC /* FormViewModel.swift */,
-				44CDA2B52872EFF900E8F0F0 /* Subviews */,
+				44CDA2B52872EFF900E8F0F0 /* Views */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -273,13 +273,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		44CDA2B52872EFF900E8F0F0 /* Subviews */ = {
+		44CDA2B52872EFF900E8F0F0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */,
 				44CDA2BD28731F3400E8F0F0 /* FormDailyView.swift */,
 			);
-			path = Subviews;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
