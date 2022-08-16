@@ -84,10 +84,7 @@ private extension TasksViewController {
 
         settingsButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                let settingsViewController = SettingsViewController()
-                let navigationController = UINavigationController(
-                    rootViewController: settingsViewController
-                )
+                let navigationController = SettingsNavigationController()
 
                 self?.present(navigationController, animated: true)
             })

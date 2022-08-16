@@ -8,8 +8,9 @@
 import UIKit
 
 final class SettingsNavigationController: UINavigationController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    convenience init() {
+        let controller = SettingsViewController()
+        
+        self.init(rootViewController: controller)
     }
 }
