@@ -15,8 +15,7 @@ struct ReadBundleResourceUseCase {
         case rxSwift = "RxSwift"
         case snapKit = "SnapKit"
 
-        static func < (lhs: ReadBundleResourceUseCase.LicenseFileName,
-                       rhs: ReadBundleResourceUseCase.LicenseFileName) -> Bool {
+        static func < (lhs: Self, rhs: Self) -> Bool {
             return lhs.rawValue < rhs.rawValue
         }
     }
