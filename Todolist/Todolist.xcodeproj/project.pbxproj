@@ -22,6 +22,7 @@
 		440216E228AB8E65008930FD /* RxRealm.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440216DD28AB8E64008930FD /* RxRealm.txt */; };
 		440216E328AB8E65008930FD /* RxSwift.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440216DE28AB8E64008930FD /* RxSwift.txt */; };
 		440216E428AB8E65008930FD /* RxDataSources.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440216DF28AB8E65008930FD /* RxDataSources.txt */; };
+		440216E628AB8ED2008930FD /* ReadBundleResourceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440216E528AB8ED2008930FD /* ReadBundleResourceUseCase.swift */; };
 		442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473BB2865874D0059CFCC /* TasksViewController.swift */; };
 		442473BE286587E20059CFCC /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473BD286587E20059CFCC /* TasksViewModel.swift */; };
 		442473C0286589310059CFCC /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473BF286589310059CFCC /* FormViewController.swift */; };
@@ -67,6 +68,7 @@
 		440216DD28AB8E64008930FD /* RxRealm.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RxRealm.txt; sourceTree = "<group>"; };
 		440216DE28AB8E64008930FD /* RxSwift.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RxSwift.txt; sourceTree = "<group>"; };
 		440216DF28AB8E65008930FD /* RxDataSources.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RxDataSources.txt; sourceTree = "<group>"; };
+		440216E528AB8ED2008930FD /* ReadBundleResourceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadBundleResourceUseCase.swift; sourceTree = "<group>"; };
 		442473BB2865874D0059CFCC /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		442473BD286587E20059CFCC /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
 		442473BF286589310059CFCC /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			children = (
 				01EF864F287DAD1B005F037A /* ReadTaskUseCase.swift */,
 				44264707288DB145004C22D8 /* WriteTaskUseCase.swift */,
+				440216E528AB8ED2008930FD /* ReadBundleResourceUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				44B90D06289D6AE500B4BADD /* RealmStorage.swift in Sources */,
 				0193D28928A7C65E00F929DC /* OpenSourceLicenseViewController.swift in Sources */,
 				442473C4286589700059CFCC /* SettingsViewController.swift in Sources */,
+				440216E628AB8ED2008930FD /* ReadBundleResourceUseCase.swift in Sources */,
 				012D2C27288C33270063BB1E /* ThemeMenuButton.swift in Sources */,
 				442473C6286589850059CFCC /* SettingsViewModel.swift in Sources */,
 				01B4BE0328882884004CE987 /* SettingsTableViewCell.swift in Sources */,
