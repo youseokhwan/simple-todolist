@@ -17,7 +17,7 @@ struct ReadBundleResourceUseCase {
     }
 
     func licensesText() -> String {
-        let text = LicenseFileName.allCases.map { $0.rawValue }.joined(separator: "\n=====\n")
+        let text = LicenseFileName.allCases.map { $0.rawValue }.joined(separator: "\n\n=====\n\n")
 
         return text
     }
