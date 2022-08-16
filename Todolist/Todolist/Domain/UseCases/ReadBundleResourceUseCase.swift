@@ -8,16 +8,21 @@
 import Foundation
 
 struct ReadBundleResourceUseCase {
-    enum LicenseFileName: String, CaseIterable{
+    enum LicenseFileName: String, CaseIterable, Comparable {
         case realmSwift = "realm-swift"
         case rxDataSources = "RxDataSources"
         case rxRealm = "RxRealm"
         case rxSwift = "RxSwift"
         case snapKit = "SnapKit"
+
+        static func < (lhs: ReadBundleResourceUseCase.LicenseFileName,
+                       rhs: ReadBundleResourceUseCase.LicenseFileName) -> Bool {
+            return lhs.rawValue < rhs.rawValue
+        }
     }
 
     func licensesText() -> String {
-        let text = LicenseFileName.allCases.map {
+        let text = LicenseFileName.allCases.sorted().map {
             guard let fileURL = Bundle.main.url(forResource: $0.rawValue, withExtension: "txt"),
                   let contents = try? String(contentsOf: fileURL) else { return "" }
 
