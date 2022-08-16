@@ -68,13 +68,6 @@ private extension TasksViewController {
     func configureViews() {
         view.backgroundColor = .systemBackground
 
-        let formBarButton = UIBarButtonItem(customView: formButton)
-        let settingsBarButton = UIBarButtonItem(customView: settingsButton)
-
-        navigationItem.rightBarButtonItems = [formBarButton, settingsBarButton]
-        navigationItem.title = Date.today
-        navigationItem.backButtonTitle = Const.navigationBackButtonTitle
-
         [todayLabel, tableView].forEach {
             view.addSubview($0)
         }
