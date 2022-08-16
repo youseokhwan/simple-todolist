@@ -128,6 +128,13 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		440216CE28AB8457008930FD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		442473B6286587030059CFCC /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +151,7 @@
 				442473C3286589700059CFCC /* SettingsViewController.swift */,
 				442473C5286589850059CFCC /* SettingsViewModel.swift */,
 				440216CD28AB8347008930FD /* Controllers */,
+				440216CE28AB8457008930FD /* ViewModels */,
 				01B4BE042888288A004CE987 /* Views */,
 			);
 			path = Settings;
