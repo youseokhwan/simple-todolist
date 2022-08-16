@@ -68,7 +68,7 @@ private extension TasksViewController {
     func configureViews() {
         view.backgroundColor = .systemBackground
 
-        [todayLabel, tableView].forEach {
+        [todayLabel, tableView, formButton, settingsButton].forEach {
             view.addSubview($0)
         }
     }
@@ -118,6 +118,16 @@ private extension TasksViewController {
         todayLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(77)
             make.leading.equalToSuperview().offset(26)
+        }
+
+        settingsButton.snp.makeConstraints { make in
+            make.centerY.equalTo(todayLabel)
+            make.trailing.equalToSuperview().offset(-22)
+        }
+
+        formButton.snp.makeConstraints { make in
+            make.centerY.equalTo(todayLabel)
+            make.trailing.equalTo(settingsButton.snp.leading).offset(-5)
         }
 
         tableView.snp.makeConstraints { make in
