@@ -126,7 +126,7 @@
 			children = (
 				442473BB2865874D0059CFCC /* TasksViewController.swift */,
 				442473BD286587E20059CFCC /* TasksViewModel.swift */,
-				442473FE286E11BF0059CFCC /* Subviews */,
+				442473FE286E11BF0059CFCC /* Views */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -146,7 +146,7 @@
 			children = (
 				442473BF286589310059CFCC /* FormViewController.swift */,
 				442473C12865894A0059CFCC /* FormViewModel.swift */,
-				44CDA2B52872EFF900E8F0F0 /* Subviews */,
+				44CDA2B52872EFF900E8F0F0 /* Views */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -204,12 +204,12 @@
 			path = Storages;
 			sourceTree = "<group>";
 		};
-		442473FE286E11BF0059CFCC /* Subviews */ = {
+		442473FE286E11BF0059CFCC /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */,
 			);
-			path = Subviews;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		44443137285EFB400004D468 = {
@@ -273,13 +273,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		44CDA2B52872EFF900E8F0F0 /* Subviews */ = {
+		44CDA2B52872EFF900E8F0F0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */,
 				44CDA2BD28731F3400E8F0F0 /* FormDailyView.swift */,
 			);
-			path = Subviews;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
