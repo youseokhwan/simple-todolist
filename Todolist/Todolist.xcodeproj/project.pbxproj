@@ -11,6 +11,7 @@
 		0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */; };
 		0193D28928A7C65E00F929DC /* OpenSourceLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28828A7C65E00F929DC /* OpenSourceLicenseViewController.swift */; };
 		0193D28B28A7D02E00F929DC /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28A28A7D02E00F929DC /* License.swift */; };
+		0193D28D28AB988800F929DC /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28C28AB988800F929DC /* SettingsNavigationController.swift */; };
 		019EE54F28742F9F00804889 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EE54E28742F9F00804889 /* Date+Extensions.swift */; };
 		01B4BE0328882884004CE987 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */; };
 		01EF8628287BECDD005F037A /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF8627287BECDD005F037A /* SettingsSection.swift */; };
@@ -51,6 +52,7 @@
 		0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
 		0193D28828A7C65E00F929DC /* OpenSourceLicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceLicenseViewController.swift; sourceTree = "<group>"; };
 		0193D28A28A7D02E00F929DC /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
+		0193D28C28AB988800F929DC /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		019EE54E28742F9F00804889 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		01EF8627287BECDD005F037A /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 		442473B7286587080059CFCC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				0193D28C28AB988800F929DC /* SettingsNavigationController.swift */,
 				442473C3286589700059CFCC /* SettingsViewController.swift */,
 				442473C5286589850059CFCC /* SettingsViewModel.swift */,
 				01B4BE042888288A004CE987 /* Subviews */,
@@ -379,6 +382,7 @@
 				44CDA2BE28731F3400E8F0F0 /* FormDailyView.swift in Sources */,
 				44443144285EFB400004D468 /* AppDelegate.swift in Sources */,
 				0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */,
+				0193D28D28AB988800F929DC /* SettingsNavigationController.swift in Sources */,
 				442473D12869B8290059CFCC /* TaskRepository.swift in Sources */,
 				442646BE2887FA17004C22D8 /* String+Extensions.swift in Sources */,
 				019EE54F28742F9F00804889 /* Date+Extensions.swift in Sources */,
