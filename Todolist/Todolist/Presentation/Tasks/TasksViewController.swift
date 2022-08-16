@@ -85,8 +85,11 @@ private extension TasksViewController {
         settingsButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 let settingsViewController = SettingsViewController()
+                let navigationController = UINavigationController(
+                    rootViewController: settingsViewController
+                )
 
-                self?.navigationController?.pushViewController(settingsViewController, animated: true)
+                self?.present(navigationController, animated: true)
             })
             .disposed(by: disposeBag)
 
