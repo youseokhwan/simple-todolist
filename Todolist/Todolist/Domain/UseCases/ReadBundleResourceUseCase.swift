@@ -18,11 +18,11 @@ struct ReadBundleResourceUseCase {
 
     func licensesText() -> String {
         let text = LicenseFileName.allCases.map {
-            guard let fileURL = Bundle.main.url(forResource: $0.rawValue, withExtension: "txt"),
+            guard let fileURL = Bundle.main.url(forResource: $0.rawValue, withExtension: Const.txt),
                   let contents = try? String(contentsOf: fileURL) else { return "" }
 
             return "[\($0.rawValue)]\n\n\(contents)"
-        }.joined(separator: "\n\n=====\n\n")
+        }.joined(separator: Const.licenseSeparator)
 
         return text
     }

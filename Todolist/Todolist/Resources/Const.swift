@@ -37,6 +37,10 @@ enum Const {
     static let darkTheme = "darkTheme".localized
     static let cancel = "cancel".localized
 
+    // UseCases
+    static let txt = "txt"
+    static let licenseSeparator = "\n\n=====\n\n"
+
     // Repositories
     static let nextTaskID = "nextTaskID"
     static let lastFetchDate = "lastFetchDate"
