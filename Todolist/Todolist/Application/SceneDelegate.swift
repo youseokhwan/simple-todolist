@@ -17,10 +17,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         window = UIWindow(windowScene: windowScene)
 
-        let tasksViewController = TasksViewController()
-        let navigationContoller = UINavigationController(rootViewController: tasksViewController)
-
-        window?.rootViewController = navigationContoller
+        window?.rootViewController = TasksViewController()
         window?.makeKeyAndVisible()
         window?.overrideUserInterfaceStyle = UIUserInterfaceStyle(
             rawValue: UserDefaultsRepository.currentAppearance()
