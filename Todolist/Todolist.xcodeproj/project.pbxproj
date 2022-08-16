@@ -17,6 +17,11 @@
 		01EF8650287DAD1B005F037A /* ReadTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF864F287DAD1B005F037A /* ReadTaskUseCase.swift */; };
 		440216CC28A3B959008930FD /* RxRealm in Frameworks */ = {isa = PBXBuildFile; productRef = 440216CB28A3B959008930FD /* RxRealm */; };
 		440216D028AB847D008930FD /* OpenSourceLicenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440216CF28AB847D008930FD /* OpenSourceLicenseViewModel.swift */; };
+		440216E028AB8E65008930FD /* realm-swift.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440216DB28AB8E64008930FD /* realm-swift.txt */; };
+		440216E128AB8E65008930FD /* SnapKit.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440216DC28AB8E64008930FD /* SnapKit.txt */; };
+		440216E228AB8E65008930FD /* RxRealm.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440216DD28AB8E64008930FD /* RxRealm.txt */; };
+		440216E328AB8E65008930FD /* RxSwift.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440216DE28AB8E64008930FD /* RxSwift.txt */; };
+		440216E428AB8E65008930FD /* RxDataSources.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440216DF28AB8E65008930FD /* RxDataSources.txt */; };
 		442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473BB2865874D0059CFCC /* TasksViewController.swift */; };
 		442473BE286587E20059CFCC /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473BD286587E20059CFCC /* TasksViewModel.swift */; };
 		442473C0286589310059CFCC /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473BF286589310059CFCC /* FormViewController.swift */; };
@@ -57,6 +62,11 @@
 		01EF8627287BECDD005F037A /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
 		01EF864F287DAD1B005F037A /* ReadTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadTaskUseCase.swift; sourceTree = "<group>"; };
 		440216CF28AB847D008930FD /* OpenSourceLicenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceLicenseViewModel.swift; sourceTree = "<group>"; };
+		440216DB28AB8E64008930FD /* realm-swift.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "realm-swift.txt"; sourceTree = "<group>"; };
+		440216DC28AB8E64008930FD /* SnapKit.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SnapKit.txt; sourceTree = "<group>"; };
+		440216DD28AB8E64008930FD /* RxRealm.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RxRealm.txt; sourceTree = "<group>"; };
+		440216DE28AB8E64008930FD /* RxSwift.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RxSwift.txt; sourceTree = "<group>"; };
+		440216DF28AB8E65008930FD /* RxDataSources.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RxDataSources.txt; sourceTree = "<group>"; };
 		442473BB2865874D0059CFCC /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		442473BD286587E20059CFCC /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
 		442473BF286589310059CFCC /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +146,18 @@
 				440216CF28AB847D008930FD /* OpenSourceLicenseViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		440216D828AB8CA0008930FD /* Licenses */ = {
+			isa = PBXGroup;
+			children = (
+				440216DB28AB8E64008930FD /* realm-swift.txt */,
+				440216DF28AB8E65008930FD /* RxDataSources.txt */,
+				440216DD28AB8E64008930FD /* RxRealm.txt */,
+				440216DE28AB8E64008930FD /* RxSwift.txt */,
+				440216DC28AB8E64008930FD /* SnapKit.txt */,
+			);
+			path = Licenses;
 			sourceTree = "<group>";
 		};
 		442473B6286587030059CFCC /* Tasks */ = {
@@ -284,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				442646C128880322004C22D8 /* Const.swift */,
+				440216D828AB8CA0008930FD /* Licenses */,
 				0193D28A28A7D02E00F929DC /* License.swift */,
 				4444314C285EFB420004D468 /* Assets.xcassets */,
 				44443151285EFB420004D468 /* Info.plist */,
@@ -375,9 +398,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				440216E228AB8E65008930FD /* RxRealm.txt in Resources */,
+				440216E028AB8E65008930FD /* realm-swift.txt in Resources */,
 				44443150285EFB420004D468 /* LaunchScreen.storyboard in Resources */,
+				440216E128AB8E65008930FD /* SnapKit.txt in Resources */,
 				442646B92887F98D004C22D8 /* Localizable.strings in Resources */,
 				4444314D285EFB420004D468 /* Assets.xcassets in Resources */,
+				440216E328AB8E65008930FD /* RxSwift.txt in Resources */,
+				440216E428AB8E65008930FD /* RxDataSources.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
