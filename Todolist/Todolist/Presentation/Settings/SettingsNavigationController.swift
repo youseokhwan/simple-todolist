@@ -13,4 +13,14 @@ final class SettingsNavigationController: UINavigationController {
 
         self.init(rootViewController: controller)
     }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationBar.prefersLargeTitles = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationBar.prefersLargeTitles = false
+    }
 }

@@ -64,11 +64,6 @@ final class SettingsViewController: UIViewController {
         super.viewDidLoad()
         configure()
     }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
-    }
 }
 
 private extension SettingsViewController {
@@ -81,7 +76,6 @@ private extension SettingsViewController {
     func configureViews() {
         view.backgroundColor = .systemBackground
 
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = Const.settingsTitle
 
         view.addSubview(tableView)
