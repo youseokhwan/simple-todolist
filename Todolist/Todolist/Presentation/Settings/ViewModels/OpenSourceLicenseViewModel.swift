@@ -8,7 +8,13 @@
 import Foundation
 
 final class OpenSourceLicenseViewModel {
+    private let readBundleResourceUseCase: ReadBundleResourceUseCase
+
+    init() {
+        readBundleResourceUseCase = ReadBundleResourceUseCase()
+    }
+
     func openSourceLicenseText() -> String {
-        return License.allPakages
+        return readBundleResourceUseCase.licensesText()
     }
 }
