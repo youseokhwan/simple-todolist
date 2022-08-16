@@ -10,7 +10,7 @@ import UIKit
 final class SettingsNavigationController: UINavigationController {
     convenience init() {
         let controller = SettingsViewController()
-        
+
         self.init(rootViewController: controller)
     }
 }
