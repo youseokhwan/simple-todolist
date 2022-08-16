@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class OpenSourceLicenseViewController: UIViewController {
+final class OpenSourceLicenseViewController: UIViewController {
     private lazy var textView: UITextView = {
         let textView = UITextView()
 
