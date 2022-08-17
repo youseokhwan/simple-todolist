@@ -20,6 +20,7 @@ final class FormContentView: UIView {
 
         return textField
     }()
+    private lazy var textCountLabel = UILabel()
 
     var textFieldRx: Reactive<UITextField> {
         return contentTextField.rx
