@@ -9,6 +9,7 @@ import UIKit
 
 import RxCocoa
 import RxSwift
+import SnapKit
 
 final class FormContentView: UIView {
     private lazy var contentTextField: UITextField = {
@@ -28,10 +29,12 @@ final class FormContentView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configure()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        configure()
     }
 
     func showKeyboard() {
@@ -52,11 +55,23 @@ final class FormContentView: UIView {
 private extension FormContentView {
     func configure() {
         configureViews()
+        configureConstraints()
     }
 
     func configureViews() {
         [contentTextField, textCountLabel].forEach {
             addSubview($0)
+        }
+    }
+
+    func configureConstraints() {
+        contentTextField.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+        }
+
+        textCountLabel.snp.makeConstraints { make in
+            make.top.equalTo(contentTextField.snp.bottom)
+            make.trailing.equalToSuperview()
         }
     }
 }
