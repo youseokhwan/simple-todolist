@@ -10,13 +10,19 @@
 		012D2C27288C33270063BB1E /* ThemeMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D2C26288C33270063BB1E /* ThemeMenuButton.swift */; };
 		0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */; };
 		0193D28928A7C65E00F929DC /* OpenSourceLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28828A7C65E00F929DC /* OpenSourceLicenseViewController.swift */; };
-		0193D28B28A7D02E00F929DC /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28A28A7D02E00F929DC /* License.swift */; };
 		0193D28D28AB988800F929DC /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28C28AB988800F929DC /* SettingsNavigationController.swift */; };
 		019EE54F28742F9F00804889 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EE54E28742F9F00804889 /* Date+Extensions.swift */; };
 		01B4BE0328882884004CE987 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */; };
 		01EF8628287BECDD005F037A /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF8627287BECDD005F037A /* SettingsSection.swift */; };
 		01EF8650287DAD1B005F037A /* ReadTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF864F287DAD1B005F037A /* ReadTaskUseCase.swift */; };
 		440216CC28A3B959008930FD /* RxRealm in Frameworks */ = {isa = PBXBuildFile; productRef = 440216CB28A3B959008930FD /* RxRealm */; };
+		440216D028AB847D008930FD /* OpenSourceLicenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440216CF28AB847D008930FD /* OpenSourceLicenseViewModel.swift */; };
+		440216E028AB8E65008930FD /* realm-swift.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440216DB28AB8E64008930FD /* realm-swift.txt */; };
+		440216E128AB8E65008930FD /* SnapKit.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440216DC28AB8E64008930FD /* SnapKit.txt */; };
+		440216E228AB8E65008930FD /* RxRealm.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440216DD28AB8E64008930FD /* RxRealm.txt */; };
+		440216E328AB8E65008930FD /* RxSwift.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440216DE28AB8E64008930FD /* RxSwift.txt */; };
+		440216E428AB8E65008930FD /* RxDataSources.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440216DF28AB8E65008930FD /* RxDataSources.txt */; };
+		440216E628AB8ED2008930FD /* ReadBundleResourceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440216E528AB8ED2008930FD /* ReadBundleResourceUseCase.swift */; };
 		442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473BB2865874D0059CFCC /* TasksViewController.swift */; };
 		442473BE286587E20059CFCC /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473BD286587E20059CFCC /* TasksViewModel.swift */; };
 		442473C0286589310059CFCC /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473BF286589310059CFCC /* FormViewController.swift */; };
@@ -51,12 +57,18 @@
 		012D2C26288C33270063BB1E /* ThemeMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeMenuButton.swift; sourceTree = "<group>"; };
 		0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
 		0193D28828A7C65E00F929DC /* OpenSourceLicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceLicenseViewController.swift; sourceTree = "<group>"; };
-		0193D28A28A7D02E00F929DC /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		0193D28C28AB988800F929DC /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		019EE54E28742F9F00804889 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		01EF8627287BECDD005F037A /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
 		01EF864F287DAD1B005F037A /* ReadTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadTaskUseCase.swift; sourceTree = "<group>"; };
+		440216CF28AB847D008930FD /* OpenSourceLicenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceLicenseViewModel.swift; sourceTree = "<group>"; };
+		440216DB28AB8E64008930FD /* realm-swift.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "realm-swift.txt"; sourceTree = "<group>"; };
+		440216DC28AB8E64008930FD /* SnapKit.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SnapKit.txt; sourceTree = "<group>"; };
+		440216DD28AB8E64008930FD /* RxRealm.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RxRealm.txt; sourceTree = "<group>"; };
+		440216DE28AB8E64008930FD /* RxSwift.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RxSwift.txt; sourceTree = "<group>"; };
+		440216DF28AB8E65008930FD /* RxDataSources.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RxDataSources.txt; sourceTree = "<group>"; };
+		440216E528AB8ED2008930FD /* ReadBundleResourceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadBundleResourceUseCase.swift; sourceTree = "<group>"; };
 		442473BB2865874D0059CFCC /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		442473BD286587E20059CFCC /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
 		442473BF286589310059CFCC /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
@@ -112,15 +124,42 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		01B4BE042888288A004CE987 /* Subviews */ = {
+		01B4BE042888288A004CE987 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */,
 				012D2C26288C33270063BB1E /* ThemeMenuButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		440216CD28AB8347008930FD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				4426470D2892C30A004C22D8 /* ThemeAlertController.swift */,
 				0193D28828A7C65E00F929DC /* OpenSourceLicenseViewController.swift */,
 			);
-			path = Subviews;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		440216CE28AB8457008930FD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				440216CF28AB847D008930FD /* OpenSourceLicenseViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		440216D828AB8CA0008930FD /* Licenses */ = {
+			isa = PBXGroup;
+			children = (
+				440216DB28AB8E64008930FD /* realm-swift.txt */,
+				440216DF28AB8E65008930FD /* RxDataSources.txt */,
+				440216DD28AB8E64008930FD /* RxRealm.txt */,
+				440216DE28AB8E64008930FD /* RxSwift.txt */,
+				440216DC28AB8E64008930FD /* SnapKit.txt */,
+			);
+			path = Licenses;
 			sourceTree = "<group>";
 		};
 		442473B6286587030059CFCC /* Tasks */ = {
@@ -139,7 +178,9 @@
 				0193D28C28AB988800F929DC /* SettingsNavigationController.swift */,
 				442473C3286589700059CFCC /* SettingsViewController.swift */,
 				442473C5286589850059CFCC /* SettingsViewModel.swift */,
-				01B4BE042888288A004CE987 /* Subviews */,
+				440216CD28AB8347008930FD /* Controllers */,
+				440216CE28AB8457008930FD /* ViewModels */,
+				01B4BE042888288A004CE987 /* Views */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -177,6 +218,7 @@
 			children = (
 				01EF864F287DAD1B005F037A /* ReadTaskUseCase.swift */,
 				44264707288DB145004C22D8 /* WriteTaskUseCase.swift */,
+				440216E528AB8ED2008930FD /* ReadBundleResourceUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -268,7 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				442646C128880322004C22D8 /* Const.swift */,
-				0193D28A28A7D02E00F929DC /* License.swift */,
+				440216D828AB8CA0008930FD /* Licenses */,
 				4444314C285EFB420004D468 /* Assets.xcassets */,
 				44443151285EFB420004D468 /* Info.plist */,
 				442646BB2887F98D004C22D8 /* Localizable.strings */,
@@ -359,9 +401,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				440216E228AB8E65008930FD /* RxRealm.txt in Resources */,
+				440216E028AB8E65008930FD /* realm-swift.txt in Resources */,
 				44443150285EFB420004D468 /* LaunchScreen.storyboard in Resources */,
+				440216E128AB8E65008930FD /* SnapKit.txt in Resources */,
 				442646B92887F98D004C22D8 /* Localizable.strings in Resources */,
 				4444314D285EFB420004D468 /* Assets.xcassets in Resources */,
+				440216E328AB8E65008930FD /* RxSwift.txt in Resources */,
+				440216E428AB8E65008930FD /* RxDataSources.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,16 +434,17 @@
 				442646BE2887FA17004C22D8 /* String+Extensions.swift in Sources */,
 				019EE54F28742F9F00804889 /* Date+Extensions.swift in Sources */,
 				4426470E2892C30A004C22D8 /* ThemeAlertController.swift in Sources */,
+				440216D028AB847D008930FD /* OpenSourceLicenseViewModel.swift in Sources */,
 				44CDA2B72872F00C00E8F0F0 /* FormStackView.swift in Sources */,
 				442473C22865894A0059CFCC /* FormViewModel.swift in Sources */,
 				01EF8628287BECDD005F037A /* SettingsSection.swift in Sources */,
-				0193D28B28A7D02E00F929DC /* License.swift in Sources */,
 				44443146285EFB400004D468 /* SceneDelegate.swift in Sources */,
 				44B90CAB289A487D00B4BADD /* UILabel+Extensions.swift in Sources */,
 				442473BE286587E20059CFCC /* TasksViewModel.swift in Sources */,
 				44B90D06289D6AE500B4BADD /* RealmStorage.swift in Sources */,
 				0193D28928A7C65E00F929DC /* OpenSourceLicenseViewController.swift in Sources */,
 				442473C4286589700059CFCC /* SettingsViewController.swift in Sources */,
+				440216E628AB8ED2008930FD /* ReadBundleResourceUseCase.swift in Sources */,
 				012D2C27288C33270063BB1E /* ThemeMenuButton.swift in Sources */,
 				442473C6286589850059CFCC /* SettingsViewModel.swift in Sources */,
 				01B4BE0328882884004CE987 /* SettingsTableViewCell.swift in Sources */,

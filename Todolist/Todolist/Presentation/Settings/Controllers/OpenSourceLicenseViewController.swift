@@ -9,13 +9,13 @@ import UIKit
 
 import SnapKit
 
-class OpenSourceLicenseViewController: UIViewController {
+final class OpenSourceLicenseViewController: UIViewController {
+    private let viewModel = OpenSourceLicenseViewModel()
+
     private lazy var textView: UITextView = {
         let textView = UITextView()
 
-        textView.text = License.allPakages
         textView.isEditable = false
-        textView.contentOffset = CGPoint(x: 0, y: 0)
 
         return textView
     }()
@@ -34,6 +34,9 @@ private extension OpenSourceLicenseViewController {
 
     func configureViews() {
         view.backgroundColor = .systemBackground
+
+        textView.text = viewModel.openSourceLicenseText()
+        textView.contentOffset = CGPoint(x: 0, y: 0)
         view.addSubview(textView)
     }
 
