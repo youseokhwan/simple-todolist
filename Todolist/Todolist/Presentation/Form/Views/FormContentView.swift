@@ -48,3 +48,15 @@ final class FormContentView: UIView {
         contentTextField.text = validRangeText
     }
 }
+
+private extension FormContentView {
+    func configure() {
+        configureViews()
+    }
+
+    func configureViews() {
+        [contentTextField, textCountLabel].forEach {
+            addSubview($0)
+        }
+    }
+}
