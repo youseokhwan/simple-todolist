@@ -11,19 +11,11 @@ import RxCocoa
 import RxSwift
 
 final class FormStackView: UIStackView {
-    private lazy var contextTextField: UITextField = {
-        let textField = UITextField()
-
-        textField.borderStyle = .roundedRect
-        textField.font = .systemFont(ofSize: 24)
-        textField.placeholder = Const.contextTextFieldPlaceholder
-
-        return textField
-    }()
+    private lazy var contentView = FormContentView()
     private lazy var dailyView = FormDailyView()
 
     var textFieldRx: Reactive<UITextField> {
-        return contextTextField.rx
+        return contentView.textFieldRx
     }
     var switchRx: Reactive<UISwitch> {
         return dailyView.switchRx
@@ -40,17 +32,11 @@ final class FormStackView: UIStackView {
     }
 
     func showKeyboard() {
-        contextTextField.becomeFirstResponder()
+        contentView.showKeyboard()
     }
 
     func updateToValidRangeText() {
-        guard let text = contextTextField.text,
-              text.count > Const.contextTextFieldMaxCount else { return }
-
-        let lastIndex = text.index(text.startIndex, offsetBy: Const.contextTextFieldMaxCount)
-        let validRangeText = String(text[...lastIndex])
-
-        contextTextField.text = validRangeText
+        contentView.updateToValidRangeText()
     }
 }
 
@@ -63,7 +49,7 @@ private extension FormStackView {
         axis = .vertical
         spacing = 20
 
-        [contextTextField, dailyView].forEach {
+        [contentView, dailyView].forEach {
             addArrangedSubview($0)
         }
     }
