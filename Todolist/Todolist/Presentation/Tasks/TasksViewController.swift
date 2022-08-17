@@ -15,6 +15,14 @@ final class TasksViewController: UIViewController {
     private let viewModel = TasksViewModel()
     private let disposeBag = DisposeBag()
 
+    private lazy var todayLabel: UILabel = {
+        let label = UILabel()
+
+        label.text = Date.today
+        label.font = .systemFont(ofSize: 22, weight: .bold)
+
+        return label
+    }()
     private lazy var formButton: UIButton = {
         let button = UIButton()
         let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
@@ -60,14 +68,9 @@ private extension TasksViewController {
     func configureViews() {
         view.backgroundColor = .systemBackground
 
-        let formBarButton = UIBarButtonItem(customView: formButton)
-        let settingsBarButton = UIBarButtonItem(customView: settingsButton)
-
-        navigationItem.rightBarButtonItems = [formBarButton, settingsBarButton]
-        navigationItem.title = Date.today
-        navigationItem.backButtonTitle = Const.navigationBackButtonTitle
-
-        view.addSubview(tableView)
+        [todayLabel, formButton, settingsButton, tableView].forEach {
+            view.addSubview($0)
+        }
     }
 
     func configureBind() {
@@ -81,9 +84,9 @@ private extension TasksViewController {
 
         settingsButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                let settingsViewController = SettingsViewController()
+                let navigationController = SettingsNavigationController()
 
-                self?.navigationController?.pushViewController(settingsViewController, animated: true)
+                self?.present(navigationController, animated: true)
             })
             .disposed(by: disposeBag)
 
@@ -112,8 +115,24 @@ private extension TasksViewController {
     }
 
     func configureConstraints() {
+        todayLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(77)
+            make.leading.equalToSuperview().offset(26)
+        }
+
+        settingsButton.snp.makeConstraints { make in
+            make.centerY.equalTo(todayLabel)
+            make.trailing.equalToSuperview().offset(-22)
+        }
+
+        formButton.snp.makeConstraints { make in
+            make.centerY.equalTo(todayLabel)
+            make.trailing.equalTo(settingsButton.snp.leading).offset(-5)
+        }
+
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(todayLabel.snp.bottom).offset(20)
+            make.bottom.leading.trailing.equalToSuperview()
         }
     }
 }
