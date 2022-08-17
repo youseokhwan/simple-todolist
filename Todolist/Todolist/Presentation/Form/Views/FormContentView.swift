@@ -21,7 +21,14 @@ final class FormContentView: UIView {
 
         return textField
     }()
-    private lazy var textCountLabel = UILabel()
+    private lazy var textCountLabel: UILabel = {
+        let label = UILabel()
+
+        label.text = "50/100"
+        label.font = .systemFont(ofSize: 14)
+
+        return label
+    }()
 
     var textFieldRx: Reactive<UITextField> {
         return contentTextField.rx
