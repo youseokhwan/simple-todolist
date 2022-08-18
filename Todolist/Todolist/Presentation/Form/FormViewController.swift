@@ -98,9 +98,16 @@ private extension FormViewController {
         stackView.textFieldRx.text
             .orEmpty
             .observe(on: MainScheduler.asyncInstance)
+            .scan("") { previous, new -> String in
+                if new.count > Const.contextTextFieldMaxCount {
+                    return previous
+                } else {
+                    return new
+                }
+            }
             .subscribe(onNext: { [weak self] text in
+                self?.stackView.textFieldRx.text.onNext(text)
                 self?.stackView.updateCount(content: text)
-                self?.stackView.updateToValidRangeText()
                 self?.viewModel.context.accept(text)
             })
             .disposed(by: disposeBag)
