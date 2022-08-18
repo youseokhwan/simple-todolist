@@ -35,8 +35,8 @@ final class FormStackView: UIStackView {
         contentView.showKeyboard()
     }
 
-    func updateCount(content: String) {
-        contentView.updateCount(content: content)
+    func updateCount() {
+        contentView.updateCount()
     }
 }
 

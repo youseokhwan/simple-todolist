@@ -47,8 +47,10 @@ final class FormContentView: UIView {
         contentTextField.becomeFirstResponder()
     }
 
-    func updateCount(content: String) {
-        textCountLabel.text = "\(content.count)/\(Const.contextTextFieldMaxCount)"
+    func updateCount() {
+        guard let text = contentTextField.text else { return }
+
+        textCountLabel.text = "\(text.count)/\(Const.contextTextFieldMaxCount)"
     }
 }
 

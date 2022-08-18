@@ -107,7 +107,7 @@ private extension FormViewController {
             }
             .subscribe(onNext: { [weak self] text in
                 self?.stackView.textFieldRx.text.onNext(text)
-                self?.stackView.updateCount(content: text)
+                self?.stackView.updateCount()
                 self?.viewModel.context.accept(text)
             })
             .disposed(by: disposeBag)
