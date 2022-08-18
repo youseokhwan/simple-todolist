@@ -111,7 +111,7 @@ private extension SettingsViewController {
         tableView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 let title = self?.viewModel.items[indexPath.section].items[indexPath.row]
-                let viewController = OpenSourceLicenseViewController()
+                let viewController = LicenseViewController()
 
                 if title == Const.openSourceLicense {
                     self?.navigationController?.pushViewController(viewController, animated: true)
