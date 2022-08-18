@@ -126,7 +126,7 @@ private extension FormViewController {
         stackView.snp.makeConstraints { make in
             make.top.equalTo(saveButton.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(110)
+            make.height.equalTo(100)
         }
     }
 }

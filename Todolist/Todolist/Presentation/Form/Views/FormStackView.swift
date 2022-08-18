@@ -47,7 +47,7 @@ private extension FormStackView {
 
     func configureViews() {
         axis = .vertical
-        spacing = 20
+        spacing = 10
 
         [contentView, dailyView].forEach {
             addArrangedSubview($0)
