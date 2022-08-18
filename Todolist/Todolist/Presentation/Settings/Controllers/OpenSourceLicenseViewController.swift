@@ -35,6 +35,8 @@ private extension OpenSourceLicenseViewController {
     func configureViews() {
         view.backgroundColor = .systemBackground
 
+        navigationItem.largeTitleDisplayMode = .never
+
         textView.text = viewModel.openSourceLicenseText()
         textView.contentOffset = CGPoint(x: 0, y: 0)
         view.addSubview(textView)
