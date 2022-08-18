@@ -16,6 +16,12 @@ final class SettingsNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
+    }
+}
+
+private extension SettingsNavigationController {
+    func configure() {
         navigationBar.prefersLargeTitles = true
     }
 }

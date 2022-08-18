@@ -19,11 +19,17 @@ final class SettingsViewController: UIViewController {
     private let viewModel = SettingsViewModel()
     private let disposeBag = DisposeBag()
 
+    private lazy var doneBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+
+        return barButtonItem
+    }()
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
 
         tableView.register(SettingsTableViewCell.self,
                            forCellReuseIdentifier: SettingsTableViewCell.identifier)
+        tableView.rowHeight = 44
                          
         return tableView
     }()
@@ -77,11 +83,18 @@ private extension SettingsViewController {
         view.backgroundColor = .systemBackground
 
         navigationItem.title = Const.settingsTitle
+        navigationItem.rightBarButtonItem = doneBarButtonItem
 
         view.addSubview(tableView)
     }
 
     func configureBind() {
+        doneBarButtonItem.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.dismiss(animated: true)
+            })
+            .disposed(by: disposeBag)
+
         Observable.just(viewModel.items)
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
@@ -98,7 +111,7 @@ private extension SettingsViewController {
         tableView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 let title = self?.viewModel.items[indexPath.section].items[indexPath.row]
-                let viewController = OpenSourceLicenseViewController()
+                let viewController = LicenseViewController()
 
                 if title == Const.openSourceLicense {
                     self?.navigationController?.pushViewController(viewController, animated: true)

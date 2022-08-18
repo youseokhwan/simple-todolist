@@ -1,5 +1,5 @@
 //
-//  OpenSourceLicenseViewController.swift
+//  LicenseViewController.swift
 //  Todolist
 //
 //  Created by Jae Kyeong Ko on 2022/08/13.
@@ -9,8 +9,8 @@ import UIKit
 
 import SnapKit
 
-final class OpenSourceLicenseViewController: UIViewController {
-    private let viewModel = OpenSourceLicenseViewModel()
+final class LicenseViewController: UIViewController {
+    private let viewModel = LicenseViewModel()
 
     private lazy var textView: UITextView = {
         let textView = UITextView()
@@ -26,7 +26,7 @@ final class OpenSourceLicenseViewController: UIViewController {
     }
 }
 
-private extension OpenSourceLicenseViewController {
+private extension LicenseViewController {
     func configure() {
         configureViews()
         configureConstraints()
@@ -34,6 +34,8 @@ private extension OpenSourceLicenseViewController {
 
     func configureViews() {
         view.backgroundColor = .systemBackground
+
+        navigationItem.largeTitleDisplayMode = .never
 
         textView.text = viewModel.openSourceLicenseText()
         textView.contentOffset = CGPoint(x: 0, y: 0)
