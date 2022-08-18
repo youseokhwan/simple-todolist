@@ -55,10 +55,7 @@ final class FormContentView: UIView {
         guard let text = contentTextField.text,
               text.count > Const.contextTextFieldMaxCount else { return }
 
-        let lastIndex = text.index(text.startIndex, offsetBy: Const.contextTextFieldMaxCount)
-        let validRangeText = String(text[...lastIndex])
-
-        contentTextField.text = validRangeText
+        contentTextField.text = String(text.prefix(Const.contextTextFieldMaxCount))
     }
 }
 
