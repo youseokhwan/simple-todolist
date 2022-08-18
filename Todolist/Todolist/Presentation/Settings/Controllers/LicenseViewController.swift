@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 final class LicenseViewController: UIViewController {
-    private let viewModel = OpenSourceLicenseViewModel()
+    private let viewModel = LicenseViewModel()
 
     private lazy var textView: UITextView = {
         let textView = UITextView()
