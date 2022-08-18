@@ -24,6 +24,7 @@ final class SettingsViewController: UIViewController {
 
         tableView.register(SettingsTableViewCell.self,
                            forCellReuseIdentifier: SettingsTableViewCell.identifier)
+        tableView.rowHeight = 44
                          
         return tableView
     }()
