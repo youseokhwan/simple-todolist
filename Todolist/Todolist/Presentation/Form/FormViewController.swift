@@ -110,16 +110,23 @@ private extension FormViewController {
 
     func configureConstraints() {
         scrollView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(20)
+            make.edges.equalToSuperview()
+        }
+
+        containerView.snp.makeConstraints { make in
+            make.edges.width.equalToSuperview()
+            make.height.equalToSuperview().priority(250)
         }
 
         saveButton.snp.makeConstraints { make in
             make.top.trailing.equalToSuperview().inset(20)
+            make.width.height.equalTo(30)
         }
 
         stackView.snp.makeConstraints { make in
-            make.centerX.bottom.width.equalToSuperview()
             make.top.equalTo(saveButton.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(110)
         }
     }
 }
