@@ -97,6 +97,7 @@ private extension FormViewController {
 
         stackView.textFieldRx.text
             .orEmpty
+            .observe(on: MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self] text in
                 self?.stackView.updateCount(content: text)
                 self?.stackView.updateToValidRangeText()
