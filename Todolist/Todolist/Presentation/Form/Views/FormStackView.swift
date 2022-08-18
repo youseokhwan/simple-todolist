@@ -38,10 +38,6 @@ final class FormStackView: UIStackView {
     func updateCount(content: String) {
         contentView.updateCount(content: content)
     }
-
-    func updateToValidRangeText() {
-        contentView.updateToValidRangeText()
-    }
 }
 
 private extension FormStackView {

@@ -50,13 +50,6 @@ final class FormContentView: UIView {
     func updateCount(content: String) {
         textCountLabel.text = "\(content.count)/\(Const.contextTextFieldMaxCount)"
     }
-
-    func updateToValidRangeText() {
-        guard let text = contentTextField.text,
-              text.count > Const.contextTextFieldMaxCount else { return }
-
-        contentTextField.text = String(text.prefix(Const.contextTextFieldMaxCount))
-    }
 }
 
 private extension FormContentView {
