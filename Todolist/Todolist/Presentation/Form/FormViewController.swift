@@ -98,6 +98,7 @@ private extension FormViewController {
         stackView.textFieldRx.text
             .orEmpty
             .subscribe(onNext: { [weak self] text in
+                self?.stackView.updateCount(content: text)
                 self?.stackView.updateToValidRangeText()
                 self?.viewModel.context.accept(text)
             })

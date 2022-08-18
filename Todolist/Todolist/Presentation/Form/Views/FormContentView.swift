@@ -24,7 +24,6 @@ final class FormContentView: UIView {
     private lazy var textCountLabel: UILabel = {
         let label = UILabel()
 
-        label.text = "50/100"
         label.font = .systemFont(ofSize: 14)
 
         return label
@@ -46,6 +45,10 @@ final class FormContentView: UIView {
 
     func showKeyboard() {
         contentTextField.becomeFirstResponder()
+    }
+
+    func updateCount(content: String) {
+        textCountLabel.text = "\(content.count)/\(Const.contextTextFieldMaxCount)"
     }
 
     func updateToValidRangeText() {
