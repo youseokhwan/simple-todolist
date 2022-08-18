@@ -19,6 +19,11 @@ final class SettingsViewController: UIViewController {
     private let viewModel = SettingsViewModel()
     private let disposeBag = DisposeBag()
 
+    private lazy var doneBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+
+        return barButtonItem
+    }()
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
 
@@ -78,11 +83,18 @@ private extension SettingsViewController {
         view.backgroundColor = .systemBackground
 
         navigationItem.title = Const.settingsTitle
+        navigationItem.rightBarButtonItem = doneBarButtonItem
 
         view.addSubview(tableView)
     }
 
     func configureBind() {
+        doneBarButtonItem.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.dismiss(animated: true)
+            })
+            .disposed(by: disposeBag)
+
         Observable.just(viewModel.items)
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
