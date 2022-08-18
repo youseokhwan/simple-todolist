@@ -15,16 +15,6 @@ final class FormViewController: UIViewController {
     private let viewModel = FormViewModel()
     private let disposeBag = DisposeBag()
 
-    private lazy var saveButton: UIButton = {
-        let button = UIButton()
-        let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
-        let image = UIImage(systemName: Const.saveButtonImage,
-                            withConfiguration: buttonImageConfiguration)
-
-        button.setImage(image, for: .normal)
-
-        return button
-    }()
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         let recognizer = UITapGestureRecognizer(target: self,
@@ -34,6 +24,16 @@ final class FormViewController: UIViewController {
         scrollView.addSubview(stackView)
 
         return scrollView
+    }()
+    private lazy var saveButton: UIButton = {
+        let button = UIButton()
+        let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
+        let image = UIImage(systemName: Const.saveButtonImage,
+                            withConfiguration: buttonImageConfiguration)
+
+        button.setImage(image, for: .normal)
+
+        return button
     }()
     private lazy var stackView = FormStackView()
 
