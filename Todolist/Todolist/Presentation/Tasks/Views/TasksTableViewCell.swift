@@ -72,6 +72,7 @@ private extension TasksTableViewCell {
         contextLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalTo(checkButton.snp.trailing).offset(20)
+            make.trailing.equalToSuperview().inset(10)
         }
     }
 }
