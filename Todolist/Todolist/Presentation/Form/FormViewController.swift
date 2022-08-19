@@ -21,19 +21,10 @@ final class FormViewController: UIViewController {
                                                 action: #selector(tappedOutsideOfKeyboard(_:)))
 
         scrollView.addGestureRecognizer(recognizer)
-        scrollView.addSubview(containerView)
 
         return scrollView
     }()
-    private lazy var containerView: UIView = {
-        let view = UIView()
-
-        [saveButton, stackView].forEach {
-            view.addSubview($0)
-        }
-
-        return view
-    }()
+    private lazy var containerView = UIView()
     private lazy var saveButton: UIButton = {
         let button = UIButton()
         let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
@@ -84,6 +75,10 @@ private extension FormViewController {
     func configureViews() {
         view.backgroundColor = .systemBackground
 
+        scrollView.addSubview(containerView)
+        [saveButton, stackView].forEach {
+            containerView.addSubview($0)
+        }
         view.addSubview(scrollView)
     }
 
