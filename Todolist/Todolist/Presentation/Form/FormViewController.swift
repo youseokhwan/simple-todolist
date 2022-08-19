@@ -98,9 +98,9 @@ private extension FormViewController {
         stackView.textFieldRx.text
             .orEmpty
             .observe(on: MainScheduler.asyncInstance)
-            .scan("") { previous, new -> String in
+            .scan("") { old, new -> String in
                 if new.count > Const.contextTextFieldMaxCount {
-                    return previous
+                    return old
                 } else {
                     return new
                 }
