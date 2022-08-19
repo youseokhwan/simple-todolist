@@ -99,11 +99,7 @@ private extension FormViewController {
             .orEmpty
             .observe(on: MainScheduler.asyncInstance)
             .scan("") { old, new -> String in
-                if new.count > Const.contextTextFieldMaxCount {
-                    return old
-                } else {
-                    return new
-                }
+                return new.count > Const.contextTextFieldMaxCount ? old : new
             }
             .subscribe(onNext: { [weak self] text in
                 self?.stackView.textFieldRx.text.onNext(text)
