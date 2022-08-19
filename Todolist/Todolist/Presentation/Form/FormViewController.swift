@@ -15,6 +15,16 @@ final class FormViewController: UIViewController {
     private let viewModel = FormViewModel()
     private let disposeBag = DisposeBag()
 
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        let recognizer = UITapGestureRecognizer(target: self,
+                                                action: #selector(tappedOutsideOfKeyboard(_:)))
+
+        scrollView.addGestureRecognizer(recognizer)
+
+        return scrollView
+    }()
+    private lazy var containerView = UIView()
     private lazy var saveButton: UIButton = {
         let button = UIButton()
         let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
@@ -24,16 +34,6 @@ final class FormViewController: UIViewController {
         button.setImage(image, for: .normal)
 
         return button
-    }()
-    private lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        let recognizer = UITapGestureRecognizer(target: self,
-                                                action: #selector(tappedOutsideOfKeyboard(_:)))
-
-        scrollView.addGestureRecognizer(recognizer)
-        scrollView.addSubview(stackView)
-
-        return scrollView
     }()
     private lazy var stackView = FormStackView()
 
@@ -75,9 +75,11 @@ private extension FormViewController {
     func configureViews() {
         view.backgroundColor = .systemBackground
 
-        [scrollView, saveButton].forEach {
-            view.addSubview($0)
+        scrollView.addSubview(containerView)
+        [saveButton, stackView].forEach {
+            containerView.addSubview($0)
         }
+        view.addSubview(scrollView)
     }
 
     func configureBind() {
@@ -90,8 +92,13 @@ private extension FormViewController {
 
         stackView.textFieldRx.text
             .orEmpty
+            .observe(on: MainScheduler.asyncInstance)
+            .scan("") { old, new -> String in
+                return new.count > Const.contextTextFieldMaxCount ? old : new
+            }
             .subscribe(onNext: { [weak self] text in
-                self?.stackView.updateToValidRangeText()
+                self?.stackView.textFieldRx.text.onNext(text)
+                self?.stackView.updateCount()
                 self?.viewModel.context.accept(text)
             })
             .disposed(by: disposeBag)
@@ -103,16 +110,23 @@ private extension FormViewController {
 
     func configureConstraints() {
         scrollView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(20)
+            make.edges.equalToSuperview()
+        }
+
+        containerView.snp.makeConstraints { make in
+            make.edges.width.equalToSuperview()
+            make.height.equalToSuperview().priority(250)
         }
 
         saveButton.snp.makeConstraints { make in
             make.top.trailing.equalToSuperview().inset(20)
+            make.width.height.equalTo(30)
         }
 
         stackView.snp.makeConstraints { make in
-            make.centerX.bottom.width.equalToSuperview()
             make.top.equalTo(saveButton.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(100)
         }
     }
 }

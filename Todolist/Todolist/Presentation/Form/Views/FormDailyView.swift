@@ -50,13 +50,13 @@ private extension FormDailyView {
 
     func configureConstraints() {
         dailyLabel.snp.makeConstraints { make in
-            make.leading.height.equalToSuperview()
+            make.centerY.leading.height.equalToSuperview()
             make.width.equalTo(70)
         }
 
         dailySwitch.snp.makeConstraints { make in
+            make.centerY.height.equalToSuperview()
             make.leading.equalTo(dailyLabel.snp.trailing).offset(20)
-            make.height.equalToSuperview()
         }
     }
 }
