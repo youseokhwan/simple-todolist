@@ -18,12 +18,11 @@ final class TasksTableViewCell: UITableViewCell {
 
     private lazy var checkButton: UIButton = {
         let button = UIButton()
-        let configure = UIImage.SymbolConfiguration(pointSize: 25)
+        let normalImage = UIImage(named: Const.checkButtonNormalImage)
+        let selectedImage = UIImage(named: Const.checkButtonSelectedImage)
 
-        button.setImage(UIImage(systemName: Const.checkButtonNormalImage,
-                                withConfiguration: configure), for: .normal)
-        button.setImage(UIImage(systemName: Const.checkButtonSelectedImage,
-                                withConfiguration: configure), for: .selected)
+        button.setImage(normalImage, for: .normal)
+        button.setImage(selectedImage, for: .selected)
         button.tintColor = .systemGreen
         button.isUserInteractionEnabled = false
 
