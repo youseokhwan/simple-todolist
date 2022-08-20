@@ -157,8 +157,8 @@ extension TasksViewController: UITableViewDelegate {
             completion(true)
         }
 
-        delete.image = UIImage(named: Const.deleteButtonImage)
-        edit.image = UIImage(named: Const.editButtonImage)
+        delete.image = UIImage(named: Const.deleteButtonImage)?.swipeImage
+        edit.image = UIImage(named: Const.editButtonImage)?.swipeImage
 
         return UISwipeActionsConfiguration(actions: [delete, edit])
     }
