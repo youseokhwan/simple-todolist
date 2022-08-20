@@ -41,6 +41,7 @@
 		44443146285EFB400004D468 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443145285EFB400004D468 /* SceneDelegate.swift */; };
 		4444314D285EFB420004D468 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4444314C285EFB420004D468 /* Assets.xcassets */; };
 		44443150285EFB420004D468 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4444314E285EFB420004D468 /* LaunchScreen.storyboard */; };
+		449678E528B129B40029951B /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449678E428B129B40029951B /* UIImage+Extensions.swift */; };
 		44B90CAB289A487D00B4BADD /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B90CAA289A487D00B4BADD /* UILabel+Extensions.swift */; };
 		44B90D06289D6AE500B4BADD /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B90D05289D6AE500B4BADD /* RealmStorage.swift */; };
 		44B90D2E28A22C7000B4BADD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 44B90D2D28A22C7000B4BADD /* SnapKit */; };
@@ -91,6 +92,7 @@
 		4444314C285EFB420004D468 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4444314F285EFB420004D468 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44443151285EFB420004D468 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		449678E428B129B40029951B /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		44B90CAA289A487D00B4BADD /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		44B90D05289D6AE500B4BADD /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
 		44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStackView.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				442646BD2887FA17004C22D8 /* String+Extensions.swift */,
 				019EE54E28742F9F00804889 /* Date+Extensions.swift */,
 				44B90CAA289A487D00B4BADD /* UILabel+Extensions.swift */,
+				449678E428B129B40029951B /* UIImage+Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				44B90CAB289A487D00B4BADD /* UILabel+Extensions.swift in Sources */,
 				442473BE286587E20059CFCC /* TasksViewModel.swift in Sources */,
 				44B90D06289D6AE500B4BADD /* RealmStorage.swift in Sources */,
+				449678E528B129B40029951B /* UIImage+Extensions.swift in Sources */,
 				0193D28928A7C65E00F929DC /* LicenseViewController.swift in Sources */,
 				442473C4286589700059CFCC /* SettingsViewController.swift in Sources */,
 				440216E628AB8ED2008930FD /* ReadBundleResourceUseCase.swift in Sources */,
