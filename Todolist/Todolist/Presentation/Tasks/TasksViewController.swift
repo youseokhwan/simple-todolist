@@ -121,11 +121,13 @@ private extension TasksViewController {
         settingsButton.snp.makeConstraints { make in
             make.centerY.equalTo(todayLabel)
             make.trailing.equalToSuperview().offset(-22)
+            make.width.height.equalTo(30)
         }
 
         formButton.snp.makeConstraints { make in
             make.centerY.equalTo(todayLabel)
-            make.trailing.equalTo(settingsButton.snp.leading).offset(-5)
+            make.trailing.equalTo(settingsButton.snp.leading).offset(-10)
+            make.width.height.equalTo(30)
         }
 
         tableView.snp.makeConstraints { make in
