@@ -55,6 +55,8 @@ private extension TasksTableViewCell {
 
     func configureViews() {
         selectionStyle = .none
+        contentView.layer.borderWidth = 1
+        contentView.layer.cornerRadius = 10
 
         [checkButton, contextLabel].forEach {
             contentView.addSubview($0)
