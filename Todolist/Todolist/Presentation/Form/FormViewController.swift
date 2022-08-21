@@ -38,7 +38,7 @@ final class FormViewController: UIViewController {
     convenience init(task: Task) {
         self.init(nibName: nil, bundle: nil)
 
-        viewModel.taskID.accept(task.id)
+        viewModel.id.accept(task.id)
         stackView.textFieldRx.text.onNext(task.title)
         stackView.switchRx.isOn.onNext(task.isDaily)
         viewModel.isChecked.accept(task.isChecked)
@@ -52,7 +52,7 @@ final class FormViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if viewModel.taskID.value == Const.tempIDForNewTask {
+        if viewModel.id.value == Const.tempIDForNewTask {
             stackView.showKeyboard()
         }
     }
