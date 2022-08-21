@@ -1,5 +1,5 @@
 //
-//  LicenseViewController.swift
+//  SettingsLicenseViewController.swift
 //  Todolist
 //
 //  Created by Jae Kyeong Ko on 2022/08/13.
@@ -9,8 +9,8 @@ import UIKit
 
 import SnapKit
 
-final class LicenseViewController: UIViewController {
-    private let viewModel = LicenseViewModel()
+final class SettingsLicenseViewController: UIViewController {
+    private let viewModel = SettingsLicenseViewModel()
 
     private lazy var textView: UITextView = {
         let textView = UITextView()
@@ -26,7 +26,7 @@ final class LicenseViewController: UIViewController {
     }
 }
 
-private extension LicenseViewController {
+private extension SettingsLicenseViewController {
     func configure() {
         configureViews()
         configureConstraints()
