@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ThemeMenuButton: UIButton {
+final class SettingsThemeMenuButton: UIButton {
     var themes: [String] {
         [Const.systemTheme, Const.lightTheme, Const.darkTheme]
     }
@@ -23,7 +23,7 @@ final class ThemeMenuButton: UIButton {
     }
 }
 
-private extension ThemeMenuButton {
+private extension SettingsThemeMenuButton {
     func configure() {
         configureViews()
     }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		012D2C27288C33270063BB1E /* ThemeMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D2C26288C33270063BB1E /* ThemeMenuButton.swift */; };
+		012D2C27288C33270063BB1E /* SettingsThemeMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D2C26288C33270063BB1E /* SettingsThemeMenuButton.swift */; };
 		0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */; };
 		0193D28928A7C65E00F929DC /* SettingsLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28828A7C65E00F929DC /* SettingsLicenseViewController.swift */; };
 		0193D28D28AB988800F929DC /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28C28AB988800F929DC /* SettingsNavigationController.swift */; };
@@ -56,7 +56,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		012D2C26288C33270063BB1E /* ThemeMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeMenuButton.swift; sourceTree = "<group>"; };
+		012D2C26288C33270063BB1E /* SettingsThemeMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeMenuButton.swift; sourceTree = "<group>"; };
 		0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
 		0193D28828A7C65E00F929DC /* SettingsLicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLicenseViewController.swift; sourceTree = "<group>"; };
 		0193D28C28AB988800F929DC /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */,
-				012D2C26288C33270063BB1E /* ThemeMenuButton.swift */,
+				012D2C26288C33270063BB1E /* SettingsThemeMenuButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -453,7 +453,7 @@
 				0193D28928A7C65E00F929DC /* SettingsLicenseViewController.swift in Sources */,
 				442473C4286589700059CFCC /* SettingsViewController.swift in Sources */,
 				440216E628AB8ED2008930FD /* ReadBundleResourceUseCase.swift in Sources */,
-				012D2C27288C33270063BB1E /* ThemeMenuButton.swift in Sources */,
+				012D2C27288C33270063BB1E /* SettingsThemeMenuButton.swift in Sources */,
 				442473C6286589850059CFCC /* SettingsViewModel.swift in Sources */,
 				01B4BE0328882884004CE987 /* SettingsTableViewCell.swift in Sources */,
 			);
