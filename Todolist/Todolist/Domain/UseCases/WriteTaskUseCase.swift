@@ -15,7 +15,11 @@ struct WriteTaskUseCase {
     }
 
     func createTask(title: String, isDaily: Bool) {
-        let task = Task(id: autoIncreasedID(), title: title, isDaily: isDaily, isDone: false)
+        let task = Task(id: autoIncreasedID(),
+                        title: title,
+                        isDaily: isDaily,
+                        isDone: false,
+                        createdDate: Date())
 
         taskRepository.create(task: task)
     }

@@ -17,6 +17,7 @@ final class FormViewModel {
     let title: BehaviorRelay<String>
     let isDaily: BehaviorRelay<Bool>
     let isDone: BehaviorRelay<Bool>
+    let createdDate: BehaviorRelay<Date>
 
     init() {
         writeTaskUseCase = WriteTaskUseCase()
@@ -25,6 +26,7 @@ final class FormViewModel {
         title = BehaviorRelay(value: "")
         isDaily = BehaviorRelay(value: false)
         isDone = BehaviorRelay(value: false)
+        createdDate = BehaviorRelay(value: Date())
     }
 
     func saveTask() {
@@ -36,7 +38,8 @@ final class FormViewModel {
             let task = Task(id: id.value,
                             title: title.value,
                             isDaily: isDaily.value,
-                            isDone: isDone.value)
+                            isDone: isDone.value,
+                            createdDate: createdDate.value)
 
             writeTaskUseCase.update(task: task)
         }

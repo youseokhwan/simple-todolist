@@ -42,6 +42,7 @@ final class FormViewController: UIViewController {
         stackView.textFieldRx.text.onNext(task.title)
         stackView.switchRx.isOn.onNext(task.isDaily)
         viewModel.isDone.accept(task.isDone)
+        viewModel.createdDate.accept(task.createdDate)
     }
 
     override func viewDidLoad() {
