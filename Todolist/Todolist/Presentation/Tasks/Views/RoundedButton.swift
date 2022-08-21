@@ -34,7 +34,8 @@ private extension RoundedButton {
             setTitle(title, for: .normal)
             setImage(image?.swipeImage, for: .normal)
             setTitleColor(UIColor.black, for: .normal)
-            imageEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+            contentEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+            titleEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         }
 
         layer.borderWidth = 1
