@@ -52,7 +52,7 @@ enum Const {
     static let id = "id"
     static let title = "title"
     static let isDaily = "isDaily"
-    static let isChecked = "isChecked"
+    static let isDone = "isDone"
 
     // Utils
     static let localizable = "Localizable"

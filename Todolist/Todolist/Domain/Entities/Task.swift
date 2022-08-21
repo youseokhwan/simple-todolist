@@ -13,13 +13,13 @@ final class Task: Object {
     @Persisted(primaryKey: true) var id: Int
     @Persisted var title: String
     @Persisted var isDaily: Bool
-    @Persisted var isChecked: Bool
+    @Persisted var isDone: Bool
 
-    convenience init(id: Int, title: String, isDaily: Bool, isChecked: Bool) {
+    convenience init(id: Int, title: String, isDaily: Bool, isDone: Bool) {
         self.init()
         self.id = id
         self.title = title
         self.isDaily = isDaily
-        self.isChecked = isChecked
+        self.isDone = isDone
     }
 }

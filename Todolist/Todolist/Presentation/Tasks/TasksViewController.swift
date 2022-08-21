@@ -103,7 +103,7 @@ private extension TasksViewController {
                 guard let cell = self?.tableView.cellForRow(at: indexPath) as? TasksTableViewCell,
                       let task = self?.viewModel.allTasks.value[indexPath.row] else { return }
 
-                self?.viewModel.updateIsChecked(of: task, value: !task.isChecked)
+                self?.viewModel.updateIsDone(of: task, value: !task.isDone)
                 cell.updateUI(by: task)
             })
             .disposed(by: disposeBag)

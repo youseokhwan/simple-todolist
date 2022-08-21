@@ -15,7 +15,7 @@ struct WriteTaskUseCase {
     }
 
     func createTask(title: String, isDaily: Bool) {
-        let task = Task(id: autoIncreasedID(), title: title, isDaily: isDaily, isChecked: false)
+        let task = Task(id: autoIncreasedID(), title: title, isDaily: isDaily, isDone: false)
 
         taskRepository.create(task: task)
     }
@@ -24,20 +24,20 @@ struct WriteTaskUseCase {
         taskRepository.update(task: task)
     }
 
-    func updateIsChecked(of task: Task, value: Bool) {
-        taskRepository.updateIsChecked(of: task, value: value)
+    func updateIsDone(of task: Task, value: Bool) {
+        taskRepository.updateIsDone(of: task, value: value)
     }
 
-    func updateIsCheckedToFalse(of task: Task) {
-        taskRepository.updateIsCheckedToFalse(of: task)
+    func updateIsDoneToFalse(of task: Task) {
+        taskRepository.updateIsDoneToFalse(of: task)
     }
 
     func updateTasksAsOfToday(tasks: [Task]) {
         tasks.forEach { task in
-            if !task.isDaily && task.isChecked {
+            if !task.isDaily && task.isDone {
                 delete(task: task)
             } else {
-                updateIsCheckedToFalse(of: task)
+                updateIsDoneToFalse(of: task)
             }
         }
 
