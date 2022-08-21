@@ -124,7 +124,7 @@ private extension TasksViewController {
 
         tableView.snp.makeConstraints { make in
             make.top.equalTo(todayLabel.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(22)
         }
 
         formButton.snp.makeConstraints { make in
