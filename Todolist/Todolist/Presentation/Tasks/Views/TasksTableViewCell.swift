@@ -40,6 +40,13 @@ final class TasksTableViewCell: UITableViewCell {
         configure()
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let insets = UIEdgeInsets(top: 2, left: 0, bottom: 2, right: 0)
+
+        contentView.frame = contentView.frame.inset(by: insets)
+    }
+
     func updateUI(by task: Task) {
         checkButton.isSelected = task.isChecked
         contextLabel.attributedText = NSAttributedString(string: task.context)
