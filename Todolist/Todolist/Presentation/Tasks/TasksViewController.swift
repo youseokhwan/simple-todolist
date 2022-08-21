@@ -114,7 +114,7 @@ private extension TasksViewController {
 
     func configureConstraints() {
         todayLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(77)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
             make.leading.equalToSuperview().offset(26)
         }
 
