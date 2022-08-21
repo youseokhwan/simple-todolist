@@ -15,7 +15,6 @@ final class FormViewModel {
 
     let taskID: BehaviorRelay<Int>
     let title: BehaviorRelay<String>
-    let publishedDate: BehaviorRelay<String>
     let isDaily: BehaviorRelay<Bool>
     let isChecked: BehaviorRelay<Bool>
 
@@ -24,7 +23,6 @@ final class FormViewModel {
 
         taskID = BehaviorRelay(value: Const.tempIDForNewTask)
         title = BehaviorRelay(value: "")
-        publishedDate = BehaviorRelay(value: Date.today)
         isDaily = BehaviorRelay(value: false)
         isChecked = BehaviorRelay(value: false)
     }
