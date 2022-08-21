@@ -17,7 +17,7 @@ final class FormContentView: UIView {
 
         textField.borderStyle = .roundedRect
         textField.font = .systemFont(ofSize: 24)
-        textField.placeholder = Const.contextTextFieldPlaceholder
+        textField.placeholder = Const.titleTextFieldPlaceholder
 
         return textField
     }()
@@ -50,7 +50,7 @@ final class FormContentView: UIView {
     func updateCount() {
         guard let text = contentTextField.text else { return }
 
-        textCountLabel.text = "\(text.count)/\(Const.contextTextFieldMaxCount)"
+        textCountLabel.text = "\(text.count)/\(Const.titleTextFieldMaxCount)"
     }
 }
 

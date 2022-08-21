@@ -7,7 +7,7 @@
 */
 
 // Form
-"contextTextFieldPlaceholder" = "please input task.";
+"titleTextFieldPlaceholder" = "please input task.";
 "dailyLabelText" = "daily routine";
 
 // Settings
