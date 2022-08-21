@@ -23,14 +23,6 @@ final class TasksViewController: UIViewController {
 
         return label
     }()
-    private lazy var formButton: UIButton = {
-        let button = UIButton()
-        let image = UIImage(named: Const.formButtonImage)
-
-        button.setImage(image, for: .normal)
-
-        return button
-    }()
     private lazy var settingsButton: UIButton = {
         let button = UIButton()
         let image = UIImage(named: Const.settingsButtonImage)
@@ -47,6 +39,14 @@ final class TasksViewController: UIViewController {
         tableView.rowHeight = 80
 
         return tableView
+    }()
+    private lazy var formButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(named: Const.formButtonImage)
+
+        button.setImage(image, for: .normal)
+
+        return button
     }()
 
     override func viewDidLoad() {
@@ -124,15 +124,15 @@ private extension TasksViewController {
             make.width.height.equalTo(44)
         }
 
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(todayLabel.snp.bottom).offset(20)
+            make.bottom.leading.trailing.equalToSuperview()
+        }
+
         formButton.snp.makeConstraints { make in
             make.centerY.equalTo(todayLabel)
             make.trailing.equalTo(settingsButton.snp.leading).offset(-10)
             make.width.height.equalTo(30)
-        }
-
-        tableView.snp.makeConstraints { make in
-            make.top.equalTo(todayLabel.snp.bottom).offset(20)
-            make.bottom.leading.trailing.equalToSuperview()
         }
     }
 }
