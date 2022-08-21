@@ -40,13 +40,11 @@ final class TasksViewController: UIViewController {
 
         return tableView
     }()
-    private lazy var formButton: UIButton = {
-        let button = UIButton()
+    private lazy var formButton: RoundedButton = {
         let image = UIImage(named: Const.formButtonImage)
+        let title = "할 일 추가"
 
-        button.setImage(image, for: .normal)
-
-        return button
+        return RoundedButton(title: title, image: image)
     }()
 
     override func viewDidLoad() {
