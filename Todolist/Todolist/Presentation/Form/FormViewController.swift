@@ -27,9 +27,7 @@ final class FormViewController: UIViewController {
     private lazy var containerView = UIView()
     private lazy var saveButton: UIButton = {
         let button = UIButton()
-        let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
-        let image = UIImage(systemName: Const.saveButtonImage,
-                            withConfiguration: buttonImageConfiguration)
+        let image = UIImage(named: Const.saveButtonImage)
 
         button.setImage(image, for: .normal)
 

@@ -10,13 +10,15 @@ import Foundation
 enum Const {
     // Tasks
     static let formButtonImage = "plus"
-    static let settingsButtonImage = "gearshape.fill"
+    static let settingsButtonImage = "user"
     static let checkButtonNormalImage = "circle"
-    static let checkButtonSelectedImage = "checkmark.circle.fill"
+    static let checkButtonSelectedImage = "checked"
+    static let editButtonImage = "edit"
+    static let deleteButtonImage = "delete"
 
     // Form
     static let tempIDForNewTask = -1
-    static let saveButtonImage = "checkmark"
+    static let saveButtonImage = "done"
     static let contextTextFieldMaxCount = 20
     static let contextTextFieldPlaceholder = "contextTextFieldPlaceholder".localized
     static let dailyLabelText = "dailyLabelText".localized

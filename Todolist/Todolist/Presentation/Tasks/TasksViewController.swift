@@ -25,19 +25,17 @@ final class TasksViewController: UIViewController {
     }()
     private lazy var formButton: UIButton = {
         let button = UIButton()
-        let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
+        let image = UIImage(named: Const.formButtonImage)
 
-        button.setImage(UIImage(systemName: Const.formButtonImage,
-                                withConfiguration: buttonImageConfiguration), for: .normal)
+        button.setImage(image, for: .normal)
 
         return button
     }()
     private lazy var settingsButton: UIButton = {
         let button = UIButton()
-        let buttonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 25)
+        let image = UIImage(named: Const.settingsButtonImage)
 
-        button.setImage(UIImage(systemName: Const.settingsButtonImage,
-                                withConfiguration: buttonImageConfiguration), for: .normal)
+        button.setImage(image, for: .normal)
 
         return button
     }()
@@ -123,11 +121,13 @@ private extension TasksViewController {
         settingsButton.snp.makeConstraints { make in
             make.centerY.equalTo(todayLabel)
             make.trailing.equalToSuperview().offset(-22)
+            make.width.height.equalTo(30)
         }
 
         formButton.snp.makeConstraints { make in
             make.centerY.equalTo(todayLabel)
-            make.trailing.equalTo(settingsButton.snp.leading).offset(-5)
+            make.trailing.equalTo(settingsButton.snp.leading).offset(-10)
+            make.width.height.equalTo(30)
         }
 
         tableView.snp.makeConstraints { make in
@@ -157,8 +157,8 @@ extension TasksViewController: UITableViewDelegate {
             completion(true)
         }
 
-        delete.image = UIImage(systemName: "trash.fill")
-        edit.image = UIImage(systemName: "square.and.pencil")
+        delete.image = UIImage(named: Const.deleteButtonImage)?.swipeImage
+        edit.image = UIImage(named: Const.editButtonImage)?.swipeImage
 
         return UISwipeActionsConfiguration(actions: [delete, edit])
     }
