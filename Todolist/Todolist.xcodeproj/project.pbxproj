@@ -12,6 +12,7 @@
 		0193D28928A7C65E00F929DC /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28828A7C65E00F929DC /* LicenseViewController.swift */; };
 		0193D28D28AB988800F929DC /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28C28AB988800F929DC /* SettingsNavigationController.swift */; };
 		0193D28F28ACA79500F929DC /* FormContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28E28ACA79500F929DC /* FormContentView.swift */; };
+		0193D29128B21A2E00F929DC /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D29028B21A2E00F929DC /* RoundedButton.swift */; };
 		019EE54F28742F9F00804889 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EE54E28742F9F00804889 /* Date+Extensions.swift */; };
 		01B4BE0328882884004CE987 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */; };
 		01EF8628287BECDD005F037A /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF8627287BECDD005F037A /* SettingsSection.swift */; };
@@ -61,6 +62,7 @@
 		0193D28828A7C65E00F929DC /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
 		0193D28C28AB988800F929DC /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		0193D28E28ACA79500F929DC /* FormContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormContentView.swift; sourceTree = "<group>"; };
+		0193D29028B21A2E00F929DC /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		019EE54E28742F9F00804889 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		01EF8627287BECDD005F037A /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */,
+				0193D29028B21A2E00F929DC /* RoundedButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				449678E528B129B40029951B /* UIImage+Extensions.swift in Sources */,
 				0193D28928A7C65E00F929DC /* LicenseViewController.swift in Sources */,
 				442473C4286589700059CFCC /* SettingsViewController.swift in Sources */,
+				0193D29128B21A2E00F929DC /* RoundedButton.swift in Sources */,
 				440216E628AB8ED2008930FD /* ReadBundleResourceUseCase.swift in Sources */,
 				012D2C27288C33270063BB1E /* ThemeMenuButton.swift in Sources */,
 				442473C6286589850059CFCC /* SettingsViewModel.swift in Sources */,
