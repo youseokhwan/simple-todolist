@@ -15,6 +15,9 @@ enum Const {
     static let checkButtonSelectedImage = "checked"
     static let editButtonImage = "edit"
     static let deleteButtonImage = "delete"
+    static let swipeActionPullView = "UISwipeActionPullView"
+    static let swipeActionButton = "UISwipeActionStandardButton"
+    static let addTask = "addTask".localized
 
     // Form
     static let tempIDForNewTask = -1

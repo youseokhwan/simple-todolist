@@ -43,7 +43,7 @@ final class TasksViewController: UIViewController {
     }()
     private lazy var formButton: RoundedButton = {
         let image = UIImage(named: Const.formButtonImage)
-        let title = "할 일 추가"
+        let title = Const.addTask
 
         return RoundedButton(title: title, image: image)
     }()
@@ -170,13 +170,13 @@ extension TasksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
         tableView.subviews.forEach { subview in
             if let swipeActionPullView = subview.subviews.first,
-               String(describing: type(of: swipeActionPullView)) == "UISwipeActionPullView" {
+               String(describing: type(of: swipeActionPullView)) == Const.swipeActionPullView {
                 swipeActionPullView.frame.origin.x += 4
                 swipeActionPullView.frame.origin.y += 2
                 swipeActionPullView.frame.size.height -= 4
 
                 let buttons = swipeActionPullView.subviews
-                if String(describing: type(of: buttons[0])) == "UISwipeActionStandardButton" {
+                if String(describing: type(of: buttons[0])) == Const.swipeActionButton {
                     buttons.forEach {
                         $0.clipsToBounds = true
                         $0.layer.cornerRadius = 10
