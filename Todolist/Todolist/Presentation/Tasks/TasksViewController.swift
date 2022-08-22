@@ -98,13 +98,12 @@ private extension TasksViewController {
             .disposed(by: disposeBag)
 
         tableView.rx.itemSelected
-            .throttle(.milliseconds(500), scheduler: MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self] indexPath in
-                guard let cell = self?.tableView.cellForRow(at: indexPath) as? TasksTableViewCell,
-                      let task = self?.viewModel.allTasks.value[indexPath.row] else { return }
+                guard let task = self?.viewModel.allTasks.value[indexPath.row] else { return }
 
-                self?.viewModel.updateIsDone(of: task, value: !task.isDone)
-                cell.updateUI(by: task)
+                let controller = FormViewController(task: task)
+
+                self?.present(controller, animated: true)
             })
             .disposed(by: disposeBag)
 
