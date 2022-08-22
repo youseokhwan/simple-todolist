@@ -20,6 +20,8 @@ private extension RoundedButton {
     }
 
     func configureViews(title: String?, image: UIImage?) {
+        let imagePadding: CGFloat = 12
+
         if #available(iOS 15.0, *) {
             var configuration = UIButton.Configuration.filled()
 
@@ -27,15 +29,15 @@ private extension RoundedButton {
             configuration.image = image?.swipeImage
             configuration.baseBackgroundColor = .systemBackground
             configuration.baseForegroundColor = .black
-            configuration.imagePadding = 12
+            configuration.imagePadding = imagePadding
 
             self.configuration = configuration
         } else {
             setTitle(title, for: .normal)
             setImage(image?.swipeImage, for: .normal)
             setTitleColor(UIColor.black, for: .normal)
-            contentEdgeInsets = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
-            titleEdgeInsets = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
+            contentEdgeInsets = UIEdgeInsets(top: 0, left: imagePadding, bottom: 0, right: 0)
+            titleEdgeInsets = UIEdgeInsets(top: 0, left: imagePadding, bottom: 0, right: 0)
         }
 
         layer.borderWidth = 1
