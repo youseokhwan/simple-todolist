@@ -147,19 +147,9 @@ extension TasksViewController: UITableViewDelegate {
             self?.viewModel.deleteTask(of: indexPath.row)
             completion(true)
         }
-        let edit = UIContextualAction(style: .normal,
-                                      title: nil) { [weak self] action, view, completion in
-            if let task = self?.viewModel.allTasks.value[indexPath.row] {
-                let controller = FormViewController(task: task)
-
-                self?.present(controller, animated: true)
-            }
-            completion(true)
-        }
 
         delete.image = UIImage(named: Const.deleteButtonImage)?.swipeImage
-        edit.image = UIImage(named: Const.editButtonImage)?.swipeImage
 
-        return UISwipeActionsConfiguration(actions: [delete, edit])
+        return UISwipeActionsConfiguration(actions: [delete])
     }
 }
