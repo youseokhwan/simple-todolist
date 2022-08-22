@@ -24,7 +24,6 @@ final class TasksTableViewCell: UITableViewCell {
         button.setImage(normalImage, for: .normal)
         button.setImage(selectedImage, for: .selected)
         button.tintColor = .systemGreen
-        button.isUserInteractionEnabled = false
 
         return button
     }()
