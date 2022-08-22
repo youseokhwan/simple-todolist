@@ -70,6 +70,16 @@ final class SettingsViewController: UIViewController {
         super.viewDidLoad()
         configure()
     }
+
+    private func mailTo() {
+        let email = "mailto:youseokhwan15@gmail.com,folw159@gmail.com"
+
+        if let url = URL(string: email) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+    }
 }
 
 private extension SettingsViewController {
@@ -115,6 +125,8 @@ private extension SettingsViewController {
 
                 if title == Const.openSourceLicense {
                     self?.navigationController?.pushViewController(viewController, animated: true)
+                } else if title == Const.contactUs {
+                    self?.mailTo()
                 }
             })
             .disposed(by: disposeBag)
