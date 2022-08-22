@@ -147,9 +147,11 @@ extension TasksViewController: UITableViewDelegate {
             self?.viewModel.deleteTask(of: indexPath.row)
             completion(true)
         }
+        let configuration = UISwipeActionsConfiguration(actions: [delete])
 
         delete.image = UIImage(named: Const.deleteButtonImage)?.swipeImage
+        configuration.performsFirstActionWithFullSwipe = false
 
-        return UISwipeActionsConfiguration(actions: [delete])
+        return configuration
     }
 }
