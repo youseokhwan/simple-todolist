@@ -45,8 +45,7 @@ final class TasksTableViewCell: UITableViewCell {
 
     func updateUI(by task: Task) {
         doneButton.isSelected = task.isDone
-        titleLabel.attributedText = NSAttributedString(string: task.title)
-        titleLabel.strikethrough(isActive: task.isDone)
+        titleLabel.strikethrough(isActive: task.isDone, withText: task.title)
     }
 }
 
