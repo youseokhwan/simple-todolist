@@ -60,7 +60,7 @@ private extension TasksTableViewCell {
             contentView.addSubview($0)
         }
     }
-
+g
     func configureConstraints() {
         checkButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()

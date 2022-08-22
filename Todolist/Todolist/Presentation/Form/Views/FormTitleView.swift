@@ -1,5 +1,5 @@
 //
-//  FormContentView.swift
+//  FormTitleView.swift
 //  Todolist
 //
 //  Created by Jae Kyeong Ko on 2022/08/17.
@@ -11,8 +11,8 @@ import RxCocoa
 import RxSwift
 import SnapKit
 
-final class FormContentView: UIView {
-    private lazy var contentTextField: UITextField = {
+final class FormTitleView: UIView {
+    private lazy var titleTextField: UITextField = {
         let textField = UITextField()
 
         textField.borderStyle = .roundedRect
@@ -30,7 +30,7 @@ final class FormContentView: UIView {
     }()
 
     var textFieldRx: Reactive<UITextField> {
-        return contentTextField.rx
+        return titleTextField.rx
     }
 
     override init(frame: CGRect) {
@@ -44,35 +44,35 @@ final class FormContentView: UIView {
     }
 
     func showKeyboard() {
-        contentTextField.becomeFirstResponder()
+        titleTextField.becomeFirstResponder()
     }
 
     func updateCount() {
-        guard let text = contentTextField.text else { return }
+        guard let text = titleTextField.text else { return }
 
         textCountLabel.text = "\(text.count)/\(Const.titleTextFieldMaxCount)"
     }
 }
 
-private extension FormContentView {
+private extension FormTitleView {
     func configure() {
         configureViews()
         configureConstraints()
     }
 
     func configureViews() {
-        [contentTextField, textCountLabel].forEach {
+        [titleTextField, textCountLabel].forEach {
             addSubview($0)
         }
     }
 
     func configureConstraints() {
-        contentTextField.snp.makeConstraints { make in
+        titleTextField.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
         }
 
         textCountLabel.snp.makeConstraints { make in
-            make.top.equalTo(contentTextField.snp.bottom)
+            make.top.equalTo(titleTextField.snp.bottom)
             make.trailing.equalToSuperview()
         }
     }
