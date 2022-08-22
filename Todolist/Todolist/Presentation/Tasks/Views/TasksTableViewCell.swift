@@ -16,7 +16,7 @@ final class TasksTableViewCell: UITableViewCell {
 
     private let disposeBag = DisposeBag()
 
-    private lazy var checkButton: UIButton = {
+    private lazy var doneButton: UIButton = {
         let button = UIButton()
         let normalImage = UIImage(named: Const.checkButtonNormalImage)
         let selectedImage = UIImage(named: Const.checkButtonSelectedImage)
@@ -40,7 +40,7 @@ final class TasksTableViewCell: UITableViewCell {
     }
 
     func updateUI(by task: Task) {
-        checkButton.isSelected = task.isDone
+        doneButton.isSelected = task.isDone
         titleLabel.attributedText = NSAttributedString(string: task.title)
         titleLabel.strikethrough(isActive: task.isDone)
     }
@@ -55,13 +55,13 @@ private extension TasksTableViewCell {
     func configureViews() {
         selectionStyle = .none
 
-        [checkButton, titleLabel].forEach {
+        [doneButton, titleLabel].forEach {
             contentView.addSubview($0)
         }
     }
 
     func configureConstraints() {
-        checkButton.snp.makeConstraints { make in
+        doneButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().inset(10)
             make.width.height.equalTo(30)
@@ -69,7 +69,7 @@ private extension TasksTableViewCell {
 
         titleLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalTo(checkButton.snp.trailing).offset(10)
+            make.leading.equalTo(doneButton.snp.trailing).offset(10)
             make.trailing.equalToSuperview().inset(10)
         }
     }
