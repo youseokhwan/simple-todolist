@@ -29,6 +29,10 @@ final class TasksTableViewCell: UITableViewCell {
     }()
     private lazy var titleLabel = UILabel()
 
+    var doneButtonRx: Reactive<UIButton> {
+        return doneButton.rx
+    }
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configure()

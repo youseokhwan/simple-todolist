@@ -92,8 +92,16 @@ private extension TasksViewController {
             .bind(to: tableView.rx.items(
                 cellIdentifier: TasksTableViewCell.identifier,
                 cellType: TasksTableViewCell.self
-            )) { index, element, cell in
-                cell.updateUI(by: element)
+            )) { [weak self] index, task, cell in
+                guard let self = self else { return }
+
+                cell.updateUI(by: task)
+                cell.doneButtonRx.tap
+                    .throttle(.milliseconds(200), scheduler: MainScheduler.asyncInstance)
+                    .subscribe(onNext: {
+                        self.viewModel.updateIsDone(of: task, value: !task.isDone)
+                    })
+                    .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
 
