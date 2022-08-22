@@ -38,10 +38,11 @@ final class FormViewController: UIViewController {
     convenience init(task: Task) {
         self.init(nibName: nil, bundle: nil)
 
-        viewModel.taskID.accept(task.id)
-        stackView.textFieldRx.text.onNext(task.context)
+        viewModel.id.accept(task.id)
+        stackView.textFieldRx.text.onNext(task.title)
         stackView.switchRx.isOn.onNext(task.isDaily)
-        viewModel.isChecked.accept(task.isChecked)
+        viewModel.isDone.accept(task.isDone)
+        viewModel.createdDate.accept(task.createdDate)
     }
 
     override func viewDidLoad() {
@@ -52,7 +53,7 @@ final class FormViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if viewModel.taskID.value == Const.tempIDForNewTask {
+        if viewModel.id.value == Const.tempIDForNewTask {
             stackView.showKeyboard()
         }
     }
@@ -92,12 +93,12 @@ private extension FormViewController {
             .orEmpty
             .observe(on: MainScheduler.asyncInstance)
             .scan("") { old, new -> String in
-                return new.count > Const.contextTextFieldMaxCount ? old : new
+                return new.count > Const.titleTextFieldMaxCount ? old : new
             }
             .subscribe(onNext: { [weak self] text in
                 self?.stackView.textFieldRx.text.onNext(text)
                 self?.stackView.updateCount()
-                self?.viewModel.context.accept(text)
+                self?.viewModel.title.accept(text)
             })
             .disposed(by: disposeBag)
 

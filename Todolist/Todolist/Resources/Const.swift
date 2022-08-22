@@ -19,8 +19,8 @@ enum Const {
     // Form
     static let tempIDForNewTask = -1
     static let saveButtonImage = "done"
-    static let contextTextFieldMaxCount = 20
-    static let contextTextFieldPlaceholder = "contextTextFieldPlaceholder".localized
+    static let titleTextFieldMaxCount = 20
+    static let titleTextFieldPlaceholder = "titleTextFieldPlaceholder".localized
     static let dailyLabelText = "dailyLabelText".localized
 
     // Settings
@@ -50,9 +50,9 @@ enum Const {
 
     // Storages
     static let id = "id"
-    static let context = "context"
+    static let title = "title"
     static let isDaily = "isDaily"
-    static let isChecked = "isChecked"
+    static let isDone = "isDone"
 
     // Utils
     static let localizable = "Localizable"

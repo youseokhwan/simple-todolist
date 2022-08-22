@@ -13,32 +13,33 @@ import RxSwift
 final class FormViewModel {
     private let writeTaskUseCase: WriteTaskUseCase
 
-    let taskID: BehaviorRelay<Int>
-    let context: BehaviorRelay<String>
-    let publishedDate: BehaviorRelay<String>
+    let id: BehaviorRelay<Int>
+    let title: BehaviorRelay<String>
     let isDaily: BehaviorRelay<Bool>
-    let isChecked: BehaviorRelay<Bool>
+    let isDone: BehaviorRelay<Bool>
+    let createdDate: BehaviorRelay<Date>
 
     init() {
         writeTaskUseCase = WriteTaskUseCase()
 
-        taskID = BehaviorRelay(value: Const.tempIDForNewTask)
-        context = BehaviorRelay(value: "")
-        publishedDate = BehaviorRelay(value: Date.today)
+        id = BehaviorRelay(value: Const.tempIDForNewTask)
+        title = BehaviorRelay(value: "")
         isDaily = BehaviorRelay(value: false)
-        isChecked = BehaviorRelay(value: false)
+        isDone = BehaviorRelay(value: false)
+        createdDate = BehaviorRelay(value: Date())
     }
 
     func saveTask() {
-        guard !context.value.isEmpty else { return }
+        guard !title.value.isEmpty else { return }
 
-        if taskID.value == Const.tempIDForNewTask {
-            writeTaskUseCase.createTask(context: context.value, isDaily: isDaily.value)
+        if id.value == Const.tempIDForNewTask {
+            writeTaskUseCase.createTask(title: title.value, isDaily: isDaily.value)
         } else {
-            let task = Task(id: taskID.value,
-                            context: context.value,
+            let task = Task(id: id.value,
+                            title: title.value,
                             isDaily: isDaily.value,
-                            isChecked: isChecked.value)
+                            isDone: isDone.value,
+                            createdDate: createdDate.value)
 
             writeTaskUseCase.update(task: task)
         }

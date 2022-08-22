@@ -32,17 +32,17 @@ enum RealmStorage {
         }
     }
 
-    static func updateIsChecked(of task: Task, value: Bool) {
+    static func updateIsDone(of task: Task, value: Bool) {
         guard let realm = try? Realm() else { return }
 
         try? realm.write {
-            task.isChecked = value
+            task.isDone = value
             realm.add(task, update: .modified)
         }
     }
 
-    static func updateIsCheckedToFalse(of task: Task) {
-        Self.updateIsChecked(of: task, value: false)
+    static func updateIsDoneToFalse(of task: Task) {
+        Self.updateIsDone(of: task, value: false)
     }
 
     static func delete(task: Task) {

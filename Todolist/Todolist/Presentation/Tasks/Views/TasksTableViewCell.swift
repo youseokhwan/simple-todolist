@@ -28,7 +28,7 @@ final class TasksTableViewCell: UITableViewCell {
 
         return button
     }()
-    private lazy var contextLabel = UILabel()
+    private lazy var titleLabel = UILabel()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -41,9 +41,9 @@ final class TasksTableViewCell: UITableViewCell {
     }
 
     func updateUI(by task: Task) {
-        checkButton.isSelected = task.isChecked
-        contextLabel.attributedText = NSAttributedString(string: task.context)
-        contextLabel.strikethrough(isActive: task.isChecked)
+        checkButton.isSelected = task.isDone
+        titleLabel.attributedText = NSAttributedString(string: task.title)
+        titleLabel.strikethrough(isActive: task.isDone)
     }
 }
 
@@ -56,11 +56,11 @@ private extension TasksTableViewCell {
     func configureViews() {
         selectionStyle = .none
 
-        [checkButton, contextLabel].forEach {
+        [checkButton, titleLabel].forEach {
             contentView.addSubview($0)
         }
     }
-
+g
     func configureConstraints() {
         checkButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
@@ -68,7 +68,7 @@ private extension TasksTableViewCell {
             make.width.height.equalTo(30)
         }
 
-        contextLabel.snp.makeConstraints { make in
+        titleLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalTo(checkButton.snp.trailing).offset(10)
             make.trailing.equalToSuperview().inset(10)

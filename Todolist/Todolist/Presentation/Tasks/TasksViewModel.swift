@@ -41,8 +41,8 @@ final class TasksViewModel {
         }
     }
 
-    func updateIsChecked(of task: Task, value: Bool) {
-        writeTaskUseCase.updateIsChecked(of: task, value: value)
+    func updateIsDone(of task: Task, value: Bool) {
+        writeTaskUseCase.updateIsDone(of: task, value: value)
     }
 
     func deleteTask(of index: Int) {
