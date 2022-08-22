@@ -94,16 +94,11 @@ private extension TasksViewController {
                 cellIdentifier: TasksTableViewCell.identifier,
                 cellType: TasksTableViewCell.self
             )) { [weak self] index, task, cell in
-                guard let self = self else { return }
-
                 cell.updateUI(by: task)
-                cell.doneButtonRx.tap
-                    .throttle(.milliseconds(200), scheduler: MainScheduler.asyncInstance)
-                    .subscribe(onNext: {
-                        self.viewModel.updateIsDone(of: task, value: !task.isDone)
-                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                    })
-                    .disposed(by: self.disposeBag)
+                cell.doneButtonTapHandler = {
+                    self?.viewModel.updateIsDone(of: task, value: !task.isDone)
+                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                }
             }
             .disposed(by: disposeBag)
 

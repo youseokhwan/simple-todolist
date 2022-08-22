@@ -29,9 +29,7 @@ final class TasksTableViewCell: UITableViewCell {
     }()
     private lazy var titleLabel = UILabel()
 
-    var doneButtonRx: Reactive<UIButton> {
-        return doneButton.rx
-    }
+    var doneButtonTapHandler: (() -> Void)?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -52,6 +50,7 @@ final class TasksTableViewCell: UITableViewCell {
 private extension TasksTableViewCell {
     func configure() {
         configureViews()
+        configureBind()
         configureConstraints()
     }
 
@@ -61,6 +60,15 @@ private extension TasksTableViewCell {
         [doneButton, titleLabel].forEach {
             contentView.addSubview($0)
         }
+    }
+
+    func configureBind() {
+        doneButton.rx.tap
+            .throttle(.milliseconds(100), scheduler: MainScheduler.asyncInstance)
+            .subscribe(onNext: { [weak self] in
+                self?.doneButtonTapHandler?()
+            })
+            .disposed(by: disposeBag)
     }
 
     func configureConstraints() {
