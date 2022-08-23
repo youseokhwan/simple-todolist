@@ -16,7 +16,7 @@ final class TasksTableViewCell: UITableViewCell {
 
     private let disposeBag = DisposeBag()
 
-    private lazy var checkButton: UIButton = {
+    private lazy var doneButton: UIButton = {
         let button = UIButton()
         let normalImage = UIImage(named: Const.checkButtonNormalImage)
         let selectedImage = UIImage(named: Const.checkButtonSelectedImage)
@@ -24,11 +24,12 @@ final class TasksTableViewCell: UITableViewCell {
         button.setImage(normalImage, for: .normal)
         button.setImage(selectedImage, for: .selected)
         button.tintColor = .systemGreen
-        button.isUserInteractionEnabled = false
 
         return button
     }()
     private lazy var titleLabel = UILabel()
+
+    var doneButtonTapHandler: (() -> Void)?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -41,28 +42,37 @@ final class TasksTableViewCell: UITableViewCell {
     }
 
     func updateUI(by task: Task) {
-        checkButton.isSelected = task.isDone
-        titleLabel.attributedText = NSAttributedString(string: task.title)
-        titleLabel.strikethrough(isActive: task.isDone)
+        doneButton.isSelected = task.isDone
+        titleLabel.strikethrough(isActive: task.isDone, withText: task.title)
     }
 }
 
 private extension TasksTableViewCell {
     func configure() {
         configureViews()
+        configureBind()
         configureConstraints()
     }
 
     func configureViews() {
         selectionStyle = .none
 
-        [checkButton, titleLabel].forEach {
+        [doneButton, titleLabel].forEach {
             contentView.addSubview($0)
         }
     }
 
+    func configureBind() {
+        doneButton.rx.tap
+            .throttle(.milliseconds(100), scheduler: MainScheduler.asyncInstance)
+            .subscribe(onNext: { [weak self] in
+                self?.doneButtonTapHandler?()
+            })
+            .disposed(by: disposeBag)
+    }
+
     func configureConstraints() {
-        checkButton.snp.makeConstraints { make in
+        doneButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().inset(10)
             make.width.height.equalTo(30)
@@ -70,7 +80,7 @@ private extension TasksTableViewCell {
 
         titleLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalTo(checkButton.snp.trailing).offset(10)
+            make.leading.equalTo(doneButton.snp.trailing).offset(10)
             make.trailing.equalToSuperview().inset(10)
         }
     }

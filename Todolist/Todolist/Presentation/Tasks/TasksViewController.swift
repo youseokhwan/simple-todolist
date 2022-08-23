@@ -5,6 +5,7 @@
 //  Created by 유석환 on 2022/06/24.
 //
 
+import AVFoundation
 import UIKit
 
 import RxCocoa
@@ -92,19 +93,22 @@ private extension TasksViewController {
             .bind(to: tableView.rx.items(
                 cellIdentifier: TasksTableViewCell.identifier,
                 cellType: TasksTableViewCell.self
-            )) { index, element, cell in
-                cell.updateUI(by: element)
+            )) { [weak self] index, task, cell in
+                cell.updateUI(by: task)
+                cell.doneButtonTapHandler = {
+                    self?.viewModel.updateIsDone(of: task, value: !task.isDone)
+                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                }
             }
             .disposed(by: disposeBag)
 
         tableView.rx.itemSelected
-            .throttle(.milliseconds(500), scheduler: MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self] indexPath in
-                guard let cell = self?.tableView.cellForRow(at: indexPath) as? TasksTableViewCell,
-                      let task = self?.viewModel.allTasks.value[indexPath.row] else { return }
+                guard let task = self?.viewModel.allTasks.value[indexPath.row] else { return }
 
-                self?.viewModel.updateIsDone(of: task, value: !task.isDone)
-                cell.updateUI(by: task)
+                let controller = FormViewController(task: task)
+
+                self?.present(controller, animated: true)
             })
             .disposed(by: disposeBag)
 
@@ -147,19 +151,12 @@ extension TasksViewController: UITableViewDelegate {
             self?.viewModel.deleteTask(of: indexPath.row)
             completion(true)
         }
-        let edit = UIContextualAction(style: .normal,
-                                      title: nil) { [weak self] action, view, completion in
-            if let task = self?.viewModel.allTasks.value[indexPath.row] {
-                let controller = FormViewController(task: task)
+        let configuration = UISwipeActionsConfiguration(actions: [delete])
 
-                self?.present(controller, animated: true)
-            }
-            completion(true)
-        }
-
+        delete.backgroundColor = .white
         delete.image = UIImage(named: Const.deleteButtonImage)?.swipeImage
-        edit.image = UIImage(named: Const.editButtonImage)?.swipeImage
+        configuration.performsFirstActionWithFullSwipe = false
 
-        return UISwipeActionsConfiguration(actions: [delete, edit])
+        return configuration
     }
 }

@@ -8,10 +8,8 @@
 import UIKit
 
 extension UILabel {
-    func strikethrough(isActive: Bool) {
-        guard let text = attributedText else { return }
-
-        let attributedString = NSMutableAttributedString(attributedString: text)
+    func strikethrough(isActive: Bool, withText: String) {
+        let attributedString = NSMutableAttributedString(string: withText)
 
         if isActive {
             attributedString.addAttribute(.strikethroughStyle,
