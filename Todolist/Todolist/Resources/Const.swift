@@ -37,7 +37,7 @@ enum Const {
     static let lightTheme = "lightTheme".localized
     static let darkTheme = "darkTheme".localized
     static let cancel = "cancel".localized
-    static let emailUrl = "mailto:youseokhwan15@gmail.com,folw159@gmail.com"
+    static let emailURL = "mailto:youseokhwan15@gmail.com,folw159@gmail.com"
 
     // UseCases
     static let txt = "txt"

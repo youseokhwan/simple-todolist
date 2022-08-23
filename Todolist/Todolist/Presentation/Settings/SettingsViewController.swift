@@ -72,7 +72,7 @@ final class SettingsViewController: UIViewController {
     }
 
     private func openMailApp() {
-        if let url = URL(string: Const.emailUrl) {
+        if let url = URL(string: Const.emailURL) {
             if UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
