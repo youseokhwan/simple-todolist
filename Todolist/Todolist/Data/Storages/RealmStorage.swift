@@ -10,6 +10,26 @@ import Foundation
 import RealmSwift
 
 enum RealmStorage {
+    static func migration() {
+        let configuration = Realm.Configuration(
+            schemaVersion: 2,
+            migrationBlock: { migration, oldSchemaVersion in
+                if oldSchemaVersion < 2 {
+                    migration.enumerateObjects(ofType: Task.className()) { oldObject, newObject in
+                        guard let oldObject = oldObject,
+                              let newObject = newObject else { return }
+
+                        newObject["title"] = oldObject["context"]
+                        newObject["isDone"] = oldObject["isChecked"]
+                        newObject["createdDate"] = Date()
+                    }
+                }
+            }
+        )
+
+        Realm.Configuration.defaultConfiguration = configuration
+    }
+
     static func taskResults() -> Results<Task>? {
         guard let realm = try? Realm() else { return nil }
 
