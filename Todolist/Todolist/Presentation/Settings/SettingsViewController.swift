@@ -72,9 +72,7 @@ final class SettingsViewController: UIViewController {
     }
 
     private func mailTo() {
-        let email = "mailto:youseokhwan15@gmail.com,folw159@gmail.com"
-
-        if let url = URL(string: email) {
+        if let url = URL(string: Const.emailUrl) {
             if UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
