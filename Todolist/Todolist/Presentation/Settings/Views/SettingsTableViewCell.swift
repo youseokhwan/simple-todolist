@@ -36,6 +36,8 @@ private extension SettingsTableViewCell {
     }
 
     func configureViews() {
+        selectionStyle = .none
+        accessoryType = .disclosureIndicator
         contentView.addSubview(titleLabel)
     }
 
