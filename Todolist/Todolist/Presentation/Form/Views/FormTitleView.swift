@@ -12,15 +12,10 @@ import RxSwift
 import SnapKit
 
 final class FormTitleView: UIView {
-    private lazy var titleTextField: UITextField = {
-        let textField = UITextField()
-
-        textField.borderStyle = .roundedRect
-        textField.font = .systemFont(ofSize: 24)
-        textField.placeholder = Const.titleTextFieldPlaceholder
-
-        return textField
-    }()
+    private lazy var titleTextView = PlaceholderTextView(
+        font: .systemFont(ofSize: 16),
+        placeholder: Const.titleTextViewPlaceholder
+    )
     private lazy var textCountLabel: UILabel = {
         let label = UILabel()
 
@@ -29,8 +24,8 @@ final class FormTitleView: UIView {
         return label
     }()
 
-    var textFieldRx: Reactive<UITextField> {
-        return titleTextField.rx
+    var textViewRx: Reactive<PlaceholderTextView> {
+        return titleTextView.rx
     }
 
     override init(frame: CGRect) {
@@ -44,13 +39,13 @@ final class FormTitleView: UIView {
     }
 
     func showKeyboard() {
-        titleTextField.becomeFirstResponder()
+        titleTextView.becomeFirstResponder()
     }
 
     func updateCount() {
-        guard let text = titleTextField.text else { return }
+        guard let text = titleTextView.text else { return }
 
-        textCountLabel.text = "\(text.count)/\(Const.titleTextFieldMaxCount)"
+        textCountLabel.text = "\(text.count)/\(Const.titleTextViewMaxCount)"
     }
 }
 
@@ -61,18 +56,18 @@ private extension FormTitleView {
     }
 
     func configureViews() {
-        [titleTextField, textCountLabel].forEach {
+        [titleTextView, textCountLabel].forEach {
             addSubview($0)
         }
     }
 
     func configureConstraints() {
-        titleTextField.snp.makeConstraints { make in
+        titleTextView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
         }
 
         textCountLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleTextField.snp.bottom)
+            make.top.equalTo(titleTextView.snp.bottom)
             make.trailing.equalToSuperview()
         }
     }

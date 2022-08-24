@@ -14,8 +14,8 @@ final class FormStackView: UIStackView {
     private lazy var titleView = FormTitleView()
     private lazy var dailyView = FormDailyView()
 
-    var textFieldRx: Reactive<UITextField> {
-        return titleView.textFieldRx
+    var textViewRx: Reactive<PlaceholderTextView> {
+        return titleView.textViewRx
     }
     var switchRx: Reactive<UISwitch> {
         return dailyView.switchRx
