@@ -38,6 +38,7 @@ private extension PlaceholderTextView {
 
     func configureViews(font: UIFont, placeholder: String) {
         self.font = font
+        isScrollEnabled = false
         label.font = .systemFont(ofSize: font.pointSize)
         label.text = placeholder
 
