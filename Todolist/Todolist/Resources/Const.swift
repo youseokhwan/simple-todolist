@@ -19,7 +19,7 @@ enum Const {
     // Form
     static let tempIDForNewTask = -1
     static let saveButtonImage = "done"
-    static let titleTextViewMaxCount = 20
+    static let titleTextViewMaxCount = 100
     static let titleTextViewPlaceholder = "titleTextViewPlaceholder".localized
     static let dailyLabelText = "dailyLabelText".localized
 
