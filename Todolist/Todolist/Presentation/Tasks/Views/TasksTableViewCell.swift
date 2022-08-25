@@ -56,7 +56,9 @@ private extension TasksTableViewCell {
 
     func configureViews() {
         selectionStyle = .none
+
         contentView.backgroundColor = UIColor(red: 1, green: 249/255, blue: 242/255, alpha: 1)
+        contentView.layer.cornerRadius = 10
 
         [doneButton, titleLabel].forEach {
             contentView.addSubview($0)
