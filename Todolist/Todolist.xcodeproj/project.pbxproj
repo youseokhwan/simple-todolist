@@ -327,8 +327,8 @@
 			isa = PBXGroup;
 			children = (
 				44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */,
-				44CDA2BD28731F3400E8F0F0 /* FormDailyView.swift */,
 				0193D2C528B5D9E400F929DC /* PlaceholderTextView.swift */,
+				44CDA2BD28731F3400E8F0F0 /* FormDailyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
