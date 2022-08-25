@@ -11,7 +11,6 @@
 		0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */; };
 		0193D28928A7C65E00F929DC /* SettingsLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28828A7C65E00F929DC /* SettingsLicenseViewController.swift */; };
 		0193D28D28AB988800F929DC /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28C28AB988800F929DC /* SettingsNavigationController.swift */; };
-		0193D28F28ACA79500F929DC /* FormTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28E28ACA79500F929DC /* FormTitleView.swift */; };
 		0193D2C628B5D9E400F929DC /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D2C528B5D9E400F929DC /* PlaceholderTextView.swift */; };
 		019EE54F28742F9F00804889 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EE54E28742F9F00804889 /* Date+Extensions.swift */; };
 		01B4BE0328882884004CE987 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */; };
@@ -61,7 +60,6 @@
 		0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
 		0193D28828A7C65E00F929DC /* SettingsLicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLicenseViewController.swift; sourceTree = "<group>"; };
 		0193D28C28AB988800F929DC /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
-		0193D28E28ACA79500F929DC /* FormTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTitleView.swift; sourceTree = "<group>"; };
 		0193D2C528B5D9E400F929DC /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		019EE54E28742F9F00804889 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -329,7 +327,6 @@
 			isa = PBXGroup;
 			children = (
 				44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */,
-				0193D28E28ACA79500F929DC /* FormTitleView.swift */,
 				44CDA2BD28731F3400E8F0F0 /* FormDailyView.swift */,
 				0193D2C528B5D9E400F929DC /* PlaceholderTextView.swift */,
 			);
@@ -436,7 +433,6 @@
 				44CDA2E528768BC900E8F0F0 /* UserDefaultsRepository.swift in Sources */,
 				01EF8650287DAD1B005F037A /* ReadTaskUseCase.swift in Sources */,
 				44CDA2BE28731F3400E8F0F0 /* FormDailyView.swift in Sources */,
-				0193D28F28ACA79500F929DC /* FormTitleView.swift in Sources */,
 				44443144285EFB400004D468 /* AppDelegate.swift in Sources */,
 				0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */,
 				0193D28D28AB988800F929DC /* SettingsNavigationController.swift in Sources */,

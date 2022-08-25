@@ -11,11 +11,22 @@ import RxCocoa
 import RxSwift
 
 final class FormStackView: UIStackView {
-    private lazy var titleView = FormTitleView()
+    private lazy var titleTextView = PlaceholderTextView(
+        font: .systemFont(ofSize: 16),
+        placeholder: Const.titleTextViewPlaceholder
+    )
+    private lazy var textCountLabel: UILabel = {
+        let label = UILabel()
+
+        label.font = .systemFont(ofSize: 14)
+        label.textAlignment = .right
+
+        return label
+    }()
     private lazy var dailyView = FormDailyView()
 
     var textViewRx: Reactive<PlaceholderTextView> {
-        return titleView.textViewRx
+        return titleTextView.rx
     }
     var switchRx: Reactive<UISwitch> {
         return dailyView.switchRx
@@ -32,11 +43,13 @@ final class FormStackView: UIStackView {
     }
 
     func showKeyboard() {
-        titleView.showKeyboard()
+        titleTextView.becomeFirstResponder()
     }
 
     func updateCount() {
-        titleView.updateCount()
+        guard let text = titleTextView.text else { return }
+
+        textCountLabel.text = "\(text.count)/\(Const.titleTextViewMaxCount)"
     }
 }
 
@@ -47,9 +60,8 @@ private extension FormStackView {
 
     func configureViews() {
         axis = .vertical
-        spacing = 10
 
-        [titleView, dailyView].forEach {
+        [titleTextView, textCountLabel, dailyView].forEach {
             addArrangedSubview($0)
         }
     }
