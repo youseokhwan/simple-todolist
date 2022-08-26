@@ -11,7 +11,7 @@ import RxCocoa
 import RxSwift
 import SnapKit
 
-final class PlaceholderTextView: UITextView {
+final class FormTextView: UITextView {
     private let disposeBag = DisposeBag()
 
     private lazy var label: UILabel = {
@@ -29,7 +29,7 @@ final class PlaceholderTextView: UITextView {
     }
 }
 
-private extension PlaceholderTextView {
+private extension FormTextView {
     func configure(font: UIFont, placeholder: String) {
         configureViews(font: font, placeholder: placeholder)
         configureBind()

@@ -11,7 +11,7 @@ import RxCocoa
 import RxSwift
 
 final class FormStackView: UIStackView {
-    private lazy var titleTextView = PlaceholderTextView(
+    private lazy var titleTextView = FormTextView(
         font: .systemFont(ofSize: 16),
         placeholder: Const.titleTextViewPlaceholder
     )
@@ -25,7 +25,7 @@ final class FormStackView: UIStackView {
     }()
     private lazy var dailyView = FormDailyView()
 
-    var textViewRx: Reactive<PlaceholderTextView> {
+    var textViewRx: Reactive<FormTextView> {
         return titleTextView.rx
     }
     var switchRx: Reactive<UISwitch> {
