@@ -41,6 +41,12 @@ final class TasksTableViewCell: UITableViewCell {
         configure()
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let inset = UIEdgeInsets(top: 2, left: 0, bottom: 2, right: 0)
+        contentView.frame = contentView.frame.inset(by: inset)
+    }
+
     func updateUI(by task: Task) {
         doneButton.isSelected = task.isDone
         titleLabel.strikethrough(isActive: task.isDone, withText: task.title)
