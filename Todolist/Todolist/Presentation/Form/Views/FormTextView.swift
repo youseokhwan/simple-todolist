@@ -23,25 +23,42 @@ final class FormTextView: UITextView {
         return label
     }()
 
-    convenience init(font: UIFont, placeholder: String) {
-        self.init(frame: .zero)
-        configure(font: font, placeholder: placeholder)
+    var placeholder: String {
+        didSet {
+            self.label.text = placeholder
+        }
+    }
+
+    override var font: UIFont? {
+        didSet {
+            self.label.font = .systemFont(ofSize: font?.pointSize ?? 0)
+        }
+    }
+
+    override init(frame: CGRect, textContainer: NSTextContainer?) {
+        placeholder = ""
+
+        super.init(frame: frame, textContainer: textContainer)
+        configure()
+    }
+
+    required init?(coder: NSCoder) {
+        placeholder = ""
+
+        super.init(coder: coder)
+        configure()
     }
 }
 
 private extension FormTextView {
-    func configure(font: UIFont, placeholder: String) {
-        configureViews(font: font, placeholder: placeholder)
+    func configure() {
+        configureViews()
         configureBind()
         configureConstraints()
     }
 
-    func configureViews(font: UIFont, placeholder: String) {
-        self.font = font
+    func configureViews() {
         isScrollEnabled = false
-        label.font = .systemFont(ofSize: font.pointSize)
-        label.text = placeholder
-
         addSubview(label)
     }
 
