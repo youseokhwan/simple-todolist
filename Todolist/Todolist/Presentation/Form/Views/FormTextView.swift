@@ -23,7 +23,7 @@ final class FormTextView: UITextView {
         return label
     }()
 
-    var placeholder: String {
+    var placeholder = "" {
         didSet {
             self.label.text = placeholder
         }
@@ -36,15 +36,11 @@ final class FormTextView: UITextView {
     }
 
     override init(frame: CGRect, textContainer: NSTextContainer?) {
-        placeholder = ""
-
         super.init(frame: frame, textContainer: textContainer)
         configure()
     }
 
     required init?(coder: NSCoder) {
-        placeholder = ""
-
         super.init(coder: coder)
         configure()
     }
