@@ -25,13 +25,13 @@ final class FormTextView: UITextView {
 
     var placeholder = "" {
         didSet {
-            self.label.text = placeholder
+            label.text = placeholder
         }
     }
 
     override var font: UIFont? {
         didSet {
-            self.label.font = .systemFont(ofSize: font?.pointSize ?? 0)
+            label.font = .systemFont(ofSize: font?.pointSize ?? 0)
         }
     }
 
