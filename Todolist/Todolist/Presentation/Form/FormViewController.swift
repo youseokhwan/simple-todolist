@@ -39,7 +39,7 @@ final class FormViewController: UIViewController {
         self.init(nibName: nil, bundle: nil)
 
         viewModel.id.accept(task.id)
-        stackView.textFieldRx.text.onNext(task.title)
+        stackView.textViewRx.text.onNext(task.title)
         stackView.switchRx.isOn.onNext(task.isDaily)
         viewModel.isDone.accept(task.isDone)
         viewModel.createdDate.accept(task.createdDate)
@@ -89,14 +89,14 @@ private extension FormViewController {
             })
             .disposed(by: disposeBag)
 
-        stackView.textFieldRx.text
+        stackView.textViewRx.text
             .orEmpty
             .observe(on: MainScheduler.asyncInstance)
             .scan("") { old, new -> String in
-                return new.count > Const.titleTextFieldMaxCount ? old : new
+                return new.count > Const.titleTextViewMaxCount ? old : new
             }
             .subscribe(onNext: { [weak self] text in
-                self?.stackView.textFieldRx.text.onNext(text)
+                self?.stackView.textViewRx.text.onNext(text)
                 self?.stackView.updateCount()
                 self?.viewModel.title.accept(text)
             })
@@ -125,7 +125,6 @@ private extension FormViewController {
         stackView.snp.makeConstraints { make in
             make.top.equalTo(saveButton.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(100)
         }
     }
 }
