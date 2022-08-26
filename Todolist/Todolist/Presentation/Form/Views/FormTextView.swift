@@ -31,7 +31,7 @@ final class FormTextView: UITextView {
 
     override var font: UIFont? {
         didSet {
-            label.font = .systemFont(ofSize: font?.pointSize ?? 0)
+            label.font = font
         }
     }
 
