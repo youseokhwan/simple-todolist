@@ -19,7 +19,7 @@ final class FormStackView: UIStackView {
 
         return textView
     }()
-    private lazy var textCountLabel: UILabel = {
+    private lazy var titleCountLabel: UILabel = {
         let label = UILabel()
 
         label.font = .systemFont(ofSize: 14)
@@ -53,7 +53,7 @@ final class FormStackView: UIStackView {
     func updateCount() {
         guard let text = titleTextView.text else { return }
 
-        textCountLabel.text = "\(text.count)/\(Const.titleTextViewMaxCount)"
+        titleCountLabel.text = "\(text.count)/\(Const.titleTextViewMaxCount)"
     }
 }
 
@@ -65,7 +65,7 @@ private extension FormStackView {
     func configureViews() {
         axis = .vertical
 
-        [titleTextView, textCountLabel, dailyView].forEach {
+        [titleTextView, titleCountLabel, dailyView].forEach {
             addArrangedSubview($0)
         }
     }
