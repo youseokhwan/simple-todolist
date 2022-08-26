@@ -14,7 +14,7 @@ import SnapKit
 final class FormTextView: UITextView {
     private let disposeBag = DisposeBag()
 
-    private lazy var label: UILabel = {
+    private lazy var placeholderLabel: UILabel = {
         let label = UILabel()
 
         label.textColor = .lightGray
@@ -25,13 +25,13 @@ final class FormTextView: UITextView {
 
     var placeholder = "" {
         didSet {
-            label.text = placeholder
+            placeholderLabel.text = placeholder
         }
     }
 
     override var font: UIFont? {
         didSet {
-            label.font = font
+            placeholderLabel.font = font
         }
     }
 
@@ -55,7 +55,7 @@ private extension FormTextView {
 
     func configureViews() {
         isScrollEnabled = false
-        addSubview(label)
+        addSubview(placeholderLabel)
     }
 
     func configureBind() {
@@ -63,13 +63,13 @@ private extension FormTextView {
             .orEmpty
             .observe(on: MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self] text in
-                self?.label.isHidden = !text.isEmpty
+                self?.placeholderLabel.isHidden = !text.isEmpty
             })
             .disposed(by: disposeBag)
     }
 
     func configureConstraints() {
-        label.snp.makeConstraints { make in
+        placeholderLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(8)
             make.leading.equalToSuperview().inset(5)
         }
