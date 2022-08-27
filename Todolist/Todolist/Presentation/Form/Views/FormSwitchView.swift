@@ -1,5 +1,5 @@
 //
-//  FormDailyView.swift
+//  FormSwitchView.swift
 //  Todolist
 //
 //  Created by 유석환 on 2022/07/04.
@@ -11,18 +11,17 @@ import RxCocoa
 import RxSwift
 import SnapKit
 
-final class FormDailyView: UIView {
-    private lazy var dailyLabel: UILabel = {
-        let label = UILabel()
+final class FormSwitchView: UIView {
+    private lazy var titleLabel = UILabel()
+    private lazy var toggleSwitch = UISwitch()
 
-        label.text = Const.dailyLabelText
-
-        return label
-    }()
-    private lazy var dailySwitch = UISwitch()
-
+    var title = "" {
+        didSet {
+            titleLabel.text = title
+        }
+    }
     var switchRx: Reactive<UISwitch> {
-        return dailySwitch.rx
+        return toggleSwitch.rx
     }
 
     override init(frame: CGRect) {
@@ -36,27 +35,27 @@ final class FormDailyView: UIView {
     }
 }
 
-private extension FormDailyView {
+private extension FormSwitchView {
     func configure() {
         configureViews()
         configureConstraints()
     }
 
     func configureViews() {
-        [dailyLabel, dailySwitch].forEach {
+        [titleLabel, toggleSwitch].forEach {
             addSubview($0)
         }
     }
 
     func configureConstraints() {
-        dailyLabel.snp.makeConstraints { make in
+        titleLabel.snp.makeConstraints { make in
             make.centerY.leading.height.equalToSuperview()
             make.width.equalTo(70)
         }
 
-        dailySwitch.snp.makeConstraints { make in
+        toggleSwitch.snp.makeConstraints { make in
             make.centerY.height.equalToSuperview()
-            make.leading.equalTo(dailyLabel.snp.trailing).offset(20)
+            make.leading.equalTo(titleLabel.snp.trailing).offset(20)
         }
     }
 }
