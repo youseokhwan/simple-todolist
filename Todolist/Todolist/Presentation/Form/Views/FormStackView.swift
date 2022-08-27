@@ -35,10 +35,10 @@ final class FormStackView: UIStackView {
         return switchView
     }()
 
-    var textViewRx: Reactive<FormTextView> {
+    var titleRx: Reactive<FormTextView> {
         return titleTextView.rx
     }
-    var dailySwitchRx: Reactive<UISwitch> {
+    var dailyRx: Reactive<UISwitch> {
         return dailySwitchView.switchRx
     }
 

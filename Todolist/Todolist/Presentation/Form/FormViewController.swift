@@ -39,8 +39,8 @@ final class FormViewController: UIViewController {
         self.init(nibName: nil, bundle: nil)
 
         viewModel.id.accept(task.id)
-        stackView.textViewRx.text.onNext(task.title)
-        stackView.dailySwitchRx.isOn.onNext(task.isDaily)
+        stackView.titleRx.text.onNext(task.title)
+        stackView.dailyRx.isOn.onNext(task.isDaily)
         viewModel.isDone.accept(task.isDone)
         viewModel.createdDate.accept(task.createdDate)
     }
@@ -89,20 +89,20 @@ private extension FormViewController {
             })
             .disposed(by: disposeBag)
 
-        stackView.textViewRx.text
+        stackView.titleRx.text
             .orEmpty
             .observe(on: MainScheduler.asyncInstance)
             .scan("") { old, new -> String in
                 return new.count > Const.titleTextViewMaxCount ? old : new
             }
             .subscribe(onNext: { [weak self] text in
-                self?.stackView.textViewRx.text.onNext(text)
+                self?.stackView.titleRx.text.onNext(text)
                 self?.stackView.updateCount()
                 self?.viewModel.title.accept(text)
             })
             .disposed(by: disposeBag)
 
-        stackView.dailySwitchRx.isOn
+        stackView.dailyRx.isOn
             .bind(to: viewModel.isDaily)
             .disposed(by: disposeBag)
     }
