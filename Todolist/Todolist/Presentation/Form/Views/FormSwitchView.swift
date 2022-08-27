@@ -12,17 +12,17 @@ import RxSwift
 import SnapKit
 
 final class FormSwitchView: UIView {
-    private lazy var dailyLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
 
         label.text = Const.dailyLabelText
 
         return label
     }()
-    private lazy var dailySwitch = UISwitch()
+    private lazy var toggleSwitch = UISwitch()
 
     var switchRx: Reactive<UISwitch> {
-        return dailySwitch.rx
+        return toggleSwitch.rx
     }
 
     override init(frame: CGRect) {
@@ -43,20 +43,20 @@ private extension FormSwitchView {
     }
 
     func configureViews() {
-        [dailyLabel, dailySwitch].forEach {
+        [titleLabel, toggleSwitch].forEach {
             addSubview($0)
         }
     }
 
     func configureConstraints() {
-        dailyLabel.snp.makeConstraints { make in
+        titleLabel.snp.makeConstraints { make in
             make.centerY.leading.height.equalToSuperview()
             make.width.equalTo(70)
         }
 
-        dailySwitch.snp.makeConstraints { make in
+        toggleSwitch.snp.makeConstraints { make in
             make.centerY.height.equalToSuperview()
-            make.leading.equalTo(dailyLabel.snp.trailing).offset(20)
+            make.leading.equalTo(titleLabel.snp.trailing).offset(20)
         }
     }
 }
