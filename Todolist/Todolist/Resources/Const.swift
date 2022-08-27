@@ -21,6 +21,7 @@ enum Const {
     static let saveButtonImage = "done"
     static let titleTextViewMaxCount = 100
     static let titleTextViewPlaceholder = "titleTextViewPlaceholder".localized
+    static let doneLabelText = "doneLabelText".localized
     static let dailyLabelText = "dailyLabelText".localized
 
     // Settings
