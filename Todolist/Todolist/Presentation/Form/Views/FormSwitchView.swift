@@ -1,5 +1,5 @@
 //
-//  FormDailyView.swift
+//  FormSwitchView.swift
 //  Todolist
 //
 //  Created by 유석환 on 2022/07/04.
@@ -11,7 +11,7 @@ import RxCocoa
 import RxSwift
 import SnapKit
 
-final class FormDailyView: UIView {
+final class FormSwitchView: UIView {
     private lazy var dailyLabel: UILabel = {
         let label = UILabel()
 
@@ -36,7 +36,7 @@ final class FormDailyView: UIView {
     }
 }
 
-private extension FormDailyView {
+private extension FormSwitchView {
     func configure() {
         configureViews()
         configureConstraints()

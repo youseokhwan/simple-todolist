@@ -51,7 +51,7 @@
 		44B90D3A28A22D4E00B4BADD /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 44B90D3928A22D4E00B4BADD /* Differentiator */; };
 		44B90D3C28A22D4E00B4BADD /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 44B90D3B28A22D4E00B4BADD /* RxDataSources */; };
 		44CDA2B72872F00C00E8F0F0 /* FormStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */; };
-		44CDA2BE28731F3400E8F0F0 /* FormDailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2BD28731F3400E8F0F0 /* FormDailyView.swift */; };
+		44CDA2BE28731F3400E8F0F0 /* FormSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2BD28731F3400E8F0F0 /* FormSwitchView.swift */; };
 		44CDA2E528768BC900E8F0F0 /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2E428768BC900E8F0F0 /* UserDefaultsRepository.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,7 +96,7 @@
 		44B90CAA289A487D00B4BADD /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		44B90D05289D6AE500B4BADD /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
 		44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStackView.swift; sourceTree = "<group>"; };
-		44CDA2BD28731F3400E8F0F0 /* FormDailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDailyView.swift; sourceTree = "<group>"; };
+		44CDA2BD28731F3400E8F0F0 /* FormSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSwitchView.swift; sourceTree = "<group>"; };
 		44CDA2E428768BC900E8F0F0 /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -328,7 +328,7 @@
 			children = (
 				44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */,
 				0193D2C528B5D9E400F929DC /* FormTextView.swift */,
-				44CDA2BD28731F3400E8F0F0 /* FormDailyView.swift */,
+				44CDA2BD28731F3400E8F0F0 /* FormSwitchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -432,7 +432,7 @@
 				442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */,
 				44CDA2E528768BC900E8F0F0 /* UserDefaultsRepository.swift in Sources */,
 				01EF8650287DAD1B005F037A /* ReadTaskUseCase.swift in Sources */,
-				44CDA2BE28731F3400E8F0F0 /* FormDailyView.swift in Sources */,
+				44CDA2BE28731F3400E8F0F0 /* FormSwitchView.swift in Sources */,
 				44443144285EFB400004D468 /* AppDelegate.swift in Sources */,
 				0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */,
 				0193D28D28AB988800F929DC /* SettingsNavigationController.swift in Sources */,
