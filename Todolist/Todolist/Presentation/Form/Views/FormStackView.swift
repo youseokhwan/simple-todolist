@@ -27,7 +27,13 @@ final class FormStackView: UIStackView {
 
         return label
     }()
-    private lazy var dailySwitchView = FormSwitchView()
+    private lazy var dailySwitchView: FormSwitchView = {
+        let switchView = FormSwitchView()
+
+        switchView.title = Const.dailyLabelText
+
+        return switchView
+    }()
 
     var textViewRx: Reactive<FormTextView> {
         return titleTextView.rx
@@ -64,8 +70,6 @@ private extension FormStackView {
 
     func configureViews() {
         axis = .vertical
-
-        dailySwitchView.title = Const.dailyLabelText
 
         [titleTextView, titleCountLabel, dailySwitchView].forEach {
             addArrangedSubview($0)
