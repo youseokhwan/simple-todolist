@@ -8,6 +8,7 @@
 
 // Form
 "titleTextViewPlaceholder" = "할 일을 입력하세요.";
+"doneLabelText" = "완료 여부";
 "dailyLabelText" = "매일 반복";
 
 // Settings

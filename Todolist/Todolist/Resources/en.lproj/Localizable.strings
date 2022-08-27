@@ -8,6 +8,7 @@
 
 // Form
 "titleTextViewPlaceholder" = "please input task.";
+"doneLabelText" = "done status";
 "dailyLabelText" = "daily routine";
 
 // Settings
