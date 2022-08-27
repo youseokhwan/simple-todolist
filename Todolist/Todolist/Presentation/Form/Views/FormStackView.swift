@@ -80,6 +80,7 @@ private extension FormStackView {
 
     func configureViews() {
         axis = .vertical
+        spacing = 20
 
         [titleTextView, titleCountLabel, doneSwitchView, dailySwitchView].forEach {
             addArrangedSubview($0)
