@@ -12,15 +12,14 @@ import RxSwift
 import SnapKit
 
 final class FormSwitchView: UIView {
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-
-        label.text = Const.dailyLabelText
-
-        return label
-    }()
+    private lazy var titleLabel = UILabel()
     private lazy var toggleSwitch = UISwitch()
 
+    var title = "" {
+        didSet {
+            titleLabel.text = title
+        }
+    }
     var switchRx: Reactive<UISwitch> {
         return toggleSwitch.rx
     }

@@ -65,6 +65,8 @@ private extension FormStackView {
     func configureViews() {
         axis = .vertical
 
+        dailyView.title = Const.dailyLabelText
+
         [titleTextView, titleCountLabel, dailyView].forEach {
             addArrangedSubview($0)
         }
