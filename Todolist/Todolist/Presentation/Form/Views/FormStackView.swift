@@ -27,13 +27,13 @@ final class FormStackView: UIStackView {
 
         return label
     }()
-    private lazy var dailyView = FormSwitchView()
+    private lazy var dailySwitchView = FormSwitchView()
 
     var textViewRx: Reactive<FormTextView> {
         return titleTextView.rx
     }
-    var switchRx: Reactive<UISwitch> {
-        return dailyView.switchRx
+    var dailySwitchRx: Reactive<UISwitch> {
+        return dailySwitchView.switchRx
     }
 
     override init(frame: CGRect) {
@@ -65,9 +65,9 @@ private extension FormStackView {
     func configureViews() {
         axis = .vertical
 
-        dailyView.title = Const.dailyLabelText
+        dailySwitchView.title = Const.dailyLabelText
 
-        [titleTextView, titleCountLabel, dailyView].forEach {
+        [titleTextView, titleCountLabel, dailySwitchView].forEach {
             addArrangedSubview($0)
         }
     }

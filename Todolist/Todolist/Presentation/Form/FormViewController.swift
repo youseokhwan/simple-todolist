@@ -40,7 +40,7 @@ final class FormViewController: UIViewController {
 
         viewModel.id.accept(task.id)
         stackView.textViewRx.text.onNext(task.title)
-        stackView.switchRx.isOn.onNext(task.isDaily)
+        stackView.dailySwitchRx.isOn.onNext(task.isDaily)
         viewModel.isDone.accept(task.isDone)
         viewModel.createdDate.accept(task.createdDate)
     }
@@ -102,7 +102,7 @@ private extension FormViewController {
             })
             .disposed(by: disposeBag)
 
-        stackView.switchRx.isOn
+        stackView.dailySwitchRx.isOn
             .bind(to: viewModel.isDaily)
             .disposed(by: disposeBag)
     }
