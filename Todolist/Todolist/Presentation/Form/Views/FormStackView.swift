@@ -44,7 +44,7 @@ final class FormStackView: UIStackView {
     private lazy var createdDateView: FormDateView = {
         let dateView = FormDateView()
 
-        dateView.title = "생성일"
+        dateView.title = Const.createdDateLabelText
 
         return dateView
     }()
