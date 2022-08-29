@@ -39,12 +39,15 @@ final class FormViewController: UIViewController {
         self.init(nibName: nil, bundle: nil)
 
         viewModel.id.accept(task.id)
+        viewModel.title.accept(task.title)
+        viewModel.isDone.accept(task.isDone)
+        viewModel.isDaily.accept(task.isDaily)
+        viewModel.createdDate.accept(task.createdDate)
+
         stackView.titleRx.text.onNext(task.title)
         stackView.doneRx.isOn.onNext(task.isDone)
-        viewModel.isDone.accept(task.isDone)
         stackView.dailyRx.isOn.onNext(task.isDaily)
         stackView.dateRx.date.onNext(task.createdDate)
-        viewModel.createdDate.accept(task.createdDate)
     }
 
     override func viewDidLoad() {
