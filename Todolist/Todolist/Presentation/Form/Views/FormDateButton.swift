@@ -7,6 +7,8 @@
 
 import UIKit
 
+import SnapKit
+
 final class FormDateButton: UIButton {
     enum DateType {
         case year
@@ -14,6 +16,19 @@ final class FormDateButton: UIButton {
         case day
         case dayOfTheWeek
         case none
+
+        var width: Int {
+            switch self {
+            case .year:
+                return 70
+            case .month, .day:
+                return 40
+            case .dayOfTheWeek:
+                return 70
+            default:
+                return 0
+            }
+        }
     }
 
     private var dateType: DateType = .none
@@ -28,6 +43,7 @@ final class FormDateButton: UIButton {
 private extension FormDateButton {
     func configure() {
         configureViews()
+        configureConstraints()
     }
 
     func configureViews() {
@@ -35,5 +51,11 @@ private extension FormDateButton {
         backgroundColor = .lightGray
         setTitleColor(UIColor.black, for: .normal)
         setTitleColor(UIColor.red, for: .selected)
+    }
+
+    func configureConstraints() {
+        snp.makeConstraints { make in
+            make.width.equalTo(dateType.width)
+        }
     }
 }
