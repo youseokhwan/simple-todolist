@@ -21,27 +21,9 @@ final class FormDateView: UIView {
 
         return stackView
     }()
-    private lazy var yearButton: FormDateButton = {
-        let button = FormDateButton(type: .year)
-
-        button.setTitle("1900", for: .normal)
-
-        return button
-    }()
-    private lazy var monthButton: FormDateButton = {
-        let button = FormDateButton(type: .month)
-
-        button.setTitle("01", for: .normal)
-
-        return button
-    }()
-    private lazy var dayButton: FormDateButton = {
-        let button = FormDateButton(type: .day)
-
-        button.setTitle("01", for: .normal)
-
-        return button
-    }()
+    private lazy var yearButton = FormDateButton()
+    private lazy var monthButton = FormDateButton()
+    private lazy var dayButton = FormDateButton()
 
     var title = "" {
         didSet {
