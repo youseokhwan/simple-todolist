@@ -20,7 +20,7 @@ final class FormDateButton: UIButton {
         var width: Int {
             switch self {
             case .year:
-                return 70
+                return 60
             case .month, .day:
                 return 40
             case .dayOfTheWeek:
