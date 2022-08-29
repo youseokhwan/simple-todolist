@@ -41,6 +41,13 @@ final class FormStackView: UIStackView {
 
         return switchView
     }()
+    private lazy var createdDateView: FormDateView = {
+        let dateView = FormDateView()
+
+        dateView.title = "생성일"
+
+        return dateView
+    }()
 
     var titleRx: Reactive<FormTextView> {
         return titleTextView.rx
@@ -82,7 +89,7 @@ private extension FormStackView {
         axis = .vertical
         spacing = 20
 
-        [titleTextView, titleCountLabel, doneSwitchView, dailySwitchView].forEach {
+        [titleTextView, titleCountLabel, doneSwitchView, dailySwitchView, createdDateView].forEach {
             addArrangedSubview($0)
         }
     }
