@@ -13,6 +13,15 @@ import SnapKit
 
 final class FormDateView: UIView {
     private lazy var titleLabel = UILabel()
+    private lazy var datePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+
+        picker.datePickerMode = .date
+        picker.locale = Locale(identifier: "ko-KR")
+        picker.timeZone = .autoupdatingCurrent
+
+        return picker
+    }()
 
     var title = "" {
         didSet {
@@ -38,7 +47,7 @@ private extension FormDateView {
     }
 
     func configureViews() {
-        [titleLabel].forEach {
+        [titleLabel, datePicker].forEach {
             addSubview($0)
         }
     }
@@ -47,6 +56,11 @@ private extension FormDateView {
         titleLabel.snp.makeConstraints { make in
             make.centerY.leading.height.equalToSuperview()
             make.width.equalTo(70)
+        }
+
+        datePicker.snp.makeConstraints { make in
+            make.centerY.height.equalToSuperview()
+            make.leading.equalTo(titleLabel.snp.trailing).offset(20)
         }
     }
 }
