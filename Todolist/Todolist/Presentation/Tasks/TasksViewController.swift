@@ -42,11 +42,16 @@ final class TasksViewController: UIViewController {
 
         return tableView
     }()
-    private lazy var formButton: UIButton = {
-        let button = UIButton()
+    private lazy var formButton: TasksRoundedButton = {
+        let button = TasksRoundedButton()
         let image = UIImage(named: Const.formButtonImage)
 
         button.setImage(image, for: .normal)
+        button.imageSize = CGSize(width: 30, height: 30)
+        button.backgroundColor = UIColor(red: 1, green: 241/255, blue: 227/255, alpha: 1)
+        button.setTitle("할 일 추가", for: .normal)
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 18)
 
         return button
     }()
