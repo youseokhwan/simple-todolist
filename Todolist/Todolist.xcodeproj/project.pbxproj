@@ -38,7 +38,6 @@
 		44264708288DB145004C22D8 /* WriteTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44264707288DB145004C22D8 /* WriteTaskUseCase.swift */; };
 		4426470E2892C30A004C22D8 /* SettingsThemeAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426470D2892C30A004C22D8 /* SettingsThemeAlertController.swift */; };
 		4430D39C28BCD21600AD3A1E /* FormDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430D39B28BCD21600AD3A1E /* FormDateView.swift */; };
-		4430D39E28BCD6DA00AD3A1E /* FormDateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430D39D28BCD6DA00AD3A1E /* FormDateButton.swift */; };
 		44443144285EFB400004D468 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443143285EFB400004D468 /* AppDelegate.swift */; };
 		44443146285EFB400004D468 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443145285EFB400004D468 /* SceneDelegate.swift */; };
 		4444314D285EFB420004D468 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4444314C285EFB420004D468 /* Assets.xcassets */; };
@@ -89,7 +88,6 @@
 		44264707288DB145004C22D8 /* WriteTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteTaskUseCase.swift; sourceTree = "<group>"; };
 		4426470D2892C30A004C22D8 /* SettingsThemeAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeAlertController.swift; sourceTree = "<group>"; };
 		4430D39B28BCD21600AD3A1E /* FormDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDateView.swift; sourceTree = "<group>"; };
-		4430D39D28BCD6DA00AD3A1E /* FormDateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDateButton.swift; sourceTree = "<group>"; };
 		44443140285EFB400004D468 /* Todolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todolist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44443143285EFB400004D468 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44443145285EFB400004D468 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -334,7 +332,6 @@
 				0193D2C528B5D9E400F929DC /* FormTextView.swift */,
 				44CDA2BD28731F3400E8F0F0 /* FormSwitchView.swift */,
 				4430D39B28BCD21600AD3A1E /* FormDateView.swift */,
-				4430D39D28BCD6DA00AD3A1E /* FormDateButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -456,7 +453,6 @@
 				0193D2C628B5D9E400F929DC /* FormTextView.swift in Sources */,
 				44B90D06289D6AE500B4BADD /* RealmStorage.swift in Sources */,
 				449678E528B129B40029951B /* UIImage+Extensions.swift in Sources */,
-				4430D39E28BCD6DA00AD3A1E /* FormDateButton.swift in Sources */,
 				0193D28928A7C65E00F929DC /* SettingsLicenseViewController.swift in Sources */,
 				4430D39C28BCD21600AD3A1E /* FormDateView.swift in Sources */,
 				442473C4286589700059CFCC /* SettingsViewController.swift in Sources */,

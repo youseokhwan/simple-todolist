@@ -58,15 +58,6 @@ final class FormStackView: UIStackView {
     var dailyRx: Reactive<UISwitch> {
         return dailySwitchView.switchRx
     }
-    var yearRx: Reactive<FormDateButton> {
-        return createdDateView.yearRx
-    }
-    var monthRx: Reactive<FormDateButton> {
-        return createdDateView.monthRx
-    }
-    var dayRx: Reactive<FormDateButton> {
-        return createdDateView.dayRx
-    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
