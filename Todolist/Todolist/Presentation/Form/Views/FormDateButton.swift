@@ -8,13 +8,19 @@
 import UIKit
 
 final class FormDateButton: UIButton {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        configure()
+    enum DateType {
+        case year
+        case month
+        case day
+        case dayOfTheWeek
+        case none
     }
 
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    private var dateType: DateType = .none
+
+    convenience init(type: DateType) {
+        self.init()
+        dateType = type
         configure()
     }
 }
