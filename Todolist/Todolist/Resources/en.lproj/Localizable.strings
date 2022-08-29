@@ -27,3 +27,12 @@
 "lightTheme" = "Light appearance";
 "darkTheme" = "Dark appearance";
 "cancel" = "Cancel";
+
+// Utils
+"sunday" = "Sun";
+"monday" = "Mon";
+"tuesday" = "Tue";
+"wednesday" = "Wed";
+"thursday" = "Thu";
+"friday" = "Fri";
+"saturday" = "Sat";
