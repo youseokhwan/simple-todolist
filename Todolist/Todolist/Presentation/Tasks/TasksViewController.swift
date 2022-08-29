@@ -140,7 +140,7 @@ private extension TasksViewController {
         }
 
         formButton.snp.makeConstraints { make in
-            make.top.equalTo(tableView.snp.bottom)
+            make.top.equalTo(tableView.snp.bottom).offset(20)
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(10)
             make.leading.trailing.equalToSuperview().inset(22)
             make.height.equalTo(44)
