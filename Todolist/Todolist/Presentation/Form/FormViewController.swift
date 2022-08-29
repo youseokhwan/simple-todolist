@@ -110,6 +110,24 @@ private extension FormViewController {
         stackView.dailyRx.isOn
             .bind(to: viewModel.isDaily)
             .disposed(by: disposeBag)
+
+        stackView.yearRx.tap
+            .subscribe(onNext: {
+                print("year tap")
+            })
+            .disposed(by: disposeBag)
+
+        stackView.monthRx.tap
+            .subscribe(onNext: {
+                print("month tap")
+            })
+            .disposed(by: disposeBag)
+
+        stackView.dayRx.tap
+            .subscribe(onNext: {
+                print("day tap")
+            })
+            .disposed(by: disposeBag)
     }
 
     func configureConstraints() {

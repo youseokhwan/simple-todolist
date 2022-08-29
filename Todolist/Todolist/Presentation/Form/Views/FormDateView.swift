@@ -48,6 +48,15 @@ final class FormDateView: UIView {
             titleLabel.text = title
         }
     }
+    var yearRx: Reactive<FormDateButton> {
+        return yearButton.rx
+    }
+    var monthRx: Reactive<FormDateButton> {
+        return monthButton.rx
+    }
+    var dayRx: Reactive<FormDateButton> {
+        return dayButton.rx
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
