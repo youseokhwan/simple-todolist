@@ -13,6 +13,35 @@ import SnapKit
 
 final class FormDateView: UIView {
     private lazy var titleLabel = UILabel()
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+
+        return stackView
+    }()
+    private lazy var yearButton: FormDateButton = {
+        let button = FormDateButton(type: .year)
+
+        button.setTitle("1900", for: .normal)
+
+        return button
+    }()
+    private lazy var monthButton: FormDateButton = {
+        let button = FormDateButton(type: .month)
+
+        button.setTitle("01", for: .normal)
+
+        return button
+    }()
+    private lazy var dayButton: FormDateButton = {
+        let button = FormDateButton(type: .day)
+
+        button.setTitle("01", for: .normal)
+
+        return button
+    }()
 
     var title = "" {
         didSet {
@@ -38,7 +67,11 @@ private extension FormDateView {
     }
 
     func configureViews() {
-        [titleLabel].forEach {
+        [yearButton, monthButton, dayButton].forEach {
+            stackView.addArrangedSubview($0)
+        }
+
+        [titleLabel, stackView].forEach {
             addSubview($0)
         }
     }
@@ -47,6 +80,11 @@ private extension FormDateView {
         titleLabel.snp.makeConstraints { make in
             make.centerY.leading.height.equalToSuperview()
             make.width.equalTo(70)
+        }
+
+        stackView.snp.makeConstraints { make in
+            make.centerY.height.equalToSuperview()
+            make.leading.equalTo(titleLabel.snp.trailing).offset(20)
         }
     }
 }
