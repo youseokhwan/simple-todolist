@@ -41,8 +41,9 @@ final class FormViewController: UIViewController {
         viewModel.id.accept(task.id)
         stackView.titleRx.text.onNext(task.title)
         stackView.doneRx.isOn.onNext(task.isDone)
-        stackView.dailyRx.isOn.onNext(task.isDaily)
         viewModel.isDone.accept(task.isDone)
+        stackView.dailyRx.isOn.onNext(task.isDaily)
+        stackView.dateRx.date.onNext(task.createdDate)
         viewModel.createdDate.accept(task.createdDate)
     }
 
@@ -109,6 +110,10 @@ private extension FormViewController {
 
         stackView.dailyRx.isOn
             .bind(to: viewModel.isDaily)
+            .disposed(by: disposeBag)
+
+        stackView.dateRx.date
+            .bind(to: viewModel.createdDate)
             .disposed(by: disposeBag)
     }
 

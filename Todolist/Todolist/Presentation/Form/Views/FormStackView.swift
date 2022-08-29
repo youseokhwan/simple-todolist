@@ -58,6 +58,9 @@ final class FormStackView: UIStackView {
     var dailyRx: Reactive<UISwitch> {
         return dailySwitchView.switchRx
     }
+    var dateRx: Reactive<UIDatePicker> {
+        return createdDateView.datePickerRx
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -28,6 +28,9 @@ final class FormDateView: UIView {
             titleLabel.text = title
         }
     }
+    var datePickerRx: Reactive<UIDatePicker> {
+        return datePicker.rx
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
