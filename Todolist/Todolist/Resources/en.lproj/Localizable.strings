@@ -6,6 +6,9 @@
   
 */
 
+// Tasks
+"addTask" = "Add Task";
+
 // Form
 "titleTextFieldPlaceholder" = "please input task.";
 "dailyLabelText" = "daily routine";

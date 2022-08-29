@@ -6,6 +6,9 @@
   
 */
 
+// Tasks
+"addTask" = "할 일 추가";
+
 // Form
 "titleTextFieldPlaceholder" = "할 일을 입력하세요.";
 "dailyLabelText" = "매일 반복";

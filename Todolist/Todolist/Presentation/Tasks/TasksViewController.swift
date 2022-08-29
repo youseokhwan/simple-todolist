@@ -49,7 +49,7 @@ final class TasksViewController: UIViewController {
         button.setImage(image, for: .normal)
         button.imageSize = CGSize(width: 30, height: 30)
         button.backgroundColor = UIColor(red: 1, green: 241/255, blue: 227/255, alpha: 1)
-        button.setTitle("할 일 추가", for: .normal)
+        button.setTitle(Const.formButtonTitle, for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 18)
 

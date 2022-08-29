@@ -15,6 +15,7 @@ enum Const {
     static let checkButtonSelectedImage = "checked"
     static let editButtonImage = "edit"
     static let deleteButtonImage = "delete"
+    static let formButtonTitle = "addTask".localized
 
     // Form
     static let tempIDForNewTask = -1
