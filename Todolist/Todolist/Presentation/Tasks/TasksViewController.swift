@@ -38,6 +38,7 @@ final class TasksViewController: UIViewController {
         tableView.register(TasksTableViewCell.self,
                            forCellReuseIdentifier: TasksTableViewCell.identifier)
         tableView.rowHeight = 80
+        tableView.separatorStyle = .none
 
         return tableView
     }()
