@@ -25,6 +25,9 @@ private extension FormDateButton {
     }
 
     func configureViews() {
-        
+        layer.cornerRadius = 10
+        backgroundColor = .lightGray
+        setTitleColor(UIColor.black, for: .normal)
+        setTitleColor(UIColor.red, for: .selected)
     }
 }
