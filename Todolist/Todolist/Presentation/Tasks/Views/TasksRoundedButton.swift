@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TasksRoundedButton: UIButton {
+final class TasksRoundedButton: UIButton {
     var imageSize = CGSize() {
         didSet {
             setImage(
