@@ -16,7 +16,7 @@ extension Date {
         return dateFormatter.string(from: Date())
     }
 
-    static var weekOfToday: String {
+    static var todayWithWeekday: String {
         let dateFormatter = DateFormatter()
 
         dateFormatter.dateFormat = "M.dd (E)"

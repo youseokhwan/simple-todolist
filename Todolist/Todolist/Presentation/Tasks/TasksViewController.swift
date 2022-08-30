@@ -18,7 +18,7 @@ final class TasksViewController: UIViewController {
     private lazy var todayLabel: UILabel = {
         let label = UILabel()
 
-        label.text = Date.weekOfToday
+        label.text = Date.todayWithWeekday
         label.font = .systemFont(ofSize: 22, weight: .bold)
 
         return label
