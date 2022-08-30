@@ -38,6 +38,7 @@ final class TasksViewController: UIViewController {
                            forCellReuseIdentifier: TasksTableViewCell.identifier)
         tableView.rowHeight = 80
         tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
 
         return tableView
     }()
