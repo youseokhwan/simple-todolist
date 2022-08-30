@@ -27,12 +27,3 @@
 "lightTheme" = "라이트 모드 적용";
 "darkTheme" = "다크 모드 적용";
 "cancel" = "취소";
-
-// Utils
-"sunday" = "일";
-"monday" = "월";
-"tuesday" = "화";
-"wednesday" = "수";
-"thursday" = "목";
-"friday" = "금";
-"saturday" = "토";

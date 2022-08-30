@@ -58,11 +58,4 @@ enum Const {
     // Utils
     static let localizable = "Localizable"
     static let yyyyMMdd = "yyyy.MM.dd"
-    static let sunday = "sunday".localized
-    static let monday = "monday".localized
-    static let tuesday = "tuesday".localized
-    static let wednesday = "wednesday".localized
-    static let thursday = "thursday".localized
-    static let friday = "friday".localized
-    static let saturday = "saturday".localized
 }
