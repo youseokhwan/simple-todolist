@@ -11,7 +11,7 @@ extension Date {
     static var today: String {
         let dateFormatter = DateFormatter()
 
-        dateFormatter.dateFormat = Const.yyyyMMdd
+        dateFormatter.dateFormat = "yyyy.MM.dd"
 
         return dateFormatter.string(from: Date())
     }

@@ -57,5 +57,4 @@ enum Const {
 
     // Utils
     static let localizable = "Localizable"
-    static let yyyyMMdd = "yyyy.MM.dd"
 }
