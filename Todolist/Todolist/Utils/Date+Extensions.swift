@@ -8,7 +8,7 @@
 import Foundation
 
 extension Date {
-    static var today: String {
+    static var yearMonthDay: String {
         let dateFormatter = DateFormatter()
 
         dateFormatter.dateFormat = "yyyy.MM.dd"
@@ -16,7 +16,7 @@ extension Date {
         return dateFormatter.string(from: Date())
     }
 
-    static var todayWithWeekday: String {
+    static var monthDayWeekday: String {
         let dateFormatter = DateFormatter()
 
         dateFormatter.dateFormat = "M.dd (E)"

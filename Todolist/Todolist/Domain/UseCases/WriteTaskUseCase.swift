@@ -45,7 +45,7 @@ struct WriteTaskUseCase {
             }
         }
 
-        UserDefaultsRepository.saveLastFetchDate(value: Date.today)
+        UserDefaultsRepository.saveLastFetchDate(value: Date.yearMonthDay)
     }
 
     func delete(task: Task) {

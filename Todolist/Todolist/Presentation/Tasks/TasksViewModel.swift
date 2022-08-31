@@ -30,7 +30,7 @@ final class TasksViewModel {
 
     private func isFirstFetchOfToday() -> Bool {
         let lastFetchDate = UserDefaultsRepository.lastFetchDate()
-        let todayDate = Date.today
+        let todayDate = Date.yearMonthDay
 
         return lastFetchDate < todayDate
     }
