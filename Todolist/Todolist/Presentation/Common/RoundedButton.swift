@@ -10,12 +10,7 @@ import UIKit
 final class RoundedButton: UIButton {
     var imageSize = CGSize() {
         didSet {
-            setImage(
-                UIGraphicsImageRenderer(size: imageSize).image { _ in
-                    currentImage?.draw(in: CGRect(origin: .zero, size: imageSize))
-                },
-                for: .normal
-            )
+            setImage(currentImage?.resizedImage(size: imageSize), for: .normal)
         }
     }
 
