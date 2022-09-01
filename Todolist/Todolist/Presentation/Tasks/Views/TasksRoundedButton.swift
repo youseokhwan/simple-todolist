@@ -39,24 +39,7 @@ private extension TasksRoundedButton {
         layer.cornerRadius = 10
         contentHorizontalAlignment = .leading
 
-        if #available(iOS 15.0, *) {
-            var configuration = Configuration.plain()
-            let transformer = UIConfigurationTextAttributesTransformer { [weak self] attribute in
-                var attribute = attribute
-
-                attribute.font = self?.titleLabel?.font
-                attribute.foregroundColor = self?.currentTitleColor
-
-                return attribute
-            }
-
-            configuration.imagePadding = 12
-            configuration.titleTextAttributesTransformer = transformer
-
-            self.configuration = configuration
-        } else {
-            contentEdgeInsets = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
-            titleEdgeInsets = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
-        }
+        contentEdgeInsets = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
+        titleEdgeInsets = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
     }
 }
