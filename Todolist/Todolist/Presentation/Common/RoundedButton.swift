@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TasksRoundedButton: UIButton {
+final class RoundedButton: UIButton {
     var imageSize = CGSize() {
         didSet {
             setImage(
@@ -30,7 +30,7 @@ final class TasksRoundedButton: UIButton {
     }
 }
 
-private extension TasksRoundedButton {
+private extension RoundedButton {
     func configure() {
         configureViews()
     }

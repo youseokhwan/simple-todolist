@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01247D1028BCB99000B22DA3 /* TasksRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01247D0F28BCB99000B22DA3 /* TasksRoundedButton.swift */; };
+		01247D1028BCB99000B22DA3 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01247D0F28BCB99000B22DA3 /* RoundedButton.swift */; };
 		012D2C27288C33270063BB1E /* SettingsThemeMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D2C26288C33270063BB1E /* SettingsThemeMenuButton.swift */; };
 		0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */; };
 		0193D28928A7C65E00F929DC /* SettingsLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28828A7C65E00F929DC /* SettingsLicenseViewController.swift */; };
@@ -57,7 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		01247D0F28BCB99000B22DA3 /* TasksRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksRoundedButton.swift; sourceTree = "<group>"; };
+		01247D0F28BCB99000B22DA3 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		012D2C26288C33270063BB1E /* SettingsThemeMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeMenuButton.swift; sourceTree = "<group>"; };
 		0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
 		0193D28828A7C65E00F929DC /* SettingsLicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLicenseViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +120,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01247D1128C08A4800B22DA3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				01247D0F28BCB99000B22DA3 /* RoundedButton.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		019EE55028742FA900804889 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,7 +268,6 @@
 			isa = PBXGroup;
 			children = (
 				0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */,
-				01247D0F28BCB99000B22DA3 /* TasksRoundedButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -307,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				4444314E285EFB420004D468 /* LaunchScreen.storyboard */,
+				01247D1128C08A4800B22DA3 /* Common */,
 				442473B6286587030059CFCC /* Tasks */,
 				442473B82865870F0059CFCC /* Form */,
 				442473B7286587080059CFCC /* Settings */,
@@ -434,7 +442,7 @@
 				442646C228880322004C22D8 /* Const.swift in Sources */,
 				442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */,
 				44CDA2E528768BC900E8F0F0 /* UserDefaultsRepository.swift in Sources */,
-				01247D1028BCB99000B22DA3 /* TasksRoundedButton.swift in Sources */,
+				01247D1028BCB99000B22DA3 /* RoundedButton.swift in Sources */,
 				01EF8650287DAD1B005F037A /* ReadTaskUseCase.swift in Sources */,
 				44CDA2BE28731F3400E8F0F0 /* FormDailyView.swift in Sources */,
 				0193D28F28ACA79500F929DC /* FormTitleView.swift in Sources */,

@@ -41,8 +41,8 @@ final class TasksViewController: UIViewController {
 
         return tableView
     }()
-    private lazy var formButton: TasksRoundedButton = {
-        let button = TasksRoundedButton()
+    private lazy var formButton: RoundedButton = {
+        let button = RoundedButton()
         let image = UIImage(named: Const.formButtonImage)
 
         button.setImage(image, for: .normal)
