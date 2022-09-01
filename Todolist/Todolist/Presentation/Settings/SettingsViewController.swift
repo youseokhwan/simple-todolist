@@ -41,6 +41,8 @@ final class SettingsViewController: UIViewController {
 
         return label
     }()
+    private lazy var versionLabel = UILabel()
+
     private lazy var dataSource: SectionDataSource = {
         let dataSource = SectionDataSource(
             configureCell: { [weak self] dataSource, tableView, indexPath, item in
@@ -51,6 +53,8 @@ final class SettingsViewController: UIViewController {
 
                 if item == Const.themeSettings {
                     cell.accessoryView = self?.themeLabel
+                } else if item == Const.versionInfomation {
+                    cell.accessoryView = self?.versionLabel
                 }
 
                 cell.update(title: item)
@@ -92,6 +96,9 @@ private extension SettingsViewController {
 
         navigationItem.title = Const.settingsTitle
         navigationItem.rightBarButtonItem = doneBarButtonItem
+
+        versionLabel.text = viewModel.appVersionText()
+        versionLabel.sizeToFit()
 
         view.addSubview(tableView)
     }
