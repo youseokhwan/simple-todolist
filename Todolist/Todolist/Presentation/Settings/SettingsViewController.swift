@@ -41,7 +41,13 @@ final class SettingsViewController: UIViewController {
 
         return label
     }()
-    private lazy var versionLabel = UILabel()
+    private lazy var versionLabel: UILabel = {
+        let label = UILabel()
+
+        label.textColor = .lightGray
+
+        return label
+    }()
 
     private lazy var dataSource: SectionDataSource = {
         let dataSource = SectionDataSource(
