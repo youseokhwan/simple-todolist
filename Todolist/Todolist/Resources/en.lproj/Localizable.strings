@@ -10,6 +10,7 @@
 "titleTextViewPlaceholder" = "please input task.";
 "doneLabelText" = "done status";
 "dailyLabelText" = "daily routine";
+"createdDateLabelText" = "created date";
 
 // Settings
 "settingsTitle" = "Settings";

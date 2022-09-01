@@ -23,6 +23,7 @@ enum Const {
     static let titleTextViewPlaceholder = "titleTextViewPlaceholder".localized
     static let doneLabelText = "doneLabelText".localized
     static let dailyLabelText = "dailyLabelText".localized
+    static let createdDateLabelText = "createdDateLabelText".localized
 
     // Settings
     static let settingsTitle = "settingsTitle".localized

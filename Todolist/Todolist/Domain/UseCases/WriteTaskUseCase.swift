@@ -14,12 +14,12 @@ struct WriteTaskUseCase {
         return UserDefaultsRepository.nextTaskID()
     }
 
-    func createTask(title: String, isDaily: Bool) {
+    func createTask(title: String, isDone: Bool, isDaily: Bool, createdDate: Date) {
         let task = Task(id: autoIncreasedID(),
                         title: title,
+                        isDone: isDone,
                         isDaily: isDaily,
-                        isDone: false,
-                        createdDate: Date())
+                        createdDate: createdDate)
 
         taskRepository.create(task: task)
     }

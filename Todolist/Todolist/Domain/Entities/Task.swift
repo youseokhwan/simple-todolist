@@ -12,16 +12,16 @@ import RealmSwift
 final class Task: Object {
     @Persisted(primaryKey: true) var id: Int
     @Persisted var title: String
-    @Persisted var isDaily: Bool
     @Persisted var isDone: Bool
+    @Persisted var isDaily: Bool
     @Persisted var createdDate: Date
 
-    convenience init(id: Int, title: String, isDaily: Bool, isDone: Bool, createdDate: Date) {
+    convenience init(id: Int, title: String, isDone: Bool, isDaily: Bool, createdDate: Date) {
         self.init()
         self.id = id
         self.title = title
-        self.isDaily = isDaily
         self.isDone = isDone
+        self.isDaily = isDaily
         self.createdDate = createdDate
     }
 }

@@ -41,6 +41,13 @@ final class FormStackView: UIStackView {
 
         return switchView
     }()
+    private lazy var createdDateView: FormDateView = {
+        let dateView = FormDateView()
+
+        dateView.title = Const.createdDateLabelText
+
+        return dateView
+    }()
 
     var titleRx: Reactive<FormTextView> {
         return titleTextView.rx
@@ -50,6 +57,9 @@ final class FormStackView: UIStackView {
     }
     var dailyRx: Reactive<UISwitch> {
         return dailySwitchView.switchRx
+    }
+    var dateRx: Reactive<UIDatePicker> {
+        return createdDateView.datePickerRx
     }
 
     override init(frame: CGRect) {
@@ -82,7 +92,7 @@ private extension FormStackView {
         axis = .vertical
         spacing = 20
 
-        [titleTextView, titleCountLabel, doneSwitchView, dailySwitchView].forEach {
+        [titleTextView, titleCountLabel, doneSwitchView, dailySwitchView, createdDateView].forEach {
             addArrangedSubview($0)
         }
     }
