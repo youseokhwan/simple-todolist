@@ -17,7 +17,6 @@ final class FormDateView: UIView {
         let picker = UIDatePicker()
 
         picker.datePickerMode = .date
-        picker.locale = Locale(identifier: "ko-KR")
         picker.timeZone = .autoupdatingCurrent
 
         return picker
