@@ -41,8 +41,9 @@ final class RoundedButton: UIButton {
     }
 
     func setImage(type: ButtonType) {
-        setImage(UIImage(named: type.image)?.resizedImage(size: CGSize(width: 30, height: 30)),
-                 for: .normal)
+        let image = UIImage(named: type.image)?.resizedImage(size: CGSize(width: 30, height: 30))
+
+        setImage(image, for: .normal)
     }
 
     func setTitle(type: ButtonType) {
