@@ -44,8 +44,8 @@ final class TasksViewController: UIViewController {
     private lazy var formButton: RoundedButton = {
         let button = RoundedButton()
 
-        button.setImage(type: .Tasks)
-        button.setTitle(type: .Tasks)
+        button.setImage(type: .tasks)
+        button.setTitle(type: .tasks)
 
         return button
     }()

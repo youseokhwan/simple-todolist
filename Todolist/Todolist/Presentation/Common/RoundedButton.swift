@@ -9,22 +9,22 @@ import UIKit
 
 final class RoundedButton: UIButton {
     enum ButtonType {
-        case Tasks
-        case Form
+        case tasks
+        case form
 
         var image: String {
             switch self {
-            case .Tasks:
+            case .tasks:
                 return Const.formButtonImage
-            case .Form:
+            case .form:
                 return Const.saveButtonImage
             }
         }
         var title: String {
             switch self {
-            case .Tasks:
+            case .tasks:
                 return Const.formButtonTitle
-            case .Form:
+            case .form:
                 return ""
             }
         }
