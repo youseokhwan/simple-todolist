@@ -10,6 +10,8 @@ import Foundation
 import RxRelay
 
 final class SettingsViewModel {
+    private let readBundleResourceUseCase: ReadBundleResourceUseCase
+
     let items: [SettingsSection]
     let appearence: BehaviorRelay<Int>
 
@@ -22,5 +24,10 @@ final class SettingsViewModel {
                                          Const.patchDetails,
                                          Const.contactUs])]
         appearence = BehaviorRelay(value: UserDefaultsRepository.currentAppearance())
+        readBundleResourceUseCase = ReadBundleResourceUseCase()
+    }
+
+    func appVersionText() -> String {
+        return readBundleResourceUseCase.appVersionText()
     }
 }

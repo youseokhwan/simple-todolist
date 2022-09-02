@@ -26,4 +26,11 @@ struct ReadBundleResourceUseCase {
 
         return text
     }
+
+    func appVersionText() -> String {
+        guard let object = Bundle.main.infoDictionary?["CFBundleShortVersionString"],
+              let appVersion = object as? String else { return "" }
+
+        return "v\(appVersion)"
+    }
 }
