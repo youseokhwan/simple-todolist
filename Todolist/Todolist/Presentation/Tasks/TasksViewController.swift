@@ -5,7 +5,6 @@
 //  Created by 유석환 on 2022/06/24.
 //
 
-import AVFoundation
 import UIKit
 
 import RxCocoa
@@ -19,18 +18,10 @@ final class TasksViewController: UIViewController {
     private lazy var todayLabel: UILabel = {
         let label = UILabel()
 
-        label.text = Date.today
+        label.text = Date.monthDayWeekday
         label.font = .systemFont(ofSize: 22, weight: .bold)
 
         return label
-    }()
-    private lazy var formButton: UIButton = {
-        let button = UIButton()
-        let image = UIImage(named: Const.formButtonImage)
-
-        button.setImage(image, for: .normal)
-
-        return button
     }()
     private lazy var settingsButton: UIButton = {
         let button = UIButton()
@@ -46,8 +37,17 @@ final class TasksViewController: UIViewController {
         tableView.register(TasksTableViewCell.self,
                            forCellReuseIdentifier: TasksTableViewCell.identifier)
         tableView.rowHeight = 80
+        tableView.separatorStyle = .none
 
         return tableView
+    }()
+    private lazy var formButton: RoundedButton = {
+        let button = RoundedButton()
+
+        button.setImage(type: .tasks)
+        button.setTitle(type: .tasks)
+
+        return button
     }()
 
     override func viewDidLoad() {
@@ -73,14 +73,6 @@ private extension TasksViewController {
     }
 
     func configureBind() {
-        formButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                let formViewController = FormViewController()
-
-                self?.present(formViewController, animated: true)
-            })
-            .disposed(by: disposeBag)
-
         settingsButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 let navigationController = SettingsNavigationController()
@@ -114,29 +106,38 @@ private extension TasksViewController {
 
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
+
+        formButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                let formViewController = FormViewController()
+
+                self?.present(formViewController, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 
     func configureConstraints() {
         todayLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(77)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(40)
             make.leading.equalToSuperview().offset(26)
         }
 
         settingsButton.snp.makeConstraints { make in
             make.centerY.equalTo(todayLabel)
             make.trailing.equalToSuperview().offset(-22)
-            make.width.height.equalTo(30)
-        }
-
-        formButton.snp.makeConstraints { make in
-            make.centerY.equalTo(todayLabel)
-            make.trailing.equalTo(settingsButton.snp.leading).offset(-10)
-            make.width.height.equalTo(30)
+            make.width.height.equalTo(44)
         }
 
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(todayLabel.snp.bottom).offset(20)
-            make.bottom.leading.trailing.equalToSuperview()
+            make.top.equalTo(settingsButton.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(22)
+        }
+
+        formButton.snp.makeConstraints { make in
+            make.top.equalTo(tableView.snp.bottom).offset(20)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(10)
+            make.leading.trailing.equalToSuperview().inset(22)
+            make.height.equalTo(44)
         }
     }
 }

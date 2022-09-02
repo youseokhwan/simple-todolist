@@ -8,10 +8,18 @@
 import Foundation
 
 extension Date {
-    static var today: String {
+    static var yearMonthDay: String {
         let dateFormatter = DateFormatter()
 
-        dateFormatter.dateFormat = Const.yyyyMMdd
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+
+        return dateFormatter.string(from: Date())
+    }
+
+    static var monthDayWeekday: String {
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.dateFormat = "M.dd (E)"
 
         return dateFormatter.string(from: Date())
     }

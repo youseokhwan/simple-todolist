@@ -6,6 +6,9 @@
   
 */
 
+// Tasks
+"addTask" = "Add Task";
+
 // Form
 "titleTextViewPlaceholder" = "please input task.";
 "doneLabelText" = "done status";
