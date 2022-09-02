@@ -30,12 +30,6 @@ final class RoundedButton: UIButton {
         }
     }
 
-    var imageSize = CGSize(width: 30, height: 30) {
-        didSet {
-            setImage(currentImage?.resizedImage(size: imageSize), for: .normal)
-        }
-    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -47,7 +41,8 @@ final class RoundedButton: UIButton {
     }
 
     func setImage(type: ButtonType) {
-        setImage(UIImage(named: type.image)?.resizedImage(size: imageSize), for: .normal)
+        setImage(UIImage(named: type.image)?.resizedImage(size: CGSize(width: 30, height: 30)),
+                 for: .normal)
     }
 
     func setTitle(type: ButtonType) {
