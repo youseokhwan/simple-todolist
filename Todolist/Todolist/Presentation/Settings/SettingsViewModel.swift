@@ -16,9 +16,7 @@ final class SettingsViewModel {
     let appearence: BehaviorRelay<Int>
 
     init() {
-        items = [SettingsSection(title: Const.appSettingsSection,
-                                 items: [Const.themeSettings]),
-                 SettingsSection(title: Const.informationSection,
+        items = [SettingsSection(title: Const.informationSection,
                                  items: [Const.openSourceLicense,
                                          Const.versionInfomation,
                                          Const.patchDetails,
