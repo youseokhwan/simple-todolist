@@ -48,7 +48,6 @@ enum Const {
 
     // Repositories
     static let nextTaskID = "nextTaskID"
-    static let lastFetchDate = "lastFetchDate"
     static let minDate = "1900.01.01"
     static let appearance = "Appearance"
 
