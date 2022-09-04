@@ -8,14 +8,6 @@
 import Foundation
 
 extension Date {
-    static var yearMonthDay: String {
-        let dateFormatter = DateFormatter()
-
-        dateFormatter.dateFormat = "yyyy.MM.dd"
-
-        return dateFormatter.string(from: Date())
-    }
-
     static var monthDayWeekday: String {
         let dateFormatter = DateFormatter()
 
