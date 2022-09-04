@@ -28,13 +28,6 @@ final class TasksViewModel {
         configure()
     }
 
-    private func isFirstFetchOfToday() -> Bool {
-        let lastFetchDate = UserDefaultsRepository.lastFetchDate()
-        let todayDate = Date.yearMonthDay
-
-        return lastFetchDate < todayDate
-    }
-
     func updateIsDone(of task: Task, value: Bool) {
         writeTaskUseCase.updateIsDone(of: task, value: value)
     }
