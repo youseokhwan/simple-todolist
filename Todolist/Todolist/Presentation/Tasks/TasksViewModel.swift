@@ -35,12 +35,6 @@ final class TasksViewModel {
         return lastFetchDate < todayDate
     }
 
-    func updateTasksAsOfToday() {
-        if isFirstFetchOfToday() {
-            writeTaskUseCase.updateTasksAsOfToday(tasks: allTasks.value)
-        }
-    }
-
     func updateIsDone(of task: Task, value: Bool) {
         writeTaskUseCase.updateIsDone(of: task, value: value)
     }
@@ -51,6 +45,11 @@ final class TasksViewModel {
 
         allTasks.accept(newAllTasks)
         writeTaskUseCase.delete(task: removedTask)
+    }
+
+    @objc
+    func updateTasksAsOfToday() {
+        writeTaskUseCase.updateTasksAsOfToday(tasks: allTasks.value)
     }
 }
 

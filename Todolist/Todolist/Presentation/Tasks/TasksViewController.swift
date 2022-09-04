@@ -53,7 +53,6 @@ final class TasksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        viewModel.updateTasksAsOfToday()
     }
 }
 
@@ -61,6 +60,7 @@ private extension TasksViewController {
     func configure() {
         configureViews()
         configureBind()
+        configureObservers()
         configureConstraints()
     }
 
@@ -114,6 +114,13 @@ private extension TasksViewController {
                 self?.present(formViewController, animated: true)
             })
             .disposed(by: disposeBag)
+    }
+
+    func configureObservers() {
+        NotificationCenter.default.addObserver(viewModel,
+                                               selector: #selector(viewModel.updateTasksAsOfToday),
+                                               name: .NSCalendarDayChanged,
+                                               object: nil)
     }
 
     func configureConstraints() {
