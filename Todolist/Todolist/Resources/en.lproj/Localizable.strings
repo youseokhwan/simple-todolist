@@ -10,10 +10,13 @@
 "addTask" = "Add Task";
 
 // Form
+"formTitleCreateLabel" = "Create Task";
+"formTitleDetailLabel" = "Detail";
 "titleTextViewPlaceholder" = "please input task.";
 "doneLabelText" = "done status";
 "dailyLabelText" = "daily routine";
 "createdDateLabelText" = "created date";
+"saveButtonTitle" = "save";
 
 // Settings
 "settingsTitle" = "Settings";

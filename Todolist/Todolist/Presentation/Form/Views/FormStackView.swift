@@ -23,6 +23,7 @@ final class FormStackView: UIStackView {
         let label = UILabel()
 
         label.font = .systemFont(ofSize: 14)
+        label.textColor = .lightGray
         label.textAlignment = .right
 
         return label
@@ -80,6 +81,7 @@ final class FormStackView: UIStackView {
         guard let text = titleTextView.text else { return }
 
         titleCountLabel.text = "\(text.count)/\(Const.titleTextViewMaxCount)"
+        titleCountLabel.textColor = text.count == Const.titleTextViewMaxCount ? .red : .lightGray
     }
 }
 
@@ -95,5 +97,7 @@ private extension FormStackView {
         [titleTextView, titleCountLabel, doneSwitchView, dailySwitchView, createdDateView].forEach {
             addArrangedSubview($0)
         }
+
+        setCustomSpacing(5, after: titleTextView)
     }
 }

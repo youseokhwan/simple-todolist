@@ -15,6 +15,15 @@ final class FormViewController: UIViewController {
     private let viewModel = FormViewModel()
     private let disposeBag = DisposeBag()
 
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+
+        label.text = Const.formTitleCreateLabelText
+        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.textAlignment = .center
+
+        return label
+    }()
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         let recognizer = UITapGestureRecognizer(target: self,
@@ -25,18 +34,20 @@ final class FormViewController: UIViewController {
         return scrollView
     }()
     private lazy var containerView = UIView()
-    private lazy var saveButton: UIButton = {
-        let button = UIButton()
-        let image = UIImage(named: Const.saveButtonImage)
+    private lazy var stackView = FormStackView()
+    private lazy var saveButton: RoundedButton = {
+        let button = RoundedButton()
 
-        button.setImage(image, for: .normal)
+        button.setImage(type: .form)
+        button.setTitle(type: .form)
 
         return button
     }()
-    private lazy var stackView = FormStackView()
 
     convenience init(task: Task) {
         self.init(nibName: nil, bundle: nil)
+
+        titleLabel.text = Const.formTitleDetailLabelText
 
         viewModel.id.accept(task.id)
         viewModel.title.accept(task.title)
@@ -80,20 +91,13 @@ private extension FormViewController {
         view.backgroundColor = .systemBackground
 
         scrollView.addSubview(containerView)
-        [saveButton, stackView].forEach {
-            containerView.addSubview($0)
+        containerView.addSubview(stackView)
+        [titleLabel, scrollView, saveButton].forEach {
+            view.addSubview($0)
         }
-        view.addSubview(scrollView)
     }
 
     func configureBind() {
-        saveButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                self?.viewModel.saveTask()
-                self?.dismiss(animated: true)
-            })
-            .disposed(by: disposeBag)
-
         stackView.titleRx.text
             .orEmpty
             .observe(on: MainScheduler.asyncInstance)
@@ -118,11 +122,23 @@ private extension FormViewController {
         stackView.dateRx.date
             .bind(to: viewModel.createdDate)
             .disposed(by: disposeBag)
+
+        saveButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.viewModel.saveTask()
+                self?.dismiss(animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 
     func configureConstraints() {
+        titleLabel.snp.makeConstraints { make in
+            make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+        }
+
         scrollView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(titleLabel).offset(25)
+            make.bottom.leading.trailing.equalToSuperview()
         }
 
         containerView.snp.makeConstraints { make in
@@ -130,14 +146,14 @@ private extension FormViewController {
             make.height.equalToSuperview().priority(250)
         }
 
-        saveButton.snp.makeConstraints { make in
-            make.top.trailing.equalToSuperview().inset(20)
-            make.width.height.equalTo(30)
+        stackView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview().inset(20)
         }
 
-        stackView.snp.makeConstraints { make in
-            make.top.equalTo(saveButton.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview().inset(20)
+        saveButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(10)
+            make.leading.trailing.equalToSuperview().inset(22)
+            make.height.equalTo(44)
         }
     }
 }
