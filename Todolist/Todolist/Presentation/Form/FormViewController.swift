@@ -133,8 +133,7 @@ private extension FormViewController {
 
     func configureConstraints() {
         titleLabel.snp.makeConstraints { make in
-            make.top.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
-            make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+            make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
 
         scrollView.snp.makeConstraints { make in
@@ -148,8 +147,7 @@ private extension FormViewController {
         }
 
         stackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
-            make.leading.trailing.equalToSuperview().inset(20)
+            make.top.leading.trailing.equalToSuperview().inset(20)
         }
 
         saveButton.snp.makeConstraints { make in
