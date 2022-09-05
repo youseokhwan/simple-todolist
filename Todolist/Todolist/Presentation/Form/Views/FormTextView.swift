@@ -76,8 +76,8 @@ private extension FormTextView {
 
     func configureConstraints() {
         placeholderLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(8)
-            make.leading.equalToSuperview().inset(5)
+            make.top.equalToSuperview().inset(10.5)
+            make.leading.equalToSuperview().inset(16.5)
         }
     }
 }
