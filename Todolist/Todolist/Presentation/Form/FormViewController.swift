@@ -25,15 +25,15 @@ final class FormViewController: UIViewController {
         return scrollView
     }()
     private lazy var containerView = UIView()
-    private lazy var saveButton: UIButton = {
-        let button = UIButton()
-        let image = UIImage(named: Const.saveButtonImage)
+    private lazy var stackView = FormStackView()
+    private lazy var saveButton: RoundedButton = {
+        let button = RoundedButton()
 
-        button.setImage(image, for: .normal)
+        button.setImage(type: .form)
+        button.setTitle(type: .form)
 
         return button
     }()
-    private lazy var stackView = FormStackView()
 
     convenience init(task: Task) {
         self.init(nibName: nil, bundle: nil)
@@ -80,20 +80,13 @@ private extension FormViewController {
         view.backgroundColor = .systemBackground
 
         scrollView.addSubview(containerView)
-        [saveButton, stackView].forEach {
-            containerView.addSubview($0)
+        containerView.addSubview(stackView)
+        [scrollView, saveButton].forEach {
+            view.addSubview($0)
         }
-        view.addSubview(scrollView)
     }
 
     func configureBind() {
-        saveButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                self?.viewModel.saveTask()
-                self?.dismiss(animated: true)
-            })
-            .disposed(by: disposeBag)
-
         stackView.titleRx.text
             .orEmpty
             .observe(on: MainScheduler.asyncInstance)
@@ -118,6 +111,13 @@ private extension FormViewController {
         stackView.dateRx.date
             .bind(to: viewModel.createdDate)
             .disposed(by: disposeBag)
+
+        saveButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.viewModel.saveTask()
+                self?.dismiss(animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 
     func configureConstraints() {
@@ -130,14 +130,16 @@ private extension FormViewController {
             make.height.equalToSuperview().priority(250)
         }
 
-        saveButton.snp.makeConstraints { make in
-            make.top.trailing.equalToSuperview().inset(20)
-            make.width.height.equalTo(30)
+        stackView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(20)
+            make.leading.trailing.equalToSuperview().inset(20)
         }
 
-        stackView.snp.makeConstraints { make in
-            make.top.equalTo(saveButton.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview().inset(20)
+        saveButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(20)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(10)
+            make.leading.trailing.equalToSuperview().inset(22)
+            make.height.equalTo(44)
         }
     }
 }

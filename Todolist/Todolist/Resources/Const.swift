@@ -25,6 +25,7 @@ enum Const {
     static let doneLabelText = "doneLabelText".localized
     static let dailyLabelText = "dailyLabelText".localized
     static let createdDateLabelText = "createdDateLabelText".localized
+    static let saveButtonTitle = "saveButtonTitle".localized
 
     // Settings
     static let settingsTitle = "settingsTitle".localized

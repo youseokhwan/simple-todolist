@@ -14,6 +14,7 @@
 "doneLabelText" = "done status";
 "dailyLabelText" = "daily routine";
 "createdDateLabelText" = "created date";
+"saveButtonTitle" = "save";
 
 // Settings
 "settingsTitle" = "Settings";

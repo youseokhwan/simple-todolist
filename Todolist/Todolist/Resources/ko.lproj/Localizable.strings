@@ -14,6 +14,7 @@
 "doneLabelText" = "완료 여부";
 "dailyLabelText" = "매일 반복";
 "createdDateLabelText" = "생성일";
+"saveButtonTitle" = "완료";
 
 // Settings
 "settingsTitle" = "설정";
