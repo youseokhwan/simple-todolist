@@ -42,7 +42,9 @@ final class TasksViewModel {
 
     @objc
     func updateTasksAsOfToday() {
-        writeTaskUseCase.updateTasksAsOfToday(tasks: allTasks.value)
+        DispatchQueue.main.async { [weak self] in
+            self?.writeTaskUseCase.updateTasksAsOfToday(tasks: self?.allTasks.value ?? [])
+        }
     }
 }
 
