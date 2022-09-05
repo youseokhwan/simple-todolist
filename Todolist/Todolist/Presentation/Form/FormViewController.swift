@@ -15,6 +15,15 @@ final class FormViewController: UIViewController {
     private let viewModel = FormViewModel()
     private let disposeBag = DisposeBag()
 
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+
+        label.text = Const.formTitleCreateLabelText
+        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.textAlignment = .center
+
+        return label
+    }()
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         let recognizer = UITapGestureRecognizer(target: self,
@@ -37,6 +46,8 @@ final class FormViewController: UIViewController {
 
     convenience init(task: Task) {
         self.init(nibName: nil, bundle: nil)
+
+        titleLabel.text = Const.formTitleDetailLabelText
 
         viewModel.id.accept(task.id)
         viewModel.title.accept(task.title)
@@ -81,7 +92,7 @@ private extension FormViewController {
 
         scrollView.addSubview(containerView)
         containerView.addSubview(stackView)
-        [scrollView, saveButton].forEach {
+        [titleLabel, scrollView, saveButton].forEach {
             view.addSubview($0)
         }
     }
@@ -121,8 +132,14 @@ private extension FormViewController {
     }
 
     func configureConstraints() {
+        titleLabel.snp.makeConstraints { make in
+            make.top.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+        }
+
         scrollView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(titleLabel).offset(20)
+            make.bottom.leading.trailing.equalToSuperview()
         }
 
         containerView.snp.makeConstraints { make in
