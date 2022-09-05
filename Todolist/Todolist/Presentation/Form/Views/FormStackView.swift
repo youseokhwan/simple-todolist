@@ -95,5 +95,7 @@ private extension FormStackView {
         [titleTextView, titleCountLabel, doneSwitchView, dailySwitchView, createdDateView].forEach {
             addArrangedSubview($0)
         }
+
+        setCustomSpacing(5, after: titleTextView)
     }
 }
