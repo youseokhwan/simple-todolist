@@ -13,7 +13,13 @@ import SnapKit
 
 final class FormSwitchView: UIView {
     private lazy var titleLabel = UILabel()
-    private lazy var toggleSwitch = UISwitch()
+    private lazy var toggleSwitch: UISwitch = {
+        let `switch` = UISwitch()
+        
+        `switch`.onTintColor = .systemOrange
+
+        return `switch`
+    }()
 
     var title = "" {
         didSet {
