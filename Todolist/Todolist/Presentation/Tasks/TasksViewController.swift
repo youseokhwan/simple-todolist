@@ -54,11 +54,6 @@ final class TasksViewController: UIViewController {
         super.viewDidLoad()
         configure()
     }
-
-    @objc
-    func sceneWillEnterForeground(notification: Notification) {
-        viewModel.updateTasksAsOfToday()
-    }
 }
 
 private extension TasksViewController {
@@ -78,8 +73,8 @@ private extension TasksViewController {
 
     func configureBind() {
         NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(sceneWillEnterForeground(notification:)),
+            viewModel,
+            selector: #selector(viewModel.updateTasksAsOfToday),
             name: SceneDelegate.sceneWillEnterForeground,
             object: nil
         )
