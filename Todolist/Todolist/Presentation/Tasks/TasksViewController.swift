@@ -53,6 +53,10 @@ final class TasksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+    }
+
+    @objc
+    func sceneWillEnterForeground(notification: Notification) {
         viewModel.updateTasksAsOfToday()
     }
 }
@@ -73,6 +77,13 @@ private extension TasksViewController {
     }
 
     func configureBind() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(sceneWillEnterForeground(notification:)),
+            name: SceneDelegate.sceneWillEnterForeground,
+            object: nil
+        )
+
         settingsButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 let navigationController = SettingsNavigationController()

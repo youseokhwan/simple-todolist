@@ -8,6 +8,8 @@
 import UIKit
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    static let sceneWillEnterForeground = Notification.Name("sceneWillEnterForeground")
+
     var window: UIWindow?
 
     func scene(_ scene: UIScene,
@@ -21,5 +23,11 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.overrideUserInterfaceStyle = UIUserInterfaceStyle(
             rawValue: UserDefaultsRepository.currentAppearance()
         ) ?? .unspecified
+    }
+
+    func sceneWillEnterForeground(_ scene: UIScene) {
+        NotificationCenter.default.post(name: Self.sceneWillEnterForeground,
+                                        object: nil,
+                                        userInfo: nil)
     }
 }
