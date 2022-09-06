@@ -19,7 +19,6 @@ final class SettingsViewModel {
         items = [SettingsSection(title: Const.informationSection,
                                  items: [Const.openSourceLicense,
                                          Const.versionInfomation,
-                                         Const.patchDetails,
                                          Const.contactUs])]
         appearence = BehaviorRelay(value: UserDefaultsRepository.currentAppearance())
         readBundleResourceUseCase = ReadBundleResourceUseCase()
