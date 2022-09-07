@@ -11,4 +11,8 @@ extension String {
     var localized: String {
         return NSLocalizedString(self, tableName: Const.localizable, value: self, comment: "")
     }
+
+    var trimmed: String {
+        return self.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
 }
