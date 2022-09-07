@@ -11,7 +11,7 @@
 
 // Form
 "formTitleCreateLabel" = "Create Task";
-"formTitleDetailLabel" = "Detail";
+"formTitleUpdateLabel" = "Update Task";
 "titleTextViewPlaceholder" = "please input task.";
 "doneLabelText" = "done status";
 "dailyLabelText" = "daily routine";

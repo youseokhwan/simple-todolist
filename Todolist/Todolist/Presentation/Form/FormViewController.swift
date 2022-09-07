@@ -47,7 +47,7 @@ final class FormViewController: UIViewController {
     convenience init(task: Task) {
         self.init(nibName: nil, bundle: nil)
 
-        titleLabel.text = Const.formTitleDetailLabelText
+        titleLabel.text = Const.formTitleUpdateLabelText
 
         viewModel.id.accept(task.id)
         viewModel.title.accept(task.title)
