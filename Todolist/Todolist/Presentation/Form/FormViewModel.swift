@@ -33,13 +33,13 @@ final class FormViewModel {
         guard !title.value.isEmpty else { return }
 
         if id.value == Const.tempIDForNewTask {
-            writeTaskUseCase.createTask(title: title.value,
+            writeTaskUseCase.createTask(title: title.value.trimmed,
                                         isDone: isDone.value,
                                         isDaily: isDaily.value,
                                         createdDate: createdDate.value)
         } else {
             let task = Task(id: id.value,
-                            title: title.value,
+                            title: title.value.trimmed,
                             isDone: isDone.value,
                             isDaily: isDaily.value,
                             createdDate: createdDate.value)
