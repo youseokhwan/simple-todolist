@@ -41,7 +41,7 @@ final class TasksViewController: UIViewController {
 
         return tableView
     }()
-    private lazy var formButton: RoundedButton = {
+    private lazy var addButton: RoundedButton = {
         let button = RoundedButton()
 
         button.setImage(type: .tasks)
@@ -66,7 +66,7 @@ private extension TasksViewController {
     func configureViews() {
         view.backgroundColor = .systemBackground
 
-        [todayLabel, formButton, settingsButton, tableView].forEach {
+        [todayLabel, addButton, settingsButton, tableView].forEach {
             view.addSubview($0)
         }
     }
@@ -113,7 +113,7 @@ private extension TasksViewController {
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
 
-        formButton.rx.tap
+        addButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 let formViewController = FormViewController()
 
@@ -139,7 +139,7 @@ private extension TasksViewController {
             make.leading.trailing.equalToSuperview().inset(22)
         }
 
-        formButton.snp.makeConstraints { make in
+        addButton.snp.makeConstraints { make in
             make.top.equalTo(tableView.snp.bottom).offset(20)
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(10)
             make.leading.trailing.equalToSuperview().inset(22)

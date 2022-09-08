@@ -101,9 +101,7 @@ private extension FormViewController {
         stackView.titleRx.text
             .orEmpty
             .observe(on: MainScheduler.asyncInstance)
-            .scan("") { old, new -> String in
-                return new.count > Const.titleTextViewMaxCount ? old : new
-            }
+            .map { String($0.prefix(Const.titleTextViewMaxCount)) }
             .subscribe(onNext: { [weak self] text in
                 self?.stackView.titleRx.text.onNext(text)
                 self?.stackView.updateCount()
