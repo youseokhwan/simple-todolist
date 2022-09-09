@@ -9,7 +9,7 @@ import Foundation
 
 enum Const {
     // Tasks
-    static let formButtonImage = "plus"
+    static let addButtonImage = "plus"
     static let settingsButtonImage = "user"
     static let checkButtonNormalImage = "circle"
     static let checkButtonSelectedImage = "checked"

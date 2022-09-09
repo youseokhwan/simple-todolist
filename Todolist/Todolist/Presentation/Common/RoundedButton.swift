@@ -15,7 +15,7 @@ final class RoundedButton: UIButton {
         var image: String {
             switch self {
             case .tasks:
-                return Const.formButtonImage
+                return Const.addButtonImage
             case .form:
                 return Const.saveButtonImage
             }
