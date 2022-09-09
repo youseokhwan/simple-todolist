@@ -51,11 +51,4 @@ enum Const {
     static let darkTheme = "darkTheme".localized
     static let cancel = "cancel".localized
     static let emailURL = "mailto:youseokhwan15@gmail.com,folw159@gmail.com"
-
-    // UseCases
-    static let txt = "txt"
-    static let licenseSeparator = "\n\n=====\n\n"
-
-    // Utils
-    static let localizable = "Localizable"
 }
