@@ -7,20 +7,23 @@
 
 import Foundation
 
+enum ButtonImage {
+    static let add = "plus"
+    static let settings = "user"
+    static let doneNormal = "circle"
+    static let doneSelected = "checked"
+    static let edit = "edit"
+    static let delete = "delete"
+    static let save = "done"
+}
+
 enum Const {
     // Tasks
-    static let addButtonImage = "plus"
-    static let settingsButtonImage = "user"
-    static let checkButtonNormalImage = "circle"
-    static let checkButtonSelectedImage = "checked"
-    static let editButtonImage = "edit"
-    static let deleteButtonImage = "delete"
     static let formButtonTitle = "addTask".localized
 
     // Form
     static let formTitleCreateLabelText = "formTitleCreateLabel".localized
     static let formTitleUpdateLabelText = "formTitleUpdateLabel".localized
-    static let saveButtonImage = "done"
     static let titleTextViewPlaceholder = "titleTextViewPlaceholder".localized
     static let doneLabelText = "doneLabelText".localized
     static let dailyLabelText = "dailyLabelText".localized
