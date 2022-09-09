@@ -35,7 +35,7 @@
 		442473D12869B8290059CFCC /* TaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473D02869B8290059CFCC /* TaskRepository.swift */; };
 		442646B92887F98D004C22D8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 442646BB2887F98D004C22D8 /* Localizable.strings */; };
 		442646BE2887FA17004C22D8 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442646BD2887FA17004C22D8 /* String+Extensions.swift */; };
-		442646C228880322004C22D8 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442646C128880322004C22D8 /* Const.swift */; };
+		442646C228880322004C22D8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442646C128880322004C22D8 /* Constants.swift */; };
 		44264708288DB145004C22D8 /* WriteTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44264707288DB145004C22D8 /* WriteTaskUseCase.swift */; };
 		4426470E2892C30A004C22D8 /* SettingsThemeAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426470D2892C30A004C22D8 /* SettingsThemeAlertController.swift */; };
 		4430D39C28BCD21600AD3A1E /* FormDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430D39B28BCD21600AD3A1E /* FormDateView.swift */; };
@@ -86,7 +86,7 @@
 		442646BA2887F98D004C22D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		442646BC2887F9A0004C22D8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		442646BD2887FA17004C22D8 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		442646C128880322004C22D8 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		442646C128880322004C22D8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		44264707288DB145004C22D8 /* WriteTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteTaskUseCase.swift; sourceTree = "<group>"; };
 		4426470D2892C30A004C22D8 /* SettingsThemeAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeAlertController.swift; sourceTree = "<group>"; };
 		4430D39B28BCD21600AD3A1E /* FormDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDateView.swift; sourceTree = "<group>"; };
@@ -327,7 +327,7 @@
 		4444315A28619CFC0004D468 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				442646C128880322004C22D8 /* Const.swift */,
+				442646C128880322004C22D8 /* Constants.swift */,
 				440216D828AB8CA0008930FD /* Licenses */,
 				4444314C285EFB420004D468 /* Assets.xcassets */,
 				44443151285EFB420004D468 /* Info.plist */,
@@ -442,7 +442,7 @@
 				442473C0286589310059CFCC /* FormViewController.swift in Sources */,
 				442473CA2865D1660059CFCC /* Task.swift in Sources */,
 				44264708288DB145004C22D8 /* WriteTaskUseCase.swift in Sources */,
-				442646C228880322004C22D8 /* Const.swift in Sources */,
+				442646C228880322004C22D8 /* Constants.swift in Sources */,
 				442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */,
 				44CDA2E528768BC900E8F0F0 /* UserDefaultsRepository.swift in Sources */,
 				01247D1028BCB99000B22DA3 /* RoundedButton.swift in Sources */,
