@@ -11,6 +11,8 @@ import RxCocoa
 import RxSwift
 
 final class FormStackView: UIStackView {
+    static let titleTextViewMaxCount = 100
+
     private lazy var titleTextView: FormTextView = {
         let textView = FormTextView()
 
@@ -80,8 +82,8 @@ final class FormStackView: UIStackView {
     func updateCount() {
         guard let text = titleTextView.text else { return }
 
-        titleCountLabel.text = "\(text.count)/\(Const.titleTextViewMaxCount)"
-        titleCountLabel.textColor = text.count == Const.titleTextViewMaxCount ? .red : .lightGray
+        titleCountLabel.text = "\(text.count)/\(Self.titleTextViewMaxCount)"
+        titleCountLabel.textColor = text.count == Self.titleTextViewMaxCount ? .red : .lightGray
     }
 }
 
