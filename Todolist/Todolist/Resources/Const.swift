@@ -56,9 +56,6 @@ enum Const {
     static let txt = "txt"
     static let licenseSeparator = "\n\n=====\n\n"
 
-    // Repositories
-    static let minDate = "1900.01.01"
-
     // Utils
     static let localizable = "Localizable"
 }

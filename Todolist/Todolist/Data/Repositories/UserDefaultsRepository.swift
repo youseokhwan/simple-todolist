@@ -8,6 +8,8 @@
 import Foundation
 
 enum UserDefaultsRepository {
+    static let minDate = "1900.01.01"
+
     static func nextTaskID() -> Int {
         let nextID = UserDefaults.standard.integer(forKey: UserDefaultsKey.nextTaskID)
 
@@ -21,7 +23,7 @@ enum UserDefaultsRepository {
     }
 
     static func lastFetchDate() -> String {
-        return UserDefaults.standard.string(forKey: UserDefaultsKey.lastFetchDate) ?? Const.minDate
+        return UserDefaults.standard.string(forKey: UserDefaultsKey.lastFetchDate) ?? Self.minDate
     }
 
     static func saveAppearance(value: Int) {
