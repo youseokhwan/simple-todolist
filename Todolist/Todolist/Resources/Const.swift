@@ -56,12 +56,6 @@ enum Const {
     static let minDate = "1900.01.01"
     static let appearance = "Appearance"
 
-    // Storages
-    static let id = "id"
-    static let title = "title"
-    static let isDaily = "isDaily"
-    static let isDone = "isDone"
-
     // Utils
     static let localizable = "Localizable"
 }
