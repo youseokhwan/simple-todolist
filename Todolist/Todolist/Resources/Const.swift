@@ -20,7 +20,6 @@ enum Const {
     // Form
     static let formTitleCreateLabelText = "formTitleCreateLabel".localized
     static let formTitleUpdateLabelText = "formTitleUpdateLabel".localized
-    static let tempIDForNewTask = -1
     static let saveButtonImage = "done"
     static let titleTextViewMaxCount = 100
     static let titleTextViewPlaceholder = "titleTextViewPlaceholder".localized
