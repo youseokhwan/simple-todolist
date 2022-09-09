@@ -17,6 +17,12 @@ enum ButtonImage {
     static let save = "done"
 }
 
+enum UserDefaultsKey {
+    static let nextTaskID = "nextTaskID"
+    static let lastFetchDate = "lastFetchDate"
+    static let appearance = "appearance"
+}
+
 enum Const {
     // Tasks
     static let formButtonTitle = "addTask".localized
@@ -51,10 +57,7 @@ enum Const {
     static let licenseSeparator = "\n\n=====\n\n"
 
     // Repositories
-    static let nextTaskID = "nextTaskID"
-    static let lastFetchDate = "lastFetchDate"
     static let minDate = "1900.01.01"
-    static let appearance = "Appearance"
 
     // Utils
     static let localizable = "Localizable"
