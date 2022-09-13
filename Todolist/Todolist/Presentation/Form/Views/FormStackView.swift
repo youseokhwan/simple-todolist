@@ -16,6 +16,7 @@ final class FormStackView: UIStackView {
 
         textView.placeholder = Const.titleTextViewPlaceholder
         textView.font = .systemFont(ofSize: 18)
+        textView.textContainer.maximumNumberOfLines = 4
 
         return textView
     }()
