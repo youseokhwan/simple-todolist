@@ -80,16 +80,16 @@ private extension FormTextView {
                 let lineCount = (Int(contentHeight) - 20) / lineHeight
 
                 if lineCount > 4 {
-                    self?.snp.remakeConstraints({ make in
+                    self?.snp.remakeConstraints { make in
                         make.height.equalTo(self?.heightForLimit ?? 0)
-                    })
+                    }
                 } else {
                     if lineCount == 4 {
                         self?.heightForLimit = contentHeight
                     }
-                    self?.snp.remakeConstraints({ make in
+                    self?.snp.remakeConstraints { make in
                         make.height.equalTo(contentHeight)
-                    })
+                    }
                 }
             })
             .disposed(by: disposeBag)
