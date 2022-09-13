@@ -2,7 +2,47 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>TestString</key>
-	<string>&quot;테스트 스트링!!&quot;</string>
+	<key>addButtonTitle</key>
+	<string>&quot;할 일 추가&quot;</string>
+	<key>formTitleAtCreation</key>
+	<string>&quot;할 일 추가&quot;</string>
+	<key>formTitleAtModification</key>
+	<string>&quot;할 일 수정&quot;</string>
+	<key>formTextViewPlaceholder</key>
+	<string>&quot;할 일을 입력하세요.&quot;</string>
+	<key>doneLabelText</key>
+	<string>&quot;완료 여부&quot;</string>
+	<key>dailyLabelText</key>
+	<string>&quot;매일 반복&quot;</string>
+	<key>createdDateLabelText</key>
+	<string>&quot;생성일&quot;</string>
+	<key>saveButtonTitle</key>
+	<string>&quot;완료&quot;</string>
+	<key>settingsTitle</key>
+	<string>&quot;설정&quot;</string>
+	<key>appSettingsSectionTitle</key>
+	<string>&quot;앱 설정&quot;</string>
+	<key>themeSettingsItemTitle</key>
+	<string>테마 설정</string>
+	<key>infomationSectionTitle</key>
+	<string>앱 정보</string>
+	<key>licenseItemTitle</key>
+	<string>오픈소스 라이선스</string>
+	<key>versionItemTitle</key>
+	<string>버전 정보</string>
+	<key>patchDetailsItemTitle</key>
+	<string>수정사항</string>
+	<key>contactUsItemTitle</key>
+	<string>Contact Us</string>
+	<key>themeMenuTitle</key>
+	<string>테마를 선택해 주세요</string>
+	<key>systemThemeText</key>
+	<string>디바이스 설정에 따름</string>
+	<key>lightThemeText</key>
+	<string>라이트 모드 적용</string>
+	<key>darkThemeText</key>
+	<string>다크 모드 적용</string>
+	<key>cancelText</key>
+	<string>취소</string>
 </dict>
 </plist>
