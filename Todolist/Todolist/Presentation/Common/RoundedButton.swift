@@ -23,9 +23,9 @@ final class RoundedButton: UIButton {
         var title: String {
             switch self {
             case .tasks:
-                return Const.formButtonTitle
+                return ButtonTitle.addButton.rawValue
             case .form:
-                return Const.saveButtonTitle
+                return ButtonTitle.saveButton.rawValue
             }
         }
     }

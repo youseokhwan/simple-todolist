@@ -15,6 +15,21 @@ enum ButtonImage: String {
     case save
 }
 
+enum ButtonTitle: String {
+    case addButton = "할 일 추가"
+    case saveButton = "완료"
+}
+
+enum LabelText: String {
+    case formTitleAtCreation = "할 일 추가"
+    case formTitleAtModification = "할 일 수정"
+    case formTextViewPlaceholder = "할 일을 입력하세요"
+    case isDone = "완료 여부"
+    case isDaily = "매일 반복"
+    case createdDate = "생성일"
+    case settings = "설정"
+}
+
 enum UserDefaultsKey: String {
     case nextTaskID
     case lastFetchDate
@@ -23,16 +38,16 @@ enum UserDefaultsKey: String {
 
 enum Const {
     // Tasks
-    static let formButtonTitle = "addTask".localized
+//    static let formButtonTitle = "addTask".localized
 
     // Form
-    static let formTitleCreateLabelText = "formTitleCreateLabel".localized
-    static let formTitleUpdateLabelText = "formTitleUpdateLabel".localized
-    static let titleTextViewPlaceholder = "titleTextViewPlaceholder".localized
-    static let doneLabelText = "doneLabelText".localized
-    static let dailyLabelText = "dailyLabelText".localized
-    static let createdDateLabelText = "createdDateLabelText".localized
-    static let saveButtonTitle = "saveButtonTitle".localized
+//    static let formTitleCreateLabelText = "formTitleCreateLabel".localized
+//    static let formTitleUpdateLabelText = "formTitleUpdateLabel".localized
+//    static let titleTextViewPlaceholder = "titleTextViewPlaceholder".localized
+//    static let doneLabelText = "doneLabelText".localized
+//    static let dailyLabelText = "dailyLabelText".localized
+//    static let createdDateLabelText = "createdDateLabelText".localized
+//    static let saveButtonTitle = "saveButtonTitle".localized
 
     // Settings
     static let settingsTitle = "settingsTitle".localized
