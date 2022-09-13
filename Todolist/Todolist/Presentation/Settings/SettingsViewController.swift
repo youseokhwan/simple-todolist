@@ -36,7 +36,7 @@ final class SettingsViewController: UIViewController {
     private lazy var themeLabel: UILabel = {
         let label = UILabel()
 
-        label.text = Const.lightTheme
+        label.text = SettingsText.lightThemeItem.rawValue
         label.sizeToFit()
 
         return label
@@ -57,9 +57,9 @@ final class SettingsViewController: UIViewController {
                     for: indexPath
                 ) as? SettingsTableViewCell else { return UITableViewCell() }
 
-                if item == Const.themeSettings {
+                if item == SettingsText.themeItem.rawValue {
                     cell.accessoryView = self?.themeLabel
-                } else if item == Const.versionInfomation {
+                } else if item == SettingsText.versionItem.rawValue {
                     cell.accessoryView = self?.versionLabel
                 }
 
@@ -82,7 +82,7 @@ final class SettingsViewController: UIViewController {
     }
 
     private func openMailApp() {
-        if let url = URL(string: Const.emailURL) {
+        if let url = URL(string: SettingsText.emailURL.rawValue) {
             if UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
@@ -100,7 +100,7 @@ private extension SettingsViewController {
     func configureViews() {
         view.backgroundColor = .systemBackground
 
-        navigationItem.title = Const.settingsTitle
+        navigationItem.title = LabelText.settings.rawValue
         navigationItem.rightBarButtonItem = doneBarButtonItem
 
         versionLabel.text = viewModel.appVersionText()
@@ -134,9 +134,9 @@ private extension SettingsViewController {
                 let title = self?.viewModel.items[indexPath.section].items[indexPath.row]
                 let viewController = SettingsLicenseViewController()
 
-                if title == Const.openSourceLicense {
+                if title == SettingsText.licenseItem.rawValue {
                     self?.navigationController?.pushViewController(viewController, animated: true)
-                } else if title == Const.contactUs {
+                } else if title == SettingsText.contactUsItem.rawValue {
                     self?.openMailApp()
                 }
             })

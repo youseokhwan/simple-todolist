@@ -46,7 +46,9 @@ private extension SettingsThemeMenuButton {
                 }
             }
 
-            menu = UIMenu(title: Const.themeMenuTitle, options: .displayInline, children: children)
+            menu = UIMenu(title: SettingsText.themeMenuTitle.rawValue,
+                          options: .displayInline,
+                          children: children)
             showsMenuAsPrimaryAction = true
         }
     }
