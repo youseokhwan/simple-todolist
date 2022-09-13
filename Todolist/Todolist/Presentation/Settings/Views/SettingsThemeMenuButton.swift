@@ -9,7 +9,9 @@ import UIKit
 
 final class SettingsThemeMenuButton: UIButton {
     var themes: [String] {
-        [Const.systemTheme, Const.lightTheme, Const.darkTheme]
+        [SettingsText.systemThemeItem.rawValue,
+         SettingsText.lightThemeItem.rawValue,
+         SettingsText.darkThemeItem.rawValue]
     }
 
     convenience init() {
