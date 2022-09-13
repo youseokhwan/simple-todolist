@@ -24,16 +24,6 @@ final class FormViewController: UIViewController {
 
         return label
     }()
-    private lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        let recognizer = UITapGestureRecognizer(target: self,
-                                                action: #selector(tappedOutsideOfKeyboard(_:)))
-
-        scrollView.addGestureRecognizer(recognizer)
-
-        return scrollView
-    }()
-    private lazy var containerView = UIView()
     private lazy var stackView = FormStackView()
     private lazy var saveButton: RoundedButton = {
         let button = RoundedButton()
@@ -88,11 +78,13 @@ private extension FormViewController {
     }
 
     func configureViews() {
-        view.backgroundColor = .systemBackground
+        let recognizer = UITapGestureRecognizer(target: self,
+                                                action: #selector(tappedOutsideOfKeyboard(_:)))
 
-        scrollView.addSubview(containerView)
-        containerView.addSubview(stackView)
-        [titleLabel, scrollView, saveButton].forEach {
+        view.backgroundColor = .systemBackground
+        view.addGestureRecognizer(recognizer)
+
+        [titleLabel, stackView, saveButton].forEach {
             view.addSubview($0)
         }
     }
@@ -134,23 +126,12 @@ private extension FormViewController {
             make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
 
-        scrollView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview()
-        }
-
-        containerView.snp.makeConstraints { make in
-            make.edges.width.equalToSuperview()
-            make.height.equalToSuperview().priority(250)
-        }
-
         stackView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
+            make.top.equalTo(titleLabel.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(20)
         }
 
         saveButton.snp.makeConstraints { make in
-            make.top.equalTo(scrollView.snp.bottom).offset(20)
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(10)
             make.leading.trailing.equalToSuperview().inset(22)
             make.height.equalTo(44)
