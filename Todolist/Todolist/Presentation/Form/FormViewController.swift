@@ -135,8 +135,8 @@ private extension FormViewController {
         }
 
         scrollView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel).offset(25)
-            make.bottom.leading.trailing.equalToSuperview()
+            make.top.equalTo(titleLabel.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview()
         }
 
         containerView.snp.makeConstraints { make in
@@ -145,10 +145,12 @@ private extension FormViewController {
         }
 
         stackView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview().inset(20)
+            make.top.bottom.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(20)
         }
 
         saveButton.snp.makeConstraints { make in
+            make.top.equalTo(scrollView.snp.bottom).offset(20)
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(10)
             make.leading.trailing.equalToSuperview().inset(22)
             make.height.equalTo(44)
