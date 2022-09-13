@@ -13,6 +13,7 @@ import SnapKit
 
 final class FormTextView: UITextView {
     private let disposeBag = DisposeBag()
+    private var heightForLimit: CGFloat = 0
 
     private lazy var placeholderLabel: UILabel = {
         let label = UILabel()
@@ -54,7 +55,6 @@ private extension FormTextView {
     }
 
     func configureViews() {
-        isScrollEnabled = false
         textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         layer.backgroundColor = UIColor(red: 238.0/255.0,
                                         green: 238.0/255.0,
@@ -72,12 +72,37 @@ private extension FormTextView {
                 self?.placeholderLabel.isHidden = !text.isEmpty
             })
             .disposed(by: disposeBag)
+
+        rx.didChange
+            .subscribe(onNext: { [weak self] in
+                let contentHeight = self?.contentSize.height ?? 1
+                let lineHeight = Int(self?.font?.lineHeight ?? 1)
+                let lineCount = (Int(contentHeight) - 20) / lineHeight
+
+                if lineCount > 4 {
+                    self?.snp.remakeConstraints({ make in
+                        make.height.equalTo(self?.heightForLimit ?? 0)
+                    })
+                } else {
+                    if lineCount == 4 {
+                        self?.heightForLimit = contentHeight
+                    }
+                    self?.snp.remakeConstraints({ make in
+                        make.height.equalTo(contentHeight)
+                    })
+                }
+            })
+            .disposed(by: disposeBag)
     }
 
     func configureConstraints() {
         placeholderLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(10.5)
             make.leading.equalToSuperview().inset(16.5)
+        }
+
+        snp.makeConstraints { make in
+            make.height.equalTo(42)
         }
     }
 }
