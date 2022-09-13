@@ -39,7 +39,6 @@
 		44264708288DB145004C22D8 /* WriteTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44264707288DB145004C22D8 /* WriteTaskUseCase.swift */; };
 		4426470E2892C30A004C22D8 /* SettingsThemeAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426470D2892C30A004C22D8 /* SettingsThemeAlertController.swift */; };
 		4430D39C28BCD21600AD3A1E /* FormDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430D39B28BCD21600AD3A1E /* FormDateView.swift */; };
-		4430D3A228CB9ACC00AD3A1E /* Text.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4430D3A128CB9ACC00AD3A1E /* Text.plist */; };
 		44443144285EFB400004D468 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443143285EFB400004D468 /* AppDelegate.swift */; };
 		44443146285EFB400004D468 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443145285EFB400004D468 /* SceneDelegate.swift */; };
 		4444314D285EFB420004D468 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4444314C285EFB420004D468 /* Assets.xcassets */; };
@@ -91,7 +90,6 @@
 		44264707288DB145004C22D8 /* WriteTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteTaskUseCase.swift; sourceTree = "<group>"; };
 		4426470D2892C30A004C22D8 /* SettingsThemeAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeAlertController.swift; sourceTree = "<group>"; };
 		4430D39B28BCD21600AD3A1E /* FormDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDateView.swift; sourceTree = "<group>"; };
-		4430D3A128CB9ACC00AD3A1E /* Text.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Text.plist; sourceTree = "<group>"; };
 		44443140285EFB400004D468 /* Todolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todolist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44443143285EFB400004D468 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44443145285EFB400004D468 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -330,7 +328,6 @@
 			isa = PBXGroup;
 			children = (
 				442646C128880322004C22D8 /* Constants.swift */,
-				4430D3A128CB9ACC00AD3A1E /* Text.plist */,
 				440216D828AB8CA0008930FD /* Licenses */,
 				4444314C285EFB420004D468 /* Assets.xcassets */,
 				44443151285EFB420004D468 /* Info.plist */,
@@ -429,7 +426,6 @@
 				44443150285EFB420004D468 /* LaunchScreen.storyboard in Resources */,
 				440216E128AB8E65008930FD /* SnapKit.txt in Resources */,
 				442646B92887F98D004C22D8 /* Localizable.strings in Resources */,
-				4430D3A228CB9ACC00AD3A1E /* Text.plist in Resources */,
 				4444314D285EFB420004D468 /* Assets.xcassets in Resources */,
 				440216E328AB8E65008930FD /* RxSwift.txt in Resources */,
 				440216E428AB8E65008930FD /* RxDataSources.txt in Resources */,
