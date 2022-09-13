@@ -5,20 +5,20 @@
 //  Created by 유석환 on 2022/07/20.
 //
 
-enum ButtonImage {
-    static let add = "plus"
-    static let settings = "user"
-    static let doneNormal = "circle"
-    static let doneSelected = "checked"
-    static let edit = "edit"
-    static let delete = "delete"
-    static let save = "done"
+enum ButtonImage: String {
+    case add
+    case settings
+    case doneNormal
+    case doneSelected
+    case edit
+    case delete
+    case save
 }
 
-enum UserDefaultsKey {
-    static let nextTaskID = "nextTaskID"
-    static let lastFetchDate = "lastFetchDate"
-    static let appearance = "appearance"
+enum UserDefaultsKey: String {
+    case nextTaskID
+    case lastFetchDate
+    case appearance
 }
 
 enum Const {
