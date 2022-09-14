@@ -11,6 +11,8 @@ import RxRelay
 import RxSwift
 
 final class FormViewModel {
+    static let tempIDForNewTask = -1
+
     private let writeTaskUseCase: WriteTaskUseCase
 
     let id: BehaviorRelay<Int>
@@ -22,7 +24,7 @@ final class FormViewModel {
     init() {
         writeTaskUseCase = WriteTaskUseCase()
 
-        id = BehaviorRelay(value: Const.tempIDForNewTask)
+        id = BehaviorRelay(value: Self.tempIDForNewTask)
         title = BehaviorRelay(value: "")
         isDone = BehaviorRelay(value: false)
         isDaily = BehaviorRelay(value: false)
@@ -32,7 +34,7 @@ final class FormViewModel {
     func saveTask() {
         guard !title.value.isEmpty else { return }
 
-        if id.value == Const.tempIDForNewTask {
+        if id.value == Self.tempIDForNewTask {
             writeTaskUseCase.createTask(title: title.value.trimmed,
                                         isDone: isDone.value,
                                         isDaily: isDaily.value,

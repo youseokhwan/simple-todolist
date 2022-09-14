@@ -8,27 +8,29 @@
 import Foundation
 
 enum UserDefaultsRepository {
-    static func nextTaskID() -> Int {
-        let nextID = UserDefaults.standard.integer(forKey: Const.nextTaskID)
+    static let minDate = "1900.01.01"
 
-        UserDefaults.standard.set(nextID + 1, forKey: Const.nextTaskID)
+    static func nextTaskID() -> Int {
+        let nextID = UserDefaults.standard.integer(forKey: UserDefaultsKey.nextTaskID.rawValue)
+
+        UserDefaults.standard.set(nextID + 1, forKey: UserDefaultsKey.nextTaskID.rawValue)
 
         return nextID
     }
 
     static func saveLastFetchDate(value: String) {
-        UserDefaults.standard.set(value, forKey: Const.lastFetchDate)
+        UserDefaults.standard.set(value, forKey: UserDefaultsKey.lastFetchDate.rawValue)
     }
 
     static func lastFetchDate() -> String {
-        return UserDefaults.standard.string(forKey: Const.lastFetchDate) ?? Const.minDate
+        return UserDefaults.standard.string(forKey: UserDefaultsKey.lastFetchDate.rawValue) ?? Self.minDate
     }
 
     static func saveAppearance(value: Int) {
-        UserDefaults.standard.set(value, forKey: Const.appearance)
+        UserDefaults.standard.set(value, forKey: UserDefaultsKey.appearance.rawValue)
     }
 
     static func currentAppearance() -> Int {
-        return UserDefaults.standard.integer(forKey: Const.appearance)
+        return UserDefaults.standard.integer(forKey: UserDefaultsKey.appearance.rawValue)
     }
 }

@@ -18,7 +18,7 @@ final class FormViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
 
-        label.text = Const.formTitleCreateLabelText
+        label.text = LabelText.formTitleAtCreation.rawValue
         label.font = .systemFont(ofSize: 20, weight: .bold)
         label.textAlignment = .center
 
@@ -47,7 +47,7 @@ final class FormViewController: UIViewController {
     convenience init(task: Task) {
         self.init(nibName: nil, bundle: nil)
 
-        titleLabel.text = Const.formTitleUpdateLabelText
+        titleLabel.text = LabelText.formTitleAtModification.rawValue
 
         viewModel.id.accept(task.id)
         viewModel.title.accept(task.title)
@@ -69,7 +69,7 @@ final class FormViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if viewModel.id.value == Const.tempIDForNewTask {
+        if viewModel.id.value == FormViewModel.tempIDForNewTask {
             stackView.showKeyboard()
         }
     }
@@ -101,7 +101,7 @@ private extension FormViewController {
         stackView.titleRx.text
             .orEmpty
             .observe(on: MainScheduler.asyncInstance)
-            .map { String($0.prefix(Const.titleTextViewMaxCount)) }
+            .map { String($0.prefix(FormStackView.titleTextViewMaxCount)) }
             .subscribe(onNext: { [weak self] text in
                 self?.stackView.titleRx.text.onNext(text)
                 self?.stackView.updateCount()

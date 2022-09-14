@@ -15,17 +15,17 @@ final class RoundedButton: UIButton {
         var image: String {
             switch self {
             case .tasks:
-                return Const.formButtonImage
+                return ButtonImage.add.rawValue
             case .form:
-                return Const.saveButtonImage
+                return ButtonImage.save.rawValue
             }
         }
         var title: String {
             switch self {
             case .tasks:
-                return Const.formButtonTitle
+                return ButtonTitle.addButton.rawValue
             case .form:
-                return Const.saveButtonTitle
+                return ButtonTitle.saveButton.rawValue
             }
         }
     }
