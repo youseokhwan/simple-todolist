@@ -63,7 +63,6 @@ private extension FormDateView {
         datePicker.snp.makeConstraints { make in
             make.centerY.height.equalToSuperview()
             make.leading.equalTo(titleLabel.snp.trailing).offset(20)
-            make.width.equalTo(80)
         }
     }
 }
