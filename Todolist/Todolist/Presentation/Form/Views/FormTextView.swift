@@ -12,7 +12,7 @@ import RxSwift
 import SnapKit
 
 final class FormTextView: UITextView {
-    private static let maxLine = 4
+    private static let maxLineCount = 4
 
     private let disposeBag = DisposeBag()
     private var heightForLimit: CGFloat = 0
@@ -57,6 +57,7 @@ private extension FormTextView {
     }
 
     func configureViews() {
+        isScrollEnabled = false
         textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         layer.backgroundColor = UIColor(red: 238.0/255.0,
                                         green: 238.0/255.0,
@@ -77,21 +78,18 @@ private extension FormTextView {
 
         rx.didChange
             .subscribe(onNext: { [weak self] in
-                let contentHeight = self?.contentSize.height ?? 1
-                let lineHeight = Int(self?.font?.lineHeight ?? 1)
-                let lineCount = (Int(contentHeight) - 20) / lineHeight
+                guard let self = self,
+                      let lineHeight = self.font?.lineHeight else { return }
 
-                if lineCount > Self.maxLine {
-                    self?.snp.remakeConstraints { make in
-                        make.height.equalTo(self?.heightForLimit ?? 0)
-                    }
-                } else {
-                    if lineCount == Self.maxLine {
-                        self?.heightForLimit = contentHeight
-                    }
-                    self?.snp.remakeConstraints { make in
-                        make.height.equalTo(contentHeight)
-                    }
+                let verticalInset = self.textContainerInset.top + self.textContainerInset.bottom
+                let maxHeight = lineHeight * CGFloat(Self.maxLineCount) + verticalInset
+                let size = CGSize(width: self.frame.width, height: .infinity)
+                let estimatedSize = self.sizeThatFits(size)
+                let numberOfLine = Int(estimatedSize.height / lineHeight)
+
+                self.isScrollEnabled = numberOfLine > Self.maxLineCount
+                self.snp.remakeConstraints { make in
+                    make.height.equalTo(min(estimatedSize.height, maxHeight))
                 }
             })
             .disposed(by: disposeBag)
@@ -101,10 +99,6 @@ private extension FormTextView {
         placeholderLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(10.5)
             make.leading.equalToSuperview().inset(16.5)
-        }
-
-        snp.makeConstraints { make in
-            make.height.equalTo(42)
         }
     }
 }
