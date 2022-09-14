@@ -12,6 +12,8 @@ import RxSwift
 import SnapKit
 
 final class FormTextView: UITextView {
+    private static let maxLine = 4
+
     private let disposeBag = DisposeBag()
     private var heightForLimit: CGFloat = 0
 
@@ -79,12 +81,12 @@ private extension FormTextView {
                 let lineHeight = Int(self?.font?.lineHeight ?? 1)
                 let lineCount = (Int(contentHeight) - 20) / lineHeight
 
-                if lineCount > 4 {
+                if lineCount > Self.maxLine {
                     self?.snp.remakeConstraints { make in
                         make.height.equalTo(self?.heightForLimit ?? 0)
                     }
                 } else {
-                    if lineCount == 4 {
+                    if lineCount == Self.maxLine {
                         self?.heightForLimit = contentHeight
                     }
                     self?.snp.remakeConstraints { make in
