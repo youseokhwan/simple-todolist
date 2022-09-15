@@ -12,6 +12,8 @@ import RxSwift
 import SnapKit
 
 final class FormTextView: UITextView {
+    private static let maxLineCount = 4
+
     private let disposeBag = DisposeBag()
 
     private lazy var placeholderLabel: UILabel = {
@@ -70,6 +72,24 @@ private extension FormTextView {
             .observe(on: MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self] text in
                 self?.placeholderLabel.isHidden = !text.isEmpty
+            })
+            .disposed(by: disposeBag)
+
+        rx.didChange
+            .subscribe(onNext: { [weak self] in
+                guard let self = self,
+                      let lineHeight = self.font?.lineHeight else { return }
+
+                let verticalInset = self.textContainerInset.top + self.textContainerInset.bottom
+                let maxHeight = lineHeight * CGFloat(Self.maxLineCount) + verticalInset
+                let size = CGSize(width: self.frame.width, height: .infinity)
+                let estimatedSize = self.sizeThatFits(size)
+                let numberOfLine = Int(estimatedSize.height / lineHeight)
+
+                self.isScrollEnabled = numberOfLine > Self.maxLineCount
+                self.snp.remakeConstraints { make in
+                    make.height.equalTo(min(estimatedSize.height, maxHeight))
+                }
             })
             .disposed(by: disposeBag)
     }
