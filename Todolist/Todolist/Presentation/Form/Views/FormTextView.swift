@@ -15,7 +15,6 @@ final class FormTextView: UITextView {
     private static let maxLineCount = 4
 
     private let disposeBag = DisposeBag()
-    private var heightForLimit: CGFloat = 0
 
     private lazy var placeholderLabel: UILabel = {
         let label = UILabel()
