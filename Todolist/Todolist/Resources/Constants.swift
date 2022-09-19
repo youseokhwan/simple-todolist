@@ -6,12 +6,10 @@
 //
 
 enum ButtonImage: String {
-    case add
     case settings
     case doneNormal
     case doneSelected
     case delete
-    case save
 }
 
 enum ButtonTitle: String {

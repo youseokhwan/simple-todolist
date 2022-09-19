@@ -12,14 +12,6 @@ final class RoundedButton: UIButton {
         case tasks
         case form
 
-        var image: String {
-            switch self {
-            case .tasks:
-                return ButtonImage.add.rawValue
-            case .form:
-                return ButtonImage.save.rawValue
-            }
-        }
         var title: String {
             switch self {
             case .tasks:
@@ -38,12 +30,6 @@ final class RoundedButton: UIButton {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configure()
-    }
-
-    func setImage(type: ButtonType) {
-        let image = UIImage(named: type.image)?.resizedImage(size: CGSize(width: 30, height: 30))
-
-        setImage(image, for: .normal)
     }
 
     func setTitle(type: ButtonType) {
