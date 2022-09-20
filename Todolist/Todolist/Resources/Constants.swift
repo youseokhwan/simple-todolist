@@ -20,7 +20,7 @@ enum ButtonTitle: String {
 enum ColorSet: String {
     case background
     case buttonTitle
-    case subBackground
+    case secondaryBackground
     case text
 }
 

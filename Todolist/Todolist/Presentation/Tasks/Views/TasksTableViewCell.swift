@@ -64,7 +64,7 @@ private extension TasksTableViewCell {
         selectionStyle = .none
         backgroundColor = UIColor(named: ColorSet.background.rawValue)
 
-        contentView.backgroundColor = UIColor(named: ColorSet.subBackground.rawValue)
+        contentView.backgroundColor = UIColor(named: ColorSet.secondaryBackground.rawValue)
         contentView.layer.cornerRadius = 10
 
         [doneButton, titleLabel].forEach {

@@ -58,7 +58,7 @@ private extension FormTextView {
     func configureViews() {
         isScrollEnabled = false
         textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        backgroundColor = UIColor(named: ColorSet.subBackground.rawValue)
+        backgroundColor = UIColor(named: ColorSet.secondaryBackground.rawValue)
         layer.cornerRadius = 10
         addSubview(placeholderLabel)
     }

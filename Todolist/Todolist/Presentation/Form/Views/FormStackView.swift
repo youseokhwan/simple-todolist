@@ -25,7 +25,7 @@ final class FormStackView: UIStackView {
         let label = UILabel()
 
         label.font = .systemFont(ofSize: 14)
-        label.textColor = UIColor(named: ColorSet.subBackground.rawValue)
+        label.textColor = UIColor(named: ColorSet.secondaryBackground.rawValue)
         label.textAlignment = .right
 
         return label
