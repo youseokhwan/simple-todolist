@@ -22,6 +22,7 @@ enum ColorSet: String {
     case buttonTitle
     case secondaryBackground
     case text
+    case secondaryText
 }
 
 enum LabelText: String {

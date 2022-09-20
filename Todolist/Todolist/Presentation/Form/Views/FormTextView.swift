@@ -19,7 +19,7 @@ final class FormTextView: UITextView {
     private lazy var placeholderLabel: UILabel = {
         let label = UILabel()
 
-        label.textColor = .lightGray
+        label.textColor = UIColor(named: ColorSet.secondaryText.rawValue)
         label.sizeToFit()
 
         return label
