@@ -17,6 +17,12 @@ enum ButtonTitle: String {
     case saveButton = "완료"
 }
 
+enum ColorSet: String {
+    case background
+    case subBackground
+    case text
+}
+
 enum LabelText: String {
     case formTitleAtCreation = "할 일 추가"
     case formTitleAtModification = "할 일 수정"

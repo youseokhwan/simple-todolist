@@ -20,6 +20,7 @@ final class TasksViewController: UIViewController {
 
         label.text = Date.monthDayWeekday
         label.font = .systemFont(ofSize: 22, weight: .bold)
+        label.textColor = UIColor(named: ColorSet.text.rawValue)
 
         return label
     }()
@@ -34,6 +35,7 @@ final class TasksViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
 
+        tableView.backgroundColor = UIColor(named: ColorSet.background.rawValue)
         tableView.register(TasksTableViewCell.self,
                            forCellReuseIdentifier: TasksTableViewCell.identifier)
         tableView.rowHeight = 80
@@ -63,7 +65,7 @@ private extension TasksViewController {
     }
 
     func configureViews() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor(named: ColorSet.background.rawValue)
 
         [todayLabel, addButton, settingsButton, tableView].forEach {
             view.addSubview($0)
