@@ -43,7 +43,6 @@ private extension RoundedButton {
     }
 
     func configureViews() {
-        layer.cornerRadius = 10
         contentHorizontalAlignment = .center
         setTitleColor(UIColor.black, for: .normal)
     }
