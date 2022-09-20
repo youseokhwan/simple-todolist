@@ -32,6 +32,11 @@ final class RoundedButton: UIButton {
         configure()
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        addGradientLayer(colors: [UIColor.systemTeal.cgColor, UIColor.systemPurple.cgColor])
+    }
+
     func setTitle(type: ButtonType) {
         setTitle(type.title, for: .normal)
     }
@@ -44,6 +49,6 @@ private extension RoundedButton {
 
     func configureViews() {
         contentHorizontalAlignment = .center
-        setTitleColor(UIColor.black, for: .normal)
+        setTitleColor(UIColor(named: ColorSet.text.rawValue), for: .normal)
     }
 }
