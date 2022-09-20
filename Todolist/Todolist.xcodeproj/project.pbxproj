@@ -15,6 +15,7 @@
 		0193D2C628B5D9E400F929DC /* FormTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D2C528B5D9E400F929DC /* FormTextView.swift */; };
 		019EE54F28742F9F00804889 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EE54E28742F9F00804889 /* Date+Extensions.swift */; };
 		01B4BE0328882884004CE987 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */; };
+		01BB265628D9727F00F78D82 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BB265528D9727F00F78D82 /* UIView+Extensions.swift */; };
 		01EF8628287BECDD005F037A /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF8627287BECDD005F037A /* SettingsSection.swift */; };
 		01EF8650287DAD1B005F037A /* ReadTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF864F287DAD1B005F037A /* ReadTaskUseCase.swift */; };
 		440216CC28A3B959008930FD /* RxRealm in Frameworks */ = {isa = PBXBuildFile; productRef = 440216CB28A3B959008930FD /* RxRealm */; };
@@ -65,6 +66,7 @@
 		0193D2C528B5D9E400F929DC /* FormTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextView.swift; sourceTree = "<group>"; };
 		019EE54E28742F9F00804889 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		01B4BE0228882884004CE987 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		01BB265528D9727F00F78D82 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		01EF8627287BECDD005F037A /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
 		01EF864F287DAD1B005F037A /* ReadTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadTaskUseCase.swift; sourceTree = "<group>"; };
 		440216CF28AB847D008930FD /* SettingsLicenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLicenseViewModel.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				019EE54E28742F9F00804889 /* Date+Extensions.swift */,
 				44B90CAA289A487D00B4BADD /* UILabel+Extensions.swift */,
 				449678E428B129B40029951B /* UIImage+Extensions.swift */,
+				01BB265528D9727F00F78D82 /* UIView+Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				442646C228880322004C22D8 /* Constants.swift in Sources */,
 				442473BC2865874D0059CFCC /* TasksViewController.swift in Sources */,
 				44CDA2E528768BC900E8F0F0 /* UserDefaultsRepository.swift in Sources */,
+				01BB265628D9727F00F78D82 /* UIView+Extensions.swift in Sources */,
 				01247D1028BCB99000B22DA3 /* RoundedButton.swift in Sources */,
 				01EF8650287DAD1B005F037A /* ReadTaskUseCase.swift in Sources */,
 				44CDA2BE28731F3400E8F0F0 /* FormSwitchView.swift in Sources */,
