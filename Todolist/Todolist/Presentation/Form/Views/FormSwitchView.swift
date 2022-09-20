@@ -12,12 +12,18 @@ import RxSwift
 import SnapKit
 
 final class FormSwitchView: UIView {
-    private lazy var titleLabel = UILabel()
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+
+        label.textColor = UIColor(named: ColorSet.text.rawValue)
+
+        return label
+    }()
     private lazy var toggleSwitch: UISwitch = {
         let `switch` = UISwitch()
         
-        `switch`.onTintColor = .systemOrange
-
+        `switch`.onTintColor = .systemTeal
+        
         return `switch`
     }()
 
