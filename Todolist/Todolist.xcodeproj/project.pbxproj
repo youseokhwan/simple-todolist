@@ -43,6 +43,7 @@
 		4444314D285EFB420004D468 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4444314C285EFB420004D468 /* Assets.xcassets */; };
 		44443150285EFB420004D468 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4444314E285EFB420004D468 /* LaunchScreen.storyboard */; };
 		4487569E28DB4F7600DC1723 /* TodolistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4487569D28DB4F7600DC1723 /* TodolistTests.swift */; };
+		448756A528DB6A9300DC1723 /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448756A428DB6A9300DC1723 /* UtilsTests.swift */; };
 		449678E528B129B40029951B /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449678E428B129B40029951B /* UIImage+Extensions.swift */; };
 		44B90CAB289A487D00B4BADD /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B90CAA289A487D00B4BADD /* UILabel+Extensions.swift */; };
 		44B90D06289D6AE500B4BADD /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B90D05289D6AE500B4BADD /* RealmStorage.swift */; };
@@ -106,6 +107,7 @@
 		44443151285EFB420004D468 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4487569B28DB4F7600DC1723 /* TodolistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodolistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4487569D28DB4F7600DC1723 /* TodolistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodolistTests.swift; sourceTree = "<group>"; };
+		448756A428DB6A9300DC1723 /* UtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsTests.swift; sourceTree = "<group>"; };
 		449678E428B129B40029951B /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		44B90CAA289A487D00B4BADD /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		44B90D05289D6AE500B4BADD /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				4487569D28DB4F7600DC1723 /* TodolistTests.swift */,
+				448756A428DB6A9300DC1723 /* UtilsTests.swift */,
 			);
 			path = TodolistTests;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4487569E28DB4F7600DC1723 /* TodolistTests.swift in Sources */,
+				448756A528DB6A9300DC1723 /* UtilsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
