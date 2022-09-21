@@ -43,6 +43,7 @@
 		4444314D285EFB420004D468 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4444314C285EFB420004D468 /* Assets.xcassets */; };
 		44443150285EFB420004D468 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4444314E285EFB420004D468 /* LaunchScreen.storyboard */; };
 		448756A528DB6A9300DC1723 /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448756A428DB6A9300DC1723 /* ExtensionsTests.swift */; };
+		448756A928DB6F3000DC1723 /* RxRealm in Frameworks */ = {isa = PBXBuildFile; productRef = 448756A828DB6F3000DC1723 /* RxRealm */; };
 		449678E528B129B40029951B /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449678E428B129B40029951B /* UIImage+Extensions.swift */; };
 		44B90CAB289A487D00B4BADD /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B90CAA289A487D00B4BADD /* UILabel+Extensions.swift */; };
 		44B90D06289D6AE500B4BADD /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B90D05289D6AE500B4BADD /* RealmStorage.swift */; };
@@ -133,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				448756A928DB6F3000DC1723 /* RxRealm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +299,7 @@
 				44443142285EFB400004D468 /* Todolist */,
 				4487569C28DB4F7600DC1723 /* TodolistTests */,
 				44443141285EFB400004D468 /* Products */,
+				448756A728DB6F3000DC1723 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -362,6 +365,13 @@
 			path = TodolistTests;
 			sourceTree = "<group>";
 		};
+		448756A728DB6F3000DC1723 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		44CDA2B52872EFF900E8F0F0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,6 +426,9 @@
 				448756A028DB4F7600DC1723 /* PBXTargetDependency */,
 			);
 			name = TodolistTests;
+			packageProductDependencies = (
+				448756A828DB6F3000DC1723 /* RxRealm */,
+			);
 			productName = TodolistTests;
 			productReference = 4487569B28DB4F7600DC1723 /* TodolistTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -851,6 +864,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		440216CB28A3B959008930FD /* RxRealm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 440216CA28A3B959008930FD /* XCRemoteSwiftPackageReference "RxRealm" */;
+			productName = RxRealm;
+		};
+		448756A828DB6F3000DC1723 /* RxRealm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 440216CA28A3B959008930FD /* XCRemoteSwiftPackageReference "RxRealm" */;
 			productName = RxRealm;
