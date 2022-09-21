@@ -34,7 +34,10 @@ final class RoundedButton: UIButton {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        addGradientLayer(colors: [UIColor.systemTeal.cgColor, UIColor.systemPurple.cgColor])
+        guard let left = UIColor(named: ColorSet.buttonGradationLeft.rawValue),
+              let right = UIColor(named: ColorSet.buttonGradationRight.rawValue) else { return }
+
+        addGradientLayer(colors: [left.cgColor, right.cgColor])
     }
 
     func setTitle(type: ButtonType) {

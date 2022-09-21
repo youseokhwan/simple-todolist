@@ -7,10 +7,12 @@
 
 enum ColorSet: String {
     case background
-    case buttonTitle
     case secondaryBackground
     case text
     case secondaryText
+    case buttonTitle
+    case buttonGradationLeft
+    case buttonGradationRight
 }
 
 enum ButtonImage: String {
