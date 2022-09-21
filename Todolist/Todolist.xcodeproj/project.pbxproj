@@ -233,8 +233,8 @@
 		442473CB2865D1DE0059CFCC /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				01EF864F287DAD1B005F037A /* ReadTaskUseCase.swift */,
 				44264707288DB145004C22D8 /* WriteTaskUseCase.swift */,
+				01EF864F287DAD1B005F037A /* ReadTaskUseCase.swift */,
 				440216E528AB8ED2008930FD /* ReadBundleResourceUseCase.swift */,
 			);
 			path = UseCases;
