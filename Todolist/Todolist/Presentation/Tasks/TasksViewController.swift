@@ -20,6 +20,7 @@ final class TasksViewController: UIViewController {
 
         label.text = Date.monthDayWeekday
         label.font = .systemFont(ofSize: 22, weight: .bold)
+        label.textColor = UIColor(named: ColorSet.commonText100.rawValue)
 
         return label
     }()
@@ -34,6 +35,7 @@ final class TasksViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
 
+        tableView.backgroundColor = UIColor(named: ColorSet.commonBackground100.rawValue)
         tableView.register(TasksTableViewCell.self,
                            forCellReuseIdentifier: TasksTableViewCell.identifier)
         tableView.rowHeight = 80
@@ -44,7 +46,6 @@ final class TasksViewController: UIViewController {
     private lazy var addButton: RoundedButton = {
         let button = RoundedButton()
 
-        button.setImage(type: .tasks)
         button.setTitle(type: .tasks)
 
         return button
@@ -64,7 +65,7 @@ private extension TasksViewController {
     }
 
     func configureViews() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor(named: ColorSet.commonBackground100.rawValue)
 
         [todayLabel, addButton, settingsButton, tableView].forEach {
             view.addSubview($0)
@@ -160,7 +161,7 @@ extension TasksViewController: UITableViewDelegate {
         }
         let configuration = UISwipeActionsConfiguration(actions: [delete])
 
-        delete.backgroundColor = .white
+        delete.backgroundColor = UIColor(named: ColorSet.commonBackground100.rawValue)
         delete.image = UIImage(named: ButtonImage.delete.rawValue)?.swipeImage
         configuration.performsFirstActionWithFullSwipe = false
 

@@ -1,17 +1,50 @@
 {
   "images" : [
     {
+      "filename" : "user-3.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
       "filename" : "user.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "user@2x.png",
+      "filename" : "user-4.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "user@3x.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "user-1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "user-5.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "user-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

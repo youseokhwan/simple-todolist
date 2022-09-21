@@ -12,14 +12,6 @@ final class RoundedButton: UIButton {
         case tasks
         case form
 
-        var image: String {
-            switch self {
-            case .tasks:
-                return ButtonImage.add.rawValue
-            case .form:
-                return ButtonImage.save.rawValue
-            }
-        }
         var title: String {
             switch self {
             case .tasks:
@@ -40,10 +32,12 @@ final class RoundedButton: UIButton {
         configure()
     }
 
-    func setImage(type: ButtonType) {
-        let image = UIImage(named: type.image)?.resizedImage(size: CGSize(width: 30, height: 30))
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        guard let left = UIColor(named: ColorSet.buttonBackgroundLeft.rawValue),
+              let right = UIColor(named: ColorSet.buttonBackgroundRight.rawValue) else { return }
 
-        setImage(image, for: .normal)
+        addGradientLayer(colors: [left.cgColor, right.cgColor])
     }
 
     func setTitle(type: ButtonType) {
@@ -57,11 +51,7 @@ private extension RoundedButton {
     }
 
     func configureViews() {
-        layer.cornerRadius = 10
-        contentHorizontalAlignment = .leading
-        backgroundColor = UIColor(red: 1, green: 241/255, blue: 227/255, alpha: 1)
-        setTitleColor(UIColor.black, for: .normal)
-        contentEdgeInsets = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
-        titleEdgeInsets = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
+        contentHorizontalAlignment = .center
+        setTitleColor(UIColor(named: ColorSet.buttonText.rawValue), for: .normal)
     }
 }

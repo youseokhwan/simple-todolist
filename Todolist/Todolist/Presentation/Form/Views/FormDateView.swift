@@ -12,7 +12,13 @@ import RxSwift
 import SnapKit
 
 final class FormDateView: UIView {
-    private lazy var titleLabel = UILabel()
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+
+        label.textColor = UIColor(named: ColorSet.commonText100.rawValue)
+
+        return label
+    }()
     private lazy var datePicker: UIDatePicker = {
         let picker = UIDatePicker()
 

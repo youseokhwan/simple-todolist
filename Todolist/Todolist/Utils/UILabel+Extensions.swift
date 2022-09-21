@@ -9,6 +9,8 @@ import UIKit
 
 extension UILabel {
     func strikethrough(isActive: Bool, withText: String) {
+        guard let foregroundColor = UIColor(named: ColorSet.commonText50.rawValue) else { return }
+
         let attributedString = NSMutableAttributedString(string: withText)
 
         if isActive {
@@ -16,7 +18,7 @@ extension UILabel {
                                           value: NSUnderlineStyle.single.rawValue,
                                           range: NSMakeRange(0, attributedString.length))
             attributedString.addAttribute(.foregroundColor,
-                                          value: UIColor.systemGray,
+                                          value: foregroundColor,
                                           range: NSMakeRange(0, attributedString.length))
         } else {
             attributedString.removeAttribute(.strikethroughStyle,

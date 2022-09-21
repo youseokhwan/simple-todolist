@@ -5,13 +5,21 @@
 //  Created by 유석환 on 2022/07/20.
 //
 
+enum ColorSet: String {
+    case commonBackground100
+    case commonBackground50
+    case commonText100
+    case commonText50
+    case buttonText
+    case buttonBackgroundLeft
+    case buttonBackgroundRight
+}
+
 enum ButtonImage: String {
-    case add
     case settings
     case doneNormal
     case doneSelected
     case delete
-    case save
 }
 
 enum ButtonTitle: String {
