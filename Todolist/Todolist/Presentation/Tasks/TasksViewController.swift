@@ -161,7 +161,7 @@ extension TasksViewController: UITableViewDelegate {
         }
         let configuration = UISwipeActionsConfiguration(actions: [delete])
 
-        delete.backgroundColor = .white
+        delete.backgroundColor = UIColor(named: ColorSet.background.rawValue)
         delete.image = UIImage(named: ButtonImage.delete.rawValue)?.swipeImage
         configuration.performsFirstActionWithFullSwipe = false
 
