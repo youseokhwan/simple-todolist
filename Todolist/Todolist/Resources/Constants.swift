@@ -6,13 +6,13 @@
 //
 
 enum ColorSet: String {
-    case background100
-    case background50
-    case text100
-    case text50
-    case buttonTitle
-    case buttonGradationLeft
-    case buttonGradationRight
+    case commonBackground100
+    case commonBackground50
+    case commonText100
+    case commonText50
+    case buttonText
+    case buttonBackgroundLeft
+    case buttonBackgroundRight
 }
 
 enum ButtonImage: String {
