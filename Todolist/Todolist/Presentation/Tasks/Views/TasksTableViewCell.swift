@@ -27,7 +27,13 @@ final class TasksTableViewCell: UITableViewCell {
 
         return button
     }()
-    private lazy var titleLabel = UILabel()
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+
+        label.textColor = UIColor(named: ColorSet.text.rawValue)
+
+        return label
+    }()
 
     var doneButtonTapHandler: (() -> Void)?
 
