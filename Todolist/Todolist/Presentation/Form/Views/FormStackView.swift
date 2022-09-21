@@ -16,7 +16,7 @@ final class FormStackView: UIStackView {
     private lazy var titleTextView: FormTextView = {
         let textView = FormTextView()
 
-        textView.textColor = UIColor(named: ColorSet.text.rawValue)
+        textView.textColor = UIColor(named: ColorSet.text_100.rawValue)
         textView.placeholder = LabelText.formTextViewPlaceholder.rawValue
         textView.font = .systemFont(ofSize: 18)
 
@@ -26,7 +26,7 @@ final class FormStackView: UIStackView {
         let label = UILabel()
 
         label.font = .systemFont(ofSize: 14)
-        label.textColor = UIColor(named: ColorSet.secondaryBackground.rawValue)
+        label.textColor = UIColor(named: ColorSet.background_50.rawValue)
         label.textAlignment = .right
 
         return label

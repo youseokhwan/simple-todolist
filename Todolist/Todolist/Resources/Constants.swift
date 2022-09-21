@@ -6,10 +6,10 @@
 //
 
 enum ColorSet: String {
-    case background
-    case secondaryBackground
-    case text
-    case secondaryText
+    case background_100
+    case background_50
+    case text_100
+    case text_50
     case buttonTitle
     case buttonGradationLeft
     case buttonGradationRight
