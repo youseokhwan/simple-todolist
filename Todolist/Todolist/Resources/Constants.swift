@@ -5,6 +5,14 @@
 //  Created by 유석환 on 2022/07/20.
 //
 
+enum ColorSet: String {
+    case background
+    case buttonTitle
+    case secondaryBackground
+    case text
+    case secondaryText
+}
+
 enum ButtonImage: String {
     case settings
     case doneNormal
@@ -15,14 +23,6 @@ enum ButtonImage: String {
 enum ButtonTitle: String {
     case addButton = "할 일 추가"
     case saveButton = "완료"
-}
-
-enum ColorSet: String {
-    case background
-    case buttonTitle
-    case secondaryBackground
-    case text
-    case secondaryText
 }
 
 enum LabelText: String {
