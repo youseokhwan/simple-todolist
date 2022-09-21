@@ -8,7 +8,49 @@
 import XCTest
 @testable import Todolist
 
-final class ExtensionsTests: XCTestCase {
+final class StringTests: XCTestCase {
+    override func setUpWithError() throws {
+
+    }
+
+    override func tearDownWithError() throws {
+
+    }
+
+    func testExample() throws {
+
+    }
+}
+
+final class DateTests: XCTestCase {
+    override func setUpWithError() throws {
+
+    }
+
+    override func tearDownWithError() throws {
+
+    }
+
+    func testExample() throws {
+
+    }
+}
+
+final class UILabelTests: XCTestCase {
+    override func setUpWithError() throws {
+
+    }
+
+    override func tearDownWithError() throws {
+
+    }
+
+    func testExample() throws {
+
+    }
+}
+
+final class UIImageTests: XCTestCase {
     override func setUpWithError() throws {
 
     }
