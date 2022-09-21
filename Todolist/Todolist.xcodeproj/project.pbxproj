@@ -134,9 +134,9 @@
 			children = (
 				442646BD2887FA17004C22D8 /* String+Extensions.swift */,
 				019EE54E28742F9F00804889 /* Date+Extensions.swift */,
+				01BB265528D9727F00F78D82 /* UIView+Extensions.swift */,
 				44B90CAA289A487D00B4BADD /* UILabel+Extensions.swift */,
 				449678E428B129B40029951B /* UIImage+Extensions.swift */,
-				01BB265528D9727F00F78D82 /* UIView+Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
