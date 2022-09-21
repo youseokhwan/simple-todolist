@@ -23,6 +23,7 @@ final class FormSwitchView: UIView {
         let `switch` = UISwitch()
         
         `switch`.onTintColor = .systemTeal
+        `switch`.thumbTintColor = UIColor(named: ColorSet.text_100.rawValue)
         
         return `switch`
     }()
