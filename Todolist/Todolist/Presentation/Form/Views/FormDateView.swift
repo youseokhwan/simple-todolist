@@ -15,7 +15,7 @@ final class FormDateView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
 
-        label.textColor = UIColor(named: ColorSet.text_100.rawValue)
+        label.textColor = UIColor(named: ColorSet.text100.rawValue)
 
         return label
     }()

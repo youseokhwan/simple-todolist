@@ -9,7 +9,7 @@ import UIKit
 
 extension UILabel {
     func strikethrough(isActive: Bool, withText: String) {
-        guard let foregroundColor = UIColor(named: ColorSet.text_50.rawValue) else { return }
+        guard let foregroundColor = UIColor(named: ColorSet.text50.rawValue) else { return }
 
         let attributedString = NSMutableAttributedString(string: withText)
 

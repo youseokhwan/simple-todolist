@@ -30,7 +30,7 @@ final class TasksTableViewCell: UITableViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
 
-        label.textColor = UIColor(named: ColorSet.text_100.rawValue)
+        label.textColor = UIColor(named: ColorSet.text100.rawValue)
 
         return label
     }()
@@ -68,9 +68,9 @@ private extension TasksTableViewCell {
 
     func configureViews() {
         selectionStyle = .none
-        backgroundColor = UIColor(named: ColorSet.background_100.rawValue)
+        backgroundColor = UIColor(named: ColorSet.background100.rawValue)
 
-        contentView.backgroundColor = UIColor(named: ColorSet.background_50.rawValue)
+        contentView.backgroundColor = UIColor(named: ColorSet.background50.rawValue)
         contentView.layer.cornerRadius = 10
 
         [doneButton, titleLabel].forEach {
