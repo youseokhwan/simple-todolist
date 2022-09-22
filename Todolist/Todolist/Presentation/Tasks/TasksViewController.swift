@@ -26,7 +26,7 @@ final class TasksViewController: UIViewController {
     }()
     private lazy var settingsButton: UIButton = {
         let button = UIButton()
-        let image = UIImage(named: ButtonImage.settings.rawValue)
+        let image = UIImage(.settings)
 
         button.setImage(image, for: .normal)
 
@@ -162,7 +162,7 @@ extension TasksViewController: UITableViewDelegate {
         let configuration = UISwipeActionsConfiguration(actions: [delete])
 
         delete.backgroundColor = UIColor(.commonBackground100)
-        delete.image = UIImage(named: ButtonImage.delete.rawValue)?.swipeImage
+        delete.image = UIImage(.delete)?.swipeImage
         configuration.performsFirstActionWithFullSwipe = false
 
         return configuration

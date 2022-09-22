@@ -18,8 +18,8 @@ final class TasksTableViewCell: UITableViewCell {
 
     private lazy var doneButton: UIButton = {
         let button = UIButton()
-        let normalImage = UIImage(named: ButtonImage.doneNormal.rawValue)
-        let selectedImage = UIImage(named: ButtonImage.doneSelected.rawValue)
+        let normalImage = UIImage(.doneNormal)
+        let selectedImage = UIImage(.doneSelected)
 
         button.setImage(normalImage, for: .normal)
         button.setImage(selectedImage, for: .selected)
