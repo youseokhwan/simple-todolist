@@ -18,7 +18,7 @@ final class FormViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
 
-        label.text = LabelText.formTitleAtCreation.rawValue
+        label.text = String(.formTitleAtCreation)
         label.textColor = UIColor(.commonText100)
         label.font = .systemFont(ofSize: 20, weight: .bold)
         label.textAlignment = .center
@@ -37,7 +37,7 @@ final class FormViewController: UIViewController {
     convenience init(task: Task) {
         self.init(nibName: nil, bundle: nil)
 
-        titleLabel.text = LabelText.formTitleAtModification.rawValue
+        titleLabel.text = String(.formTitleAtModification)
 
         viewModel.id.accept(task.id)
         viewModel.title.accept(task.title)

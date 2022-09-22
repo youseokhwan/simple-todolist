@@ -17,7 +17,7 @@ final class FormStackView: UIStackView {
         let textView = FormTextView()
 
         textView.textColor = UIColor(.commonText100)
-        textView.placeholder = LabelText.formTextViewPlaceholder.rawValue
+        textView.placeholder = String(.formTextViewPlaceholder)
         textView.font = .systemFont(ofSize: 18)
 
         return textView
@@ -34,21 +34,21 @@ final class FormStackView: UIStackView {
     private lazy var doneSwitchView: FormSwitchView = {
         let switchView = FormSwitchView()
 
-        switchView.title = LabelText.isDone.rawValue
+        switchView.title = String(.isDone)
 
         return switchView
     }()
     private lazy var dailySwitchView: FormSwitchView = {
         let switchView = FormSwitchView()
 
-        switchView.title = LabelText.isDaily.rawValue
+        switchView.title = String(.isDaily)
 
         return switchView
     }()
     private lazy var createdDateView: FormDateView = {
         let dateView = FormDateView()
 
-        dateView.title = LabelText.createdDate.rawValue
+        dateView.title = String(.createdDate)
 
         return dateView
     }()
