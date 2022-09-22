@@ -19,7 +19,7 @@ final class FormViewController: UIViewController {
         let label = UILabel()
 
         label.text = LabelText.formTitleAtCreation.rawValue
-        label.textColor = UIColor(named: ColorSet.commonText100.rawValue)
+        label.textColor = UIColor(.commonText100)
         label.font = .systemFont(ofSize: 20, weight: .bold)
         label.textAlignment = .center
 
@@ -81,7 +81,7 @@ private extension FormViewController {
         let recognizer = UITapGestureRecognizer(target: self,
                                                 action: #selector(tappedOutsideOfKeyboard(_:)))
 
-        view.backgroundColor = UIColor(named: ColorSet.commonBackground100.rawValue)
+        view.backgroundColor = UIColor(.commonBackground100)
         view.addGestureRecognizer(recognizer)
 
         [titleLabel, stackView, saveButton].forEach {

@@ -74,7 +74,7 @@ final class UILabelTests: XCTestCase {
            let foregroundColorAttribute = attributedText.attributes(at: 0, effectiveRange: nil)
             .first(where: { $0.key == .foregroundColor }),
            let foregroundColorValue = foregroundColorAttribute.value as? UIColor,
-           let expectedColor = UIColor(named: ColorSet.commonText50.rawValue) {
+           let expectedColor = UIColor(.commonText50) {
             XCTAssertEqual(attributedText.string, text)
             XCTAssertEqual(strikethroughValue, NSUnderlineStyle.single.rawValue)
             XCTAssertEqual(foregroundColorValue, expectedColor)

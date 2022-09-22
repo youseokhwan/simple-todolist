@@ -8,5 +8,7 @@
 import UIKit
 
 extension UIColor {
-    
+    convenience init?(_ colorSet: ColorSet) {
+        self.init(named: colorSet.rawValue)
+    }
 }

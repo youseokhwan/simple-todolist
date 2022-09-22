@@ -15,7 +15,7 @@ final class FormSwitchView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
 
-        label.textColor = UIColor(named: ColorSet.commonText100.rawValue)
+        label.textColor = UIColor(.commonText100)
 
         return label
     }()
@@ -23,7 +23,7 @@ final class FormSwitchView: UIView {
         let `switch` = UISwitch()
         
         `switch`.onTintColor = .systemTeal
-        `switch`.thumbTintColor = UIColor(named: ColorSet.commonText100.rawValue)
+        `switch`.thumbTintColor = UIColor(.commonText100)
         
         return `switch`
     }()
