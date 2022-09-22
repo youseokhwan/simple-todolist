@@ -101,15 +101,22 @@ final class UILabelTests: XCTestCase {
 }
 
 final class UIImageTests: XCTestCase {
-    override func setUpWithError() throws {
+    var image: UIImage!
+    var size: CGSize!
 
+    override func setUpWithError() throws {
+        image = UIImage(systemName: "applelogo")
+        size = CGSize(width: 30, height: 30)
     }
 
     override func tearDownWithError() throws {
-
+        image = nil
     }
 
-    func testExample() throws {
+    func test_resizedImage사이즈확인() throws {
+        let resizedImage = image.resizedImage(size: size)
 
+        XCTAssertEqual(resizedImage.size.width, size.width)
+        XCTAssertEqual(resizedImage.size.height, size.height)
     }
 }
