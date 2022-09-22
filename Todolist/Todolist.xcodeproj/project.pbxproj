@@ -43,6 +43,8 @@
 		44443146285EFB400004D468 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443145285EFB400004D468 /* SceneDelegate.swift */; };
 		4444314D285EFB420004D468 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4444314C285EFB420004D468 /* Assets.xcassets */; };
 		44443150285EFB420004D468 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4444314E285EFB420004D468 /* LaunchScreen.storyboard */; };
+		448756A528DB6A9300DC1723 /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448756A428DB6A9300DC1723 /* ExtensionsTests.swift */; };
+		448756A928DB6F3000DC1723 /* RxRealm in Frameworks */ = {isa = PBXBuildFile; productRef = 448756A828DB6F3000DC1723 /* RxRealm */; };
 		449678E528B129B40029951B /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449678E428B129B40029951B /* UIImage+Extensions.swift */; };
 		44B90CAB289A487D00B4BADD /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B90CAA289A487D00B4BADD /* UILabel+Extensions.swift */; };
 		44B90D06289D6AE500B4BADD /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B90D05289D6AE500B4BADD /* RealmStorage.swift */; };
@@ -56,6 +58,16 @@
 		44CDA2BE28731F3400E8F0F0 /* FormSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2BD28731F3400E8F0F0 /* FormSwitchView.swift */; };
 		44CDA2E528768BC900E8F0F0 /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2E428768BC900E8F0F0 /* UserDefaultsRepository.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4487569F28DB4F7600DC1723 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 44443138285EFB400004D468 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4444313F285EFB400004D468;
+			remoteInfo = Todolist;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		01247D0F28BCB99000B22DA3 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -95,6 +107,8 @@
 		4444314C285EFB420004D468 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4444314F285EFB420004D468 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44443151285EFB420004D468 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4487569B28DB4F7600DC1723 /* TodolistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodolistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		448756A428DB6A9300DC1723 /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
 		449678E428B129B40029951B /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		44B90CAA289A487D00B4BADD /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		44B90D05289D6AE500B4BADD /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
@@ -115,6 +129,14 @@
 				44B90D3A28A22D4E00B4BADD /* Differentiator in Frameworks */,
 				44B90D2E28A22C7000B4BADD /* SnapKit in Frameworks */,
 				440216CC28A3B959008930FD /* RxRealm in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4487569828DB4F7600DC1723 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				448756A928DB6F3000DC1723 /* RxRealm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +300,9 @@
 			isa = PBXGroup;
 			children = (
 				44443142285EFB400004D468 /* Todolist */,
+				4487569C28DB4F7600DC1723 /* TodolistTests */,
 				44443141285EFB400004D468 /* Products */,
+				448756A728DB6F3000DC1723 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -286,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				44443140285EFB400004D468 /* Todolist.app */,
+				4487569B28DB4F7600DC1723 /* TodolistTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -335,6 +360,21 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		4487569C28DB4F7600DC1723 /* TodolistTests */ = {
+			isa = PBXGroup;
+			children = (
+				448756A428DB6A9300DC1723 /* ExtensionsTests.swift */,
+			);
+			path = TodolistTests;
+			sourceTree = "<group>";
+		};
+		448756A728DB6F3000DC1723 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		44CDA2B52872EFF900E8F0F0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +415,27 @@
 			productReference = 44443140285EFB400004D468 /* Todolist.app */;
 			productType = "com.apple.product-type.application";
 		};
+		4487569A28DB4F7600DC1723 /* TodolistTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 448756A328DB4F7600DC1723 /* Build configuration list for PBXNativeTarget "TodolistTests" */;
+			buildPhases = (
+				4487569728DB4F7600DC1723 /* Sources */,
+				4487569828DB4F7600DC1723 /* Frameworks */,
+				4487569928DB4F7600DC1723 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				448756A028DB4F7600DC1723 /* PBXTargetDependency */,
+			);
+			name = TodolistTests;
+			packageProductDependencies = (
+				448756A828DB6F3000DC1723 /* RxRealm */,
+			);
+			productName = TodolistTests;
+			productReference = 4487569B28DB4F7600DC1723 /* TodolistTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -382,11 +443,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					4444313F285EFB400004D468 = {
 						CreatedOnToolsVersion = 13.4.1;
+					};
+					4487569A28DB4F7600DC1723 = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = 4444313F285EFB400004D468;
 					};
 				};
 			};
@@ -411,6 +476,7 @@
 			projectRoot = "";
 			targets = (
 				4444313F285EFB400004D468 /* Todolist */,
+				4487569A28DB4F7600DC1723 /* TodolistTests */,
 			);
 		};
 /* End PBXProject section */
@@ -427,6 +493,13 @@
 				4444314D285EFB420004D468 /* Assets.xcassets in Resources */,
 				440216E328AB8E65008930FD /* RxSwift.txt in Resources */,
 				440216E428AB8E65008930FD /* RxDataSources.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4487569928DB4F7600DC1723 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,7 +547,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4487569728DB4F7600DC1723 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				448756A528DB6A9300DC1723 /* ExtensionsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		448756A028DB4F7600DC1723 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4444313F285EFB400004D468 /* Todolist */;
+			targetProxy = 4487569F28DB4F7600DC1723 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4444314E285EFB420004D468 /* LaunchScreen.storyboard */ = {
@@ -664,6 +753,52 @@
 			};
 			name = Release;
 		};
+		448756A128DB4F7600DC1723 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 37CRZBHS68;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = youseokhwan.TodolistTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Todolist.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Todolist";
+			};
+			name = Debug;
+		};
+		448756A228DB4F7600DC1723 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 37CRZBHS68;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = youseokhwan.TodolistTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Todolist.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Todolist";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -681,6 +816,15 @@
 			buildConfigurations = (
 				44443155285EFB420004D468 /* Debug */,
 				44443156285EFB420004D468 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		448756A328DB4F7600DC1723 /* Build configuration list for PBXNativeTarget "TodolistTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				448756A128DB4F7600DC1723 /* Debug */,
+				448756A228DB4F7600DC1723 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -724,6 +868,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		440216CB28A3B959008930FD /* RxRealm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 440216CA28A3B959008930FD /* XCRemoteSwiftPackageReference "RxRealm" */;
+			productName = RxRealm;
+		};
+		448756A828DB6F3000DC1723 /* RxRealm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 440216CA28A3B959008930FD /* XCRemoteSwiftPackageReference "RxRealm" */;
 			productName = RxRealm;
