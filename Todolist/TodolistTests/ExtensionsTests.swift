@@ -50,20 +50,6 @@ final class StringTests: XCTestCase {
     }
 }
 
-final class DateTests: XCTestCase {
-    override func setUpWithError() throws {
-
-    }
-
-    override func tearDownWithError() throws {
-
-    }
-
-    func testExample() throws {
-
-    }
-}
-
 final class UILabelTests: XCTestCase {
     var text: String!
     var label: UILabel!
