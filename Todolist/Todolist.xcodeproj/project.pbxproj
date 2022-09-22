@@ -45,6 +45,7 @@
 		44443150285EFB420004D468 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4444314E285EFB420004D468 /* LaunchScreen.storyboard */; };
 		448756A528DB6A9300DC1723 /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448756A428DB6A9300DC1723 /* ExtensionsTests.swift */; };
 		448756A928DB6F3000DC1723 /* RxRealm in Frameworks */ = {isa = PBXBuildFile; productRef = 448756A828DB6F3000DC1723 /* RxRealm */; };
+		448AD83A28DC33E200582951 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448AD83928DC33E200582951 /* UIColor+Extensions.swift */; };
 		449678E528B129B40029951B /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449678E428B129B40029951B /* UIImage+Extensions.swift */; };
 		44B90CAB289A487D00B4BADD /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B90CAA289A487D00B4BADD /* UILabel+Extensions.swift */; };
 		44B90D06289D6AE500B4BADD /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B90D05289D6AE500B4BADD /* RealmStorage.swift */; };
@@ -109,6 +110,7 @@
 		44443151285EFB420004D468 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4487569B28DB4F7600DC1723 /* TodolistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodolistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		448756A428DB6A9300DC1723 /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
+		448AD83928DC33E200582951 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		449678E428B129B40029951B /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		44B90CAA289A487D00B4BADD /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		44B90D05289D6AE500B4BADD /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				019EE54E28742F9F00804889 /* Date+Extensions.swift */,
 				01BB265528D9727F00F78D82 /* UIView+Extensions.swift */,
 				44B90CAA289A487D00B4BADD /* UILabel+Extensions.swift */,
+				448AD83928DC33E200582951 /* UIColor+Extensions.swift */,
 				449678E428B129B40029951B /* UIImage+Extensions.swift */,
 			);
 			path = Utils;
@@ -521,6 +524,7 @@
 				01EF8650287DAD1B005F037A /* ReadTaskUseCase.swift in Sources */,
 				44CDA2BE28731F3400E8F0F0 /* FormSwitchView.swift in Sources */,
 				44443144285EFB400004D468 /* AppDelegate.swift in Sources */,
+				448AD83A28DC33E200582951 /* UIColor+Extensions.swift in Sources */,
 				0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */,
 				0193D28D28AB988800F929DC /* SettingsNavigationController.swift in Sources */,
 				442473D12869B8290059CFCC /* TaskRepository.swift in Sources */,
