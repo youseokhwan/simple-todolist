@@ -38,6 +38,7 @@
 		442646C228880322004C22D8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442646C128880322004C22D8 /* Constants.swift */; };
 		44264708288DB145004C22D8 /* WriteTaskUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44264707288DB145004C22D8 /* WriteTaskUseCase.swift */; };
 		4426470E2892C30A004C22D8 /* SettingsThemeAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426470D2892C30A004C22D8 /* SettingsThemeAlertController.swift */; };
+		442DE18128DC5D6A00E69707 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442DE18028DC5D6A00E69707 /* UserDefaults+Extensions.swift */; };
 		4430D39C28BCD21600AD3A1E /* FormDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430D39B28BCD21600AD3A1E /* FormDateView.swift */; };
 		44443144285EFB400004D468 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443143285EFB400004D468 /* AppDelegate.swift */; };
 		44443146285EFB400004D468 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44443145285EFB400004D468 /* SceneDelegate.swift */; };
@@ -101,6 +102,7 @@
 		442646C128880322004C22D8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		44264707288DB145004C22D8 /* WriteTaskUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteTaskUseCase.swift; sourceTree = "<group>"; };
 		4426470D2892C30A004C22D8 /* SettingsThemeAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeAlertController.swift; sourceTree = "<group>"; };
+		442DE18028DC5D6A00E69707 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		4430D39B28BCD21600AD3A1E /* FormDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDateView.swift; sourceTree = "<group>"; };
 		44443140285EFB400004D468 /* Todolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todolist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44443143285EFB400004D468 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				44B90CAA289A487D00B4BADD /* UILabel+Extensions.swift */,
 				448AD83928DC33E200582951 /* UIColor+Extensions.swift */,
 				449678E428B129B40029951B /* UIImage+Extensions.swift */,
+				442DE18028DC5D6A00E69707 /* UserDefaults+Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				01247D1028BCB99000B22DA3 /* RoundedButton.swift in Sources */,
 				01EF8650287DAD1B005F037A /* ReadTaskUseCase.swift in Sources */,
 				44CDA2BE28731F3400E8F0F0 /* FormSwitchView.swift in Sources */,
+				442DE18128DC5D6A00E69707 /* UserDefaults+Extensions.swift in Sources */,
 				44443144285EFB400004D468 /* AppDelegate.swift in Sources */,
 				448AD83A28DC33E200582951 /* UIColor+Extensions.swift in Sources */,
 				0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */,
