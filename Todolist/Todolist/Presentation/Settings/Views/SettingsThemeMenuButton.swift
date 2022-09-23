@@ -9,9 +9,7 @@ import UIKit
 
 final class SettingsThemeMenuButton: UIButton {
     var themes: [String] {
-        [SettingsText.systemThemeItem.rawValue,
-         SettingsText.lightThemeItem.rawValue,
-         SettingsText.darkThemeItem.rawValue]
+        [String(.systemThemeItem), String(.lightThemeItem), String(.darkThemeItem)]
     }
 
     convenience init() {
@@ -48,7 +46,7 @@ private extension SettingsThemeMenuButton {
                 }
             }
 
-            menu = UIMenu(title: SettingsText.themeMenuTitle.rawValue,
+            menu = UIMenu(title: String(.themeMenuTitle),
                           options: .displayInline,
                           children: children)
             showsMenuAsPrimaryAction = true

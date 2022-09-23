@@ -9,7 +9,7 @@ import UIKit
 
 final class SettingsThemeAlertController: UIAlertController {
     convenience init(children: [String], handler: @escaping (Int) -> Void) {
-        self.init(title: SettingsText.themeMenuTitle.rawValue,
+        self.init(title: String(.themeMenuTitle),
                   message: nil,
                   preferredStyle: .actionSheet)
         configure(children: children, handler: handler)
@@ -27,6 +27,6 @@ private extension SettingsThemeAlertController {
             .forEach {
                 addAction($0)
             }
-        addAction(UIAlertAction(title: SettingsText.cancelItem.rawValue, style: .cancel))
+        addAction(UIAlertAction(title: String(.cancelItem), style: .cancel))
     }
 }

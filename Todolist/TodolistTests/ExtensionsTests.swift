@@ -73,10 +73,11 @@ final class UILabelTests: XCTestCase {
            let strikethroughValue = strikethroughAttribute.value as? Int,
            let foregroundColorAttribute = attributedText.attributes(at: 0, effectiveRange: nil)
             .first(where: { $0.key == .foregroundColor }),
-           let foregroundColorValue = foregroundColorAttribute.value as? UIColor {
+           let foregroundColorValue = foregroundColorAttribute.value as? UIColor,
+           let expectedColor = UIColor(.commonText50) {
             XCTAssertEqual(attributedText.string, text)
             XCTAssertEqual(strikethroughValue, NSUnderlineStyle.single.rawValue)
-            XCTAssertEqual(foregroundColorValue, UIColor.systemGray)
+            XCTAssertEqual(foregroundColorValue, expectedColor)
         } else {
             XCTFail("XCTFail: variable is nil")
         }

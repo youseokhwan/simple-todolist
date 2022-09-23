@@ -20,13 +20,13 @@ final class TasksViewController: UIViewController {
 
         label.text = Date.monthDayWeekday
         label.font = .systemFont(ofSize: 22, weight: .bold)
-        label.textColor = UIColor(named: ColorSet.commonText100.rawValue)
+        label.textColor = UIColor(.commonText100)
 
         return label
     }()
     private lazy var settingsButton: UIButton = {
         let button = UIButton()
-        let image = UIImage(named: ButtonImage.settings.rawValue)
+        let image = UIImage(.settings)
 
         button.setImage(image, for: .normal)
 
@@ -35,7 +35,7 @@ final class TasksViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
 
-        tableView.backgroundColor = UIColor(named: ColorSet.commonBackground100.rawValue)
+        tableView.backgroundColor = UIColor(.commonBackground100)
         tableView.register(TasksTableViewCell.self,
                            forCellReuseIdentifier: TasksTableViewCell.identifier)
         tableView.rowHeight = 80
@@ -65,7 +65,7 @@ private extension TasksViewController {
     }
 
     func configureViews() {
-        view.backgroundColor = UIColor(named: ColorSet.commonBackground100.rawValue)
+        view.backgroundColor = UIColor(.commonBackground100)
 
         [todayLabel, addButton, settingsButton, tableView].forEach {
             view.addSubview($0)
@@ -161,8 +161,8 @@ extension TasksViewController: UITableViewDelegate {
         }
         let configuration = UISwipeActionsConfiguration(actions: [delete])
 
-        delete.backgroundColor = UIColor(named: ColorSet.commonBackground100.rawValue)
-        delete.image = UIImage(named: ButtonImage.delete.rawValue)?.swipeImage
+        delete.backgroundColor = UIColor(.commonBackground100)
+        delete.image = UIImage(.delete)?.swipeImage
         configuration.performsFirstActionWithFullSwipe = false
 
         return configuration

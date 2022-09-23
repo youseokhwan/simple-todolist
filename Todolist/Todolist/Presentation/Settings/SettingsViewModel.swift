@@ -16,10 +16,10 @@ final class SettingsViewModel {
     let appearence: BehaviorRelay<Int>
 
     init() {
-        items = [SettingsSection(title: SettingsText.informationSection.rawValue,
-                                 items: [SettingsText.licenseItem.rawValue,
-                                         SettingsText.versionItem.rawValue,
-                                         SettingsText.contactUsItem.rawValue])]
+        items = [SettingsSection(title: String(.informationSection),
+                                 items: [String(.licenseItem),
+                                         String(.versionItem),
+                                         String(.contactUsItem)])]
         appearence = BehaviorRelay(value: UserDefaultsRepository.currentAppearance())
         readBundleResourceUseCase = ReadBundleResourceUseCase()
     }

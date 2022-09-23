@@ -19,7 +19,7 @@ final class FormTextView: UITextView {
     private lazy var placeholderLabel: UILabel = {
         let label = UILabel()
 
-        label.textColor = UIColor(named: ColorSet.commonText50.rawValue)
+        label.textColor = UIColor(.commonText50)
         label.sizeToFit()
 
         return label
@@ -58,7 +58,7 @@ private extension FormTextView {
     func configureViews() {
         isScrollEnabled = false
         textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        backgroundColor = UIColor(named: ColorSet.commonBackground50.rawValue)
+        backgroundColor = UIColor(.commonBackground50)
         layer.cornerRadius = 10
         addSubview(placeholderLabel)
     }

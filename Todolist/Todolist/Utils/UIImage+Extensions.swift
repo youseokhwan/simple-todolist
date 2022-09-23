@@ -9,9 +9,11 @@ import UIKit
 
 extension UIImage {
     var swipeImage: UIImage {
-        return UIGraphicsImageRenderer(size: CGSize(width: 30, height: 30)).image { _ in
-            self.draw(in: CGRect(x: 0, y: 0, width: 30, height: 30))
-        }
+        return resizedImage(size: CGSize(width: 30, height: 30))
+    }
+
+    convenience init?(_ buttonImage: ButtonImage) {
+        self.init(named: buttonImage.rawValue)
     }
 
     func resizedImage(size: CGSize) -> UIImage {
