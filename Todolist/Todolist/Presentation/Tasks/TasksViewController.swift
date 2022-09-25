@@ -40,6 +40,7 @@ final class TasksViewController: UIViewController {
                            forCellReuseIdentifier: TasksTableViewCell.identifier)
         tableView.rowHeight = 80
         tableView.separatorStyle = .none
+        tableView.dragInteractionEnabled = true
 
         return tableView
     }()
