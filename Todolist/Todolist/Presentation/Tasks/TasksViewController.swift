@@ -41,6 +41,8 @@ final class TasksViewController: UIViewController {
         tableView.rowHeight = 80
         tableView.separatorStyle = .none
         tableView.dragInteractionEnabled = true
+        tableView.dragDelegate = self
+        tableView.dropDelegate = self
 
         return tableView
     }()
@@ -167,5 +169,30 @@ extension TasksViewController: UITableViewDelegate {
         configuration.performsFirstActionWithFullSwipe = false
 
         return configuration
+    }
+}
+
+extension TasksViewController: UITableViewDragDelegate {
+    func tableView(_ tableView: UITableView,
+                   itemsForBeginning session: UIDragSession,
+                   at indexPath: IndexPath) -> [UIDragItem] {
+        return [UIDragItem(itemProvider: NSItemProvider())]
+    }
+}
+
+extension TasksViewController: UITableViewDropDelegate {
+    func tableView(_ tableView: UITableView,
+                   performDropWith coordinator: UITableViewDropCoordinator) { }
+
+    func tableView(
+        _ tableView: UITableView,
+        dropSessionDidUpdate session: UIDropSession,
+        withDestinationIndexPath destinationIndexPath: IndexPath?
+    ) -> UITableViewDropProposal {
+        if session.localDragSession != nil {
+            return UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+        }
+
+        return UITableViewDropProposal(operation: .cancel, intent: .unspecified)
     }
 }
