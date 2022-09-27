@@ -6,7 +6,6 @@
 //
 
 import XCTest
-@testable import Todolist
 
 final class StringTests: XCTestCase {
     var text: String!
