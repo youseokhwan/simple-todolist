@@ -11,7 +11,5 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Build for testing
-      run: xcodebuild build-for-testing -project Todolist/Todolist.xcodeproj -scheme Todolist -destination 'platform=iOS Simulator,OS=15.2,name=iPhone 13 Pro'
     - name: Run tests
       run: xcodebuild test-without-building -project Todolist/Todolist.xcodeproj -scheme Todolist -destination 'platform=iOS Simulator,OS=15.2,name=iPhone 13 Pro'
