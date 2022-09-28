@@ -62,6 +62,8 @@
 		44E8A4FE28E2BB90008D6F97 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442646BD2887FA17004C22D8 /* String+Extensions.swift */; };
 		44E8A50028E2BBB3008D6F97 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442646C128880322004C22D8 /* Constants.swift */; };
 		44E8A50228E42646008D6F97 /* StoragesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E8A50128E42646008D6F97 /* StoragesTests.swift */; };
+		44E8A50328E426E9008D6F97 /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B90D05289D6AE500B4BADD /* RealmStorage.swift */; };
+		44E8A50428E42A05008D6F97 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442473C92865D1660059CFCC /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -565,7 +567,9 @@
 			files = (
 				44E8A4FE28E2BB90008D6F97 /* String+Extensions.swift in Sources */,
 				44E8A50228E42646008D6F97 /* StoragesTests.swift in Sources */,
+				44E8A50328E426E9008D6F97 /* RealmStorage.swift in Sources */,
 				448756A528DB6A9300DC1723 /* ExtensionsTests.swift in Sources */,
+				44E8A50428E42A05008D6F97 /* Task.swift in Sources */,
 				44E8A50028E2BBB3008D6F97 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,10 +6,11 @@
 //
 
 import XCTest
+import RealmSwift
 
 final class StoragesTests: XCTestCase {
     override func setUpWithError() throws {
-
+        Realm.Configuration.defaultConfiguration.inMemoryIdentifier = "StoragesTestsIdentifier"
     }
 
     override func tearDownWithError() throws {
@@ -17,6 +18,6 @@ final class StoragesTests: XCTestCase {
     }
 
     func testExample() throws {
-
+        
     }
 }
