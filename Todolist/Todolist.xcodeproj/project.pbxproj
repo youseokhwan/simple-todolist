@@ -61,6 +61,7 @@
 		44CDA2E528768BC900E8F0F0 /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDA2E428768BC900E8F0F0 /* UserDefaultsRepository.swift */; };
 		44E8A4FE28E2BB90008D6F97 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442646BD2887FA17004C22D8 /* String+Extensions.swift */; };
 		44E8A50028E2BBB3008D6F97 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442646C128880322004C22D8 /* Constants.swift */; };
+		44E8A50228E42646008D6F97 /* StoragesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E8A50128E42646008D6F97 /* StoragesTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		44CDA2B62872F00C00E8F0F0 /* FormStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStackView.swift; sourceTree = "<group>"; };
 		44CDA2BD28731F3400E8F0F0 /* FormSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSwitchView.swift; sourceTree = "<group>"; };
 		44CDA2E428768BC900E8F0F0 /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
+		44E8A50128E42646008D6F97 /* StoragesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoragesTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,6 +373,7 @@
 		4487569C28DB4F7600DC1723 /* TodolistTests */ = {
 			isa = PBXGroup;
 			children = (
+				44E8A50128E42646008D6F97 /* StoragesTests.swift */,
 				448756A428DB6A9300DC1723 /* ExtensionsTests.swift */,
 			);
 			path = TodolistTests;
@@ -561,6 +564,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44E8A4FE28E2BB90008D6F97 /* String+Extensions.swift in Sources */,
+				44E8A50228E42646008D6F97 /* StoragesTests.swift in Sources */,
 				448756A528DB6A9300DC1723 /* ExtensionsTests.swift in Sources */,
 				44E8A50028E2BBB3008D6F97 /* Constants.swift in Sources */,
 			);
