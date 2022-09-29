@@ -114,6 +114,12 @@ private extension TasksViewController {
             })
             .disposed(by: disposeBag)
 
+        tableView.rx.itemMoved
+            .subscribe(onNext: { [weak self] sourceIndexPath, destinationIndexPath in
+                self?.viewModel.moveTask(at: sourceIndexPath.row, to: destinationIndexPath.row)
+            })
+            .disposed(by: disposeBag)
+
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
 

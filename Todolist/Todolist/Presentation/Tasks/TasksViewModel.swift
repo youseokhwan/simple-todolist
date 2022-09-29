@@ -53,6 +53,10 @@ final class TasksViewModel {
         allTasks.accept(newAllTasks)
         writeTaskUseCase.delete(task: removedTask)
     }
+
+    func moveTask(at sourceIndex: Int, to destinationIndex: Int) {
+        writeTaskUseCase.moveTask(at: sourceIndex, to: destinationIndex)
+    }
 }
 
 private extension TasksViewModel {
@@ -64,7 +68,7 @@ private extension TasksViewModel {
         if let results = readTaskUseCase.taskResults() {
             Observable.changeset(from: results)
                 .subscribe(onNext: { [weak self] collection, _ in
-                    let tasks = Array(collection)
+                    let tasks = collection.first?.items.toArray() ?? []
 
                     self?.allTasks.accept(tasks)
                 })

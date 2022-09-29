@@ -9,7 +9,9 @@ import Foundation
 
 import RealmSwift
 
-enum RealmStorage {
+struct RealmStorage {
+    private static let tasks = Tasks()
+
     static func migration() {
         let configuration = Realm.Configuration(
             schemaVersion: 2,
@@ -30,17 +32,39 @@ enum RealmStorage {
         Realm.Configuration.defaultConfiguration = configuration
     }
 
-    static func taskResults() -> Results<Task>? {
+    static func taskResults() -> Results<Tasks>? {
         guard let realm = try? Realm() else { return nil }
 
-        return realm.objects(Task.self)
+        return realm.objects(Tasks.self)
     }
 
     static func create(task: Task) {
         guard let realm = try? Realm() else { return }
 
+        let result = realm.objects(Tasks.self)
+
+        if result.isEmpty {
+            tasks.items.append(task)
+
+            try? realm.write {
+                realm.add(tasks)
+            }
+        } else {
+            try? realm.write {
+                result.first?.items.append(task)
+            }
+        }
+    }
+
+    static func moveTask(at sourceIndex: Int, to destinationIndex: Int) {
+        guard let realm = try? Realm(),
+              let tasks = realm.objects(Tasks.self).first?.items else { return }
+
+        let task = tasks[sourceIndex]
+
         try? realm.write {
-            realm.add(task)
+            tasks.remove(at: sourceIndex)
+            tasks.insert(task, at: destinationIndex)
         }
     }
 

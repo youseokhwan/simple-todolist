@@ -12,7 +12,7 @@ import RealmSwift
 struct ReadTaskUseCase {
     private let taskRepository = TaskRepository()
 
-    func taskResults() -> Results<Task>? {
+    func taskResults() -> Results<Tasks>? {
         return taskRepository.taskResults()
     }
 }
