@@ -9,9 +9,7 @@ import Foundation
 
 import RealmSwift
 
-struct RealmStorage {
-    private static let tasks = Tasks()
-
+enum RealmStorage {
     static func migration() {
         let configuration = Realm.Configuration(
             schemaVersion: 2,
