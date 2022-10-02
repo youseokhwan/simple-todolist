@@ -43,15 +43,13 @@ struct RealmStorage {
 
         let result = realm.objects(Tasks.self)
 
-        if result.isEmpty {
-            tasks.items.append(task)
-
-            try? realm.write {
-                realm.add(tasks)
+        try? realm.write {
+            if result.isEmpty {
+                realm.create(Tasks.self)
             }
-        } else {
-            try? realm.write {
-                result.first?.items.append(task)
+
+            if let items = realm.objects(Tasks.self).first?.items {
+                items.append(task)
             }
         }
     }
