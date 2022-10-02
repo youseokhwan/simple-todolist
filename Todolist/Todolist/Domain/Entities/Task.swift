@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 final class Tasks: Object {
-    let items = List<Task>()
+    @Persisted var items = List<Task>()
 }
 
 final class Task: Object {
