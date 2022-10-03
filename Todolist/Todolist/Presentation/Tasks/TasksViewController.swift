@@ -10,7 +10,6 @@ import UIKit
 import RxCocoa
 import RxSwift
 import SnapKit
-import RealmSwift
 
 final class TasksViewController: UIViewController {
     private let viewModel = TasksViewModel()
@@ -57,7 +56,6 @@ final class TasksViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("fileURL: \(Realm.Configuration.defaultConfiguration.fileURL!)")
         configure()
     }
 }
