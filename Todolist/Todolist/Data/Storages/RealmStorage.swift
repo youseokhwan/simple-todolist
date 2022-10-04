@@ -52,18 +52,6 @@ enum RealmStorage {
         }
     }
 
-    static func moveTask(at sourceIndex: Int, to destinationIndex: Int) {
-        guard let realm = try? Realm(),
-              let tasks = realm.objects(Tasks.self).first?.items else { return }
-
-        let task = tasks[sourceIndex]
-
-        try? realm.write {
-            tasks.remove(at: sourceIndex)
-            tasks.insert(task, at: destinationIndex)
-        }
-    }
-
     static func update(task: Task) {
         guard let realm = try? Realm() else { return }
 
@@ -90,6 +78,18 @@ enum RealmStorage {
 
         try? realm.write {
             realm.delete(task)
+        }
+    }
+
+    static func moveTask(at sourceIndex: Int, to destinationIndex: Int) {
+        guard let realm = try? Realm(),
+              let tasks = realm.objects(Tasks.self).first?.items else { return }
+
+        let task = tasks[sourceIndex]
+
+        try? realm.write {
+            tasks.remove(at: sourceIndex)
+            tasks.insert(task, at: destinationIndex)
         }
     }
 }
