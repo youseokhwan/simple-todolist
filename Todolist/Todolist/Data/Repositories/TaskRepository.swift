@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 final class TaskRepository {
-    func taskResults() -> Results<Tasks>? {
+    func taskResults() -> Results<Task>? {
         return RealmStorage.taskResults()
     }
 
@@ -32,9 +32,5 @@ final class TaskRepository {
 
     func delete(task: Task) {
         RealmStorage.delete(task: task)
-    }
-
-    func moveTask(at sourceIndex: Int, to destinationIndex: Int) {
-        RealmStorage.moveTask(at: sourceIndex, to: destinationIndex)
     }
 }

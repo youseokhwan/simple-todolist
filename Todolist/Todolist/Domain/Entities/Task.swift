@@ -9,10 +9,6 @@ import Foundation
 
 import RealmSwift
 
-final class Tasks: Object {
-    @Persisted var items = List<Task>()
-}
-
 final class Task: Object {
     @Persisted(primaryKey: true) var id: Int
     @Persisted var title: String

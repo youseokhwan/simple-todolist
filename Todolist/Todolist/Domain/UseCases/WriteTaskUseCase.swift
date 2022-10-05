@@ -51,8 +51,4 @@ struct WriteTaskUseCase {
     func delete(task: Task) {
         taskRepository.delete(task: task)
     }
-
-    func moveTask(at sourceIndex: Int, to destinationIndex: Int) {
-        taskRepository.moveTask(at: sourceIndex, to: destinationIndex)
-    }
 }

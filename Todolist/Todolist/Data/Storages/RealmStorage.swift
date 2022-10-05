@@ -30,25 +30,17 @@ enum RealmStorage {
         Realm.Configuration.defaultConfiguration = configuration
     }
 
-    static func taskResults() -> Results<Tasks>? {
+    static func taskResults() -> Results<Task>? {
         guard let realm = try? Realm() else { return nil }
 
-        return realm.objects(Tasks.self)
+        return realm.objects(Task.self)
     }
 
     static func create(task: Task) {
         guard let realm = try? Realm() else { return }
 
-        let result = realm.objects(Tasks.self)
-
         try? realm.write {
-            if result.isEmpty {
-                realm.create(Tasks.self)
-            }
-
-            if let items = realm.objects(Tasks.self).first?.items {
-                items.append(task)
-            }
+            realm.add(task)
         }
     }
 
@@ -78,18 +70,6 @@ enum RealmStorage {
 
         try? realm.write {
             realm.delete(task)
-        }
-    }
-
-    static func moveTask(at sourceIndex: Int, to destinationIndex: Int) {
-        guard let realm = try? Realm(),
-              let tasks = realm.objects(Tasks.self).first?.items else { return }
-
-        let task = tasks[sourceIndex]
-
-        try? realm.write {
-            tasks.remove(at: sourceIndex)
-            tasks.insert(task, at: destinationIndex)
         }
     }
 }
