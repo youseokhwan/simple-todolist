@@ -178,15 +178,13 @@ extension TasksViewController: UITableViewDelegate {
     }
 }
 
-extension TasksViewController: UITableViewDragDelegate {
+extension TasksViewController: UITableViewDragDelegate, UITableViewDropDelegate {
     func tableView(_ tableView: UITableView,
                    itemsForBeginning session: UIDragSession,
                    at indexPath: IndexPath) -> [UIDragItem] {
         return [UIDragItem(itemProvider: NSItemProvider())]
     }
-}
 
-extension TasksViewController: UITableViewDropDelegate {
     func tableView(_ tableView: UITableView,
                    performDropWith coordinator: UITableViewDropCoordinator) { }
 
