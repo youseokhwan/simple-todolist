@@ -33,4 +33,8 @@ final class TaskRepository {
     func delete(task: Task) {
         RealmStorage.delete(task: task)
     }
+
+    func moveTask(at sourceRow: Int, to destinationRow: Int) {
+        RealmStorage.moveTask(at: sourceRow, to: destinationRow)
+    }
 }

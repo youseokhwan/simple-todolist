@@ -53,6 +53,10 @@ final class TasksViewModel {
         allTasks.accept(newAllTasks)
         writeTaskUseCase.delete(task: removedTask)
     }
+
+    func moveTask(at sourceRow: Int, to destinationRow: Int) {
+        writeTaskUseCase.moveTask(at: sourceRow, to: destinationRow)
+    }
 }
 
 private extension TasksViewModel {
