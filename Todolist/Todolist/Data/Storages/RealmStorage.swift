@@ -39,7 +39,14 @@ enum RealmStorage {
     static func create(task: Task) {
         guard let realm = try? Realm() else { return }
 
+        let ids = realm.objects(OrderOfTask.self)
+
         try? realm.write {
+            if ids.isEmpty {
+                realm.create(OrderOfTask.self)
+            }
+
+            ids.first?.ids.append(task.id)
             realm.add(task)
         }
     }
