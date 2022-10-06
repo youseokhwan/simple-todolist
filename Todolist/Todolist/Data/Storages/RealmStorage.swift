@@ -36,6 +36,12 @@ enum RealmStorage {
         return realm.objects(Task.self)
     }
 
+    static func orderOfTaskResults() -> Results<OrderOfTask>? {
+        guard let realm = try? Realm() else { return nil }
+
+        return realm.objects(OrderOfTask.self)
+    }
+
     static func create(task: Task) {
         guard let realm = try? Realm() else { return }
 
