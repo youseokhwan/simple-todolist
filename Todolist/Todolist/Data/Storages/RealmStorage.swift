@@ -75,7 +75,10 @@ enum RealmStorage {
     static func delete(task: Task) {
         guard let realm = try? Realm() else { return }
 
+        let results = realm.objects(OrderOfTask.self)
+
         try? realm.write {
+            results.first?.ids.remove(at: results.first?.ids.firstIndex(of: task.id) ?? 0)
             realm.delete(task)
         }
     }
