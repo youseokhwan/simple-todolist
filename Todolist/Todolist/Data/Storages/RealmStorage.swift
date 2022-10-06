@@ -84,8 +84,10 @@ enum RealmStorage {
         let results = realm.objects(OrderOfTask.self)
 
         try? realm.write {
-            results.first?.ids.remove(at: results.first?.ids.firstIndex(of: task.id) ?? 0)
-            realm.delete(task)
+            if let ids = results.first?.ids {
+                ids.remove(at: ids.firstIndex(of: task.id) ?? 0)
+                realm.delete(task)
+            }
         }
     }
 
@@ -95,9 +97,10 @@ enum RealmStorage {
         let results = realm.objects(OrderOfTask.self)
 
         try? realm.write {
-            if let movedId = results.first?.ids[sourceRow] {
-                results.first?.ids.remove(at: sourceRow)
-                results.first?.ids.insert(movedId, at: destinationRow)
+            if let ids = results.first?.ids,
+               let movedId = results.first?.ids[sourceRow] {
+                ids.remove(at: sourceRow)
+                ids.insert(movedId, at: destinationRow)
             }
         }
     }
