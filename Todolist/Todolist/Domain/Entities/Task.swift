@@ -9,8 +9,10 @@ import Foundation
 
 import RealmSwift
 
+typealias TaskID = Int
+
 final class Task: Object {
-    @Persisted(primaryKey: true) var id: Int
+    @Persisted(primaryKey: true) var id: TaskID
     @Persisted var title: String
     @Persisted var isDone: Bool
     @Persisted var isDaily: Bool
@@ -27,5 +29,5 @@ final class Task: Object {
 }
 
 final class OrderOfTask: Object {
-    @Persisted var ids = List<Int>()
+    @Persisted var ids = List<TaskID>()
 }
