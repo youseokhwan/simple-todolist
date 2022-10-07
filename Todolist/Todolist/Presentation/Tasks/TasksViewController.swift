@@ -190,11 +190,11 @@ extension TasksViewController: UITableViewDragDelegate, UITableViewDropDelegate 
         dropSessionDidUpdate session: UIDropSession,
         withDestinationIndexPath destinationIndexPath: IndexPath?
     ) -> UITableViewDropProposal {
-        if session.localDragSession != nil {
-            return UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
-        }
+        let operation: UIDropOperation = session.localDragSession != nil ? .move : .cancel
+        let intent: UITableViewDropProposal.Intent = session.localDragSession != nil ?
+            .insertAtDestinationIndexPath : .unspecified
 
-        return UITableViewDropProposal(operation: .cancel, intent: .unspecified)
+        return UITableViewDropProposal(operation: operation, intent: intent)
     }
 
     func tableView(_ tableView: UITableView,
