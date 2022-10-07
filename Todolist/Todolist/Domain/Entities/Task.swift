@@ -9,10 +9,6 @@ import Foundation
 
 import RealmSwift
 
-final class OrderOfTask: Object {
-    @Persisted var ids = List<Int>()
-}
-
 final class Task: Object {
     @Persisted(primaryKey: true) var id: Int
     @Persisted var title: String
@@ -28,4 +24,8 @@ final class Task: Object {
         self.isDaily = isDaily
         self.createdDate = createdDate
     }
+}
+
+final class OrderOfTask: Object {
+    @Persisted var ids = List<Int>()
 }
