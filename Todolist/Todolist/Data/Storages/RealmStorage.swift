@@ -36,20 +36,20 @@ enum RealmStorage {
         return realm.objects(Task.self)
     }
 
-    static func orderOfTaskResults() -> Results<OrderOfTask>? {
+    static func orderOfTasksResults() -> Results<OrderOfTasks>? {
         guard let realm = try? Realm() else { return nil }
 
-        return realm.objects(OrderOfTask.self)
+        return realm.objects(OrderOfTasks.self)
     }
 
     static func create(task: Task) {
         guard let realm = try? Realm() else { return }
 
-        let results = realm.objects(OrderOfTask.self)
+        let results = realm.objects(OrderOfTasks.self)
 
         try? realm.write {
             if results.isEmpty {
-                realm.create(OrderOfTask.self)
+                realm.create(OrderOfTasks.self)
             }
 
             results.first?.ids.append(task.id)
@@ -81,7 +81,7 @@ enum RealmStorage {
     static func delete(task: Task) {
         guard let realm = try? Realm() else { return }
 
-        let results = realm.objects(OrderOfTask.self)
+        let results = realm.objects(OrderOfTasks.self)
 
         try? realm.write {
             if let ids = results.first?.ids {
@@ -94,7 +94,7 @@ enum RealmStorage {
     static func moveTask(at sourceRow: Int, to destinationRow: Int) {
         guard let realm = try? Realm() else { return }
 
-        let results = realm.objects(OrderOfTask.self)
+        let results = realm.objects(OrderOfTasks.self)
 
         try? realm.write {
             if let ids = results.first?.ids,

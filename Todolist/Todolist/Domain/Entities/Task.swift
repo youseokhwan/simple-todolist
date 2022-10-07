@@ -28,6 +28,6 @@ final class Task: Object {
     }
 }
 
-final class OrderOfTask: Object {
+final class OrderOfTasks: Object {
     @Persisted var ids = List<TaskID>()
 }

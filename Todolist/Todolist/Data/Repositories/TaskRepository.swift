@@ -14,8 +14,8 @@ final class TaskRepository {
         return RealmStorage.taskResults()
     }
 
-    func orderOfTaskResults() -> Results<OrderOfTask>? {
-        return RealmStorage.orderOfTaskResults()
+    func orderOfTasksResults() -> Results<OrderOfTasks>? {
+        return RealmStorage.orderOfTasksResults()
     }
 
     func create(task: Task) {
