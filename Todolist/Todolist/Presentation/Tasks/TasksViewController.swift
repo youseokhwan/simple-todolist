@@ -182,6 +182,8 @@ extension TasksViewController: UITableViewDragDelegate, UITableViewDropDelegate 
     func tableView(_ tableView: UITableView,
                    itemsForBeginning session: UIDragSession,
                    at indexPath: IndexPath) -> [UIDragItem] {
+        UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+
         return [UIDragItem(itemProvider: NSItemProvider())]
     }
 
