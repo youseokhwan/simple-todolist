@@ -185,9 +185,6 @@ extension TasksViewController: UITableViewDragDelegate, UITableViewDropDelegate 
         return [UIDragItem(itemProvider: NSItemProvider())]
     }
 
-    func tableView(_ tableView: UITableView,
-                   performDropWith coordinator: UITableViewDropCoordinator) { }
-
     func tableView(
         _ tableView: UITableView,
         dropSessionDidUpdate session: UIDropSession,
@@ -199,4 +196,7 @@ extension TasksViewController: UITableViewDragDelegate, UITableViewDropDelegate 
 
         return UITableViewDropProposal(operation: .cancel, intent: .unspecified)
     }
+
+    func tableView(_ tableView: UITableView,
+                   performDropWith coordinator: UITableViewDropCoordinator) { }
 }
