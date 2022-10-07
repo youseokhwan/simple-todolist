@@ -74,13 +74,13 @@ private extension TasksViewModel {
                 .subscribe(onNext: { [weak self] tasks, orderOfTask in
                     guard let ids = orderOfTask.first?.ids else { return }
 
-                    var reorderedTask = [Task]()
+                    var reorderedTasks = [Task]()
 
                     for id in ids {
-                        reorderedTask.append(contentsOf: tasks.filter { $0.id == id })
+                        reorderedTasks.append(contentsOf: tasks.filter { $0.id == id })
                     }
 
-                    self?.allTasks.accept(reorderedTask)
+                    self?.allTasks.accept(reorderedTasks)
                 })
                 .disposed(by: disposeBag)
         }
