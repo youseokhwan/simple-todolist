@@ -182,21 +182,23 @@ extension TasksViewController: UITableViewDragDelegate, UITableViewDropDelegate 
     func tableView(_ tableView: UITableView,
                    itemsForBeginning session: UIDragSession,
                    at indexPath: IndexPath) -> [UIDragItem] {
+        UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+
         return [UIDragItem(itemProvider: NSItemProvider())]
     }
-
-    func tableView(_ tableView: UITableView,
-                   performDropWith coordinator: UITableViewDropCoordinator) { }
 
     func tableView(
         _ tableView: UITableView,
         dropSessionDidUpdate session: UIDropSession,
         withDestinationIndexPath destinationIndexPath: IndexPath?
     ) -> UITableViewDropProposal {
-        if session.localDragSession != nil {
-            return UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
-        }
+        let operation: UIDropOperation = session.localDragSession != nil ? .move : .cancel
+        let intent: UITableViewDropProposal.Intent = session.localDragSession != nil ?
+            .insertAtDestinationIndexPath : .unspecified
 
-        return UITableViewDropProposal(operation: .cancel, intent: .unspecified)
+        return UITableViewDropProposal(operation: operation, intent: intent)
     }
+
+    func tableView(_ tableView: UITableView,
+                   performDropWith coordinator: UITableViewDropCoordinator) { }
 }

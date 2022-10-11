@@ -66,21 +66,21 @@ private extension TasksViewModel {
 
     func configureBind() {
         if let taskResults = readTaskUseCase.taskResults(),
-           let orderOfTaskResults = RealmStorage.orderOfTaskResults() {
+           let orderOfTasksResults = RealmStorage.orderOfTasksResults() {
             let tasks = Observable.array(from: taskResults)
-            let orderOfTask = Observable.array(from: orderOfTaskResults)
+            let orderOfTasks = Observable.array(from: orderOfTasksResults)
 
-            Observable.combineLatest(tasks, orderOfTask)
-                .subscribe(onNext: { [weak self] tasks, orderOfTask in
-                    guard let ids = orderOfTask.first?.ids else { return }
+            Observable.combineLatest(tasks, orderOfTasks)
+                .subscribe(onNext: { [weak self] tasks, orderOfTasks in
+                    guard let ids = orderOfTasks.first?.ids else { return }
 
-                    var reorderedTask = [Task]()
+                    var reorderedTasks = [Task]()
 
                     for id in ids {
-                        reorderedTask.append(contentsOf: tasks.filter { $0.id == id })
+                        reorderedTasks.append(contentsOf: tasks.filter { $0.id == id })
                     }
 
-                    self?.allTasks.accept(reorderedTask)
+                    self?.allTasks.accept(reorderedTasks)
                 })
                 .disposed(by: disposeBag)
         }
