@@ -53,6 +53,10 @@ final class TasksViewModel {
         allTasks.accept(newAllTasks)
         writeTaskUseCase.delete(task: removedTask)
     }
+
+    func moveTask(at sourceRow: Int, to destinationRow: Int) {
+        writeTaskUseCase.moveTask(at: sourceRow, to: destinationRow)
+    }
 }
 
 private extension TasksViewModel {
@@ -61,12 +65,22 @@ private extension TasksViewModel {
     }
 
     func configureBind() {
-        if let results = readTaskUseCase.taskResults() {
-            Observable.changeset(from: results)
-                .subscribe(onNext: { [weak self] collection, _ in
-                    let tasks = Array(collection)
+        if let taskResults = readTaskUseCase.taskResults(),
+           let orderOfTasksResults = RealmStorage.orderOfTasksResults() {
+            let tasks = Observable.array(from: taskResults)
+            let orderOfTasks = Observable.array(from: orderOfTasksResults)
 
-                    self?.allTasks.accept(tasks)
+            Observable.combineLatest(tasks, orderOfTasks)
+                .subscribe(onNext: { [weak self] tasks, orderOfTasks in
+                    guard let ids = orderOfTasks.first?.ids else { return }
+
+                    var reorderedTasks = [Task]()
+
+                    for id in ids {
+                        reorderedTasks.append(contentsOf: tasks.filter { $0.id == id })
+                    }
+
+                    self?.allTasks.accept(reorderedTasks)
                 })
                 .disposed(by: disposeBag)
         }

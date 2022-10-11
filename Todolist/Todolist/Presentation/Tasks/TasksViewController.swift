@@ -40,6 +40,9 @@ final class TasksViewController: UIViewController {
                            forCellReuseIdentifier: TasksTableViewCell.identifier)
         tableView.rowHeight = 80
         tableView.separatorStyle = .none
+        tableView.dragInteractionEnabled = true
+        tableView.dragDelegate = self
+        tableView.dropDelegate = self
 
         return tableView
     }()
@@ -111,6 +114,12 @@ private extension TasksViewController {
             })
             .disposed(by: disposeBag)
 
+        tableView.rx.itemMoved
+            .subscribe(onNext: { [weak self] sourceIndexPath, destinationIndexPath in
+                self?.viewModel.moveTask(at: sourceIndexPath.row, to: destinationIndexPath.row)
+            })
+            .disposed(by: disposeBag)
+
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
 
@@ -167,4 +176,29 @@ extension TasksViewController: UITableViewDelegate {
 
         return configuration
     }
+}
+
+extension TasksViewController: UITableViewDragDelegate, UITableViewDropDelegate {
+    func tableView(_ tableView: UITableView,
+                   itemsForBeginning session: UIDragSession,
+                   at indexPath: IndexPath) -> [UIDragItem] {
+        UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+
+        return [UIDragItem(itemProvider: NSItemProvider())]
+    }
+
+    func tableView(
+        _ tableView: UITableView,
+        dropSessionDidUpdate session: UIDropSession,
+        withDestinationIndexPath destinationIndexPath: IndexPath?
+    ) -> UITableViewDropProposal {
+        let operation: UIDropOperation = session.localDragSession != nil ? .move : .cancel
+        let intent: UITableViewDropProposal.Intent = session.localDragSession != nil ?
+            .insertAtDestinationIndexPath : .unspecified
+
+        return UITableViewDropProposal(operation: operation, intent: intent)
+    }
+
+    func tableView(_ tableView: UITableView,
+                   performDropWith coordinator: UITableViewDropCoordinator) { }
 }

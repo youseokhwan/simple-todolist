@@ -15,4 +15,8 @@ struct ReadTaskUseCase {
     func taskResults() -> Results<Task>? {
         return taskRepository.taskResults()
     }
+
+    func orderOfTasksResults() -> Results<OrderOfTasks>? {
+        return taskRepository.orderOfTasksResults()
+    }
 }
