@@ -47,8 +47,8 @@ final class FormTextView: UITextView {
         configure()
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func didAddSubview(_ subview: UIView) {
+        super.didAddSubview(subview)
         calculateHeight()
     }
 
