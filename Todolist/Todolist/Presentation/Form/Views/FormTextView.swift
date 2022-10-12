@@ -46,6 +46,27 @@ final class FormTextView: UITextView {
         super.init(coder: coder)
         configure()
     }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        calculateHeight()
+    }
+
+    private func calculateHeight() {
+        guard let lineHeight = self.font?.lineHeight else { return }
+
+        let verticalInset = textContainerInset.top + textContainerInset.bottom
+        let maxHeight = lineHeight * CGFloat(Self.maxLineCount) + verticalInset
+        let size = CGSize(width: frame.width, height: .infinity)
+        let estimatedSize = sizeThatFits(size)
+        let numberOfLine = Int(estimatedSize.height / lineHeight)
+
+        isScrollEnabled = numberOfLine > Self.maxLineCount
+
+        snp.remakeConstraints { make in
+            make.height.equalTo(min(estimatedSize.height, maxHeight))
+        }
+    }
 }
 
 private extension FormTextView {
@@ -74,19 +95,7 @@ private extension FormTextView {
 
         rx.didChange
             .subscribe(onNext: { [weak self] in
-                guard let self = self,
-                      let lineHeight = self.font?.lineHeight else { return }
-
-                let verticalInset = self.textContainerInset.top + self.textContainerInset.bottom
-                let maxHeight = lineHeight * CGFloat(Self.maxLineCount) + verticalInset
-                let size = CGSize(width: self.frame.width, height: .infinity)
-                let estimatedSize = self.sizeThatFits(size)
-                let numberOfLine = Int(estimatedSize.height / lineHeight)
-
-                self.isScrollEnabled = numberOfLine > Self.maxLineCount
-                self.snp.remakeConstraints { make in
-                    make.height.equalTo(min(estimatedSize.height, maxHeight))
-                }
+                self?.calculateHeight()
             })
             .disposed(by: disposeBag)
     }
