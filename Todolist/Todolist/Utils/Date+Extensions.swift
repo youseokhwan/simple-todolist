@@ -12,6 +12,8 @@ extension Date {
         let dateFormatter = DateFormatter()
 
         dateFormatter.dateFormat = "yyyy.MM.dd"
+        dateFormatter.locale = Locale(identifier: Locale.preferredLanguages[0])
+        dateFormatter.timeZone = TimeZone(identifier: TimeZone.current.identifier)
 
         return dateFormatter.string(from: Date())
     }
@@ -20,6 +22,8 @@ extension Date {
         let dateFormatter = DateFormatter()
 
         dateFormatter.dateFormat = "M.dd (E)"
+        dateFormatter.locale = Locale(identifier: Locale.preferredLanguages[0])
+        dateFormatter.timeZone = TimeZone(identifier: TimeZone.current.identifier)
 
         return dateFormatter.string(from: Date())
     }

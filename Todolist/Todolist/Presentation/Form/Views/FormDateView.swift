@@ -23,7 +23,8 @@ final class FormDateView: UIView {
         let picker = UIDatePicker()
 
         picker.datePickerMode = .date
-        picker.timeZone = .autoupdatingCurrent
+        picker.locale = Locale(identifier: Locale.preferredLanguages[0])
+        picker.timeZone = TimeZone(identifier: TimeZone.current.identifier)
 
         return picker
     }()
