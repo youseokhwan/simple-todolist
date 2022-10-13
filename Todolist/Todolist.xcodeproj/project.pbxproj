@@ -12,6 +12,7 @@
 		0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */; };
 		0193C56528F7EFA9007C4BD1 /* TheCircleM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0193C56328F7EFA9007C4BD1 /* TheCircleM.ttf */; };
 		0193C56628F7EFA9007C4BD1 /* TheCircleB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0193C56428F7EFA9007C4BD1 /* TheCircleB.ttf */; };
+		0193C56828F7FB71007C4BD1 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193C56728F7FB71007C4BD1 /* UIFont+Extensions.swift */; };
 		0193D28928A7C65E00F929DC /* SettingsLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28828A7C65E00F929DC /* SettingsLicenseViewController.swift */; };
 		0193D28D28AB988800F929DC /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28C28AB988800F929DC /* SettingsNavigationController.swift */; };
 		0193D2C628B5D9E400F929DC /* FormTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D2C528B5D9E400F929DC /* FormTextView.swift */; };
@@ -84,6 +85,7 @@
 		0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
 		0193C56328F7EFA9007C4BD1 /* TheCircleM.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TheCircleM.ttf; sourceTree = "<group>"; };
 		0193C56428F7EFA9007C4BD1 /* TheCircleB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TheCircleB.ttf; sourceTree = "<group>"; };
+		0193C56728F7FB71007C4BD1 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		0193D28828A7C65E00F929DC /* SettingsLicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLicenseViewController.swift; sourceTree = "<group>"; };
 		0193D28C28AB988800F929DC /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		0193D2C528B5D9E400F929DC /* FormTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextView.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				44B90CAA289A487D00B4BADD /* UILabel+Extensions.swift */,
 				448AD83928DC33E200582951 /* UIColor+Extensions.swift */,
 				449678E428B129B40029951B /* UIImage+Extensions.swift */,
+				0193C56728F7FB71007C4BD1 /* UIFont+Extensions.swift */,
 				442DE18028DC5D6A00E69707 /* UserDefaults+Extensions.swift */,
 			);
 			path = Utils;
@@ -554,6 +557,7 @@
 				0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */,
 				0193D28D28AB988800F929DC /* SettingsNavigationController.swift in Sources */,
 				442473D12869B8290059CFCC /* TaskRepository.swift in Sources */,
+				0193C56828F7FB71007C4BD1 /* UIFont+Extensions.swift in Sources */,
 				442646BE2887FA17004C22D8 /* String+Extensions.swift in Sources */,
 				019EE54F28742F9F00804889 /* Date+Extensions.swift in Sources */,
 				4426470E2892C30A004C22D8 /* SettingsThemeAlertController.swift in Sources */,
