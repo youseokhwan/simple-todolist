@@ -52,6 +52,11 @@ enum SettingsText: String {
     case emailURL = "mailto:youseokhwan15@gmail.com,folw159@gmail.com"
 }
 
+enum FontName: String {
+    case theCircleM = "TheCircleM"
+    case theCircleB = "TheCircleB"
+}
+
 enum UserDefaultsKey: String {
     case nextTaskID
     case lastFetchDate
