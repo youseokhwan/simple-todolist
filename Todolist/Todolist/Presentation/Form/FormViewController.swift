@@ -20,7 +20,7 @@ final class FormViewController: UIViewController {
 
         label.text = String(.formTitleAtCreation)
         label.textColor = UIColor(.commonText100)
-        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.font = UIFont(.theCircleB, size: 24)
         label.textAlignment = .center
 
         return label

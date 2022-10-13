@@ -43,6 +43,7 @@ final class RoundedButton: UIButton {
 
     func setTitle(type: ButtonType) {
         setTitle(type.title, for: .normal)
+        titleLabel?.font = UIFont(.theCircleM, size: 18)
     }
 }
 

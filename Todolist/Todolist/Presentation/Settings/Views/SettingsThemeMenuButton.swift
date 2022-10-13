@@ -33,6 +33,7 @@ private extension SettingsThemeMenuButton {
 
         setTitle(themes[currentAppearance], for: .normal)
         setTitleColor(.systemBlue, for: .normal)
+        titleLabel?.font = UIFont(.theCircleM, size: 18)
         sizeToFit()
     }
 

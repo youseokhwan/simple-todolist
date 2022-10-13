@@ -16,6 +16,7 @@ final class FormSwitchView: UIView {
         let label = UILabel()
 
         label.textColor = UIColor(.commonText100)
+        label.font = UIFont(.theCircleM, size: 18)
 
         return label
     }()

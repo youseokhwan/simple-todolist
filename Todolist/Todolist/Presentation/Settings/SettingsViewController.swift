@@ -22,6 +22,10 @@ final class SettingsViewController: UIViewController {
     private lazy var doneBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
 
+        if let font = UIFont(.theCircleM, size: 18) {
+            barButtonItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+        }
+
         return barButtonItem
     }()
     private lazy var tableView: UITableView = {
@@ -38,6 +42,7 @@ final class SettingsViewController: UIViewController {
 
         label.text = String(.lightThemeItem)
         label.sizeToFit()
+        label.font = UIFont(.theCircleM, size: 18)
 
         return label
     }()
@@ -45,6 +50,7 @@ final class SettingsViewController: UIViewController {
         let label = UILabel()
 
         label.textColor = .lightGray
+        label.font = UIFont(.theCircleM, size: 18)
 
         return label
     }()

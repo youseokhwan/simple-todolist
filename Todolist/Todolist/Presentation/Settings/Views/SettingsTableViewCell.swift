@@ -12,7 +12,13 @@ import SnapKit
 final class SettingsTableViewCell: UITableViewCell {
     static let identifier = "SettingsTableViewCell"
 
-    private lazy var titleLabel = UILabel()
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+
+        label.font = UIFont(.theCircleM, size: 18)
+
+        return label
+    }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

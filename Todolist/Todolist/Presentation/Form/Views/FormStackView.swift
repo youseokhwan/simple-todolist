@@ -18,14 +18,14 @@ final class FormStackView: UIStackView {
 
         textView.textColor = UIColor(.commonText100)
         textView.placeholder = String(.formTextViewPlaceholder)
-        textView.font = .systemFont(ofSize: 18)
+        textView.font = UIFont(.theCircleM, size: 19)
 
         return textView
     }()
     private lazy var titleCountLabel: UILabel = {
         let label = UILabel()
 
-        label.font = .systemFont(ofSize: 14)
+        label.font = UIFont(.theCircleM, size: 15)
         label.textColor = UIColor(.commonBackground50)
         label.textAlignment = .right
 
