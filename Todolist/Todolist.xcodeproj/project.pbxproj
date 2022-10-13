@@ -10,6 +10,8 @@
 		01247D1028BCB99000B22DA3 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01247D0F28BCB99000B22DA3 /* RoundedButton.swift */; };
 		012D2C27288C33270063BB1E /* SettingsThemeMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D2C26288C33270063BB1E /* SettingsThemeMenuButton.swift */; };
 		0183F44A2869DAF7005B3243 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */; };
+		0193C56528F7EFA9007C4BD1 /* TheCircleM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0193C56328F7EFA9007C4BD1 /* TheCircleM.ttf */; };
+		0193C56628F7EFA9007C4BD1 /* TheCircleB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0193C56428F7EFA9007C4BD1 /* TheCircleB.ttf */; };
 		0193D28928A7C65E00F929DC /* SettingsLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28828A7C65E00F929DC /* SettingsLicenseViewController.swift */; };
 		0193D28D28AB988800F929DC /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28C28AB988800F929DC /* SettingsNavigationController.swift */; };
 		0193D2C628B5D9E400F929DC /* FormTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D2C528B5D9E400F929DC /* FormTextView.swift */; };
@@ -80,6 +82,8 @@
 		01247D0F28BCB99000B22DA3 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		012D2C26288C33270063BB1E /* SettingsThemeMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsThemeMenuButton.swift; sourceTree = "<group>"; };
 		0183F4492869DAF7005B3243 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
+		0193C56328F7EFA9007C4BD1 /* TheCircleM.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TheCircleM.ttf; sourceTree = "<group>"; };
+		0193C56428F7EFA9007C4BD1 /* TheCircleB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TheCircleB.ttf; sourceTree = "<group>"; };
 		0193D28828A7C65E00F929DC /* SettingsLicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLicenseViewController.swift; sourceTree = "<group>"; };
 		0193D28C28AB988800F929DC /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		0193D2C528B5D9E400F929DC /* FormTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextView.swift; sourceTree = "<group>"; };
@@ -159,6 +163,15 @@
 				01247D0F28BCB99000B22DA3 /* RoundedButton.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		0193C56228F7EF90007C4BD1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0193C56328F7EFA9007C4BD1 /* TheCircleM.ttf */,
+				0193C56428F7EFA9007C4BD1 /* TheCircleB.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		019EE55028742FA900804889 /* Utils */ = {
@@ -365,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				442646C128880322004C22D8 /* Constants.swift */,
+				0193C56228F7EF90007C4BD1 /* Fonts */,
 				440216D828AB8CA0008930FD /* Licenses */,
 				4444314C285EFB420004D468 /* Assets.xcassets */,
 				44443151285EFB420004D468 /* Info.plist */,
@@ -500,8 +514,10 @@
 			files = (
 				440216E228AB8E65008930FD /* RxRealm.txt in Resources */,
 				440216E028AB8E65008930FD /* realm-swift.txt in Resources */,
+				0193C56528F7EFA9007C4BD1 /* TheCircleM.ttf in Resources */,
 				44443150285EFB420004D468 /* LaunchScreen.storyboard in Resources */,
 				440216E128AB8E65008930FD /* SnapKit.txt in Resources */,
+				0193C56628F7EFA9007C4BD1 /* TheCircleB.ttf in Resources */,
 				4444314D285EFB420004D468 /* Assets.xcassets in Resources */,
 				440216E328AB8E65008930FD /* RxSwift.txt in Resources */,
 				440216E428AB8E65008930FD /* RxDataSources.txt in Resources */,
