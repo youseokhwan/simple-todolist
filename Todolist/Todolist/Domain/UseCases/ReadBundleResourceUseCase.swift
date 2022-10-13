@@ -14,6 +14,7 @@ struct ReadBundleResourceUseCase {
         case rxRealm = "RxRealm"
         case rxSwift = "RxSwift"
         case snapKit = "SnapKit"
+        case font
     }
 
     func licensesText() -> String {
