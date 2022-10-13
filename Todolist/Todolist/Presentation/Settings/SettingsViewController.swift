@@ -41,8 +41,8 @@ final class SettingsViewController: UIViewController {
         let label = UILabel()
 
         label.text = String(.lightThemeItem)
-        label.sizeToFit()
         label.font = UIFont(.theCircleM, size: 18)
+        label.sizeToFit()
 
         return label
     }()

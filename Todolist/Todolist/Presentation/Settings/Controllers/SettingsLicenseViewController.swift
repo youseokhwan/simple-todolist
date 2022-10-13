@@ -15,8 +15,8 @@ final class SettingsLicenseViewController: UIViewController {
     private lazy var textView: UITextView = {
         let textView = UITextView()
 
-        textView.isEditable = false
         textView.font = UIFont(.theCircleM, size: 18)
+        textView.isEditable = false
 
         return textView
     }()

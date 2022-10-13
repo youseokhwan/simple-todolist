@@ -19,8 +19,8 @@ final class TasksViewController: UIViewController {
         let label = UILabel()
 
         label.text = Date.monthDayWeekday
-        label.font = UIFont(.theCircleB, size: 26)
         label.textColor = UIColor(.commonText100)
+        label.font = UIFont(.theCircleB, size: 26)
 
         return label
     }()
