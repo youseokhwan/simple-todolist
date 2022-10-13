@@ -41,7 +41,7 @@ final class RoundedButton: UIButton {
         addGradientLayer(colors: [left.cgColor, right.cgColor])
     }
 
-    func setTitle(type: ButtonType) {
+    func setTitleWithFont(type: ButtonType) {
         setTitle(type.title, for: .normal)
         titleLabel?.font = UIFont(.theCircleM, size: 18)
     }

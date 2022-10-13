@@ -49,7 +49,7 @@ final class TasksViewController: UIViewController {
     private lazy var addButton: RoundedButton = {
         let button = RoundedButton()
 
-        button.setTitle(type: .tasks)
+        button.setTitleWithFont(type: .tasks)
 
         return button
     }()
