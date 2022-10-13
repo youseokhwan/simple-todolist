@@ -49,10 +49,10 @@ final class FormTextView: UITextView {
 
     override func didAddSubview(_ subview: UIView) {
         super.didAddSubview(subview)
-        calculateHeight()
+        adjustHeight()
     }
 
-    private func calculateHeight() {
+    private func adjustHeight() {
         guard let lineHeight = self.font?.lineHeight else { return }
 
         let verticalInset = textContainerInset.top + textContainerInset.bottom
@@ -95,7 +95,7 @@ private extension FormTextView {
 
         rx.didChange
             .subscribe(onNext: { [weak self] in
-                self?.calculateHeight()
+                self?.adjustHeight()
             })
             .disposed(by: disposeBag)
     }
