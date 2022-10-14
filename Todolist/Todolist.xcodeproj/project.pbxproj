@@ -13,7 +13,7 @@
 		0193C56528F7EFA9007C4BD1 /* TheCircleM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0193C56328F7EFA9007C4BD1 /* TheCircleM.ttf */; };
 		0193C56628F7EFA9007C4BD1 /* TheCircleB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0193C56428F7EFA9007C4BD1 /* TheCircleB.ttf */; };
 		0193C56828F7FB71007C4BD1 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193C56728F7FB71007C4BD1 /* UIFont+Extensions.swift */; };
-		0193C56A28F84C9A007C4BD1 /* font.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0193C56928F818D5007C4BD1 /* font.txt */; };
+		0193C56A28F84C9A007C4BD1 /* TheCircle.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0193C56928F818D5007C4BD1 /* TheCircle.txt */; };
 		0193D28928A7C65E00F929DC /* SettingsLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28828A7C65E00F929DC /* SettingsLicenseViewController.swift */; };
 		0193D28D28AB988800F929DC /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D28C28AB988800F929DC /* SettingsNavigationController.swift */; };
 		0193D2C628B5D9E400F929DC /* FormTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193D2C528B5D9E400F929DC /* FormTextView.swift */; };
@@ -87,7 +87,7 @@
 		0193C56328F7EFA9007C4BD1 /* TheCircleM.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TheCircleM.ttf; sourceTree = "<group>"; };
 		0193C56428F7EFA9007C4BD1 /* TheCircleB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TheCircleB.ttf; sourceTree = "<group>"; };
 		0193C56728F7FB71007C4BD1 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
-		0193C56928F818D5007C4BD1 /* font.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = font.txt; sourceTree = "<group>"; };
+		0193C56928F818D5007C4BD1 /* TheCircle.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = TheCircle.txt; sourceTree = "<group>"; };
 		0193D28828A7C65E00F929DC /* SettingsLicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLicenseViewController.swift; sourceTree = "<group>"; };
 		0193D28C28AB988800F929DC /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		0193D2C528B5D9E400F929DC /* FormTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextView.swift; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 				440216DD28AB8E64008930FD /* RxRealm.txt */,
 				440216DE28AB8E64008930FD /* RxSwift.txt */,
 				440216DC28AB8E64008930FD /* SnapKit.txt */,
-				0193C56928F818D5007C4BD1 /* font.txt */,
+				0193C56928F818D5007C4BD1 /* TheCircle.txt */,
 			);
 			path = Licenses;
 			sourceTree = "<group>";
@@ -527,7 +527,7 @@
 				4444314D285EFB420004D468 /* Assets.xcassets in Resources */,
 				440216E328AB8E65008930FD /* RxSwift.txt in Resources */,
 				440216E428AB8E65008930FD /* RxDataSources.txt in Resources */,
-				0193C56A28F84C9A007C4BD1 /* font.txt in Resources */,
+				0193C56A28F84C9A007C4BD1 /* TheCircle.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
