@@ -41,9 +41,8 @@ final class RoundedButton: UIButton {
         addGradientLayer(colors: [left.cgColor, right.cgColor])
     }
 
-    func setTitleWithFont(type: ButtonType) {
+    func setTitle(type: ButtonType) {
         setTitle(type.title, for: .normal)
-        titleLabel?.font = UIFont(.theCircleM, size: 18)
     }
 }
 
@@ -55,5 +54,6 @@ private extension RoundedButton {
     func configureViews() {
         contentHorizontalAlignment = .center
         setTitleColor(UIColor(.buttonText), for: .normal)
+        titleLabel?.font = UIFont(.theCircleM, size: 18)
     }
 }

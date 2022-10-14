@@ -29,7 +29,7 @@ final class FormViewController: UIViewController {
     private lazy var saveButton: RoundedButton = {
         let button = RoundedButton()
 
-        button.setTitleWithFont(type: .form)
+        button.setTitle(type: .form)
 
         return button
     }()
