@@ -24,6 +24,10 @@ final class SettingsViewController: UIViewController {
 
         if let font = UIFont(.theCircleM, size: 18) {
             barButtonItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+        } else {
+            let systemFont = UIFont.systemFont(ofSize: 18, weight: .bold)
+            barButtonItem.setTitleTextAttributes([NSAttributedString.Key.font: systemFont],
+                                                 for: .normal)
         }
 
         return barButtonItem

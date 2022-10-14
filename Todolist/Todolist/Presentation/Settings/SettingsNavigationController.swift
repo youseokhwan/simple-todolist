@@ -26,6 +26,9 @@ private extension SettingsNavigationController {
 
         if let font = UIFont(.theCircleB, size: 36) {
             navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: font]
+        } else {
+            let systemFont = UIFont.systemFont(ofSize: 36, weight: .bold)
+            navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: systemFont]
         }
     }
 }
