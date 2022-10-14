@@ -20,15 +20,11 @@ final class SettingsViewController: UIViewController {
     private let disposeBag = DisposeBag()
 
     private lazy var doneBarButtonItem: UIBarButtonItem = {
+        let size = CGFloat(18)
+        let font = UIFont(.theCircleB, size: size) ?? .systemFont(ofSize: size, weight: .bold)
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
 
-        if let font = UIFont(.theCircleM, size: 18) {
-            barButtonItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
-        } else {
-            let systemFont = UIFont.systemFont(ofSize: 18, weight: .bold)
-            barButtonItem.setTitleTextAttributes([NSAttributedString.Key.font: systemFont],
-                                                 for: .normal)
-        }
+        barButtonItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
 
         return barButtonItem
     }()
