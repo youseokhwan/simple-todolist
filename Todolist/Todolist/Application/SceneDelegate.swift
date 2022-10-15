@@ -23,6 +23,9 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.overrideUserInterfaceStyle = UIUserInterfaceStyle(
             rawValue: UserDefaultsRepository.currentAppearance()
         ) ?? .unspecified
+
+        UILabel.appearance().font = UIFont.unwrappedFont(.theCircleM, size: 18)
+        UITextView.appearance().font = UIFont.unwrappedFont(.theCircleM, size: 18)
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {

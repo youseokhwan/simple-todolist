@@ -22,8 +22,7 @@ final class SettingsNavigationController: UINavigationController {
 
 private extension SettingsNavigationController {
     func configure() {
-        let size = CGFloat(36)
-        let font = UIFont(.theCircleB, size: size) ?? .systemFont(ofSize: size, weight: .bold)
+        let font = UIFont.unwrappedFont(.theCircleB, size: 34)
 
         navigationBar.prefersLargeTitles = true
         navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: font]

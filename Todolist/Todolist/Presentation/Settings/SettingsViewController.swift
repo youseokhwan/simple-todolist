@@ -20,9 +20,8 @@ final class SettingsViewController: UIViewController {
     private let disposeBag = DisposeBag()
 
     private lazy var doneBarButtonItem: UIBarButtonItem = {
-        let size = CGFloat(18)
-        let font = UIFont(.theCircleB, size: size) ?? .systemFont(ofSize: size, weight: .bold)
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+        let font = UIFont.unwrappedFont(.theCircleB, size: 18)
 
         barButtonItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
 
@@ -41,7 +40,6 @@ final class SettingsViewController: UIViewController {
         let label = UILabel()
 
         label.text = String(.lightThemeItem)
-        label.font = UIFont(.theCircleM, size: 18)
         label.sizeToFit()
 
         return label
@@ -50,7 +48,6 @@ final class SettingsViewController: UIViewController {
         let label = UILabel()
 
         label.textColor = .lightGray
-        label.font = UIFont(.theCircleM, size: 18)
 
         return label
     }()
