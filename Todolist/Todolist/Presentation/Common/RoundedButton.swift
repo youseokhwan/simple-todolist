@@ -54,5 +54,6 @@ private extension RoundedButton {
     func configureViews() {
         contentHorizontalAlignment = .center
         setTitleColor(UIColor(.buttonText), for: .normal)
+        titleLabel?.font = .instance(.theCircleM, size: 18)
     }
 }
