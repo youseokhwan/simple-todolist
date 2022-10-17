@@ -28,7 +28,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 private extension SceneDelegate {
     func configure(scene: UIScene) {
         configureWindow(scene: scene)
-        configureFont()
+        configureFonts()
     }
 
     func configureWindow(scene: UIScene) {
@@ -42,7 +42,7 @@ private extension SceneDelegate {
         ) ?? .unspecified
     }
 
-    func configureFont() {
+    func configureFonts() {
         let defaultFont = UIFont.unwrappedFont(.theCircleM, size: 18)
 
         UILabel.appearance().font = defaultFont
