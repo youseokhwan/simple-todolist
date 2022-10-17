@@ -15,6 +15,23 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
+        configure(scene: scene)
+    }
+
+    func sceneWillEnterForeground(_ scene: UIScene) {
+        NotificationCenter.default.post(name: Self.sceneWillEnterForeground,
+                                        object: nil,
+                                        userInfo: nil)
+    }
+}
+
+private extension SceneDelegate {
+    func configure(scene: UIScene) {
+        configureWindow(scene: scene)
+        configureFonts()
+    }
+
+    func configureWindow(scene: UIScene) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         window = UIWindow(windowScene: windowScene)
@@ -25,9 +42,10 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         ) ?? .unspecified
     }
 
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        NotificationCenter.default.post(name: Self.sceneWillEnterForeground,
-                                        object: nil,
-                                        userInfo: nil)
+    func configureFonts() {
+        let defaultFont = UIFont.instance(.theCircleM, size: 18)
+
+        UILabel.appearance().font = defaultFont
+        UITextView.appearance().font = defaultFont
     }
 }
