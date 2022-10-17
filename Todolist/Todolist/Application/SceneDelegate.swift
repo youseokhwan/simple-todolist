@@ -43,7 +43,7 @@ private extension SceneDelegate {
     }
 
     func configureFonts() {
-        let defaultFont = UIFont.unwrappedFont(.theCircleM, size: 18)
+        let defaultFont = UIFont.instance(.theCircleM, size: 18)
 
         UILabel.appearance().font = defaultFont
         UITextView.appearance().font = defaultFont

@@ -8,11 +8,9 @@
 import UIKit
 
 extension UIFont {
-    static func unwrappedFont(_ name: FontName, size: CGFloat) -> UIFont {
-        let customFont = UIFont(name: name.rawValue, size: size)
-        let systemFontMedium = self.systemFont(ofSize: size, weight: .medium)
-        let systemFontBold = self.systemFont(ofSize: size, weight: .bold)
+    static func instance(_ name: FontName, size: CGFloat) -> UIFont {
+        let font = UIFont(name: name.rawValue, size: size)
 
-        return customFont ?? (name == .theCircleM ? systemFontMedium : systemFontBold)
+        return font ?? systemFont(ofSize: size)
     }
 }

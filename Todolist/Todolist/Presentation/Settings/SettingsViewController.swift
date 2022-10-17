@@ -21,7 +21,7 @@ final class SettingsViewController: UIViewController {
 
     private lazy var doneBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
-        let font = UIFont.unwrappedFont(.theCircleB, size: 18)
+        let font = UIFont.instance(.theCircleB, size: 18)
 
         barButtonItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
 
