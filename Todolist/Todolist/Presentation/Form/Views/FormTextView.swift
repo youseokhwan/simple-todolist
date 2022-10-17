@@ -53,7 +53,7 @@ final class FormTextView: UITextView {
     }
 
     private func adjustHeight() {
-        guard let lineHeight = self.font?.lineHeight else { return }
+        guard let lineHeight = font?.lineHeight else { return }
 
         let verticalInset = textContainerInset.top + textContainerInset.bottom
         let maxHeight = lineHeight * CGFloat(Self.maxLineCount) + verticalInset
