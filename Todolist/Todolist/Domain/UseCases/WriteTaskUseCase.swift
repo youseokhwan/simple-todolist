@@ -8,6 +8,9 @@
 import Foundation
 
 struct WriteTaskUseCase {
+    static let taskCreated = Notification.Name("taskCreated")
+    static let taskUpdated = Notification.Name("taskUpdated")
+
     private let taskRepository = TaskRepository()
 
     private func autoIncreasedID() -> Int {
@@ -22,18 +25,26 @@ struct WriteTaskUseCase {
                         createdDate: createdDate)
 
         taskRepository.create(task: task)
+        NotificationCenter.default.post(name: Self.taskCreated,
+                                        object: nil,
+                                        userInfo: ["createdTask": task])
     }
 
     func update(task: Task) {
         taskRepository.update(task: task)
+        NotificationCenter.default.post(name: Self.taskUpdated,
+                                        object: nil,
+                                        userInfo: ["updatedTask": task])
     }
 
     func updateIsDone(of task: Task, value: Bool) {
-        taskRepository.updateIsDone(of: task, value: value)
-    }
+        let updatedTask = Task(id: task.id,
+                               title: task.title,
+                               isDone: value,
+                               isDaily: task.isDaily,
+                               createdDate: task.createdDate)
 
-    func updateIsDoneToFalse(of task: Task) {
-        taskRepository.updateIsDoneToFalse(of: task)
+        update(task: updatedTask)
     }
 
     func updateTasksAsOfToday(tasks: [Task]) {
@@ -41,7 +52,7 @@ struct WriteTaskUseCase {
             if !task.isDaily && task.isDone {
                 delete(task: task)
             } else {
-                updateIsDoneToFalse(of: task)
+                updateIsDone(of: task, value: false)
             }
         }
 
@@ -52,7 +63,7 @@ struct WriteTaskUseCase {
         taskRepository.delete(task: task)
     }
 
-    func moveTask(at sourceRow: Int, to destinationRow: Int) {
-        taskRepository.moveTask(at: sourceRow, to: destinationRow)
+    func moveTask(at sourceIndex: Int, to destinationIndex: Int) {
+        taskRepository.moveTask(at: sourceIndex, to: destinationIndex)
     }
 }

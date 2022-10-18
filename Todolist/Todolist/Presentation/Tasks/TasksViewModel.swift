@@ -7,21 +7,18 @@
 
 import Foundation
 
-import RxRealm
 import RxRelay
 import RxSwift
 
 final class TasksViewModel {
     private let readTaskUseCase: ReadTaskUseCase
     private let writeTaskUseCase: WriteTaskUseCase
-    private let disposeBag: DisposeBag
 
     let allTasks: BehaviorRelay<[Task]>
 
     init() {
         readTaskUseCase = ReadTaskUseCase()
         writeTaskUseCase = WriteTaskUseCase()
-        disposeBag = DisposeBag()
 
         allTasks = BehaviorRelay(value: [])
 
@@ -36,6 +33,24 @@ final class TasksViewModel {
     }
 
     @objc
+    func createTask(_ notification: Notification) {
+        guard let createdTask = notification.userInfo?["createdTask"] as? Task else { return }
+
+        allTasks.accept(allTasks.value + [createdTask])
+    }
+
+    @objc
+    func updateTask(_ notification: Notification) {
+        guard let updatedTask = notification.userInfo?["updatedTask"] as? Task,
+              let index = allTasks.value.firstIndex(of: updatedTask) else { return }
+
+        var newTasks = allTasks.value
+
+        newTasks[index] = updatedTask
+        allTasks.accept(newTasks)
+    }
+
+    @objc
     func updateTasksAsOfToday() {
         if isFirstFetchOfToday() {
             writeTaskUseCase.updateTasksAsOfToday(tasks: allTasks.value)
@@ -47,42 +62,44 @@ final class TasksViewModel {
     }
 
     func deleteTask(of index: Int) {
-        var newAllTasks = allTasks.value
-        let removedTask = newAllTasks.remove(at: index)
+        var newTasks = allTasks.value
+        let deletedTask = newTasks.remove(at: index)
 
-        allTasks.accept(newAllTasks)
-        writeTaskUseCase.delete(task: removedTask)
+        allTasks.accept(newTasks)
+        writeTaskUseCase.delete(task: deletedTask)
     }
 
-    func moveTask(at sourceRow: Int, to destinationRow: Int) {
-        writeTaskUseCase.moveTask(at: sourceRow, to: destinationRow)
+    func moveTask(at sourceIndex: Int, to destinationIndex: Int) {
+        var newTasks = allTasks.value
+        let movedTask = newTasks.remove(at: sourceIndex)
+
+        newTasks.insert(movedTask, at: destinationIndex)
+        allTasks.accept(newTasks)
+        writeTaskUseCase.moveTask(at: sourceIndex, to: destinationIndex)
     }
 }
 
 private extension TasksViewModel {
     func configure() {
+        configureValues()
         configureBind()
     }
 
+    func configureValues() {
+        let tasks = readTaskUseCase.allTasks()
+        let orderOfTasks = readTaskUseCase.orderOfTasks()
+
+        allTasks.accept(tasks.sorted(orderOfTasks))
+    }
+
     func configureBind() {
-        if let taskResults = readTaskUseCase.taskResults(),
-           let orderOfTasksResults = RealmStorage.orderOfTasksResults() {
-            let tasks = Observable.array(from: taskResults)
-            let orderOfTasks = Observable.array(from: orderOfTasksResults)
-
-            Observable.combineLatest(tasks, orderOfTasks)
-                .subscribe(onNext: { [weak self] tasks, orderOfTasks in
-                    guard let ids = orderOfTasks.first?.ids else { return }
-
-                    var reorderedTasks = [Task]()
-
-                    for id in ids {
-                        reorderedTasks.append(contentsOf: tasks.filter { $0.id == id })
-                    }
-
-                    self?.allTasks.accept(reorderedTasks)
-                })
-                .disposed(by: disposeBag)
-        }
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(createTask(_:)),
+                                               name: WriteTaskUseCase.taskCreated,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateTask(_:)),
+                                               name: WriteTaskUseCase.taskUpdated,
+                                               object: nil)
     }
 }

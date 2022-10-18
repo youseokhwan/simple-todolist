@@ -10,12 +10,8 @@ import Foundation
 import RealmSwift
 
 final class TaskRepository {
-    func taskResults() -> Results<Task>? {
-        return RealmStorage.taskResults()
-    }
-
-    func orderOfTasksResults() -> Results<OrderOfTasks>? {
-        return RealmStorage.orderOfTasksResults()
+    func allTasks() -> [Task] {
+        return RealmStorage.allTasks()
     }
 
     func create(task: Task) {
@@ -26,19 +22,15 @@ final class TaskRepository {
         RealmStorage.update(task: task)
     }
 
-    func updateIsDone(of task: Task, value: Bool) {
-        RealmStorage.updateIsDone(of: task, value: value)
-    }
-
-    func updateIsDoneToFalse(of task: Task) {
-        RealmStorage.updateIsDoneToFalse(of: task)
-    }
-
     func delete(task: Task) {
         RealmStorage.delete(task: task)
     }
 
-    func moveTask(at sourceRow: Int, to destinationRow: Int) {
-        RealmStorage.moveTask(at: sourceRow, to: destinationRow)
+    func orderOfTasks() -> [TaskID] {
+        return RealmStorage.orderOfTasks()
+    }
+
+    func moveTask(at sourceIndex: Int, to destinationIndex: Int) {
+        RealmStorage.moveTask(at: sourceIndex, to: destinationIndex)
     }
 }

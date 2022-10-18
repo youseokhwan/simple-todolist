@@ -30,16 +30,10 @@ enum RealmStorage {
         Realm.Configuration.defaultConfiguration = configuration
     }
 
-    static func taskResults() -> Results<Task>? {
-        guard let realm = try? Realm() else { return nil }
+    static func allTasks() -> [Task] {
+        guard let realm = try? Realm() else { return [] }
 
-        return realm.objects(Task.self)
-    }
-
-    static func orderOfTasksResults() -> Results<OrderOfTasks>? {
-        guard let realm = try? Realm() else { return nil }
-
-        return realm.objects(OrderOfTasks.self)
+        return Array(realm.objects(Task.self))
     }
 
     static func create(task: Task) {
@@ -65,43 +59,33 @@ enum RealmStorage {
         }
     }
 
-    static func updateIsDone(of task: Task, value: Bool) {
-        guard let realm = try? Realm() else { return }
-
-        try? realm.write {
-            task.isDone = value
-            realm.add(task, update: .modified)
-        }
-    }
-
-    static func updateIsDoneToFalse(of task: Task) {
-        Self.updateIsDone(of: task, value: false)
-    }
-
     static func delete(task: Task) {
-        guard let realm = try? Realm() else { return }
-
-        let results = realm.objects(OrderOfTasks.self)
+        guard let realm = try? Realm(),
+              let orderOfTasks = realm.objects(OrderOfTasks.self).first?.ids,
+              let index = orderOfTasks.firstIndex(of: task.id) else { return }
 
         try? realm.write {
-            if let ids = results.first?.ids {
-                ids.remove(at: ids.firstIndex(of: task.id) ?? 0)
-                realm.delete(task)
-            }
+            realm.delete(task)
+            orderOfTasks.remove(at: index)
         }
     }
 
-    static func moveTask(at sourceRow: Int, to destinationRow: Int) {
-        guard let realm = try? Realm() else { return }
+    static func orderOfTasks() -> [TaskID] {
+        guard let realm = try? Realm(),
+              let object = realm.objects(OrderOfTasks.self).first else { return [] }
 
-        let results = realm.objects(OrderOfTasks.self)
+        return Array(object.ids)
+    }
+
+    static func moveTask(at sourceIndex: Int, to destinationIndex: Int) {
+        guard let realm = try? Realm(),
+              let orderOfTasks = realm.objects(OrderOfTasks.self).first?.ids else { return }
 
         try? realm.write {
-            if let ids = results.first?.ids,
-               let movedId = results.first?.ids[sourceRow] {
-                ids.remove(at: sourceRow)
-                ids.insert(movedId, at: destinationRow)
-            }
+            let movedID = orderOfTasks[sourceIndex]
+
+            orderOfTasks.remove(at: sourceIndex)
+            orderOfTasks.insert(movedID, at: destinationIndex)
         }
     }
 }

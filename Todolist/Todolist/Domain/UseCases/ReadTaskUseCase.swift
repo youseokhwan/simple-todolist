@@ -12,11 +12,11 @@ import RealmSwift
 struct ReadTaskUseCase {
     private let taskRepository = TaskRepository()
 
-    func taskResults() -> Results<Task>? {
-        return taskRepository.taskResults()
+    func allTasks() -> [Task] {
+        return taskRepository.allTasks()
     }
 
-    func orderOfTasksResults() -> Results<OrderOfTasks>? {
-        return taskRepository.orderOfTasksResults()
+    func orderOfTasks() -> [TaskID] {
+        return taskRepository.orderOfTasks()
     }
 }
