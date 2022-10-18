@@ -51,29 +51,6 @@ final class TasksViewModel {
     }
 
     @objc
-    func deleteTask(_ notification: Notification) {
-        guard let deletedTask = notification.userInfo?["deletedTask"] as? Task,
-              let index = allTasks.value.firstIndex(of: deletedTask) else { return }
-
-        var newTasks = allTasks.value
-
-        newTasks.remove(at: index)
-        allTasks.accept(newTasks)
-    }
-
-    @objc
-    func moveTask(_ notification: Notification) {
-        guard let sourceIndex = notification.userInfo?["sourceIndex"] as? Int,
-              let destinationIndex = notification.userInfo?["destinationIndex"] as? Int else { return }
-
-        var newTasks = allTasks.value
-        let movedTask = newTasks.remove(at: sourceIndex)
-
-        newTasks.insert(movedTask, at: destinationIndex)
-        allTasks.accept(newTasks)
-    }
-
-    @objc
     func updateTasksAsOfToday() {
         if isFirstFetchOfToday() {
             writeTaskUseCase.updateTasksAsOfToday(tasks: allTasks.value)
@@ -85,12 +62,19 @@ final class TasksViewModel {
     }
 
     func deleteTask(of index: Int) {
-        let removedTask = allTasks.value[index]
+        var newTasks = allTasks.value
+        let deletedTask = newTasks.remove(at: index)
 
-        writeTaskUseCase.delete(task: removedTask)
+        allTasks.accept(newTasks)
+        writeTaskUseCase.delete(task: deletedTask)
     }
 
     func moveTask(at sourceIndex: Int, to destinationIndex: Int) {
+        var newTasks = allTasks.value
+        let movedTask = newTasks.remove(at: sourceIndex)
+
+        newTasks.insert(movedTask, at: destinationIndex)
+        allTasks.accept(newTasks)
         writeTaskUseCase.moveTask(at: sourceIndex, to: destinationIndex)
     }
 }
@@ -123,14 +107,6 @@ private extension TasksViewModel {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateTask(_:)),
                                                name: WriteTaskUseCase.taskUpdated,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(deleteTask(_:)),
-                                               name: WriteTaskUseCase.taskDeleted,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(moveTask(_:)),
-                                               name: WriteTaskUseCase.taskMoved,
                                                object: nil)
     }
 }
