@@ -72,7 +72,7 @@ enum RealmStorage {
 
     static func orderOfTasks() -> [TaskID] {
         guard let realm = try? Realm(),
-              let object = Array(realm.objects(OrderOfTasks.self)).first else { return [] }
+              let object = realm.objects(OrderOfTasks.self).first else { return [] }
 
         return Array(object.ids)
     }
