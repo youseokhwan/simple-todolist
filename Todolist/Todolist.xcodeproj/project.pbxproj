@@ -63,6 +63,8 @@
 		44DE3B3E28FE6FE200B9B6CE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 44DE3B3D28FE6FE200B9B6CE /* Realm */; };
 		44DE3B4028FE6FE200B9B6CE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 44DE3B3F28FE6FE200B9B6CE /* RealmSwift */; };
 		44DE3B4228FE93C200B9B6CE /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE3B4128FE93C200B9B6CE /* Array+Extensions.swift */; };
+		44DE3B4428FEBD6D00B9B6CE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 44DE3B4328FEBD6D00B9B6CE /* Realm */; };
+		44DE3B4628FEBD6D00B9B6CE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 44DE3B4528FEBD6D00B9B6CE /* RealmSwift */; };
 		44E8A4FE28E2BB90008D6F97 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442646BD2887FA17004C22D8 /* String+Extensions.swift */; };
 		44E8A50028E2BBB3008D6F97 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442646C128880322004C22D8 /* Constants.swift */; };
 		44E8A50228E42646008D6F97 /* StoragesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E8A50128E42646008D6F97 /* StoragesTests.swift */; };
@@ -155,6 +157,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44DE3B4628FEBD6D00B9B6CE /* RealmSwift in Frameworks */,
+				44DE3B4428FEBD6D00B9B6CE /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +468,8 @@
 			);
 			name = TodolistTests;
 			packageProductDependencies = (
+				44DE3B4328FEBD6D00B9B6CE /* Realm */,
+				44DE3B4528FEBD6D00B9B6CE /* RealmSwift */,
 			);
 			productName = TodolistTests;
 			productReference = 4487569B28DB4F7600DC1723 /* TodolistTests.xctest */;
@@ -955,6 +961,16 @@
 			productName = Realm;
 		};
 		44DE3B3F28FE6FE200B9B6CE /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44DE3B3C28FE6FE200B9B6CE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		44DE3B4328FEBD6D00B9B6CE /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44DE3B3C28FE6FE200B9B6CE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		44DE3B4528FEBD6D00B9B6CE /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 44DE3B3C28FE6FE200B9B6CE /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
