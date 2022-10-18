@@ -62,6 +62,18 @@ final class TasksViewModel {
     }
 
     @objc
+    func moveTask(_ notification: Notification) {
+        guard let sourceIndex = notification.userInfo?["sourceIndex"] as? Int,
+              let destinationIndex = notification.userInfo?["destinationIndex"] as? Int else { return }
+
+        var movedTasks = allTasks.value
+        let movedTask = movedTasks.remove(at: sourceIndex)
+
+        movedTasks.insert(movedTask, at: destinationIndex)
+        allTasks.accept(movedTasks)
+    }
+
+    @objc
     func updateTasksAsOfToday() {
         if isFirstFetchOfToday() {
             writeTaskUseCase.updateTasksAsOfToday(tasks: allTasks.value)
@@ -115,6 +127,10 @@ private extension TasksViewModel {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(deleteTask(_:)),
                                                name: WriteTaskUseCase.taskDeleted,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(moveTask(_:)),
+                                               name: WriteTaskUseCase.taskMoved,
                                                object: nil)
     }
 }

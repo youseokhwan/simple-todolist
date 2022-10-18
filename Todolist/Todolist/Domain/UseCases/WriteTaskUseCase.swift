@@ -11,6 +11,7 @@ struct WriteTaskUseCase {
     static let taskCreated = Notification.Name("taskCreated")
     static let taskUpdated = Notification.Name("taskUpdated")
     static let taskDeleted = Notification.Name("taskDeleted")
+    static let taskMoved = Notification.Name("taskMoved")
 
     private let taskRepository = TaskRepository()
 
@@ -69,5 +70,9 @@ struct WriteTaskUseCase {
 
     func moveTask(at sourceRow: Int, to destinationRow: Int) {
         taskRepository.moveTask(at: sourceRow, to: destinationRow)
+        NotificationCenter.default.post(name: Self.taskMoved,
+                                        object: nil,
+                                        userInfo: ["sourceIndex": sourceRow,
+                                                   "destinationIndex": destinationRow])
     }
 }
