@@ -14,10 +14,6 @@ final class TaskRepository {
         return RealmStorage.allTasks()
     }
 
-    func orderOfTasksResults() -> Results<OrderOfTasks>? {
-        return RealmStorage.orderOfTasksResults()
-    }
-
     func create(task: Task) {
         RealmStorage.create(task: task)
     }
@@ -28,6 +24,10 @@ final class TaskRepository {
 
     func delete(task: Task) {
         RealmStorage.delete(task: task)
+    }
+
+    func orderOfTasks() -> [TaskID] {
+        return RealmStorage.orderOfTasks()
     }
 
     func moveTask(at sourceRow: Int, to destinationRow: Int) {

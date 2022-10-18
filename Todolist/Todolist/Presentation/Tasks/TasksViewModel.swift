@@ -22,7 +22,7 @@ final class TasksViewModel {
         writeTaskUseCase = WriteTaskUseCase()
         disposeBag = DisposeBag()
 
-        allTasks = BehaviorRelay(value: readTaskUseCase.allTasks())
+        allTasks = BehaviorRelay(value: [])
 
         configure()
     }
@@ -87,7 +87,22 @@ final class TasksViewModel {
 
 private extension TasksViewModel {
     func configure() {
+        configureValues()
         configureBind()
+    }
+
+    func configureValues() {
+        let tasks = readTaskUseCase.allTasks()
+        let orderOfTasks = readTaskUseCase.orderOfTasks()
+        var orderedTasks = [Task]()
+
+        for id in orderOfTasks {
+            guard let task = tasks.first(where: { $0.id == id }) else { continue }
+
+            orderedTasks.append(task)
+        }
+
+        allTasks.accept(orderedTasks)
     }
 
     func configureBind() {
@@ -103,25 +118,5 @@ private extension TasksViewModel {
                                                selector: #selector(deleteTask(_:)),
                                                name: WriteTaskUseCase.taskDeleted,
                                                object: nil)
-
-//        if let taskResults = readTaskUseCase.allTasks(),
-//           let orderOfTasksResults = RealmStorage.orderOfTasksResults() {
-//            let tasks = Observable.array(from: taskResults)
-//            let orderOfTasks = Observable.array(from: orderOfTasksResults)
-//
-//            Observable.combineLatest(tasks, orderOfTasks)
-//                .subscribe(onNext: { [weak self] tasks, orderOfTasks in
-//                    guard let ids = orderOfTasks.first?.ids else { return }
-//
-//                    var reorderedTasks = [Task]()
-//
-//                    for id in ids {
-//                        reorderedTasks.append(contentsOf: tasks.filter { $0.id == id })
-//                    }
-//
-//                    self?.allTasks.accept(reorderedTasks)
-//                })
-//                .disposed(by: disposeBag)
-//        }
     }
 }

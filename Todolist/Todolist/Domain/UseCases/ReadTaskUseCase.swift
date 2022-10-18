@@ -16,7 +16,7 @@ struct ReadTaskUseCase {
         return taskRepository.allTasks()
     }
 
-    func orderOfTasksResults() -> Results<OrderOfTasks>? {
-        return taskRepository.orderOfTasksResults()
+    func orderOfTasks() -> [TaskID] {
+        return taskRepository.orderOfTasks()
     }
 }

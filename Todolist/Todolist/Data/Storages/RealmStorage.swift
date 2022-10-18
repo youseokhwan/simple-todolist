@@ -72,10 +72,11 @@ enum RealmStorage {
         }
     }
 
-    static func orderOfTasksResults() -> Results<OrderOfTasks>? {
-        guard let realm = try? Realm() else { return nil }
+    static func orderOfTasks() -> [TaskID] {
+        guard let realm = try? Realm(),
+              let object = Array(realm.objects(OrderOfTasks.self)).first else { return [] }
 
-        return realm.objects(OrderOfTasks.self)
+        return Array(object.ids)
     }
 
     static func moveTask(at sourceRow: Int, to destinationRow: Int) {
