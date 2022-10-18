@@ -46,7 +46,8 @@ final class StoragesTests: XCTestCase {
 
         XCTAssertEqual(tasks.count, dummyTasks.count)
         (0..<tasks.count).forEach { i in
-            XCTAssertEqual(tasks[i], dummyTasks[i])
+            XCTAssertEqual(tasks[i].id, dummyTasks[i].id)
+            XCTAssertEqual(tasks[i].title, dummyTasks[i].title)
         }
     }
 
@@ -62,7 +63,8 @@ final class StoragesTests: XCTestCase {
         let tasks = realm.objects(Task.self)
 
         XCTAssertEqual(tasks.count, dummyTasks.count + 1)
-        XCTAssertEqual(tasks.last!, newTask)
+        XCTAssertEqual(tasks.last!.id, newTask.id)
+        XCTAssertEqual(tasks.last!.title, newTask.title)
     }
 
     func test_Task의Title수정() throws {
@@ -74,9 +76,11 @@ final class StoragesTests: XCTestCase {
 
         RealmStorage.update(task: updatedTask)
 
-        let task = realm.object(ofType: Task.self, forPrimaryKey: 1)
+        let task = realm.object(ofType: Task.self, forPrimaryKey: 1)!
 
-        XCTAssertEqual(task, updatedTask)
+        XCTAssertEqual(task.id, updatedTask.id)
+        XCTAssertEqual(task.title, updatedTask.title)
+        XCTAssertNotEqual(task.title, "dolor sit amet")
     }
 
     func test_Task삭제() throws {
@@ -102,7 +106,8 @@ final class StoragesTests: XCTestCase {
         let orderOfTasks = RealmStorage.orderOfTasks()
 
         (0..<tasks.count).forEach { i in
-            XCTAssertEqual(tasks[i], dummyTasks[i])
+            XCTAssertEqual(tasks[i].id, dummyTasks[i].id)
+            XCTAssertEqual(tasks[i].title, dummyTasks[i].title)
         }
         XCTAssertEqual(orderOfTasks, [1, 2, 0, 3])
     }
