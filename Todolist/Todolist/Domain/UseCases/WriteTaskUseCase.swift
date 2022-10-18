@@ -34,11 +34,13 @@ struct WriteTaskUseCase {
     }
 
     func updateIsDone(of task: Task, value: Bool) {
-        taskRepository.updateIsDone(of: task, value: value)
-    }
+        let updatedTask = Task(id: task.id,
+                               title: task.title,
+                               isDone: value,
+                               isDaily: task.isDaily,
+                               createdDate: task.createdDate)
 
-    func updateIsDoneToFalse(of task: Task) {
-        taskRepository.updateIsDoneToFalse(of: task)
+        update(task: updatedTask)
     }
 
     func updateTasksAsOfToday(tasks: [Task]) {
@@ -46,7 +48,7 @@ struct WriteTaskUseCase {
             if !task.isDaily && task.isDone {
                 delete(task: task)
             } else {
-                updateIsDoneToFalse(of: task)
+                updateIsDone(of: task, value: false)
             }
         }
 

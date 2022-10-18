@@ -26,14 +26,6 @@ final class TaskRepository {
         RealmStorage.update(task: task)
     }
 
-    func updateIsDone(of task: Task, value: Bool) {
-        RealmStorage.updateIsDone(of: task, value: value)
-    }
-
-    func updateIsDoneToFalse(of task: Task) {
-        RealmStorage.updateIsDoneToFalse(of: task)
-    }
-
     func delete(task: Task) {
         RealmStorage.delete(task: task)
     }
