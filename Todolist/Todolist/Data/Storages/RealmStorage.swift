@@ -80,16 +80,14 @@ enum RealmStorage {
     }
 
     static func moveTask(at sourceRow: Int, to destinationRow: Int) {
-        guard let realm = try? Realm() else { return }
-
-        let results = realm.objects(OrderOfTasks.self)
+        guard let realm = try? Realm(),
+              let orderOfTasks = realm.objects(OrderOfTasks.self).first?.ids else { return }
 
         try? realm.write {
-            if let ids = results.first?.ids,
-               let movedId = results.first?.ids[sourceRow] {
-                ids.remove(at: sourceRow)
-                ids.insert(movedId, at: destinationRow)
-            }
+            let movedID = orderOfTasks[sourceRow]
+
+            orderOfTasks.remove(at: sourceRow)
+            orderOfTasks.insert(movedID, at: destinationRow)
         }
     }
 }
