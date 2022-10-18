@@ -8,6 +8,8 @@
 import Foundation
 
 struct WriteTaskUseCase {
+    static let taskCreated = Notification.Name("taskCreated")
+
     private let taskRepository = TaskRepository()
 
     private func autoIncreasedID() -> Int {
@@ -22,6 +24,9 @@ struct WriteTaskUseCase {
                         createdDate: createdDate)
 
         taskRepository.create(task: task)
+        NotificationCenter.default.post(name: Self.taskCreated,
+                                        object: nil,
+                                        userInfo: ["newTask": task])
     }
 
     func update(task: Task) {

@@ -35,6 +35,13 @@ final class TasksViewModel {
     }
 
     @objc
+    func createTask(_ notification: Notification) {
+        guard let newTask = notification.userInfo?["newTask"] as? Task else { return }
+
+        allTasks.accept(allTasks.value + [newTask])
+    }
+
+    @objc
     func updateTasksAsOfToday() {
         if isFirstFetchOfToday() {
             writeTaskUseCase.updateTasksAsOfToday(tasks: allTasks.value)
@@ -64,6 +71,11 @@ private extension TasksViewModel {
     }
 
     func configureBind() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(createTask(_:)),
+                                               name: WriteTaskUseCase.taskCreated,
+                                               object: nil)
+
 //        if let taskResults = readTaskUseCase.allTasks(),
 //           let orderOfTasksResults = RealmStorage.orderOfTasksResults() {
 //            let tasks = Observable.array(from: taskResults)
