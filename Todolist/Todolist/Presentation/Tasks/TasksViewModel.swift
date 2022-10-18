@@ -36,9 +36,9 @@ final class TasksViewModel {
 
     @objc
     func createTask(_ notification: Notification) {
-        guard let newTask = notification.userInfo?["newTask"] as? Task else { return }
+        guard let createdTask = notification.userInfo?["createdTask"] as? Task else { return }
 
-        allTasks.accept(allTasks.value + [newTask])
+        allTasks.accept(allTasks.value + [createdTask])
     }
 
     @objc

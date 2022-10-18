@@ -27,7 +27,7 @@ struct WriteTaskUseCase {
         taskRepository.create(task: task)
         NotificationCenter.default.post(name: Self.taskCreated,
                                         object: nil,
-                                        userInfo: ["newTask": task])
+                                        userInfo: ["createdTask": task])
     }
 
     func update(task: Task) {
