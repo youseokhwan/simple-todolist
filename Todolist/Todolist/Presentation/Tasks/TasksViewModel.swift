@@ -13,14 +13,12 @@ import RxSwift
 final class TasksViewModel {
     private let readTaskUseCase: ReadTaskUseCase
     private let writeTaskUseCase: WriteTaskUseCase
-    private let disposeBag: DisposeBag
 
     let allTasks: BehaviorRelay<[Task]>
 
     init() {
         readTaskUseCase = ReadTaskUseCase()
         writeTaskUseCase = WriteTaskUseCase()
-        disposeBag = DisposeBag()
 
         allTasks = BehaviorRelay(value: [])
 
