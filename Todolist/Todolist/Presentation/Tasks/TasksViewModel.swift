@@ -22,7 +22,7 @@ final class TasksViewModel {
         writeTaskUseCase = WriteTaskUseCase()
         disposeBag = DisposeBag()
 
-        allTasks = BehaviorRelay(value: [])
+        allTasks = BehaviorRelay(value: readTaskUseCase.allTasks())
 
         configure()
     }
@@ -64,10 +64,6 @@ private extension TasksViewModel {
     }
 
     func configureBind() {
-        let tasks = readTaskUseCase.allTasks()
-
-        allTasks.accept(tasks)
-
 //        if let taskResults = readTaskUseCase.allTasks(),
 //           let orderOfTasksResults = RealmStorage.orderOfTasksResults() {
 //            let tasks = Observable.array(from: taskResults)
