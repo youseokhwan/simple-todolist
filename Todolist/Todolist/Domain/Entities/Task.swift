@@ -26,10 +26,6 @@ final class Task: Object {
         self.isDaily = isDaily
         self.createdDate = createdDate
     }
-
-    public static func ==(lhs: Task, rhs: Task) -> Bool {
-        return lhs.id == rhs.id
-    }
 }
 
 final class OrderOfTasks: Object {
