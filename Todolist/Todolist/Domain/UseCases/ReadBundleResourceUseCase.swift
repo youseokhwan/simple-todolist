@@ -11,7 +11,6 @@ struct ReadBundleResourceUseCase {
     enum LicenseFileName: String, CaseIterable {
         case realmSwift = "realm-swift"
         case rxDataSources = "RxDataSources"
-        case rxRealm = "RxRealm"
         case rxSwift = "RxSwift"
         case snapKit = "SnapKit"
         case theCircle = "TheCircle"

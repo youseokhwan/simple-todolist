@@ -7,7 +7,6 @@
 
 import Foundation
 
-import RxRealm
 import RxRelay
 import RxSwift
 
