@@ -88,4 +88,22 @@ final class StoragesTests: XCTestCase {
         XCTAssertEqual(tasks.count, dummyTasks.count - 1)
         XCTAssertNil(taskWithDeletedID)
     }
+
+    func test_OrderOfTasks가져오기() throws {
+        let orderOfTasks = RealmStorage.orderOfTasks()
+
+        XCTAssertEqual(orderOfTasks, dummyOrderOfTasks)
+    }
+
+    func test_Task이동() throws {
+        RealmStorage.moveTask(at: 0, to: 2)
+
+        let tasks = RealmStorage.allTasks()
+        let orderOfTasks = RealmStorage.orderOfTasks()
+
+        (0..<tasks.count).forEach { i in
+            XCTAssertEqual(tasks[i], dummyTasks[i])
+        }
+        XCTAssertEqual(orderOfTasks, [1, 2, 0, 3])
+    }
 }
