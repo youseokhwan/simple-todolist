@@ -10,8 +10,8 @@ import Foundation
 import RealmSwift
 
 final class TaskRepository {
-    func taskResults() -> Results<Task>? {
-        return RealmStorage.taskResults()
+    func allTasks() -> [Task] {
+        return RealmStorage.allTasks()
     }
 
     func orderOfTasksResults() -> Results<OrderOfTasks>? {

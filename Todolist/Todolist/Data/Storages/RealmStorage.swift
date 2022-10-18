@@ -30,10 +30,10 @@ enum RealmStorage {
         Realm.Configuration.defaultConfiguration = configuration
     }
 
-    static func taskResults() -> Results<Task>? {
-        guard let realm = try? Realm() else { return nil }
+    static func allTasks() -> [Task] {
+        guard let realm = try? Realm() else { return [] }
 
-        return realm.objects(Task.self)
+        return Array(realm.objects(Task.self))
     }
 
     static func orderOfTasksResults() -> Results<OrderOfTasks>? {

@@ -65,24 +65,28 @@ private extension TasksViewModel {
     }
 
     func configureBind() {
-        if let taskResults = readTaskUseCase.taskResults(),
-           let orderOfTasksResults = RealmStorage.orderOfTasksResults() {
-            let tasks = Observable.array(from: taskResults)
-            let orderOfTasks = Observable.array(from: orderOfTasksResults)
+        let tasks = readTaskUseCase.allTasks()
 
-            Observable.combineLatest(tasks, orderOfTasks)
-                .subscribe(onNext: { [weak self] tasks, orderOfTasks in
-                    guard let ids = orderOfTasks.first?.ids else { return }
+        allTasks.accept(tasks)
 
-                    var reorderedTasks = [Task]()
-
-                    for id in ids {
-                        reorderedTasks.append(contentsOf: tasks.filter { $0.id == id })
-                    }
-
-                    self?.allTasks.accept(reorderedTasks)
-                })
-                .disposed(by: disposeBag)
-        }
+//        if let taskResults = readTaskUseCase.allTasks(),
+//           let orderOfTasksResults = RealmStorage.orderOfTasksResults() {
+//            let tasks = Observable.array(from: taskResults)
+//            let orderOfTasks = Observable.array(from: orderOfTasksResults)
+//
+//            Observable.combineLatest(tasks, orderOfTasks)
+//                .subscribe(onNext: { [weak self] tasks, orderOfTasks in
+//                    guard let ids = orderOfTasks.first?.ids else { return }
+//
+//                    var reorderedTasks = [Task]()
+//
+//                    for id in ids {
+//                        reorderedTasks.append(contentsOf: tasks.filter { $0.id == id })
+//                    }
+//
+//                    self?.allTasks.accept(reorderedTasks)
+//                })
+//                .disposed(by: disposeBag)
+//        }
     }
 }
