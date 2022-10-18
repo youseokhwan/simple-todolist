@@ -42,6 +42,17 @@ final class TasksViewModel {
     }
 
     @objc
+    func updateTask(_ notification: Notification) {
+        guard let updatedTask = notification.userInfo?["updatedTask"] as? Task,
+              let index = allTasks.value.firstIndex(of: updatedTask) else { return }
+
+        var updatedTasks = allTasks.value
+
+        updatedTasks[index] = updatedTask
+        allTasks.accept(updatedTasks)
+    }
+
+    @objc
     func updateTasksAsOfToday() {
         if isFirstFetchOfToday() {
             writeTaskUseCase.updateTasksAsOfToday(tasks: allTasks.value)
@@ -74,6 +85,10 @@ private extension TasksViewModel {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(createTask(_:)),
                                                name: WriteTaskUseCase.taskCreated,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateTask(_:)),
+                                               name: WriteTaskUseCase.taskUpdated,
                                                object: nil)
 
 //        if let taskResults = readTaskUseCase.allTasks(),

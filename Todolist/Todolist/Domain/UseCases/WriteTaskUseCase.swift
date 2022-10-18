@@ -9,6 +9,7 @@ import Foundation
 
 struct WriteTaskUseCase {
     static let taskCreated = Notification.Name("taskCreated")
+    static let taskUpdated = Notification.Name("taskUpdated")
 
     private let taskRepository = TaskRepository()
 
@@ -31,6 +32,9 @@ struct WriteTaskUseCase {
 
     func update(task: Task) {
         taskRepository.update(task: task)
+        NotificationCenter.default.post(name: Self.taskUpdated,
+                                        object: nil,
+                                        userInfo: ["updatedTask": task])
     }
 
     func updateIsDone(of task: Task, value: Bool) {
