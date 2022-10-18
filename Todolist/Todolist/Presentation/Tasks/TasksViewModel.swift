@@ -53,6 +53,17 @@ final class TasksViewModel {
     }
 
     @objc
+    func deleteTask(_ notification: Notification) {
+        guard let deletedTask = notification.userInfo?["deletedTask"] as? Task,
+              let index = allTasks.value.firstIndex(of: deletedTask) else { return }
+
+        var deletedTasks = allTasks.value
+
+        deletedTasks.remove(at: index)
+        allTasks.accept(deletedTasks)
+    }
+
+    @objc
     func updateTasksAsOfToday() {
         if isFirstFetchOfToday() {
             writeTaskUseCase.updateTasksAsOfToday(tasks: allTasks.value)
@@ -64,10 +75,8 @@ final class TasksViewModel {
     }
 
     func deleteTask(of index: Int) {
-        var newAllTasks = allTasks.value
-        let removedTask = newAllTasks.remove(at: index)
+        let removedTask = allTasks.value[index]
 
-        allTasks.accept(newAllTasks)
         writeTaskUseCase.delete(task: removedTask)
     }
 
@@ -89,6 +98,10 @@ private extension TasksViewModel {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateTask(_:)),
                                                name: WriteTaskUseCase.taskUpdated,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(deleteTask(_:)),
+                                               name: WriteTaskUseCase.taskDeleted,
                                                object: nil)
 
 //        if let taskResults = readTaskUseCase.allTasks(),
