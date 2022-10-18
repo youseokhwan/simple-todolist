@@ -12,6 +12,7 @@ import RealmSwift
 final class StoragesTests: XCTestCase {
     var realm: Realm!
     var dummyTasks: [Task]!
+    var dummyOrderOfTasks: [TaskID]!
 
     override func setUpWithError() throws {
         Realm.Configuration.defaultConfiguration.inMemoryIdentifier = "StoragesTestsIdentifier"
@@ -23,17 +24,21 @@ final class StoragesTests: XCTestCase {
             Task(id: 2, title: "consectetur", isDone: true, isDaily: false, createdDate: Date()),
             Task(id: 3, title: "adipiscing elit", isDone: true, isDaily: true, createdDate: Date())
         ]
+        dummyOrderOfTasks = [0, 1, 2, 3]
 
         try realm.write {
             dummyTasks.forEach { task in
                 realm.add(task)
             }
+            realm.create(OrderOfTasks.self)
+            realm.objects(OrderOfTasks.self).first?.ids.append(objectsIn: dummyOrderOfTasks)
         }
     }
 
     override func tearDownWithError() throws {
         realm = nil
         dummyTasks = nil
+        dummyOrderOfTasks = nil
     }
 
     func test_모든Task가져오기() throws {
