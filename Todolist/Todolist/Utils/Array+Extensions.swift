@@ -12,7 +12,7 @@ extension Array<Task> {
         var orderedTasks = [Task]()
 
         for id in orderOfTasks {
-            guard let task = self.first(where: { $0.id == id }) else { continue }
+            guard let task = first(where: { $0.id == id }) else { continue }
 
             orderedTasks.append(task)
         }
