@@ -30,7 +30,7 @@ final class TaskRepository {
         return RealmStorage.orderOfTasks()
     }
 
-    func moveTask(at sourceRow: Int, to destinationRow: Int) {
-        RealmStorage.moveTask(at: sourceRow, to: destinationRow)
+    func moveTask(at sourceIndex: Int, to destinationIndex: Int) {
+        RealmStorage.moveTask(at: sourceIndex, to: destinationIndex)
     }
 }

@@ -68,11 +68,11 @@ struct WriteTaskUseCase {
                                         userInfo: ["deletedTask": task])
     }
 
-    func moveTask(at sourceRow: Int, to destinationRow: Int) {
-        taskRepository.moveTask(at: sourceRow, to: destinationRow)
+    func moveTask(at sourceIndex: Int, to destinationIndex: Int) {
+        taskRepository.moveTask(at: sourceIndex, to: destinationIndex)
         NotificationCenter.default.post(name: Self.taskMoved,
                                         object: nil,
-                                        userInfo: ["sourceIndex": sourceRow,
-                                                   "destinationIndex": destinationRow])
+                                        userInfo: ["sourceIndex": sourceIndex,
+                                                   "destinationIndex": destinationIndex])
     }
 }

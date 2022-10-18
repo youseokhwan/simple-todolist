@@ -90,8 +90,8 @@ final class TasksViewModel {
         writeTaskUseCase.delete(task: removedTask)
     }
 
-    func moveTask(at sourceRow: Int, to destinationRow: Int) {
-        writeTaskUseCase.moveTask(at: sourceRow, to: destinationRow)
+    func moveTask(at sourceIndex: Int, to destinationIndex: Int) {
+        writeTaskUseCase.moveTask(at: sourceIndex, to: destinationIndex)
     }
 }
 
