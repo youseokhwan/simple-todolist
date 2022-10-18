@@ -44,10 +44,10 @@ final class TasksViewModel {
         guard let updatedTask = notification.userInfo?["updatedTask"] as? Task,
               let index = allTasks.value.firstIndex(of: updatedTask) else { return }
 
-        var updatedTasks = allTasks.value
+        var newTasks = allTasks.value
 
-        updatedTasks[index] = updatedTask
-        allTasks.accept(updatedTasks)
+        newTasks[index] = updatedTask
+        allTasks.accept(newTasks)
     }
 
     @objc
@@ -55,10 +55,10 @@ final class TasksViewModel {
         guard let deletedTask = notification.userInfo?["deletedTask"] as? Task,
               let index = allTasks.value.firstIndex(of: deletedTask) else { return }
 
-        var deletedTasks = allTasks.value
+        var newTasks = allTasks.value
 
-        deletedTasks.remove(at: index)
-        allTasks.accept(deletedTasks)
+        newTasks.remove(at: index)
+        allTasks.accept(newTasks)
     }
 
     @objc
@@ -66,11 +66,11 @@ final class TasksViewModel {
         guard let sourceIndex = notification.userInfo?["sourceIndex"] as? Int,
               let destinationIndex = notification.userInfo?["destinationIndex"] as? Int else { return }
 
-        var movedTasks = allTasks.value
-        let movedTask = movedTasks.remove(at: sourceIndex)
+        var newTasks = allTasks.value
+        let movedTask = newTasks.remove(at: sourceIndex)
 
-        movedTasks.insert(movedTask, at: destinationIndex)
-        allTasks.accept(movedTasks)
+        newTasks.insert(movedTask, at: destinationIndex)
+        allTasks.accept(newTasks)
     }
 
     @objc
