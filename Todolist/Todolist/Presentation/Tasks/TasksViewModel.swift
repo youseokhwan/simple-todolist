@@ -88,15 +88,8 @@ private extension TasksViewModel {
     func configureValues() {
         let tasks = readTaskUseCase.allTasks()
         let orderOfTasks = readTaskUseCase.orderOfTasks()
-        var orderedTasks = [Task]()
 
-        for id in orderOfTasks {
-            guard let task = tasks.first(where: { $0.id == id }) else { continue }
-
-            orderedTasks.append(task)
-        }
-
-        allTasks.accept(orderedTasks)
+        allTasks.accept(tasks.sorted(orderOfTasks))
     }
 
     func configureBind() {
