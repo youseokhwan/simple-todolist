@@ -19,9 +19,9 @@
 
 ## 📱 전반적인 UI
 <div>
-  <img src="https://user-images.githubusercontent.com/48671169/195978432-5c879269-e609-4fae-b877-d5ccaa4b6af7.png" width="333" height="700">
-  <img src="https://user-images.githubusercontent.com/48671169/195978417-cec775f3-2c7d-409c-af05-03ce6dc8b858.png" width="333" height="700">
-  <img src="https://user-images.githubusercontent.com/48671169/195978436-0ebd0882-1bd2-430f-9914-24305411184f.png" width="333" height="700">
+  <img src="https://user-images.githubusercontent.com/48671169/195978432-5c879269-e609-4fae-b877-d5ccaa4b6af7.png" width="330" height="700">
+  <img src="https://user-images.githubusercontent.com/48671169/195978417-cec775f3-2c7d-409c-af05-03ce6dc8b858.png" width="330" height="700">
+  <img src="https://user-images.githubusercontent.com/48671169/195978436-0ebd0882-1bd2-430f-9914-24305411184f.png" width="330" height="700">
 </div>
  
 ## 🏛 아키텍쳐
