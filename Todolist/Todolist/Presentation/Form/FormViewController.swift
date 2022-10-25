@@ -101,6 +101,19 @@ private extension FormViewController {
             })
             .disposed(by: disposeBag)
 
+        stackView.titleRx.didBeginEditing
+            .subscribe(onNext: { [weak self] in
+                self?.saveButton.isHidden = true
+            })
+            .disposed(by: disposeBag)
+
+        stackView.titleRx.didEndEditing
+            .delay(.milliseconds(500), scheduler: MainScheduler.asyncInstance)
+            .subscribe(onNext: { [weak self] in
+                self?.saveButton.isHidden = false
+            })
+            .disposed(by: disposeBag)
+
         stackView.doneRx.isOn
             .bind(to: viewModel.isDone)
             .disposed(by: disposeBag)
