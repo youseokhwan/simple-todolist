@@ -24,6 +24,14 @@ final class FormTextView: UITextView {
 
         return label
     }()
+    private lazy var accessoryView = UIView()
+    private lazy var saveButton: RoundedButton = {
+        let button = RoundedButton()
+
+        button.setTitle(type: .form)
+
+        return button
+    }()
 
     var placeholder = "" {
         didSet {
@@ -81,7 +89,9 @@ private extension FormTextView {
         textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         backgroundColor = UIColor(.commonBackground50)
         layer.cornerRadius = 10
+        inputAccessoryView = accessoryView
         addSubview(placeholderLabel)
+        accessoryView.addSubview(saveButton)
     }
 
     func configureBind() {
@@ -104,6 +114,12 @@ private extension FormTextView {
         placeholderLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(10.5)
             make.leading.equalToSuperview().inset(16.5)
+        }
+
+        saveButton.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(22)
+            make.bottom.equalToSuperview().inset(10)
+            make.height.equalTo(44)
         }
     }
 }
